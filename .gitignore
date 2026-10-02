@@ -1,0 +1,11 @@
+# 这个仓库只放对外发布用的东西：说明文档、更新清单 manifest.json、更新说明 changelog.md、校验码。
+# 程序源码保留在本机（未打包\），不进仓库；程序包与数据包都是二进制，走 Release 附件分发。
+
+未打包/
+完整版/
+
+# 运行期产物
+panel.log
+restart.log
+__pycache__/
+*.pyc
