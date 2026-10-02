@@ -183,7 +183,7 @@ Star Savior 简体中文 PC 版旅程（跑马）辅助面板
 <details>
 <summary><b>想退回随包数据</b></summary>
 
-删除 `%LOCALAPPDATA%\JourneyPanel\data` 目录，面板会自动回落到程序包内的数据。
+数据更新是就地重写解压出来的那个文件夹，不另存副本。要回到随包数据，重新解压一次整包覆盖即可（覆盖前自己留好要保留的目录）。
 
 </details>
 
