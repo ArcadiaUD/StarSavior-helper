@@ -1,0 +1,4631 @@
+{
+ "schema": 1,
+ "app": {
+  "version": "1.0.0",
+  "tag": "V1.0",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V1.0/StarSavior-helper-V1.0.zip",
+  "package_size": null,
+  "sha256": null,
+  "notes": ""
+ },
+ "data": {
+  "version": "2026-10-03.1",
+  "min_app_version": "1.0.0",
+  "released_at": "2026-10-03T00:55:01+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-03.1/data-2026-10-03.1.zip",
+  "package_size": 12779313,
+  "sha256": "14904b12e3332513a8f83fbada2e1f71478f97328561195180fd9b5d100076e4",
+  "total_size": 25631937,
+  "file_count": 1146,
+  "stats": {
+   "characters": 47,
+   "arcanas": 82,
+   "roster": 47,
+   "potentials": 229,
+   "unreleased": 7,
+   "operations": 75,
+   "corridors": 4,
+   "hunts": 3,
+   "equipment": 64,
+   "break_skills": 8,
+   "status_effects": 303,
+   "titles": 107,
+   "events": 21,
+   "bosses": 629,
+   "assets_cards": 82,
+   "assets_faces": 56,
+   "assets_portraits": 57,
+   "codex_icons": 945,
+   "kb_events": 1262,
+   "option_index": 432,
+   "option_index_twn": 428
+  },
+  "files": {
+   "assets/app.ico": {
+    "size": 49595,
+    "sha256": "b4cfae038bb8ba5af89eb43bceee91e24d03a9b70946f1cd1606e8be1ea99748"
+   },
+   "assets/cards/1010101.webp": {
+    "size": 5092,
+    "sha256": "9b2d2298bf14c1de1473e7437806ba83f9feb49793c026685419f4b3c4661d81"
+   },
+   "assets/cards/1011701.webp": {
+    "size": 8660,
+    "sha256": "4535d34705e00a428f149f1b9028efd124ff2dffb47f37d743b83448499ac12e"
+   },
+   "assets/cards/5999901.webp": {
+    "size": 10470,
+    "sha256": "43b1306f7d76366615aa9619700966bb4e05b851831893c8660ccaca5e511f7f"
+   },
+   "assets/cards/5999902.webp": {
+    "size": 9292,
+    "sha256": "67f26583d30626f2fbebf874c36190ab04f327fed08e044b815e0be58f3e41fa"
+   },
+   "assets/cards/5999903.webp": {
+    "size": 10838,
+    "sha256": "a53c913b1b20a0ab030fcf99ff89fea85e535d0ff3b0cf1ac6eeb12edf8a223a"
+   },
+   "assets/cards/5999904.webp": {
+    "size": 9626,
+    "sha256": "1b4a9370f54652132d9b9466221378b168ac6df988dab5e37d3bafbc7bc856f6"
+   },
+   "assets/cards/5999905.webp": {
+    "size": 8746,
+    "sha256": "430f8948dfe57f608f66f71edc41e20c13035310bfca6e55e9e56f54dec7548c"
+   },
+   "assets/cards/5999906.webp": {
+    "size": 9568,
+    "sha256": "e31b10c7219de45721164da745797dbbd52b6e9d9e05dcc74e5bf85ea5ffbd29"
+   },
+   "assets/cards/5999907.webp": {
+    "size": 11042,
+    "sha256": "a756aad21b4c5e53e0519478b9829f44323871ffb3bbac0694b4c4942fc94814"
+   },
+   "assets/cards/5999908.webp": {
+    "size": 8622,
+    "sha256": "1c5cd2f28f1c356fcd7588397b7a71885cd16ed016a7996c8d40a74258ab3ccd"
+   },
+   "assets/cards/5999909.webp": {
+    "size": 9594,
+    "sha256": "04cd70aadd987ce640dd7086c8067db3c5c181d8a5c7a22c2b23e7477518d6fd"
+   },
+   "assets/cards/5999910.webp": {
+    "size": 10008,
+    "sha256": "4bd9c8161a1e6c9a36f3c1cad96851ee06725c05f27cadda83350bfe8c579144"
+   },
+   "assets/cards/5999911.webp": {
+    "size": 9630,
+    "sha256": "9a5f1eff035bf61172526937f6a14ffdcbb57b611a4cf1140b90d309d2189b6b"
+   },
+   "assets/cards/5999912.webp": {
+    "size": 10860,
+    "sha256": "191198a9d943b82e6fcad016460b628e4684e027dbcd0ccd1222f597e86217a6"
+   },
+   "assets/cards/5999913.webp": {
+    "size": 11472,
+    "sha256": "556e1d6b456f11807e98e2a181af200cb35526e5e1c80942d1a095bd99a91054"
+   },
+   "assets/cards/5999914.webp": {
+    "size": 11144,
+    "sha256": "eabc43d55fa735a7d0a39685c4cfbdcb580340d61859b44457ada1f36188bdfa"
+   },
+   "assets/cards/5999915.webp": {
+    "size": 9888,
+    "sha256": "2c4358a513140ad8b542b7ec71730cbc9fe87af7e427acd0c37c1c9e778a8b69"
+   },
+   "assets/cards/5999916.webp": {
+    "size": 10746,
+    "sha256": "a8f37a2b77df201d803799d02318fc153a672fa84239955e721e12f8abd3077f"
+   },
+   "assets/cards/5999917.webp": {
+    "size": 9346,
+    "sha256": "b653b13af9d125c59b83046a29a8b496bb800cecd2497a556d23d23133af4e82"
+   },
+   "assets/cards/5999918.webp": {
+    "size": 10790,
+    "sha256": "a57ee7cd5214e0afcef0efac6e15ec6665076ce913364a9a98b0b07d8636e6b4"
+   },
+   "assets/cards/5999919.webp": {
+    "size": 9794,
+    "sha256": "8a819dd1a0f42e896843b4e906c05c6085dad09b12dbd7812acf960f707bb6a8"
+   },
+   "assets/cards/5999920.webp": {
+    "size": 10254,
+    "sha256": "ebf904bddc565300991467d1fca3e2d9dc96faf1e1821b806d107b5e7f1ee800"
+   },
+   "assets/cards/6100101.webp": {
+    "size": 7098,
+    "sha256": "8c884d43f25b1b84c79b0941725fc1f26c8371850d3d6e7424d08183d9b69980"
+   },
+   "assets/cards/6100201.webp": {
+    "size": 8274,
+    "sha256": "79b55b32df498aa9c1dab1c0e192ebcb6f1937492ff9ac56d225492fce0cafbe"
+   },
+   "assets/cards/6100301.webp": {
+    "size": 12696,
+    "sha256": "20f888f42646a2451494aa88844878510a50a08e664eac6772d56c19f94c6915"
+   },
+   "assets/cards/6100601.webp": {
+    "size": 13492,
+    "sha256": "769ad4d332650f696ce30bbb2e1ac6a6464c45dfff3add5dfc56bbedffd3c46d"
+   },
+   "assets/cards/6100701.webp": {
+    "size": 10206,
+    "sha256": "b039801dbe2e8bc0bea1353870073fd30b193fb9ba6711cf7d32b699a70c01d4"
+   },
+   "assets/cards/6101401.webp": {
+    "size": 10398,
+    "sha256": "22e1d5cd62f6ca797d532c08f607c7821d6642f9bd3b46d53dbd51bf77278b3f"
+   },
+   "assets/cards/6101501.webp": {
+    "size": 11908,
+    "sha256": "0ff46f80f08caac5e411d0bafb11e7a6d873633f857bd19131aaff5d79de9435"
+   },
+   "assets/cards/6101801.webp": {
+    "size": 7704,
+    "sha256": "c3955fc3edfe4fafeb1b694167d09e41dece9253946fccb18511fda770413998"
+   },
+   "assets/cards/6101901.webp": {
+    "size": 9252,
+    "sha256": "b0cd33feaf8e2ecff80b2d040cf1c46be6f34135c524c3749bf3906acc54e2b9"
+   },
+   "assets/cards/6102201.webp": {
+    "size": 9746,
+    "sha256": "4e3a538e36ce34ba5e3305e127114e5e782c9b3c9333e21bca9438c57a321964"
+   },
+   "assets/cards/6102601.webp": {
+    "size": 10944,
+    "sha256": "e31b20c00515feebf2aac198cbf3be3a4c41a90ea3d88a356af96cf55b2b522a"
+   },
+   "assets/cards/6102701.webp": {
+    "size": 10192,
+    "sha256": "9dd036fcfdc7163131de6da289133405dc6cb330a3435e1e1906c0ef709c65be"
+   },
+   "assets/cards/6103001.webp": {
+    "size": 10376,
+    "sha256": "80e514653eea7204c6528da1bd1b1300388d1d5376517353e5b4d379ead4ed77"
+   },
+   "assets/cards/6103401.webp": {
+    "size": 7648,
+    "sha256": "13490b318e4f8b1be33e4ca23c50d82b5ed08fee26910214bbb666acdc9bfc5f"
+   },
+   "assets/cards/6150601.webp": {
+    "size": 10456,
+    "sha256": "69674ebaf5052bf5baca726085fb2ff36049d1358e4ed5352709757a1dc33eba"
+   },
+   "assets/cards/7040101.webp": {
+    "size": 12464,
+    "sha256": "eef65c919c66781a02787f3ac592f8342a605329f6848f276a585ac5fd0a9730"
+   },
+   "assets/cards/7100301.webp": {
+    "size": 11438,
+    "sha256": "018125c5035fa305ccc9c7580d00347185773ae9cc5432c71f3bde57f8c3fa67"
+   },
+   "assets/cards/7100501.webp": {
+    "size": 11018,
+    "sha256": "7ededcd16244e8ef60b59062e899780297d41da44ec953407273e8c287f8877e"
+   },
+   "assets/cards/7100801.webp": {
+    "size": 11302,
+    "sha256": "15985e283eb752d2bc1532ca754bed1a5fb518bedfc72f1f624b1b354234b128"
+   },
+   "assets/cards/7100901.webp": {
+    "size": 11684,
+    "sha256": "e378b39fa4815b8aade049703f3867c2a92f456cedba050ce6065baa0201a5a2"
+   },
+   "assets/cards/7101001.webp": {
+    "size": 9798,
+    "sha256": "faf9563802ae813376c0062f67875e5e0a8c17401fd7a5b0ce70f7fe71011991"
+   },
+   "assets/cards/7101101.webp": {
+    "size": 9070,
+    "sha256": "cdb26351b971ec32770b5cdd70ba513c740a2758381d1e5b6e1ceb20555f0724"
+   },
+   "assets/cards/7101301.webp": {
+    "size": 10484,
+    "sha256": "49c43007bc14d2cfb37cb2fcfa09ecd1e56ada0fa132fa38c3728dff1fd86cfa"
+   },
+   "assets/cards/7101601.webp": {
+    "size": 10870,
+    "sha256": "22916a84ef9075e68c76579390ad84fef9dad794459c194499e70a4aadf6a784"
+   },
+   "assets/cards/7101602.webp": {
+    "size": 12360,
+    "sha256": "190a69392ff2ee55e0d30e08b7e7e57b939838aa38e49cbd36b3fe90ebaa77d8"
+   },
+   "assets/cards/7101701.webp": {
+    "size": 6178,
+    "sha256": "f030db794810e82528336f01d0815a7bc9c9030918c4abdd6e105789a82ec637"
+   },
+   "assets/cards/7102101.webp": {
+    "size": 13124,
+    "sha256": "baccda19dd0edac3c26cffeaf4c68ee6ba52481debd585e5f2d97794c914d69f"
+   },
+   "assets/cards/7102301.webp": {
+    "size": 11220,
+    "sha256": "98b84b483b5e755bb4abdedfe68051d2e268038b55a5d746165cea02d755b88c"
+   },
+   "assets/cards/7102401.webp": {
+    "size": 8168,
+    "sha256": "8de39237fd215c6a012678adfa330f6b95ae2e6e932d715ccd584454401fbeac"
+   },
+   "assets/cards/7102501.webp": {
+    "size": 9738,
+    "sha256": "44902303c9c199172745710787f5e6783613565d6194b747f25cadd66193cf9b"
+   },
+   "assets/cards/7102601.webp": {
+    "size": 5796,
+    "sha256": "be6f57d5e289f1c77d70cd013d5b8b18f0c169271a2b3091c3759e26cc6b032a"
+   },
+   "assets/cards/7102901.webp": {
+    "size": 11784,
+    "sha256": "ecd069836a8b63592b4b6e68add59bab662a46d44d8c25f74fdc1d4ec336d1bc"
+   },
+   "assets/cards/7103101.webp": {
+    "size": 9834,
+    "sha256": "160929c3a3ac855d5cb5a7f361f37e2981756d6f13c24e1358d65563b014596e"
+   },
+   "assets/cards/7103201.webp": {
+    "size": 12220,
+    "sha256": "539345c570b097fe2fc6453c0f523ca92f6247f3af6f088db530d559ef651dde"
+   },
+   "assets/cards/7103301.webp": {
+    "size": 7648,
+    "sha256": "ff3e4f976423bc4a56b27256c7cfc692f768eae533fc0317c932970e5a86ec2d"
+   },
+   "assets/cards/7103302.webp": {
+    "size": 12360,
+    "sha256": "936ecdcfec515711ead7e07bee30ef98cbde9ad70d5b3d4f98bd2a096223b893"
+   },
+   "assets/cards/7103901.webp": {
+    "size": 8794,
+    "sha256": "9ab070a3c6caad3cf929aca67d26bb2aae248b4ff9eb832c1bc2547b8d20f3a6"
+   },
+   "assets/cards/7104001.webp": {
+    "size": 9112,
+    "sha256": "017605c5718b6ef86a66879466b582bcc2c2fc140c1d9fa0c84135c1e8f324f3"
+   },
+   "assets/cards/7104101.webp": {
+    "size": 11816,
+    "sha256": "7c88a697b4904d13cdd9490243df08dc913b339545d8fd6381ebe5a9fc4c65eb"
+   },
+   "assets/cards/7104201.webp": {
+    "size": 11486,
+    "sha256": "d05040621d18ee0fae4dbf517218dab6fa7f0b7494912c73ec6fe4371041a37e"
+   },
+   "assets/cards/7104301.webp": {
+    "size": 11868,
+    "sha256": "9d20790786ad9394764a0212b6bf941627652861bfcd37b725514de38b1c90ec"
+   },
+   "assets/cards/7104401.webp": {
+    "size": 10632,
+    "sha256": "7d468cd711b748b4fa6f925e39bd94087d37788aef801444e522dcedf9da9c57"
+   },
+   "assets/cards/7104501.webp": {
+    "size": 10000,
+    "sha256": "53183286d081e5185ec46b98d293fb6f34825d44c04a0d6b6dbddf472462180c"
+   },
+   "assets/cards/7104601.webp": {
+    "size": 12102,
+    "sha256": "037d9772a0a2c6da5dd02fe24d07ca1fde943a73a2733fb4a11483c205594f44"
+   },
+   "assets/cards/7104901.webp": {
+    "size": 7616,
+    "sha256": "9f412fce9cff72e0f2b36905eab5d62ffefa3a74bc13ff816b2c0665d5988e44"
+   },
+   "assets/cards/7105101.webp": {
+    "size": 13424,
+    "sha256": "71631e00ae24743bacf8e7109adc72f5a798e8aaf347d5c80b12782bfa94a87e"
+   },
+   "assets/cards/7105201.webp": {
+    "size": 10742,
+    "sha256": "0a0c945c265e3e00585e444d5529d8f51ee72402b804835c1694a2ebb25674f2"
+   },
+   "assets/cards/7105301.webp": {
+    "size": 11032,
+    "sha256": "26bd40b394dd88e45e635eeb6b83d7a133ebaa8655e97bf17577168def852383"
+   },
+   "assets/cards/7105401.webp": {
+    "size": 10892,
+    "sha256": "826162c05eba811d458968bc9bc2499a5552331b944ebbeab55410ada9476b33"
+   },
+   "assets/cards/7105501.webp": {
+    "size": 10928,
+    "sha256": "2f545d09246a2b357725afca242da5dfddcb06ddf93faa1d374c7dc9e431f341"
+   },
+   "assets/cards/7105601.webp": {
+    "size": 11068,
+    "sha256": "5e3c6394064b4c528bca45445a19f09b489479d68d6830c60152ccce2d82b112"
+   },
+   "assets/cards/7105701.webp": {
+    "size": 12232,
+    "sha256": "0646593369969ec90df537078e7a614636e971340358d686f58f345a6b5eb4b2"
+   },
+   "assets/cards/7105801.webp": {
+    "size": 10968,
+    "sha256": "1407a09451432ef0e97b5ad44b6259d939764d9f341da0c9d6baab630ae614ee"
+   },
+   "assets/cards/7150101.webp": {
+    "size": 11394,
+    "sha256": "8a6688525482f2f226d5444bcd8286b05d97bf67c9a411642e2abf4d3fe10036"
+   },
+   "assets/cards/7150201.webp": {
+    "size": 10162,
+    "sha256": "b5c102db3b6ace033cd14ac2882833b87c940799a385442454a1146c1ccca2d4"
+   },
+   "assets/cards/7150701.webp": {
+    "size": 10208,
+    "sha256": "427dd37574c684a9e4d814f17601ef7f47964264f793dcfbe6124169609c0e42"
+   },
+   "assets/cards/7150801.webp": {
+    "size": 9352,
+    "sha256": "df9f34d73b7095e7dcdb03c9bd428d5f31a0cd09426b31ce61c5c11341adc22b"
+   },
+   "assets/cards/7300101.webp": {
+    "size": 7934,
+    "sha256": "e1ffa4f379f554c5b450c278b76648fd7932dd7aa0d0e201795e255fe43ff7a5"
+   },
+   "assets/cards/7300201.webp": {
+    "size": 10992,
+    "sha256": "82af9f2a4d8c62d9a1f0807a149a51ed0e4d71451582a6bc42fbdc85c68bfdf4"
+   },
+   "assets/cards/7300301.webp": {
+    "size": 8418,
+    "sha256": "ea78cc1d56c10c4a0f7a0482d26ffaa37150c793840508b45f15e84c4d9cb4c8"
+   },
+   "assets/codex/BUFF_ADRENALINE.webp": {
+    "size": 1876,
+    "sha256": "39ed34beace6a9c93a8ce193b5a898c3bd77a9442e7fd9c15313243688d8789b"
+   },
+   "assets/codex/BUFF_AFTERGLOW_OF_FAVORITISM.webp": {
+    "size": 2230,
+    "sha256": "4d531107fff5b08c103488dc4e93d299b09df79b36423beb3c7d6231bd5c9053"
+   },
+   "assets/codex/BUFF_ATTACK_AMPLIFICATION.webp": {
+    "size": 1264,
+    "sha256": "e7d94b90bfc8088cf0458fee4e0a0d3dd9f8b4f6b49f3c889c0f2da907413a9e"
+   },
+   "assets/codex/BUFF_ATTACK_INCREASE.webp": {
+    "size": 1126,
+    "sha256": "b9ae7d90f9824464d31d7d1cf2a56aa73b913cff09c1fc6755f83272f2695c84"
+   },
+   "assets/codex/BUFF_BADGE.webp": {
+    "size": 1856,
+    "sha256": "58900a69bd34f2a2ce3fd223252796d4945f4ffd7bdae9e0094212522fa278f2"
+   },
+   "assets/codex/BUFF_BARRIER.webp": {
+    "size": 1550,
+    "sha256": "71ebacca439f223103f419958c534e213cbf8a0e1a17c9190bbddeb64ee34fbf"
+   },
+   "assets/codex/BUFF_BARRIER_CAN_NOT_DISPEL.webp": {
+    "size": 1910,
+    "sha256": "af66856f8c4e7d355f6a77144404fdc5c41071c9add1d84f5d745c6b372d94f0"
+   },
+   "assets/codex/BUFF_BASKERVILLE_MASTERPIECE.webp": {
+    "size": 2200,
+    "sha256": "52ea36f5f978011b1249884119661aaabea3cf4a519b174ffa979faa477c6e44"
+   },
+   "assets/codex/BUFF_BEHAVIORAL_ANALYSIS.webp": {
+    "size": 1444,
+    "sha256": "fecde150073191eea3da1e1b43657100d0b2e6e9977dd38170bb8ccd9ea4da40"
+   },
+   "assets/codex/BUFF_BLOOD_OATH.webp": {
+    "size": 1820,
+    "sha256": "e2a44925e8936a5d8806781de8f2c569bd80903a07412d8a4105ea3de44df93f"
+   },
+   "assets/codex/BUFF_BODYGUARD_HANDS_1.webp": {
+    "size": 1260,
+    "sha256": "978928dd55cadcd326d12719934805da841f0ca10fc0d32d570b69baa5f62168"
+   },
+   "assets/codex/BUFF_BOOST_ADVANCE.webp": {
+    "size": 878,
+    "sha256": "d3b3aa7c5f4b66054dd1a46db342a9a1fddfbc40cb5108e3675b928f77222a76"
+   },
+   "assets/codex/BUFF_BOOST_COOLING.webp": {
+    "size": 852,
+    "sha256": "bba78eb5380678fb688e624289526cd42c8aa35bfe2a566414602e38172ba043"
+   },
+   "assets/codex/BUFF_BOOST_FERMENT.webp": {
+    "size": 900,
+    "sha256": "81b7018d597e0c5e1358b395bd268d0c3cadfc5e7e90a39a456d3bc595ba93ee"
+   },
+   "assets/codex/BUFF_BOOST_IGNITION.webp": {
+    "size": 808,
+    "sha256": "68dc22a7186734b2f3126a4b5ca33cb8099222c233fe932eaf9268cf65ed405b"
+   },
+   "assets/codex/BUFF_BOOST_INSIGHT.webp": {
+    "size": 1252,
+    "sha256": "71a03d00838fd5a81146939e7e43772c3ceba69f0d39a772284010c777552d18"
+   },
+   "assets/codex/BUFF_BOUQUET.webp": {
+    "size": 1818,
+    "sha256": "e35a3bcaf2d0a163469aa6a73bd285321e8a580bef7ba739a74e6679a2e7360f"
+   },
+   "assets/codex/BUFF_BRIDE_RACE.webp": {
+    "size": 1936,
+    "sha256": "bb648cdd71669055025a1bcc3e32c92ab913c6b6c5d839213c5e35c3bff174e9"
+   },
+   "assets/codex/BUFF_BROKEN_NUT.webp": {
+    "size": 1464,
+    "sha256": "82122f9b8a836d60bbc793483808f06202bcdf3bf5b513646126fd9f9a781273"
+   },
+   "assets/codex/BUFF_BUNNY_KNIGHT_1.webp": {
+    "size": 1826,
+    "sha256": "df3d6e28f1cd8bf81c93d6d4a76d3ee91cb7234894c6996dc93f89cf7ae39da2"
+   },
+   "assets/codex/BUFF_CELESTIAL_ART_STRATEGY.webp": {
+    "size": 1904,
+    "sha256": "a9bfc8ea24d6873a27468bc326b542f6b3b292b50a76849fd9e929815771be25"
+   },
+   "assets/codex/BUFF_CHOSEN.webp": {
+    "size": 1690,
+    "sha256": "eebc59e3fe87b0c1d8c71dd4f809153c5a1711e0170d2c2e4bd82a196ae4365d"
+   },
+   "assets/codex/BUFF_CLOUD_DRAGON.webp": {
+    "size": 2290,
+    "sha256": "966ccc2afe494b23f77799acc1852a758a9ae9ab3ce1d572b011606ebd914cc5"
+   },
+   "assets/codex/BUFF_CONDITION_BEST.webp": {
+    "size": 1586,
+    "sha256": "407d9d4b2d4190f06d605317db9bfd38094469827d472ab32f7b2799293af9c8"
+   },
+   "assets/codex/BUFF_CONDITION_GOOD.webp": {
+    "size": 1584,
+    "sha256": "0817fec9119adab544a6cdaffdb55d8fd28315efbfe18bf04e059cc76e79b03a"
+   },
+   "assets/codex/BUFF_CONTINUOUS_HEAL.webp": {
+    "size": 1152,
+    "sha256": "f601085d511db1e621a255e263140d65db83cb3f47e67a1415608d8b26cc98ee"
+   },
+   "assets/codex/BUFF_CONTINUOUS_HEAL_CAN_NOT_DISPEL.webp": {
+    "size": 1144,
+    "sha256": "e74dbdf5561aebae3130ce72a46e4750c983aaa8027200eeb77b3c256df3df7d"
+   },
+   "assets/codex/BUFF_COUNTERSIDE_HILDE_DEFENSIVE_STANCE.webp": {
+    "size": 1862,
+    "sha256": "a130a5194eb3cd9178fc192ae5f10ba5f8ddd036b7b2a0073943959d06dd827e"
+   },
+   "assets/codex/BUFF_COUNTERSIDE_HILDE_DEFENSIVE_STANCE_STACK.webp": {
+    "size": 1970,
+    "sha256": "ef5e1736b0f710e3f97c1b98c1cc05f6c71e559d2301b06cdac14e1335c7f491"
+   },
+   "assets/codex/BUFF_COUNTERSIDE_ROSARIA_BLACK_FLAME.webp": {
+    "size": 1486,
+    "sha256": "d3679579f0fa6c25af951dcc2355d8a0c3d3279c17dc5ed3fe805bce38bb2ec6"
+   },
+   "assets/codex/BUFF_CRITICAL_CHANCE_AMPLIFICATION.webp": {
+    "size": 1434,
+    "sha256": "a2d07aff7487e6ccfdb74ff3a93a2b119ca387643a2cd80244d50fa20d990c41"
+   },
+   "assets/codex/BUFF_CRITICAL_CHANCE_INCREASE.webp": {
+    "size": 1316,
+    "sha256": "9d779e568ed424c49cc7edfa1488819b58c25134891f5ee8224b02dc897e87ae"
+   },
+   "assets/codex/BUFF_CRITICAL_DAMAGE_AMPLIFICATION.webp": {
+    "size": 1118,
+    "sha256": "f82da35837ec07c674ebec728694a2721aefacfe4fed39ee00d240de600d0fa3"
+   },
+   "assets/codex/BUFF_CRITICAL_DAMAGE_INCREASE.webp": {
+    "size": 994,
+    "sha256": "97b6b960995cc4eece1dae9d010b4ce41132902386caf5bcb948b37763626c76"
+   },
+   "assets/codex/BUFF_CROSS_ATTACK.webp": {
+    "size": 1380,
+    "sha256": "1cdd8f7bf3c4d5a8f9a45632a0733c22ed93b57f2a680d8ee895a9ec401a9f3e"
+   },
+   "assets/codex/BUFF_CRUSH.webp": {
+    "size": 1536,
+    "sha256": "945ab5922a0699019c09aa33e1fe52f819abb205da8ff376ee26da6405e9ab34"
+   },
+   "assets/codex/BUFF_CYCLE_DAY.webp": {
+    "size": 1764,
+    "sha256": "c383ac2e27564411f8710b3243936844999af2863e0e995e9f3df743963489e6"
+   },
+   "assets/codex/BUFF_CYCLE_NIGHT.webp": {
+    "size": 1528,
+    "sha256": "7c7a7ce09082fd46ecbf8f08fda5fb692a34d10ae7bf302f9bcd832d14bf84af"
+   },
+   "assets/codex/BUFF_DEBUFFBAN.webp": {
+    "size": 1270,
+    "sha256": "b3d37b472c286201986ae5bb833277df8ac28482dee93a3e411fd9fecd9934d9"
+   },
+   "assets/codex/BUFF_DEBUFFBAN_CAN_NOT_DISPEL.webp": {
+    "size": 1542,
+    "sha256": "5fe9596803cb5d8707fbdb84a53610abb674f327c7acd9609020de8c8be2e936"
+   },
+   "assets/codex/BUFF_DEFENSE_AMPLIFICATION.webp": {
+    "size": 1176,
+    "sha256": "087e5b0f32bf23189e8b685cab33dca0674e459f238d853d8d1d1f9a4ed7d6c0"
+   },
+   "assets/codex/BUFF_DEFENSE_INCREASE.webp": {
+    "size": 1048,
+    "sha256": "ad2b4cd0c29d7d7ccbc5c465ab0e5cce84200c18265bb94852e7c073ac11fd94"
+   },
+   "assets/codex/BUFF_DEFENSIVE_POSTURE.webp": {
+    "size": 1616,
+    "sha256": "cd86e089cee8f29a5bfe7cc5608d8877d66680628b50d056aa3a7f35e1b3f9af"
+   },
+   "assets/codex/BUFF_DEMOLITION_MODE.webp": {
+    "size": 1386,
+    "sha256": "211e3ff16234123ba013b9a80ad084f7a9d0749da7e053dfbe675f2fb22e5496"
+   },
+   "assets/codex/BUFF_DOLL_BOMBER_1.webp": {
+    "size": 1122,
+    "sha256": "167ec9f13faab1899f6632813b50a869056a09db8a7aab49b4581087954b9a51"
+   },
+   "assets/codex/BUFF_DUMMY.webp": {
+    "size": 748,
+    "sha256": "a7638023ac788549866d66eefe986614ef93241409e0ee5b4248f732b875b697"
+   },
+   "assets/codex/BUFF_EASTERN_SWORDMASTERD_1.webp": {
+    "size": 1576,
+    "sha256": "41ab44982795fc39163f01eac493285b742c37a86f1e3d4591bf3bf66a9702e4"
+   },
+   "assets/codex/BUFF_EASTERN_SWORDMASTERD_2.webp": {
+    "size": 1630,
+    "sha256": "4583c76b859891d893574acdd348b534e004d4413ebde55e4e54e158215cd292"
+   },
+   "assets/codex/BUFF_EFFECT_EVADE_AMPLIFICATION.webp": {
+    "size": 1700,
+    "sha256": "d5985a3fd2411d2bbb230a9dfd86f4c6f6faf45761985c0fbc96494ac2d56ad3"
+   },
+   "assets/codex/BUFF_EFFECT_EVADE_INCREASE.webp": {
+    "size": 1600,
+    "sha256": "6019da5b36dc64de6ad06e1d1a298f6e0b1ada8413ed9ff29ca07ade202cebb6"
+   },
+   "assets/codex/BUFF_EFFECT_HIT_AMPLIFICATION.webp": {
+    "size": 1742,
+    "sha256": "d1481f7237e6b1af65c8c00d4968e3bc6a3b4a26532b5b837e51ab6615f96613"
+   },
+   "assets/codex/BUFF_EFFECT_HIT_INCREASE.webp": {
+    "size": 1700,
+    "sha256": "ce8d1bf5100e8af536f5ca9358eda90cc4e0e0a395634e7b64b34eaf3a293eff"
+   },
+   "assets/codex/BUFF_ELECTRIC_SHOCK.webp": {
+    "size": 2034,
+    "sha256": "34012e64c95d440a067e63eb7659d96c11977008723732d14374a1a4ebad2c67"
+   },
+   "assets/codex/BUFF_EVADE_INCREASE.webp": {
+    "size": 1384,
+    "sha256": "1e4602217b5fa8d338e26cb5ba6859bc4aa1aada3ed4c4fa24f9aefe9c8123f7"
+   },
+   "assets/codex/BUFF_EXCEED_EYES_1.webp": {
+    "size": 1462,
+    "sha256": "8f3951fa96c1d74c8ede2df9eb975e3873437f91566299ee167496ecbb9e8db2"
+   },
+   "assets/codex/BUFF_EXCEED_EYES_2.webp": {
+    "size": 1678,
+    "sha256": "bb52cb3b940b2caf2b5b3ac7ff7a2ec3a210aed7ed1b9597f91f492e355c290c"
+   },
+   "assets/codex/BUFF_EXCEED_EYES_3.webp": {
+    "size": 1846,
+    "sha256": "78ce7fadbb3b9572322617d4417fa4ecd1c3b03706011dbfdcd622fddf935806"
+   },
+   "assets/codex/BUFF_FIAME.webp": {
+    "size": 1436,
+    "sha256": "8e5560eee6a299b5193de12e660e5c69c81bbffe927f07c0c74c2bce1dcf1204"
+   },
+   "assets/codex/BUFF_FISSURED_LIGHT.webp": {
+    "size": 2304,
+    "sha256": "1c4124a321a8689b65b0170ae3dcc737ea6f015935feb46541ed6f0e4a2c972a"
+   },
+   "assets/codex/BUFF_GUARD.webp": {
+    "size": 1098,
+    "sha256": "f8cda7c373bffa2dcce10096d4750358cc63a27f1faf9f5e071c6b661d6f1c53"
+   },
+   "assets/codex/BUFF_GUARD_CAN_NOT_DISPEL.webp": {
+    "size": 1456,
+    "sha256": "2b9b648c683769dcd534f3b1a89f0e7b843e480663bc1bf0ef837489d9d924f9"
+   },
+   "assets/codex/BUFF_HAPPY68_PEACE_1.webp": {
+    "size": 990,
+    "sha256": "b318e49b807865a51250986f714b7c4dde790c074213813f65ffe65ceb8b8e14"
+   },
+   "assets/codex/BUFF_HEAL_RECEIVE_AMPLIFICATION.webp": {
+    "size": 1406,
+    "sha256": "d0e0b1e5aa6d8059116afe0d79e9d1f29f11132e2374ff2954955cccb6ba55c7"
+   },
+   "assets/codex/BUFF_HEAL_RECEIVE_INCREASE.webp": {
+    "size": 1290,
+    "sha256": "94f19ae4cc6967d194950b256cca10dd80a843c8515f05ca66123f5bda999646"
+   },
+   "assets/codex/BUFF_HEXA_NUT.webp": {
+    "size": 1352,
+    "sha256": "d9f198455d194be91d80a8c88e69bb56358ece7e556b634441377198c992a387"
+   },
+   "assets/codex/BUFF_HIDE.webp": {
+    "size": 1106,
+    "sha256": "6ca9967a9cf049408977a1453ea7690180974b27c371c7633018039e7c6f28d3"
+   },
+   "assets/codex/BUFF_HIDEDETECT.webp": {
+    "size": 1356,
+    "sha256": "3844ec6e1266e6b61881f6cbe2b61f6878420f692aefd1ebe8095879418aa067"
+   },
+   "assets/codex/BUFF_HIGH_ROLLER.webp": {
+    "size": 2168,
+    "sha256": "bb54c0126ba23b7bfc192a99feda4a7328085c0cddf055066c0edf35cdfbf27f"
+   },
+   "assets/codex/BUFF_HOLY_BLESS.webp": {
+    "size": 1792,
+    "sha256": "c26a4b46e406f3ca342decc13fe9d367a8171bfb6f20a7aae5c6f1389aefecfc"
+   },
+   "assets/codex/BUFF_HYPOCRITES_MASK.webp": {
+    "size": 1802,
+    "sha256": "201b48b6fa09bae048b676ab335f26512070e09aa4b3eece17f0c00ca81d033a"
+   },
+   "assets/codex/BUFF_IMMORTAL.webp": {
+    "size": 1268,
+    "sha256": "263b2808488229d5ee594eacc63ae4cf8f4285251466ce30b2d209f35294e70b"
+   },
+   "assets/codex/BUFF_IMMUNE_AGGRO.webp": {
+    "size": 1292,
+    "sha256": "cb13ba41c04e313daf22c871610cf554ff55029d3c332462109455aa740205aa"
+   },
+   "assets/codex/BUFF_IMMUNE_SILENCE.webp": {
+    "size": 1294,
+    "sha256": "0ae5d8127d47f4a464ea0f07927d1130522122d50e3d084e95e56c74ee13e216"
+   },
+   "assets/codex/BUFF_IMMUNE_SLEEP.webp": {
+    "size": 1328,
+    "sha256": "170d885859e70101cb1495aa93e7c73ebffe2d652c48f444521a8bb5aac1b497"
+   },
+   "assets/codex/BUFF_IMMUNE_STUN.webp": {
+    "size": 1414,
+    "sha256": "5c23e1df804049f2daa56c3e9cbbd733736af6c412e1e1bf866ebdf563c0d224"
+   },
+   "assets/codex/BUFF_INFINITY_TABERNACLE.webp": {
+    "size": 2010,
+    "sha256": "f649cc43c8fbd3ef115caf4f0c61ebab7808612ae98badae0af32b800c7f147f"
+   },
+   "assets/codex/BUFF_INVINCIBLE.webp": {
+    "size": 1346,
+    "sha256": "20ef9b7aa9b5ef1567093dfcdf5a9d1993d8327f9a8ab0ec8fe8f2ababb9466e"
+   },
+   "assets/codex/BUFF_IRONBLOOD_SCALE.webp": {
+    "size": 1658,
+    "sha256": "f3d6a352b4db8df1a303275ae288f0dcf8c9e1289de358226bd757c25426036a"
+   },
+   "assets/codex/BUFF_JACKPOT_BLOOM.webp": {
+    "size": 1924,
+    "sha256": "d8545b0989dd4d8f2dc9958f9ee379327ae58e012eccbd5026db6845cb8de9c4"
+   },
+   "assets/codex/BUFF_JOURNEY_RETRY_01.webp": {
+    "size": 1520,
+    "sha256": "d2a73882aad55ad27dfe45618d675602b6effc9e63bb09621c4b16254dd3c98b"
+   },
+   "assets/codex/BUFF_JOURNEY_RETRY_02.webp": {
+    "size": 1680,
+    "sha256": "7ddaa5cb8245ca1aebde24364b59f012b9c6cb650e638e3805e3f6bca33fe3b7"
+   },
+   "assets/codex/BUFF_JOURNEY_RETRY_03.webp": {
+    "size": 1672,
+    "sha256": "7e5dfdab83d6c02bd338b0aa69834c549e9b31bf6ea1d3901509ea9353c0bdf2"
+   },
+   "assets/codex/BUFF_JOURNEY_SNIPEAIM.webp": {
+    "size": 1748,
+    "sha256": "ed3f744c366baabc78f2cfac9be7c55b2262f674d9ac5a7cbaace707211c972a"
+   },
+   "assets/codex/BUFF_LUCID_DREAM_LIGHT.webp": {
+    "size": 1364,
+    "sha256": "6977244a8ea66123c7a9ad724d8a35b2c4bdaff418b04d5d0ea654200a96aedb"
+   },
+   "assets/codex/BUFF_MAGICIAN_HYPNOSIS_BOMB.webp": {
+    "size": 2022,
+    "sha256": "d9e7c2644ecab7e48ce04f2ed2b88b94efa815db0b42e4925dae3dc322d8b6f7"
+   },
+   "assets/codex/BUFF_MAGICIAN_HYPNOSIS_PIGEON.webp": {
+    "size": 1730,
+    "sha256": "351105b69794999056ac5b0b25ab42249e3cbb17fa39c2881a0fb3b817bc6ab2"
+   },
+   "assets/codex/BUFF_MAGICIAN_HYPNOSIS_RABBIT.webp": {
+    "size": 1770,
+    "sha256": "501da1be0017319291216e0b6a8260c6383d5b8a8f371a70fd5f225b62ea076e"
+   },
+   "assets/codex/BUFF_MAGICIAN_HYPNOSIS_SUPPORTERS.webp": {
+    "size": 1666,
+    "sha256": "ce80ba7712b62a951d2db83d45499db39438a0a284155cc7e1cd2011157ea44b"
+   },
+   "assets/codex/BUFF_MAID_BLOCKING.webp": {
+    "size": 1642,
+    "sha256": "970151eea1dcc150012448888121536d053cef6580e3cf169fa88cadefc599d2"
+   },
+   "assets/codex/BUFF_MAID_TWOHANDER.webp": {
+    "size": 1432,
+    "sha256": "5047cfafbf04f14f4d2a8781ecb36f49dfda1cdfa23a756b789f2b3271a45fb9"
+   },
+   "assets/codex/BUFF_MAJESTY.webp": {
+    "size": 1714,
+    "sha256": "9f4e786a3d9b13a6557a121774720d11ca2aeaf864241a14438eaa05f42bc635"
+   },
+   "assets/codex/BUFF_MONASTIR_RULES.webp": {
+    "size": 1782,
+    "sha256": "c239bc6007f86e9914bd56d4221b5dbc7dee2d525589e98cf739168832bae09a"
+   },
+   "assets/codex/BUFF_MOTIVATOR_HANDS_1.webp": {
+    "size": 1634,
+    "sha256": "62dec849d798816ce5a4f5d8eed59a81d167d0a01e53fba5d7310438a321944b"
+   },
+   "assets/codex/BUFF_MOTIVATOR_HANDS_2.webp": {
+    "size": 1666,
+    "sha256": "cee671085136c6bda36cf0c6f2d550df85707b005a442c876511c25c00dca9fc"
+   },
+   "assets/codex/BUFF_MR_RABBIT_INVESTIGATION_START.webp": {
+    "size": 1764,
+    "sha256": "4d1b2d3eec3d866bc7c5fc06c2f9cc081f2af9942aca996fddcb60f26ad4dc8e"
+   },
+   "assets/codex/BUFF_NOCTURNAL_FLOWER.webp": {
+    "size": 1806,
+    "sha256": "542294456be45fc098796cebc31aa99cf2159aba4d5521b63fcdd72000793eed"
+   },
+   "assets/codex/BUFF_NORMAL_BALL.webp": {
+    "size": 1880,
+    "sha256": "a24686b92b937dc3e57691b0fb5a03d6c5bad119a8f1a81f143837105453f7d8"
+   },
+   "assets/codex/BUFF_OMEGA_CARD.webp": {
+    "size": 1924,
+    "sha256": "246eee840c97c0a402326f398d1cadede85f398e61cf32f94cd73fac43cad415"
+   },
+   "assets/codex/BUFF_ORBITAL_ARRAY_OMEGA.webp": {
+    "size": 1602,
+    "sha256": "a0ad5c1cad48a8d47c4bc035e58c6e837cd7074a7ccf1a34c6e2418e463ba6c6"
+   },
+   "assets/codex/BUFF_OVERRUN_MODE.webp": {
+    "size": 2220,
+    "sha256": "93c126f8bdfff895a4f8dca6134e13db2429add59958a71f73bd56a6b3b74ef6"
+   },
+   "assets/codex/BUFF_OVER_CLOCK.webp": {
+    "size": 1632,
+    "sha256": "4fc4d5c0a7d3c66aa5201180e26ab17f6b98484a35b8ee75c2c46b19fb8f6c20"
+   },
+   "assets/codex/BUFF_PERSES_SWORD_1.webp": {
+    "size": 1328,
+    "sha256": "5f3adfb26abaf7a09e97cf7f288e564e92d7b544f8f56a0bf31e7cdddbbd9bc2"
+   },
+   "assets/codex/BUFF_PILGRIM_ALIEN_1.webp": {
+    "size": 1142,
+    "sha256": "cc3019bf8a8c1f349d857378da5032a37b535d38949a5e05da2f125c93a86fe2"
+   },
+   "assets/codex/BUFF_PILGRIM_ALIEN_2.webp": {
+    "size": 1250,
+    "sha256": "e511700c57550ab1a95b07eb6a89ec0b41ab007729681aed90abe410949399dd"
+   },
+   "assets/codex/BUFF_PILGRIM_ALIEN_3.webp": {
+    "size": 892,
+    "sha256": "6ed9ec5d53beefb296c4e5a3a47a6b6a22cf23052c43820cd1ee796132eaa04f"
+   },
+   "assets/codex/BUFF_PILGRIM_ALIEN_RED_1.webp": {
+    "size": 1624,
+    "sha256": "53100974b4999d519f6b32338f6a3f96c3a108a43894eb6cf041f08a12ea4106"
+   },
+   "assets/codex/BUFF_PILGRIM_ALIEN_RED_2.webp": {
+    "size": 1272,
+    "sha256": "c5e0151534c92a08dd4987ac548794497ca48943b13b47931d0e7788922e0c08"
+   },
+   "assets/codex/BUFF_PLEDGE_OF_LOVE.webp": {
+    "size": 1924,
+    "sha256": "9c7aab02cf2be3c54c918e74a63db25ef96272cc7fa6cef5ce102a493f26a623"
+   },
+   "assets/codex/BUFF_POWER_UP_STAR.webp": {
+    "size": 1784,
+    "sha256": "58f504fdc5c4fec21d2ea6fabeb6865fbc3846db1b16d104af8c3f5c28ecd3b1"
+   },
+   "assets/codex/BUFF_PRAYER_FOR_REST.webp": {
+    "size": 1780,
+    "sha256": "30fc99d6181883155056b7c6405ed757b8401e432e6308773bd84ed664f1cf4a"
+   },
+   "assets/codex/BUFF_PUNISHER_HANDS_1.webp": {
+    "size": 1670,
+    "sha256": "31adcefae23020c7f51018dead23b2075fd6a6d0eaddcbd2c41a666343623e94"
+   },
+   "assets/codex/BUFF_RAGE.webp": {
+    "size": 1970,
+    "sha256": "90864b6d5c2c968aee90a61767393a33fed8532ac5c2a88477580f34d9141bff"
+   },
+   "assets/codex/BUFF_RATE_DAMAGE_REDUCE.webp": {
+    "size": 1222,
+    "sha256": "3f7c7a21240e98250616ba8b248da2a6b1e6d2c6ec613b0fb51fa24625787bae"
+   },
+   "assets/codex/BUFF_RATE_DAMAGE_UP.webp": {
+    "size": 1460,
+    "sha256": "bb353b411ceda04307ab9d4e3dbba0de571e3badbd8659935b47ace21e48ae05"
+   },
+   "assets/codex/BUFF_REIGN.webp": {
+    "size": 1352,
+    "sha256": "e11ad3ce2b684072bbc4a64b086bc152ef607742932dd7be5454cae5d1a6981d"
+   },
+   "assets/codex/BUFF_RESIDUAL_MEMORY_1.webp": {
+    "size": 1864,
+    "sha256": "aefb86e90e6ac5f06cfb572c0c2b211c7b87f250dba3e0943f9544bf02dac4de"
+   },
+   "assets/codex/BUFF_REVENGE_ATTACK.webp": {
+    "size": 1236,
+    "sha256": "fe85c41b3de29cfe7331a2a340de0ed6822a70bc59de3d8845213e4c859b28cf"
+   },
+   "assets/codex/BUFF_REVERSE_SWORD.webp": {
+    "size": 1702,
+    "sha256": "2f99af0b0ba71cfd6f4d1a829404456b7dcf6cec15728bcb2f4d7c038081a120"
+   },
+   "assets/codex/BUFF_ROROKA.webp": {
+    "size": 1468,
+    "sha256": "cef37efd709e3c10861b51778b8baf23775227512774ef93783da9c23c3eacfc"
+   },
+   "assets/codex/BUFF_ROYAL_ORDER.webp": {
+    "size": 1552,
+    "sha256": "d4960091bf7c01cd1fbf0f92515861887467e9da835af4919ef94b875cd80217"
+   },
+   "assets/codex/BUFF_SEVEN_BALL.webp": {
+    "size": 1786,
+    "sha256": "2e5412408835e9efb39aa7956097ead5d7ec5757d16fde91cf3cc99c51aec5e4"
+   },
+   "assets/codex/BUFF_SKILL_ATTACK_INCREASE.webp": {
+    "size": 1212,
+    "sha256": "19ed0ed114eee0011c73c33f937c0ec29f32990e125bedee16251d2349e3a39d"
+   },
+   "assets/codex/BUFF_SKILL_HYPER_INCREASE.webp": {
+    "size": 1550,
+    "sha256": "4831a64b23266c3e2d32eb7f0da3f39e18f125506ea17f9493480450656bfae4"
+   },
+   "assets/codex/BUFF_SKILL_NULLIFIER.webp": {
+    "size": 1188,
+    "sha256": "f6a706a52fdfd09342fbbbd9a8b3f364aea664176d5bc92effb48c1fa6a0457b"
+   },
+   "assets/codex/BUFF_SKILL_SPECIAL_INCREASE.webp": {
+    "size": 1508,
+    "sha256": "a1ba96d25ec378b5bfd21b440bb7e9664c18633676a1b202b26b88100c41101a"
+   },
+   "assets/codex/BUFF_SLOW_MOVEMENT.webp": {
+    "size": 1370,
+    "sha256": "9d0bf2051e82277200ff26e5abbc038c6124b9d974161b311eae2707956438b4"
+   },
+   "assets/codex/BUFF_SMILE_MATRIX.webp": {
+    "size": 1724,
+    "sha256": "aadf3a21e65d3815173eb75407802e276f5e4346d0d9af791577cd08a9462bc9"
+   },
+   "assets/codex/BUFF_SNIP_SNIP.webp": {
+    "size": 1342,
+    "sha256": "3ed175663c92c765195c6577a2f97dd082f9cfcb346764d7baa2a5e0f2561c16"
+   },
+   "assets/codex/BUFF_SPARKLER.webp": {
+    "size": 1770,
+    "sha256": "7cd512cb6edab56bff2836a9fc590a1fafdc22c93985f0cd1a72b6a6c99e543f"
+   },
+   "assets/codex/BUFF_SPEED_INCREASE.webp": {
+    "size": 1376,
+    "sha256": "cc7927892a96e7d0ba7e492834041f4b1bfb424988e73ffeeca6b1eeb326e667"
+   },
+   "assets/codex/BUFF_STARLIGHT_WISH.webp": {
+    "size": 2078,
+    "sha256": "e8ad4b475d1286520a5a34dd475d6d801c010acefb62b2cdde2ed1abf6e92724"
+   },
+   "assets/codex/BUFF_STRIKE_SWORD.webp": {
+    "size": 1694,
+    "sha256": "9bbf7c791f148000bf5f2c63adc08b703532a317ee442df511604f629e7830f8"
+   },
+   "assets/codex/BUFF_SUPERARMOR_DAMAGE_BAN.webp": {
+    "size": 1498,
+    "sha256": "780d27e7078391fa096c17208a73a5ef773181c401485d9ac3859ad98fa01114"
+   },
+   "assets/codex/BUFF_SUPER_OMEGA_CARD.webp": {
+    "size": 1862,
+    "sha256": "6a054edc4983a294f7b5fef95b84a9a7182757ba43ef055680aba401412dae9d"
+   },
+   "assets/codex/BUFF_SURE_HIT.webp": {
+    "size": 2108,
+    "sha256": "befc759647e25624af81bda7e539a1fb460fe0f492569b7d56c1d013db065dd4"
+   },
+   "assets/codex/BUFF_THRONE.webp": {
+    "size": 1558,
+    "sha256": "56157d775f11df0e71a9215e7cbe8a5ada61930eb92a0124fdd9fdbc51051029"
+   },
+   "assets/codex/BUFF_TIME_IS_NOW.webp": {
+    "size": 1978,
+    "sha256": "6c56c6e37b2a6865e5c25f5158ca4f6b58f3542d9db37f8f134c5fd4ea0f71e3"
+   },
+   "assets/codex/BUFF_TUNER_CROWN_1.webp": {
+    "size": 1174,
+    "sha256": "a30b33a30a9feede8710ac7a6c829c08d8feb4143b36c95c8c1ba38d2ccd6747"
+   },
+   "assets/codex/BUFF_TWISTED_WISH.webp": {
+    "size": 2122,
+    "sha256": "1217e16a95df9a29ee498df328110a6a9ce941ae94423bc40479e7396206aede"
+   },
+   "assets/codex/BUFF_VALKYRIE.webp": {
+    "size": 1638,
+    "sha256": "ec810691b0a1320961f858304de542d47e6e7bc0150a5267cc7835aa3eb132a0"
+   },
+   "assets/codex/BUFF_VAMPIRISM.webp": {
+    "size": 1270,
+    "sha256": "6db51aac7b37abd7ea3e15fcec8d9d967cd4e0e1e5f701dad1d0f7da151dab75"
+   },
+   "assets/codex/BUFF_VENGEANCE.webp": {
+    "size": 1782,
+    "sha256": "59314101ac751b70c84ca657bf26d34c6b69db5eb127515aee49e12048bf1e10"
+   },
+   "assets/codex/BUFF_VETERAN_BARON_1.webp": {
+    "size": 910,
+    "sha256": "23f0a00f3023f31caa891de65d70858f8e36c8a5d0928f20f99cc781dd2ab873"
+   },
+   "assets/codex/BUFF_VETERAN_BARON_2.webp": {
+    "size": 1154,
+    "sha256": "2443644277709032c04de24f8896b12cdab68291c3f5abdca80a0b02c63557c5"
+   },
+   "assets/codex/BUFF_VETERAN_GUN_1.webp": {
+    "size": 1618,
+    "sha256": "b78adaa7ead3409b515bfe8398b3892659c8a141a91563f183ce68dae57933ae"
+   },
+   "assets/codex/BUFF_VETERAN_SHIELD_1.webp": {
+    "size": 1170,
+    "sha256": "9cea945aebf0dc381dfe72ae41a56b2675ac860f4d0104b91c552b29638b6d8e"
+   },
+   "assets/codex/BUFF_VOIDER_DAGGER_TREASURE.webp": {
+    "size": 2238,
+    "sha256": "79380ece4f5ff0d9912fbea036f0d69fd9c3f6b1e55e978cf1a4203f51ad4d03"
+   },
+   "assets/codex/BUFF_VOID_OATH.webp": {
+    "size": 1892,
+    "sha256": "75311200db84b796ef865eb648cfe4902d41f8de75333d43b45c2a172b0b2293"
+   },
+   "assets/codex/BUFF_VOID_POWER.webp": {
+    "size": 1608,
+    "sha256": "7f0394216fcbb7947cd9303c60cb6f2a75014c1e295dc5a8434ed88972091e63"
+   },
+   "assets/codex/BUFF_VOW.webp": {
+    "size": 1544,
+    "sha256": "92e96b96c3394100e838bafcb44b4fc93e03c68ac4e48fe1165fee897dc76a75"
+   },
+   "assets/codex/BUFF_WAITING_ON_SITE.webp": {
+    "size": 1468,
+    "sha256": "1966946f9143044b32a212706ab082f4da1b1c24e714d9d58a52ebdf372f96b0"
+   },
+   "assets/codex/BUFF_WATERPROOF_SUNSCREEN.webp": {
+    "size": 1270,
+    "sha256": "c83cef49d56c187d69bbe57e49c0b3340963302d752b1532f3fddbd15ddf520d"
+   },
+   "assets/codex/BUFF_WENDIGO_SNOW_2.webp": {
+    "size": 1712,
+    "sha256": "f2c73999f181e6ce1780842e54c1a14202e73a5eb871ada1631acf97d2193abd"
+   },
+   "assets/codex/BUFF_WEST_BEAMSWORD.webp": {
+    "size": 1608,
+    "sha256": "9b4dc137a20c621f59668c126232b17e4a8ad5230696a5f73caf3061d5af384b"
+   },
+   "assets/codex/BUFF_WHITEDRAGON_BOSS_1.webp": {
+    "size": 2140,
+    "sha256": "846ccca5002323235e8cebd8c4809e790b0dd33fa2d1301514d46c26512680cc"
+   },
+   "assets/codex/BUFF_WHITEDRAGON_BOSS_2.webp": {
+    "size": 2222,
+    "sha256": "d57b9f12ae3df2f411f7644b1cf2dcde3b9af986c5e4f8b8f716cd3effd403cc"
+   },
+   "assets/codex/BUFF_WHITEDRAGON_BOSS_3.webp": {
+    "size": 2156,
+    "sha256": "524e22b3b726aca40f228712b069b335179b690d78664004b9f5d003929cbb03"
+   },
+   "assets/codex/BUFF_WILL_OF_KNIGHT.webp": {
+    "size": 1590,
+    "sha256": "5237b83a423cf27d094bcd455e32e27d1305a7ea4fb75da2f74df0c2d2fe701b"
+   },
+   "assets/codex/BUFF_WIND_TIGER.webp": {
+    "size": 2062,
+    "sha256": "321e76227d62f453dcbe8edcfe851b645d8101d196655e43b47d018a59a52447"
+   },
+   "assets/codex/BUFF_WRONG_WILL.webp": {
+    "size": 1472,
+    "sha256": "bc5b478b13c3565a9ecb21da99cb425db75ca2048dd1cc0c3c1a5d3218d64862"
+   },
+   "assets/codex/DEBUFF_AGGRO.webp": {
+    "size": 918,
+    "sha256": "66c6e97c4d6d218aabd58b02e9c4297881bcd7c83ed0ddde8eb78d1c250be7e8"
+   },
+   "assets/codex/DEBUFF_ARCHON_SPEAR_1.webp": {
+    "size": 906,
+    "sha256": "efd61eac570b06a3b45ad52ee8e3e102d231063dbaff4119003a59dfac33d321"
+   },
+   "assets/codex/DEBUFF_ATTACK_ABBREVIATE.webp": {
+    "size": 1058,
+    "sha256": "51f231e7b171070cafa937cc4f94f132ef2bd7c08b23f77bc2c7600397f030f0"
+   },
+   "assets/codex/DEBUFF_ATTACK_DECREASE.webp": {
+    "size": 962,
+    "sha256": "c28ce081e56f28bdcd0b3fc14a22b65571e276b93e65f1fd32f9d4406b400b58"
+   },
+   "assets/codex/DEBUFF_BELLWETHER_MANE_1.webp": {
+    "size": 868,
+    "sha256": "ff17a0ea93b65511660c76b030c541fd3e2b02786d02cae31e7a1ae0b7689d37"
+   },
+   "assets/codex/DEBUFF_BLEEDING.webp": {
+    "size": 924,
+    "sha256": "5059e47f7505874853852662f2e69d6b49b49415484ab39bff48cf1bc294c9e8"
+   },
+   "assets/codex/DEBUFF_BLOOD_OATH.webp": {
+    "size": 1628,
+    "sha256": "3092ef776624b7fb0226362f65ce7a046239e415c8e18528d1f2b3c6daf10d15"
+   },
+   "assets/codex/DEBUFF_BRIDESMAID.webp": {
+    "size": 1576,
+    "sha256": "aa83d96cfae398b3042c52aa0b498d5558ec84918aaf3bef5ab16beeb2d2f99e"
+   },
+   "assets/codex/DEBUFF_BUFFBAN.webp": {
+    "size": 1190,
+    "sha256": "0a9eef9e760365175ef8391de3b9666b5ded7b5ffa90f2472014172b672d3beb"
+   },
+   "assets/codex/DEBUFF_BURN.webp": {
+    "size": 932,
+    "sha256": "ea94e672c9d88f725a318c0f807e2cbd1c8558573b4c18957baeb3d575fc6f4d"
+   },
+   "assets/codex/DEBUFF_CHAIN.webp": {
+    "size": 936,
+    "sha256": "3b148fcb919afde3ceca4c762b36feedacf3cca91da8b5c7f1f6339475d2a11a"
+   },
+   "assets/codex/DEBUFF_CHECK_TARGET.webp": {
+    "size": 1616,
+    "sha256": "9cc3a720e4460d7840f57a581052ede21d570e26c518cf0f3b707297f42c5f0b"
+   },
+   "assets/codex/DEBUFF_COHESION_FLOWER_1.webp": {
+    "size": 1036,
+    "sha256": "20cf7649395c6cdd89fdaf45453ef9b9c117c1c75aa5fd913fe44f9e784cafd0"
+   },
+   "assets/codex/DEBUFF_CONDITION_BAD.webp": {
+    "size": 1310,
+    "sha256": "3cd10ddb82309ec7d2033792b29701196862074f1b6e0eddca24799fbb502944"
+   },
+   "assets/codex/DEBUFF_CONDITION_WORST.webp": {
+    "size": 1332,
+    "sha256": "3a98aed01fe763bdfb9823c92e5da45e1b3f439e98ae73e357647034d13be40b"
+   },
+   "assets/codex/DEBUFF_CRACK_IN_MEMORY.webp": {
+    "size": 1662,
+    "sha256": "68ea32c5abb2a7d076c82cd572b1a5b00ff1adb5bb9e62c30ecfa4876bf9d6d6"
+   },
+   "assets/codex/DEBUFF_CRITICAL_CHANCE_DECREASE.webp": {
+    "size": 1150,
+    "sha256": "14bf8cfa9a71a228dae6c5330b2038668a656559461b629dd7aba61fa66c1303"
+   },
+   "assets/codex/DEBUFF_CYCLE_PRECEPT.webp": {
+    "size": 1320,
+    "sha256": "9f571ecf80fdc438ed1858fd45adf1e06a53e188b6627341301a656d123b29ae"
+   },
+   "assets/codex/DEBUFF_DAWN_EYE.webp": {
+    "size": 1402,
+    "sha256": "5ee7a5fa08e9c53257e5330f74c33cedab3dc6bbfc3d2deabac5f9260f39c518"
+   },
+   "assets/codex/DEBUFF_DEFENSE_ABBREVIATE.webp": {
+    "size": 1012,
+    "sha256": "58c4ad18dc88503137cebc3c1c0a6a7031342d6304ce8d0c9c5443487e455e51"
+   },
+   "assets/codex/DEBUFF_DEFENSE_DECREASE.webp": {
+    "size": 934,
+    "sha256": "b0ccc7c7890559dd096a47e9d3cd4d0f040a52337b98a1ea4057f8370035060a"
+   },
+   "assets/codex/DEBUFF_DEFIANCE_OF_FATE.webp": {
+    "size": 1206,
+    "sha256": "69e4bdcd8bd9ee60037ece743f3a45d6f2cde9f36a0be9dbbb00126e560ab342"
+   },
+   "assets/codex/DEBUFF_DEMORAIGIS_CORE_1.webp": {
+    "size": 1312,
+    "sha256": "0c20365c13da3063513b90efc39b6bedfb2a362e75062c078a1570c3696f3db9"
+   },
+   "assets/codex/DEBUFF_DISABLE_CROSS_ATTACK.webp": {
+    "size": 1204,
+    "sha256": "e4e31d801befb16e7ffc601a038f2ef88730206c500580300c745842ba8a37bf"
+   },
+   "assets/codex/DEBUFF_DULL_FANG.webp": {
+    "size": 1320,
+    "sha256": "c4f9328bcef4602e46bbf09070b3e72ccd6f4461c250977b41b7641bc34b84f1"
+   },
+   "assets/codex/DEBUFF_EFFECT_EVADE_ABBREVIATE.webp": {
+    "size": 1372,
+    "sha256": "11b46fa152c5ccb17c38981b292822f0cae00d96a3d112d29b8b70604983fa85"
+   },
+   "assets/codex/DEBUFF_EFFECT_EVADE_DECREASE.webp": {
+    "size": 1342,
+    "sha256": "9b0820c2598b8060348c30dbbbf566917d0fc2b05aa607e8d71c9a36c3cf0b14"
+   },
+   "assets/codex/DEBUFF_EVADE_DECREASE.webp": {
+    "size": 1152,
+    "sha256": "ad6e1c1b07260e1a2373245e08981d35f140e3a120b97a3aa5d30bb5e2b2ef23"
+   },
+   "assets/codex/DEBUFF_EXHAUSTION.webp": {
+    "size": 976,
+    "sha256": "4cd3c0d884d807131196f8a4bd0b0689b64235b02931b765960ce6b7bddbedd5"
+   },
+   "assets/codex/DEBUFF_EXPOSED_SCALE.webp": {
+    "size": 1262,
+    "sha256": "b548d8e8fe501ff581236ad7288a0c69f040694f53c4c50c662e9b43100a2c2a"
+   },
+   "assets/codex/DEBUFF_FREEZING.webp": {
+    "size": 1270,
+    "sha256": "6ab5122e036a0288b4a70216d74f01a835bd13f4086c619e28be9da88b5bb368"
+   },
+   "assets/codex/DEBUFF_HAPPY68_MAD_1.webp": {
+    "size": 894,
+    "sha256": "ba5f7483948664e454058f3b8a71dba4a60dda7339dd5c63653ed0894c966aef"
+   },
+   "assets/codex/DEBUFF_HEALBAN.webp": {
+    "size": 1054,
+    "sha256": "a6ec83f2361c9925ea6e746ba4a8e40d2e9cfea6e076a633c983b45f63e97cf2"
+   },
+   "assets/codex/DEBUFF_HEAL_RECEIVE_ABBREVIATE.webp": {
+    "size": 1196,
+    "sha256": "3e9ce07b0bb844a6b9245b06cbea0869b3f328ca77f2999977beed1dff05ea02"
+   },
+   "assets/codex/DEBUFF_HEAL_RECEIVE_DECREASE.webp": {
+    "size": 1138,
+    "sha256": "604c9b802694632a78cc6e1d9d17610043115d86a5b56a4a4656e3cafcfaa150"
+   },
+   "assets/codex/DEBUFF_HEART_ATTACK.webp": {
+    "size": 1554,
+    "sha256": "5f287e56fdc0e609a83bc03b62e7a87c15e09431f7309b252bbe950989d1da89"
+   },
+   "assets/codex/DEBUFF_HERO_SOUL.webp": {
+    "size": 1230,
+    "sha256": "8e219f6a06aef150bdcb768bb8aa3d844df618f04888319895a6df6bc7eb7992"
+   },
+   "assets/codex/DEBUFF_IMPOSED_DUTY.webp": {
+    "size": 1704,
+    "sha256": "d5b28dcbf7aa595206c518551a299e0ebab2ccdf58e501a8a4ce306fa5bddaab"
+   },
+   "assets/codex/DEBUFF_INDOLENCE.webp": {
+    "size": 920,
+    "sha256": "181976fa6836184c9fb4a1a00c823241018226c0e3bafca6638edd20f55f1dac"
+   },
+   "assets/codex/DEBUFF_ISOLATION.webp": {
+    "size": 858,
+    "sha256": "93ed8d6c83300b7d410414612d7a9bb7083c5fb812ba0e8cec35d58189f55fdd"
+   },
+   "assets/codex/DEBUFF_MOGULUS_CROWN_1.webp": {
+    "size": 914,
+    "sha256": "f75522e6ead0837d79c3a0ac3f689a3e8388f51c6a9100f3d512d7b48913484f"
+   },
+   "assets/codex/DEBUFF_NEUTRALIZATION.webp": {
+    "size": 1322,
+    "sha256": "5f1bab91950b503ffff36f01b21b03bb487a7de5b5c2eb5e2aba09aa01314b9a"
+   },
+   "assets/codex/DEBUFF_OVER_HEAT.webp": {
+    "size": 1408,
+    "sha256": "a67b0792e78ff0320e275759d89b3f6acfc235d1b7c1b3ead98e476b0e80296f"
+   },
+   "assets/codex/DEBUFF_PARALYSIS.webp": {
+    "size": 958,
+    "sha256": "4fa227f530fc0d18fb6e826b38f146e9f2ce1082aabfd691ee240e6214655907"
+   },
+   "assets/codex/DEBUFF_POISON.webp": {
+    "size": 990,
+    "sha256": "7bc305ddb7844c8776b05035e91c121aebdb7681b4cd84ac830dae95ba8e45f9"
+   },
+   "assets/codex/DEBUFF_RATE_HIT_DECREASE.webp": {
+    "size": 1468,
+    "sha256": "2176a7935480ba4a265ac89ac71e5058ff6a7f27a5d348faabf697c79952a71b"
+   },
+   "assets/codex/DEBUFF_REPRESS_WILDNESS.webp": {
+    "size": 1536,
+    "sha256": "eb721928f3be19c2edd118c862081c7f6ba2a62d500cc2092591b89b1fd345cf"
+   },
+   "assets/codex/DEBUFF_SHADOW_CURSE.webp": {
+    "size": 1528,
+    "sha256": "1ec43635288f81787b733a3f82af41b3fb6cf5ce7fe5b117aa8a11dc9a2229d1"
+   },
+   "assets/codex/DEBUFF_SHARP_TOOTH.webp": {
+    "size": 1228,
+    "sha256": "059bd054908854fe72ee8c815f6d0c37fe04347f60846df6d84eb1860e1c0c06"
+   },
+   "assets/codex/DEBUFF_SILENCE.webp": {
+    "size": 942,
+    "sha256": "9781c8bd0ebb881f69c7043f9542e07f97839cf4cdad5ff2a1721489e3512840"
+   },
+   "assets/codex/DEBUFF_SLACK_OFF.webp": {
+    "size": 954,
+    "sha256": "61e6d02b04046eee0e85d8df0f943e36b30433eb81f05b780ea114324cc5d9c5"
+   },
+   "assets/codex/DEBUFF_SLEEP.webp": {
+    "size": 994,
+    "sha256": "2324eaed7766b40ad60a3e61d080d6f0afcb435fbfe7fa30910cd409b222b233"
+   },
+   "assets/codex/DEBUFF_SOUL_BREAK.webp": {
+    "size": 1394,
+    "sha256": "ee72bc7e11546f805072058228fdc2a75dc8175cef52e373ea47f8cff59e69f8"
+   },
+   "assets/codex/DEBUFF_SPEED_DECREASE.webp": {
+    "size": 1088,
+    "sha256": "fe823250d5ff2cfd0be56dccf85a0f4b06f69dfc26e1bda1745032f7debda4b7"
+   },
+   "assets/codex/DEBUFF_STUN.webp": {
+    "size": 1100,
+    "sha256": "8089965ea575049673e49813302e2382d974e3b70a25fe3f561062ba1679cdc9"
+   },
+   "assets/codex/DEBUFF_STUN_CANNOTDISPEL.webp": {
+    "size": 1436,
+    "sha256": "41cb3debf134db8b5a1ef0791bfd59c750f1ec0123f8709889e73f27e07c8635"
+   },
+   "assets/codex/DEBUFF_TARGET_MARKING.webp": {
+    "size": 920,
+    "sha256": "ee6146979ecfd2a00f823c137a6b0e2718a6e892feadcea5279c4ff9b28aaf55"
+   },
+   "assets/codex/DEBUFF_TIME_DILATION.webp": {
+    "size": 1784,
+    "sha256": "1c88fe26f0c8839e60160ee04b3b6af386334b9efebc36126cf4821f93bc7ec4"
+   },
+   "assets/codex/DEBUFF_TIME_MISALIGNED_NEEDLE.webp": {
+    "size": 1542,
+    "sha256": "6f5b9000485186cffd942c2a8785d01158fd49f13449d65172a97fd7fcf65628"
+   },
+   "assets/codex/DEBUFF_TIME_PARADOX.webp": {
+    "size": 1374,
+    "sha256": "3c92e541acd3fa5883e28f3fc0a888f6c76915dce553dc3d609cc6ae80463abb"
+   },
+   "assets/codex/DEBUFF_TRAGEDY_THORN.webp": {
+    "size": 1410,
+    "sha256": "34daad421e9c754bacca3ae39acb0b3e9432e95750fa01ef47b0d72a926a6382"
+   },
+   "assets/codex/DEBUFF_TRAGEDY_THORN_1.webp": {
+    "size": 1362,
+    "sha256": "783afdce7eef816dfb2b57dcef699a40e0a18651398bb38c9c59c7212667c410"
+   },
+   "assets/codex/DEBUFF_TUNER_CROWN_2.webp": {
+    "size": 1452,
+    "sha256": "532cff8e19001828920ce9aefa0199ecc6846b2548445b8b3b4632bf8ee5b987"
+   },
+   "assets/codex/DEBUFF_TWISTED_DREAMY.webp": {
+    "size": 1026,
+    "sha256": "57ac44919fef8d7e71fa2d48ad7e3f33e3552f1623b4612112ed3511e0b71302"
+   },
+   "assets/codex/DEBUFF_USURPER_CHAIR_1.webp": {
+    "size": 880,
+    "sha256": "3669e7fec9cead7f1b0d59cb84531bd18046e0a185092a8b70f874fca01b6f7f"
+   },
+   "assets/codex/DEBUFF_WATER_BOMB.webp": {
+    "size": 934,
+    "sha256": "0e4c8e9c8b9e8b4b4494410a9f40f43d4a1987380f4dd026a4b5d9260c69e418"
+   },
+   "assets/codex/DEBUFF_WEST_ROD.webp": {
+    "size": 982,
+    "sha256": "de497bd495a0fbf962f7e36525221b80d8acc36b67520e2bafea618d13763d63"
+   },
+   "assets/codex/DEBUFF_WHITEDRAGON_BOSS_1.webp": {
+    "size": 1708,
+    "sha256": "30c1b09b1807c41e0ce3eb4968562df75f87abc689b3416bd226088aa67f933d"
+   },
+   "assets/codex/DEBUFF_WITNESS_COFFIN_1.webp": {
+    "size": 874,
+    "sha256": "f1e5d9179c04393e308eabe5de8ccea016fbcae776b8e8166fb8220a82c6a8f3"
+   },
+   "assets/codex/EQUIP_COSMO_TIER_2_ARMOR.webp": {
+    "size": 4002,
+    "sha256": "cd94d07649ad78fd8e5849f17ef837fdfbc4f6f4050a58282631b677024e9f12"
+   },
+   "assets/codex/EQUIP_COSMO_TIER_2_GLOVES.webp": {
+    "size": 3770,
+    "sha256": "2e9d0e7a103e8914770bf9177be3797b05c098c76c51f6016a2f0403f4196e67"
+   },
+   "assets/codex/EQUIP_COSMO_TIER_2_NECKLACE.webp": {
+    "size": 3526,
+    "sha256": "99458375107ca66699c8f89371cb9507232fd76d4c396ba556ca345b07a71361"
+   },
+   "assets/codex/EQUIP_COSMO_TIER_2_RING.webp": {
+    "size": 4164,
+    "sha256": "ca234bc6c9568bbedf5a49ab51ff31d9f79ab14c942491d7aa914c036f1ce8e8"
+   },
+   "assets/codex/EQUIP_COSMO_TIER_2_SHOES.webp": {
+    "size": 4138,
+    "sha256": "1feed1d72796b5d5975def069d48456485af152e0e079f40f957550934a42aee"
+   },
+   "assets/codex/EQUIP_COSMO_TIER_2_WEAPON.webp": {
+    "size": 3666,
+    "sha256": "eb45c2f913ba42d9ff6e1efadffbdff5f7470f48b8d4c4653718cccfc72e6b5f"
+   },
+   "assets/codex/EQUIP_EVENT_MOTIVATOR_TIER_2_NECKLACE.webp": {
+    "size": 4404,
+    "sha256": "93cc81a5b1f9b824d49d240b82f71760ac7e4b1466d9b88a365d9b520313f37d"
+   },
+   "assets/codex/EQUIP_EVENT_MOTIVATOR_TIER_2_RING.webp": {
+    "size": 4300,
+    "sha256": "f9ceb7601ebbead4657d373b633331cbe242a5d48798925ad2b54a1d3e6f2e99"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_1_ARMOR.webp": {
+    "size": 2836,
+    "sha256": "b9733f2bdb1548ae8a09fa73c0b629d01be38110b7cff7b77728ce34e53ad5a1"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_1_GLOVES.webp": {
+    "size": 2696,
+    "sha256": "f807410e9f6eb69b0c255c46aa8200fc431ed596cbe711dc6f44730a6ce3d837"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_1_NECKLACE.webp": {
+    "size": 3330,
+    "sha256": "520bcf45bac36c56f9c8316565e17ad12c8598f678e8577d428ca5ede159be6d"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_1_RING.webp": {
+    "size": 2924,
+    "sha256": "e073dfdcd71ea8fc61761d57f74bc47411b457c1d45c845d16472144e1f570e9"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_1_SHOES.webp": {
+    "size": 3364,
+    "sha256": "e6655f9d83e78e427f779e6eb07b5beaad42582579d1e4b3083b9103f6b60526"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_1_WEAPON.webp": {
+    "size": 2160,
+    "sha256": "eaeb413304cdcfb307b5894b6380a0709d5ae75f91d69468ac18316e2ffd083d"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_2_ARMOR.webp": {
+    "size": 3710,
+    "sha256": "7d7e1967fea89b0d8495d7ddac5813936004990c19527adbdd00cd59cfcd7fdb"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_2_GLOVES.webp": {
+    "size": 3418,
+    "sha256": "b809d11e4c2cd92cf59bde440d7259c4cfabaf506e1fdb29c92fbd2793ff093c"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_2_NECKLACE.webp": {
+    "size": 4076,
+    "sha256": "e0ed213ac7feb9c80e0589f9f1a7f36d4bf3c2b363ecee80f1865cd6f9e77f34"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_2_RING.webp": {
+    "size": 3980,
+    "sha256": "46df0d55f0b53d1c3966f6399ccbfc086b3f06b4b24187dea945284dd787bd63"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_2_SHOES.webp": {
+    "size": 4700,
+    "sha256": "c93ed58a32c683bdc643d4cb983f1b16f158a4931e74146fe66ef8eb59304e91"
+   },
+   "assets/codex/EQUIP_MOTIVATOR_TIER_2_WEAPON.webp": {
+    "size": 3478,
+    "sha256": "47a22513f0f311ae509c761525ecf8d521b480d9731c26e9b8fe90c16ef56606"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_1_ARMOR.webp": {
+    "size": 2410,
+    "sha256": "49fad76923434eb27496a265cb4ab4e45f0c3137ba69aace1bdfd8a509684d31"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_1_GLOVES.webp": {
+    "size": 2396,
+    "sha256": "e4ce6d04a9a00873c2774c771b2e83faf3662fe209d2fe25781fcfe3a00c681d"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_1_NECKLACE.webp": {
+    "size": 2082,
+    "sha256": "feaa030009099802254d6173afe48b68cdc8fabd50ea776b3ca19c4677f5f9ec"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_1_RING.webp": {
+    "size": 2780,
+    "sha256": "0142c1f7722943f36a81333e66ceeb85bdc8b91a17a618868a0a7ea19dab8982"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_1_SHOES.webp": {
+    "size": 3002,
+    "sha256": "53da6c05cc4df5dfee5f77dadc167bb06840b3bd3e862809ebb7880a7cf45d06"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_1_WEAPON.webp": {
+    "size": 2422,
+    "sha256": "40e7d0e35f3aaf3d19b9a9b397dfff9ce3f43ce42794ccb56f0ff77b230cfafe"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_2_ARMOR.webp": {
+    "size": 3756,
+    "sha256": "a45b72a18ad790913f21200a6287a87608cdf13e1094d127b742e34a7c6830e4"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_2_GLOVES.webp": {
+    "size": 3402,
+    "sha256": "c1b1e3261a145e9f33af1ef81a529aacd2082914a05b7213e310c4165e58e3b9"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_2_NECKLACE.webp": {
+    "size": 3102,
+    "sha256": "40c25ad912e016f9feb656360cedca8bb56bb72dce99308dc3bc1f07e46c4502"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_2_RING.webp": {
+    "size": 3896,
+    "sha256": "2a68f4c397bda6e2e5478aa396fdac00513b0cf98c7bcff9f77d173eab04128a"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_2_SHOES.webp": {
+    "size": 3554,
+    "sha256": "0f3e32bd291115774eba0d4dc1578ffd92fe947e105bf17e09d649eef10c31a8"
+   },
+   "assets/codex/EQUIP_PERSES_TIER_2_WEAPON.webp": {
+    "size": 3356,
+    "sha256": "a3e18662b29a7faac9f4074bf1121ee4f0e0d53847a58a5ac0754f13392479ea"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_1_ARMOR.webp": {
+    "size": 2580,
+    "sha256": "48fd94b99df7fcdda8309bb5179cb850bd3a8bb3c747dab8922f4668e215fc42"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_1_GLOVES.webp": {
+    "size": 2304,
+    "sha256": "9c2632efded95e8610a5a3497a07e20c09b0f3b5d9408b973322020432a8f944"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_1_NECKLACE.webp": {
+    "size": 1820,
+    "sha256": "849f51e77ca074f90fe460dad9bcd06c28164a04e07f13e39eeaf561f02bd0a1"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_1_RING.webp": {
+    "size": 2934,
+    "sha256": "7725fb44f3a2e2bd57fe5f3fe2615b40683ee2011f8e7ef068e9aa5d259f1ac2"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_1_SHOES.webp": {
+    "size": 2802,
+    "sha256": "e4d9d2f2f0731d678ada7e4df9d119f8609ec4292ff8dc6428b28532cc272a74"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_1_WEAPON.webp": {
+    "size": 2884,
+    "sha256": "e3e71bb0b6d8b1fe424468ef3837c0b0d5b26f6dca1d1c5fd835c98c4be0feee"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_2_ARMOR.webp": {
+    "size": 4308,
+    "sha256": "90387a63b6aa774c1133648c2ae33f12992e359445dd1c118f4bed110b4a38bb"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_2_GLOVES.webp": {
+    "size": 3932,
+    "sha256": "f7d57a0c0792d0695aeff5b042fda3cf7cb9d3370384d84a6cd42f9baec1b2b5"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_2_NECKLACE.webp": {
+    "size": 3768,
+    "sha256": "df6d17d0de260ae661f2b7b3c048ae08911a57df11072ef35ddf0bb38c1beeca"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_2_RING.webp": {
+    "size": 4310,
+    "sha256": "d1bcf0a2d117fc3797e198ace3e3ded72d55a59fa052b97dddff9b0d9d790f15"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_2_SHOES.webp": {
+    "size": 4170,
+    "sha256": "305d798924bea24bb83bb14308e232d167f31c6c04c51164b51696fdb926ce56"
+   },
+   "assets/codex/EQUIP_WENDIGO_TIER_2_WEAPON.webp": {
+    "size": 4340,
+    "sha256": "33590d1e3c867e99e8d22f762a02443e4c1dc32cb55c15f841b4d0cdb4db5321"
+   },
+   "assets/codex/ICON_ITEM_NORMAL_PROFILE_TITLE.webp": {
+    "size": 2652,
+    "sha256": "60d8c4597affdf876f67b2dfc33c0e6b8e8179fd9507b6a832be078e27913e67"
+   },
+   "assets/codex/ICON_ITEM_NORMAL_PROFILE_TITLE_SPECIAL.webp": {
+    "size": 2674,
+    "sha256": "ef9a9741285bb76857f5eee9fe773a19581c728eb93e7966f05c9a629976b285"
+   },
+   "assets/codex/ICON_NST_ATK.webp": {
+    "size": 1088,
+    "sha256": "1185925dc5676465a04b07b55a6ced866d38d6c893863a81157c916af953d2d4"
+   },
+   "assets/codex/ICON_NST_DEF.webp": {
+    "size": 1076,
+    "sha256": "d118ed7288f4c2cc34cf840d9b8bdb1bf5b3cbd2e3d67df6d3cdfa296eee5852"
+   },
+   "assets/codex/ICON_NST_HP.webp": {
+    "size": 836,
+    "sha256": "7d1210ca1e685cd6df48737914e2d5fdb243f3804f80c4f0b68694bf0390e491"
+   },
+   "assets/codex/ICON_NST_RATE_CRITICAL.webp": {
+    "size": 1174,
+    "sha256": "9d13da6a01685c2c2fcb4513656aac3d4058ae1b8307e385889ab691ac48f02f"
+   },
+   "assets/codex/ICON_NST_RATE_CRITICAL_DAMAGE.webp": {
+    "size": 868,
+    "sha256": "797da676d72c1ff7db707c5b6f0f6fc0fe5f2aedabc12e8d9c0d80d7ba37c8a8"
+   },
+   "assets/codex/ICON_NST_RATE_CROSS_ATTACK.webp": {
+    "size": 1844,
+    "sha256": "7627e0c3d9b2f47173c799ee4c527cefdf4cb6e94577e4e3054f9e4e57a134d0"
+   },
+   "assets/codex/ICON_NST_RATE_EFFECT_EVADE.webp": {
+    "size": 1716,
+    "sha256": "bce1e7c75ad3e86962e86c67f98d4ebb857b1ae1ddd27f45f697dbcc939a63c7"
+   },
+   "assets/codex/ICON_NST_RATE_EFFECT_HIT.webp": {
+    "size": 1914,
+    "sha256": "6faa0d153c04623c502a20dec0ac2ab1d566ee51c42c80509661467bd3e87741"
+   },
+   "assets/codex/ICON_NST_RATE_HIT.webp": {
+    "size": 2088,
+    "sha256": "cd241bc71466e0f69c507700ab952209998fb74614ff8bfed0bf2b1ef718e15c"
+   },
+   "assets/codex/ICON_NST_RATE_REVENGE_ATTACK.webp": {
+    "size": 1640,
+    "sha256": "5ce22aa3a361711e06573cbdeed8af9ae08dc59c3ebd5ccdd1434471066d8741"
+   },
+   "assets/codex/ICON_NST_TURN_SPEED.webp": {
+    "size": 1294,
+    "sha256": "7556133998773eeebb288b4abd8ee724d98791c32113828a0499d16df7094435"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_ALICIA.webp": {
+    "size": 4790,
+    "sha256": "53fcf059a813c8b1dc085b90d63852ffecd3bd587b22264cfb8c104e2c4a6f5e"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_GLEIPNIRE.webp": {
+    "size": 4290,
+    "sha256": "2ed567a1303af8bea6f7a329a1e1a8a49cee79e18b5ce6e73b04af4935536598"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_GUNBLADE.webp": {
+    "size": 3820,
+    "sha256": "9eac73273f3cd00ba2a2d864f27fb7059d72a9edc2c71bccba1d87eab1fe2f3d"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_LISA.webp": {
+    "size": 4720,
+    "sha256": "92acb6ff63932b4fea500c101daa1d24156175b93cfa1cb28c0f65d61aeb7f2b"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_OMEGA.webp": {
+    "size": 5084,
+    "sha256": "cd08986aee590bef4274b6616c8e80a3ed8e97b31158b81eda61a426760ce992"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_UNKNOWN_BOSS.webp": {
+    "size": 4752,
+    "sha256": "5a56b01f556fef351ca79c26d225782039c2fa2b9566c786d4beac3580de6664"
+   },
+   "assets/codex/ICON_ORBITAL_ARRAY_VOYAGER_GUNBLADE.webp": {
+    "size": 4652,
+    "sha256": "a1e945aa079f4a83951ba49ca2530bc9b7d8cb2d4ae41fd972db3064bbd2032e"
+   },
+   "assets/codex/ICON_SET_2P_ATK_RATE_EFFECT_EVADE.webp": {
+    "size": 2320,
+    "sha256": "7dba7705f2e540f6f34b3fc2178cf959bb049ae9860545db7a494d20d08c4738"
+   },
+   "assets/codex/ICON_SET_2P_CRI_RATE.webp": {
+    "size": 1736,
+    "sha256": "a27bb624ab11b696bb08be5434080a10b3bfb0534b34c4671f6248088cb59187"
+   },
+   "assets/codex/ICON_SET_2P_CRI_RATE_EFFECT_RATE.webp": {
+    "size": 2926,
+    "sha256": "82c5d21b27403a48ef9626d6ef2e214ae45c1c8689f74404ee82b2bc2d8ccc8c"
+   },
+   "assets/codex/ICON_SET_2P_DEF_RATE.webp": {
+    "size": 1180,
+    "sha256": "00f6d472b28f5ecda3a306827d77b5ca4a61daaf26b6a7243258eea4b45a04cb"
+   },
+   "assets/codex/ICON_SET_2P_EFFECT_EVADE.webp": {
+    "size": 2124,
+    "sha256": "f4347efbecf57870b59a3db138eaed168751b2b1ff862bc60abcb0ef990b5418"
+   },
+   "assets/codex/ICON_SET_2P_EFFECT_RATE.webp": {
+    "size": 2628,
+    "sha256": "fe4da36998fb6f99997c94c0c1ae2bc2da25e504c7ccaf5a8a3ed888a6afae01"
+   },
+   "assets/codex/ICON_SET_4P_ATK_RATE.webp": {
+    "size": 1476,
+    "sha256": "46b120e5a142fbeef16570c7edb593ff55bfd20b498f1f3ca1c6f2995fedf49b"
+   },
+   "assets/codex/ICON_SET_4P_CRI_DMG.webp": {
+    "size": 1158,
+    "sha256": "53a6c4f94c76d2ca8a104ac343163d9fe54768a2a2cdce1577b2413895427050"
+   },
+   "assets/codex/ICON_SET_4P_CRI_DMG_EFFECT_RATE.webp": {
+    "size": 2572,
+    "sha256": "2d0d54ded534ab8eaac41bb7035ccd70ad505dfff49238dc294da1e2b0d3f29c"
+   },
+   "assets/codex/ICON_SET_4P_HP_RATE.webp": {
+    "size": 1170,
+    "sha256": "d3e382b023cf0679d84d199987e420d7e0d34a7b63549fdd4493c40659c5d9c1"
+   },
+   "assets/codex/ICON_SET_4P_HP_RATE_EFFECT_EVADE.webp": {
+    "size": 2252,
+    "sha256": "8e21ff77eb450c839b3cab920cea7044133953d86e0b131fc293aa9561a08f74"
+   },
+   "assets/codex/ICON_SET_4P_TURN_SPD.webp": {
+    "size": 1644,
+    "sha256": "14d19ea65ca7dc4890f2c6bd74dec38e988e6fbdb5a5da3ccff0e7b54efef8ec"
+   },
+   "assets/codex/NKM_UNIT_ORBITAL_ARRAY_GLEIPNIRE_ILLUST_UI.webp": {
+    "size": 8878,
+    "sha256": "334d289cbec99d1e2ba19c0655f621c9736009067ef667037360fbe480c2cdd1"
+   },
+   "assets/codex/NKM_UNIT_ORBITAL_ARRAY_OMEGA_ILLUST_UI.webp": {
+    "size": 17524,
+    "sha256": "dae699ed0805b88a9e58ab82299df5989ddca83bed11020205b2e7a348648cda"
+   },
+   "assets/codex/NKM_UNIT_R_STAR_PLAYER_ILLUST_UI.webp": {
+    "size": 17348,
+    "sha256": "9e312ae67021e01646b4aa7528ec20a74d81571ac6ef76d0a5d23535094000b4"
+   },
+   "assets/codex/NKM_UNIT_S_APOSTLE_GILLE_ILLUST.webp": {
+    "size": 17744,
+    "sha256": "f8a4d077031aa1032beffc9859bab037d04fe8c04425cb01967f4aef3ec199f1"
+   },
+   "assets/codex/NKM_UNIT_S_APOSTLE_GILLE_ILLUST_UI.webp": {
+    "size": 17680,
+    "sha256": "03bde63f4fc240cc15790ef602c1c2ad61d3694a1bb89ce13c5a3c505de75a59"
+   },
+   "assets/codex/NKM_UNIT_S_APOSTLE_TYRIA_ILLUST.webp": {
+    "size": 51906,
+    "sha256": "74358f680126c7674408debb5979131cbeebdb8a17cbc952612a9ced6f03ea49"
+   },
+   "assets/codex/NKM_UNIT_S_APOSTLE_TYRIA_ILLUST_UI.webp": {
+    "size": 27650,
+    "sha256": "bc4b62168e53ccc430603b4df393743602a8a5fb38a15570aafbe8a181a8f975"
+   },
+   "assets/codex/NKM_UNIT_S_BUNNY_KNIGHT_ILLUST.webp": {
+    "size": 38732,
+    "sha256": "db74fd9928d41dc3c49e0dd52db89b0b32ae8f9aac682cc6d7efccf5c5387a47"
+   },
+   "assets/codex/NKM_UNIT_S_BUNNY_PRAY_ILLUST.webp": {
+    "size": 39140,
+    "sha256": "75c6bf5234ee27614a443cacb82aed78fb118add684b9ce1cf0b068696fd636e"
+   },
+   "assets/codex/NKM_UNIT_S_BUNNY_SCISSORS_ILLUST.webp": {
+    "size": 42154,
+    "sha256": "568b3613661d4737fc3409e6bbbdcaabc4c4e4527eec90254a7bd094d181d40b"
+   },
+   "assets/codex/NKM_UNIT_S_BUNNY_SPEAR_ILLUST.webp": {
+    "size": 48258,
+    "sha256": "0b2c01f5d6c68a66fedd1a3cbab7549aeb5ee5edc758d22d94cffb9667406dc4"
+   },
+   "assets/codex/NKM_UNIT_S_CONSTRUCT_BOMB_ILLUST.webp": {
+    "size": 51580,
+    "sha256": "a58af8c29dd6bdcb6b46d75bdc56ee10600982e3a0f90f7ca4a58d77c08f5453"
+   },
+   "assets/codex/NKM_UNIT_S_CONSTRUCT_BOMB_ILLUST_UI.webp": {
+    "size": 22934,
+    "sha256": "9a0af3da2d8617eaf85b4383ab861198844a908e46c31fd49890a9f0a8822501"
+   },
+   "assets/codex/NKM_UNIT_S_CONSTRUCT_GADGET_ILLUST.webp": {
+    "size": 39268,
+    "sha256": "5fdb5cfb8142556d7ac2352c879eee049296705f8524cf2ad8d1ca367d046551"
+   },
+   "assets/codex/NKM_UNIT_S_CONSTRUCT_GADGET_ILLUST_UI.webp": {
+    "size": 27226,
+    "sha256": "9d3c506113c1dd6f7ee12dbc797833537377fc4ca1fd8c983382c55a539fda87"
+   },
+   "assets/codex/NKM_UNIT_S_CONSTRUCT_WRENCH_ILLUST.webp": {
+    "size": 74444,
+    "sha256": "57a385e5329f819af7a10afb8a886800e268d7e65dc0f6f3d03c90be13410482"
+   },
+   "assets/codex/NKM_UNIT_S_CONSTRUCT_WRENCH_ILLUST_UI.webp": {
+    "size": 19656,
+    "sha256": "d215ccf51c435cb7c3f3bfe20169a8433c80157330c13135b27c2dfd756747c7"
+   },
+   "assets/codex/NKM_UNIT_S_COUNTERSIDE_HILDE_ILLUST.webp": {
+    "size": 48716,
+    "sha256": "f52b4d6c2395ba23a9b6a67deb77f655baeb44f581e1df535218dfc2ffc1a63b"
+   },
+   "assets/codex/NKM_UNIT_S_COUNTERSIDE_HILDE_ILLUST_UI.webp": {
+    "size": 19008,
+    "sha256": "2204acde25e074585d295abf35e4da558f77cff32fa5bf6c041580bcd144866e"
+   },
+   "assets/codex/NKM_UNIT_S_COUNTERSIDE_MINA_ILLUST.webp": {
+    "size": 43488,
+    "sha256": "44176a751124fd9e5564a61028c6eb4629d6a1be1db2a48bf1a20ce67e3cde23"
+   },
+   "assets/codex/NKM_UNIT_S_COUNTERSIDE_MINA_ILLUST_UI.webp": {
+    "size": 22384,
+    "sha256": "abedbb8b604b3871b161f9460a85f1c5b16812b0bd77a3f5571ffdc1d849269b"
+   },
+   "assets/codex/NKM_UNIT_S_COUNTERSIDE_ROSARIA_ILLUST.webp": {
+    "size": 64892,
+    "sha256": "08fb271d5f6e839eb18fbbf7afefbe2697d4f1adefcf0a709c3f8d6d8f6d1cf7"
+   },
+   "assets/codex/NKM_UNIT_S_COUNTERSIDE_ROSARIA_ILLUST_UI.webp": {
+    "size": 26332,
+    "sha256": "ce3274d5e421a6537a17d7791b1be42e31de1da49cc83e260643bd27d006b479"
+   },
+   "assets/codex/NKM_UNIT_S_DARK_UNKNOWN_ILLUST.webp": {
+    "size": 28592,
+    "sha256": "1cf8dc44e8c99eb0957b44f587d14335a453dd1913f25527917458e383f30d04"
+   },
+   "assets/codex/NKM_UNIT_S_DARK_UNKNOWN_ILLUST_UI.webp": {
+    "size": 25016,
+    "sha256": "31742305919a7d565e06d91fa06dd8642531655963d95421bdb43250682c54e9"
+   },
+   "assets/codex/NKM_UNIT_S_DETECTIVE_PROFESSOR_ILLUST.webp": {
+    "size": 34462,
+    "sha256": "dc2c8b7cb4f7a6e6457dc178a54685a6a89586c0dfcd10620c284893b3d746f5"
+   },
+   "assets/codex/NKM_UNIT_S_DETECTIVE_PROFESSOR_ILLUST_UI.webp": {
+    "size": 26764,
+    "sha256": "223564a7b4a40d09a7cd66e18d7089fe772ab6cf6fea54c72f98df0b5518f652"
+   },
+   "assets/codex/NKM_UNIT_S_DETECTIVE_SHERIFF_ILLUST.webp": {
+    "size": 40880,
+    "sha256": "2aca1198c2a47f47c529a0e9a0ee569179f20116329b152a6fc54fbf7212500c"
+   },
+   "assets/codex/NKM_UNIT_S_DETECTIVE_SHERIFF_ILLUST_UI.webp": {
+    "size": 26256,
+    "sha256": "d7764748eb52afc51787dc30f2e9ffa65a15bd8798159ff870367f2de5d594f8"
+   },
+   "assets/codex/NKM_UNIT_S_DETECTIVE_WATSON_ILLUST.webp": {
+    "size": 51456,
+    "sha256": "3f5594e230f23a1467f705e087d1614fc04290f9c12f9846bf16ae3fa5298738"
+   },
+   "assets/codex/NKM_UNIT_S_DETECTIVE_WATSON_ILLUST_UI.webp": {
+    "size": 18852,
+    "sha256": "602c3bce407be435ccde9e968ba8cc2ad80d65a8f384d1a45970267edc75710e"
+   },
+   "assets/codex/NKM_UNIT_S_DRESS_STRANIS_ILLUST.webp": {
+    "size": 39434,
+    "sha256": "874bb3490423519d93702681ed950ba4923de1f15c5beeff229203cecbdc7a5b"
+   },
+   "assets/codex/NKM_UNIT_S_EASTERN_OWL_ILLUST.webp": {
+    "size": 50488,
+    "sha256": "40b55938dce8deaa17d3f5bd2e69d11bd50ec3cbffab4509bbd5727ec6e56847"
+   },
+   "assets/codex/NKM_UNIT_S_EASTERN_OWL_ILLUST_UI.webp": {
+    "size": 30070,
+    "sha256": "b6585e978c66e38fb2920774bacfe54d7db38be43028f3deb3aadd42049c8612"
+   },
+   "assets/codex/NKM_UNIT_S_EASTERN_SWORDMASTER_ILLUST.webp": {
+    "size": 39032,
+    "sha256": "aadc7389b571f589fe681c4826708819804f901d8c769b326f537d1121220e08"
+   },
+   "assets/codex/NKM_UNIT_S_EASTERN_SWORDMASTER_ILLUST_UI.webp": {
+    "size": 27962,
+    "sha256": "9a364bbdc5af015c4dba64fb631a325df6f323e2c90be86d398afff28023f7e7"
+   },
+   "assets/codex/NKM_UNIT_S_GRACE_DUALSWORD_ILLUST.webp": {
+    "size": 52086,
+    "sha256": "1ac658a08f0aaffe4321954db8d248863115d35434035fd35afdc6c40fa205f8"
+   },
+   "assets/codex/NKM_UNIT_S_GRACE_DUALSWORD_ILLUST_UI.webp": {
+    "size": 18462,
+    "sha256": "1b1c2264e461ed4d585f7d13bf2d7ec97a7d2ddf9d8f45f0be8f9543f35f1b63"
+   },
+   "assets/codex/NKM_UNIT_S_INCOGNITA_FLOWER_ILLUST.webp": {
+    "size": 42322,
+    "sha256": "c99007f52c25fd1393ecda76404291bfe049f6e55749893a47ed6ba23a37ed6f"
+   },
+   "assets/codex/NKM_UNIT_S_INCOGNITA_FLOWER_ILLUST_UI.webp": {
+    "size": 29090,
+    "sha256": "f5408ab9d9c58e767eca0802a3a84e1a35767aabc097eb99dddd7bda5c2722e3"
+   },
+   "assets/codex/NKM_UNIT_S_INCOGNITA_LANDGRAVE_ILLUST.webp": {
+    "size": 47776,
+    "sha256": "efe97db01cd14e2e5439b142889b0c60e6843481f0b796c8d2b41425936e4498"
+   },
+   "assets/codex/NKM_UNIT_S_INCOGNITA_LANDGRAVE_ILLUST_UI.webp": {
+    "size": 25220,
+    "sha256": "96c53fd1af0d183b9fd84ffa5c2f9bf92fce8ba7b69d50b4ca0edce26d5764fc"
+   },
+   "assets/codex/NKM_UNIT_S_INDEPENDENT_DRAGON_ILLUST.webp": {
+    "size": 45306,
+    "sha256": "63a26d990379c05cd2e3d9ff9593b09229c84b339f44d91d81fb0c8ca161163c"
+   },
+   "assets/codex/NKM_UNIT_S_INDEPENDENT_DRAGON_ILLUST_UI.webp": {
+    "size": 24812,
+    "sha256": "87eea1d45fddd2f805f82781a2aa10bc969af6a9668567a32f8dae70f881a6eb"
+   },
+   "assets/codex/NKM_UNIT_S_INDEPENDENT_VAGABOND_ILLUST.webp": {
+    "size": 55974,
+    "sha256": "86c6ae0c100c441641b038db080f68a5807223fc9e051bd67e6c19354356834f"
+   },
+   "assets/codex/NKM_UNIT_S_INDEPENDENT_VAGABOND_ILLUST_UI.webp": {
+    "size": 26698,
+    "sha256": "dff1dc55b53d88194c1327735e0dc4565183c8dc2a19c2c233e372dbc1d24310"
+   },
+   "assets/codex/NKM_UNIT_S_KINGDOM_KNIGHT_ILLUST.webp": {
+    "size": 45544,
+    "sha256": "f3b70df57afae6b7d1bd759cef914f5f4482cafbdcb57f4175774d6e3212951e"
+   },
+   "assets/codex/NKM_UNIT_S_KINGDOM_KNIGHT_ILLUST_UI.webp": {
+    "size": 21120,
+    "sha256": "15a0be7fd13955468697710a0d0d2d4b92f7127ff4b62cebf9b7d9df0cf825bf"
+   },
+   "assets/codex/NKM_UNIT_S_KINGDOM_PRAY_ILLUST.webp": {
+    "size": 42700,
+    "sha256": "7b7e2cc71a81842acee7e7079a5ab0627888753070c78c73b344b6ffd2f2e789"
+   },
+   "assets/codex/NKM_UNIT_S_KINGDOM_PRAY_ILLUST_UI.webp": {
+    "size": 29576,
+    "sha256": "89e2cc02903c5d8d25e77d8ab5a83c6010a8d160b965b5e78a76f94107c95e42"
+   },
+   "assets/codex/NKM_UNIT_S_KINGDOM_SHIELDER_ILLUST.webp": {
+    "size": 48106,
+    "sha256": "be60223f7f3068ac93b802ac76e472ae294f7845de979bf76f94f4a9191e4fa6"
+   },
+   "assets/codex/NKM_UNIT_S_KINGDOM_SHIELDER_ILLUST_UI.webp": {
+    "size": 25328,
+    "sha256": "0f6623ebe4b42a3e15af347719afca1374909611ff4d384122aacc0ad53f3c19"
+   },
+   "assets/codex/NKM_UNIT_S_LPU_POST_ILLUST.webp": {
+    "size": 70064,
+    "sha256": "ee8374661004262399a68daa23c7881686e1b8bf1023f478819f345a7a7c00d1"
+   },
+   "assets/codex/NKM_UNIT_S_LPU_POST_ILLUST_UI.webp": {
+    "size": 24640,
+    "sha256": "a8e1164ba8cdb7837c89582ad825afa5b8ee69d4927835b4f499810511ecb9c8"
+   },
+   "assets/codex/NKM_UNIT_S_MAGICIAN_DRUID_ILLUST.webp": {
+    "size": 70876,
+    "sha256": "ba51b319133a7cdfa08ea55c694dc1e3438a66ecc1a699837f05c0ea056d3722"
+   },
+   "assets/codex/NKM_UNIT_S_MAGICIAN_DRUID_ILLUST_UI.webp": {
+    "size": 20550,
+    "sha256": "272a62a69542128085da8baeebaeeab0dd7df8d822ed3126db88133e0ffb285a"
+   },
+   "assets/codex/NKM_UNIT_S_MAGICIAN_SNIPER_ILLUST.webp": {
+    "size": 53318,
+    "sha256": "bfb1643f2a002dbe787ee24763e75df0f3a787795182e569deccb2cb08c95e59"
+   },
+   "assets/codex/NKM_UNIT_S_MAGICIAN_SNIPER_ILLUST_UI.webp": {
+    "size": 23208,
+    "sha256": "7312896bac5571cb338cb72f826fa62bfb461f17525e44d7eba78a9c6349a55d"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_BELL_ILLUST.webp": {
+    "size": 36930,
+    "sha256": "e3cce4f74b07da626bd1f6f6153d7e1cb1204f3e6fb69074ca34d30a7b280b66"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_BELL_ILLUST_UI.webp": {
+    "size": 25214,
+    "sha256": "020d53d9fd8bbc16be49fec1d98cc42219bf42b5c7c5eebcf1eb692047e747b8"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_LANTERN_ILLUST.webp": {
+    "size": 48592,
+    "sha256": "e7ad6442ca8d54aaa405120b5d27b9bf35d929f5bcecfed79aca4317d664e1f3"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_LANTERN_ILLUST_UI.webp": {
+    "size": 29450,
+    "sha256": "6e2756923b0ed35804e46bd19d4f4d9e6f238778e81ff1946e42f800c22d7f37"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_SCISSORS_ILLUST.webp": {
+    "size": 51570,
+    "sha256": "92f461da6a82b5a7c51542d17a0e8e78aba322c17e09f88da64225d1682fde81"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_SCISSORS_ILLUST_UI.webp": {
+    "size": 23920,
+    "sha256": "67e0c875ac84f403b209166a6de2a4f796e443419a2394a7fa72e176b5d17b33"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_SPEAR_ILLUST.webp": {
+    "size": 42138,
+    "sha256": "e7de1d40c386e7444708d977a1cc8a9496b2408a741020af3fe417075ada8568"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_SPEAR_ILLUST_UI.webp": {
+    "size": 22404,
+    "sha256": "b8bd4e3866874ba60a6eddc0a6b15a4538b0071f0fce20a60feac6d56b3e41ce"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_TWOHANDER_ILLUST.webp": {
+    "size": 44792,
+    "sha256": "c0b80896529cbb210a05151b133c2eba394921b1c2fc80788758a5ed65f108bf"
+   },
+   "assets/codex/NKM_UNIT_S_MAID_TWOHANDER_ILLUST_UI.webp": {
+    "size": 30528,
+    "sha256": "1fceeec3ff0905579425fa135cb282e5e74fa572ea82813c809b6a7b3b0b8729"
+   },
+   "assets/codex/NKM_UNIT_S_MUTANT_MASK_ILLUST.webp": {
+    "size": 62440,
+    "sha256": "4555e91f807f8f2eb3d08cc35826bb7b4b5abb5843d7fbaa295da0c3130920c7"
+   },
+   "assets/codex/NKM_UNIT_S_MUTANT_MASK_ILLUST_UI.webp": {
+    "size": 32434,
+    "sha256": "4f8b5e317928f6ea5cb303ef9850a6bf46c52dffe044613dac6ed8ba3542a8cb"
+   },
+   "assets/codex/NKM_UNIT_S_NIGHTMARE_REAPER_ILLUST.webp": {
+    "size": 46666,
+    "sha256": "da9a1844dde58af07da35edb5555fefc63fb9c3ee770fb2b4e092d399b2eaa5b"
+   },
+   "assets/codex/NKM_UNIT_S_NIGHTMARE_REAPER_ILLUST_UI.webp": {
+    "size": 25460,
+    "sha256": "31f25533546dad6256a93fb1eedf87042d699530656bea065b93e8c6e08f432f"
+   },
+   "assets/codex/NKM_UNIT_S_NOA_ALICIA_ILLUST_UI.webp": {
+    "size": 24842,
+    "sha256": "44cc31b36bb80ebfeff8ae25d77a25f69c4905eb5cab2c80a38b242d714ae82d"
+   },
+   "assets/codex/NKM_UNIT_S_NOA_LISA_ILLUST_UI.webp": {
+    "size": 19934,
+    "sha256": "86d19400cc26cec419c91b7f344bf1af796c130bbd66fed3f25109367baeb2aa"
+   },
+   "assets/codex/NKM_UNIT_S_NOA_OBSERVER_ILLUST.webp": {
+    "size": 54482,
+    "sha256": "27864c4aea1b31b370d4024463fa9600a1969f2f2b82adeb0faf38aa858fbb78"
+   },
+   "assets/codex/NKM_UNIT_S_NOA_OBSERVER_ILLUST_UI.webp": {
+    "size": 19148,
+    "sha256": "7f9034444138042f8c234c9c73ae336ae9fd6cd7ae4fa3622a02b813fe3c58ed"
+   },
+   "assets/codex/NKM_UNIT_S_NOA_RISE_ILLUST.webp": {
+    "size": 27158,
+    "sha256": "38c3f5fbeb747f49b92f1cad43e280c62389af1482a594948ebea141c08dea12"
+   },
+   "assets/codex/NKM_UNIT_S_NOA_RISE_ILLUST_UI.webp": {
+    "size": 27158,
+    "sha256": "38c3f5fbeb747f49b92f1cad43e280c62389af1482a594948ebea141c08dea12"
+   },
+   "assets/codex/NKM_UNIT_S_OFFICER_POLICE_ILLUST.webp": {
+    "size": 45886,
+    "sha256": "e2ee588775bd01c5b9eef5ada2d0a4d3f8ec2e4c5fa2e4a9ad0bc16222f225d7"
+   },
+   "assets/codex/NKM_UNIT_S_OFFICER_POLICE_ILLUST_UI.webp": {
+    "size": 33162,
+    "sha256": "a4e7e808a179ddb854203613d54eeb4ba25b4435cfc1de3f310205dae382fb0e"
+   },
+   "assets/codex/NKM_UNIT_S_RECON_AMULET_ILLUST.webp": {
+    "size": 40080,
+    "sha256": "40ddf4ecf041e7decf7a4430cdb864781d394f53b83ca8ec1325cf582f05e92a"
+   },
+   "assets/codex/NKM_UNIT_S_RECON_AMULET_ILLUST_UI.webp": {
+    "size": 21750,
+    "sha256": "5a7f269b140fe369d771efc359c8b8b540b1fc424150b4054efb3c49bd70cf13"
+   },
+   "assets/codex/NKM_UNIT_S_RECON_KNUCKLE_ILLUST.webp": {
+    "size": 60132,
+    "sha256": "d2a42c1ca410830b6392ef889b7a706c0fe8d9557abeb53874571a0a70e228b9"
+   },
+   "assets/codex/NKM_UNIT_S_RECON_KNUCKLE_ILLUST_UI.webp": {
+    "size": 20864,
+    "sha256": "9d33dbc6f87bba41c1d5b41f3deb2659444a9f59464f3f47fe8dc9efbd7aa6ea"
+   },
+   "assets/codex/NKM_UNIT_S_SAINTESS_DEMON_ILLUST.webp": {
+    "size": 42046,
+    "sha256": "2591d30e9112d3bf7d5ad482707202863b215f1d4a0dfe7ef541fa6201577401"
+   },
+   "assets/codex/NKM_UNIT_S_SAINTESS_DEMON_ILLUST_UI.webp": {
+    "size": 33290,
+    "sha256": "bd1264da2ca8de27200c7dd2007cd107bf23bee36769485dad0d61797e54ab5d"
+   },
+   "assets/codex/NKM_UNIT_S_SAINTESS_ELF_ILLUST.webp": {
+    "size": 64390,
+    "sha256": "35b8875d304aa42be1c3f2feebf14ac4a9131f98eee4ee7281090474d4a5e19a"
+   },
+   "assets/codex/NKM_UNIT_S_SAINTESS_ELF_ILLUST_UI.webp": {
+    "size": 51000,
+    "sha256": "2f320e1f8792b94e7c2b40d97b6c13c4bd9c1b478453625e6b80e5c7eefa6264"
+   },
+   "assets/codex/NKM_UNIT_S_STARPIERCER_OMEGA_ILLUST.webp": {
+    "size": 63702,
+    "sha256": "af59094ad998cf37175297291eb795630dd840e3b3fed63b24483c2ab5ac06f8"
+   },
+   "assets/codex/NKM_UNIT_S_STARPIERCER_OMEGA_ILLUST_UI.webp": {
+    "size": 23874,
+    "sha256": "2f3ba6ac5dc60b1ed05992d4d82841036422a00e2c68d2b075cf872cd6442dd2"
+   },
+   "assets/codex/NKM_UNIT_S_STELLAR_THIEF_ILLUST.webp": {
+    "size": 32956,
+    "sha256": "0894d51b3330448e9296a15c0ac55ef45b1be60c33fe138c2ad68539272433db"
+   },
+   "assets/codex/NKM_UNIT_S_STELLAR_THIEF_ILLUST_UI.webp": {
+    "size": 25856,
+    "sha256": "6cbd18314f149bb0d07b66909956e9d26e669e53762de2190e727d17276dcdf6"
+   },
+   "assets/codex/NKM_UNIT_S_STRANISEARL_ROSEBLADE_ILLUST.webp": {
+    "size": 57088,
+    "sha256": "066052b3c4c0cfc22fd5a204d248d7483dc36e44dbe973de88aa9e8cd4c20d91"
+   },
+   "assets/codex/NKM_UNIT_S_STRANISEARL_ROSEBLADE_ILLUST_UI.webp": {
+    "size": 20716,
+    "sha256": "d77806d934b61fe1e29ca78950435a0cd40ec30325c859393e443d0a3da6d1b4"
+   },
+   "assets/codex/NKM_UNIT_S_SUMMER_ORACLE_ILLUST.webp": {
+    "size": 42036,
+    "sha256": "ed82f418080c2dced90efc37725604313a15ec0f115e532c9b7794d4fb2282b4"
+   },
+   "assets/codex/NKM_UNIT_S_SUMMER_SMILE_ILLUST.webp": {
+    "size": 49606,
+    "sha256": "465ac5f0810088296d15d8695e7ee0e9b7e558596b848ed9c120cfa108d7c440"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_GUNBLADE_ILLUST.webp": {
+    "size": 49250,
+    "sha256": "656a1d04101a4b26d80c847d35bec21c7e83705d119f7712b745c3721fe2f8c2"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_GUNBLADE_ILLUST_UI.webp": {
+    "size": 18230,
+    "sha256": "4ba987f45f6820f9e4317d4f485938c81d0618394b99095cbd3d0cefb63e7a7b"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_ORACLE_ILLUST.webp": {
+    "size": 77608,
+    "sha256": "3d62fe1c8e4dc85fca3cf1c5a5233d66fbbe11b1370fecd90043e505f779ba09"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_ORACLE_ILLUST_UI.webp": {
+    "size": 40350,
+    "sha256": "f5705314c12f743e30636fa428d366fefeb13df5204f4438e377c1f095ceeea0"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_SMILE_ILLUST.webp": {
+    "size": 66376,
+    "sha256": "68c060e78d2e55f7f6da3fcf7091f2dbbc45db4f09383cfa9588b64ecebcbfb8"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_SMILE_ILLUST_UI.webp": {
+    "size": 30176,
+    "sha256": "46ffe15b54532fc49a6ffedaaa772026b82f6710c108f865da4f09d9d4771acd"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_STRANIS_ILLUST.webp": {
+    "size": 68702,
+    "sha256": "0d2c7b420c57790eee25f93ad99b2a06715d08e318d74d1683f1dfadc7557d1b"
+   },
+   "assets/codex/NKM_UNIT_S_VOYAGER_STRANIS_ILLUST_UI.webp": {
+    "size": 26502,
+    "sha256": "bc84ab9b7296bbbcbd1b10d486dd144721db63be0925f7a7d48d6acd66431f30"
+   },
+   "assets/codex/NKM_UNIT_S_WEDDING_DUALSWORD_ILLUST.webp": {
+    "size": 49994,
+    "sha256": "ae789d836c6e212a5165575673eb20b3b6594bf0c0e301cb400a150bb481b5a3"
+   },
+   "assets/codex/NKM_UNIT_S_WEDDING_SHIELDER_ILLUST.webp": {
+    "size": 69658,
+    "sha256": "72fee6ae27b53bef8c235f1eaf3b9582e8f3559c94bb2df7faa8cdc008f7c8db"
+   },
+   "assets/codex/NKM_UNIT_S_WEST_BEAMSWORD_ILLUST.webp": {
+    "size": 44574,
+    "sha256": "33db6dcb111d5e234b04a18924c9b23a5db44f1761e96497eeba82155abca0d5"
+   },
+   "assets/codex/NKM_UNIT_S_WEST_BEAMSWORD_ILLUST_UI.webp": {
+    "size": 24016,
+    "sha256": "0339d7be7a27d68d1d8b7bb6540cb687837f03ba578a5c67f3841ca8c2e10dce"
+   },
+   "assets/codex/NKM_UNIT_S_WEST_LANCER_ILLUST.webp": {
+    "size": 49406,
+    "sha256": "f7d8d1a41cf1bdd5bd179fe673f4109aafff3740eb87b772892f4f7d329a98d2"
+   },
+   "assets/codex/NKM_UNIT_S_WEST_LANCER_ILLUST_UI.webp": {
+    "size": 23052,
+    "sha256": "d3391d30ccf25cb9748197789f939f66888446518d1bc08aead026faad5b68ed"
+   },
+   "assets/codex/NKM_UNIT_S_WEST_ROD_ILLUST.webp": {
+    "size": 58076,
+    "sha256": "8c9d3c519d9142ba1e2415d34dcf3535c496541aad525e5508d46f4fb2e65ab5"
+   },
+   "assets/codex/NKM_UNIT_S_WEST_ROD_ILLUST_UI.webp": {
+    "size": 35792,
+    "sha256": "76d09eaa9d256df1bfb766e6864514ae6f8a48a191b4c2ef03be2ab04cf00f47"
+   },
+   "assets/codex/NKM_UNIT_S_WHITEDRAGON_METEORWHIP_ILLUST.webp": {
+    "size": 18088,
+    "sha256": "e04a21debfa21f2a3bde13a691d3c08634446dee61de309b28eb6bc07f6e9061"
+   },
+   "assets/codex/NKM_UNIT_S_WHITEDRAGON_METEORWHIP_ILLUST_UI.webp": {
+    "size": 19200,
+    "sha256": "f9cf0e52c4d17917513b6e2ae9feaa3eb80ce625fe46e39845716297746ce1ba"
+   },
+   "assets/codex/NKM_UNIT_S_WHITEDRAGON_WINDFAN_ILLUST.webp": {
+    "size": 23574,
+    "sha256": "f0313d527ebfec434cfb94a16be478538a1f3f0e344f6ce773989047a2cfd99c"
+   },
+   "assets/codex/NKM_UNIT_S_WHITEDRAGON_WINDFAN_ILLUST_UI.webp": {
+    "size": 22792,
+    "sha256": "de424efcbd04327f7d61f8348370a456d0c2e7b9bcdf01904d91760a764cb3ce"
+   },
+   "assets/codex/NKM_UNIT_S_WILD_HOG_ILLUST.webp": {
+    "size": 42342,
+    "sha256": "f9a975d2a95e5ba15e77495d029dc3298573bd24755b748768fca17bf220f758"
+   },
+   "assets/codex/NKM_UNIT_S_WILD_HOG_ILLUST_UI.webp": {
+    "size": 32692,
+    "sha256": "7e0b5f66779f35595880fa88083e51a1b8cb46ce5f280921c738a7be8d2f6b76"
+   },
+   "assets/codex/POTEN_1_RATE_ATK.webp": {
+    "size": 1230,
+    "sha256": "15229459f2ab4b68fb8212423e3fb4fc8c8ad679a6915e5cb0a8fe54d5ac8dd3"
+   },
+   "assets/codex/POTEN_1_RATE_CRITICAL.webp": {
+    "size": 1462,
+    "sha256": "46f8b027858145bffb4da72a5b1c88058017c77215617ba6cd83a82228044f07"
+   },
+   "assets/codex/POTEN_1_RATE_CRITICAL_DAMAGE.webp": {
+    "size": 1204,
+    "sha256": "16e293e8ddafbb3b4aad1d99a3430a1771dcfed9d86a15edd6d272b92abf4baa"
+   },
+   "assets/codex/POTEN_1_RATE_DEF.webp": {
+    "size": 1024,
+    "sha256": "1aae3489ea1f7262a02f1fb3ea1c3b4afdef7f6e80b259ff7b6e61facb49b775"
+   },
+   "assets/codex/POTEN_1_RATE_EFFECT_EVADE.webp": {
+    "size": 1870,
+    "sha256": "d5f33848229b4e55c7cf6b4f40ef68bf7584656bfc50b25f4d1b6eaf105c1a80"
+   },
+   "assets/codex/POTEN_1_RATE_EFFECT_HIT.webp": {
+    "size": 2040,
+    "sha256": "9dd516cf8ccb49b97cff1a51978059066944e78057465045a04d2d90f707df43"
+   },
+   "assets/codex/POTEN_1_RATE_HP.webp": {
+    "size": 968,
+    "sha256": "66a4ff6de745bc09b603b4cd9de8f6b261ab2bbaa1793e8a27a3571b30149991"
+   },
+   "assets/codex/POTEN_1_TRUN_SPEED.webp": {
+    "size": 1300,
+    "sha256": "ecfa9acd62089bce92318266043fdbe1fe4ce720f4cf9e7673bd4358fa07900e"
+   },
+   "assets/codex/POTEN_2_RATE_ATK.webp": {
+    "size": 1342,
+    "sha256": "bbae9c4dea7e0424b3c66ba724ebbc108c90a1318534a6b86dcea96a591f9035"
+   },
+   "assets/codex/POTEN_2_RATE_CRITICAL.webp": {
+    "size": 1570,
+    "sha256": "2688967626c5f9203e86c86c1babe59cb11b3beb5fbf9732fd5ee81a494b8bbe"
+   },
+   "assets/codex/POTEN_2_RATE_CRITICAL_DAMAGE.webp": {
+    "size": 1270,
+    "sha256": "036a68f12c6489a64c79ebd589f9441fb4d63902db9beac63f24ea38b7c336ed"
+   },
+   "assets/codex/POTEN_2_RATE_DEF.webp": {
+    "size": 1126,
+    "sha256": "a417bdb5ca3d0a591b819aca9a96b612962d69cda536c1c605d1b02d6a454dd8"
+   },
+   "assets/codex/POTEN_2_RATE_EFFECT_EVADE.webp": {
+    "size": 1924,
+    "sha256": "cb519803f4115a5d1e04cc24c18d488df59c23666f7b0a6e5339701f70d4c1a5"
+   },
+   "assets/codex/POTEN_2_RATE_EFFECT_HIT.webp": {
+    "size": 2140,
+    "sha256": "95edac4eca06ccbe3e0443c172dfb1bc4663a0687e06fa352e8ab127b1b58a17"
+   },
+   "assets/codex/POTEN_2_RATE_HP.webp": {
+    "size": 1058,
+    "sha256": "0b20ce4faf0e519c453f53ff5fa74f731d4876be8b3d217f4bc2a44e72453b3b"
+   },
+   "assets/codex/POTEN_2_TRUN_SPEED.webp": {
+    "size": 1356,
+    "sha256": "1e3e18c8ca38989fea829fe474691c3770e5ead184da427f7ec787994c101cb5"
+   },
+   "assets/codex/POTEN_3_RATE_ATK.webp": {
+    "size": 1432,
+    "sha256": "c637556293d5ed7324f1543005556336e5e778e10087a5504ed4223f9a0b6845"
+   },
+   "assets/codex/POTEN_3_RATE_CRITICAL.webp": {
+    "size": 1690,
+    "sha256": "15a80312b123bb383e06f7f27b9223d3fffdc3eb0b5da27bbd90c30eeff30dfa"
+   },
+   "assets/codex/POTEN_3_RATE_CRITICAL_DAMAGE.webp": {
+    "size": 1378,
+    "sha256": "f5d26f2703fa43d23f01084a4fe8d556d2debc6c9689ce1d12edb5c75451b492"
+   },
+   "assets/codex/POTEN_3_RATE_CROSS_ATTACK.webp": {
+    "size": 1870,
+    "sha256": "a8ae2dd1161f5beee4ea21c81ae52d06393d1112a87320102ff48a5b63016c39"
+   },
+   "assets/codex/POTEN_3_RATE_DEF.webp": {
+    "size": 1238,
+    "sha256": "3e13f2a4ea166ed1206e3028da3a613c57b17e5343ea7d960d1f2dff3754503a"
+   },
+   "assets/codex/POTEN_3_RATE_EFFECT_EVADE.webp": {
+    "size": 1942,
+    "sha256": "0a15c0a576a376a6f23aea24e53cb6d9ab4ff50811d83d61d433e48814a10510"
+   },
+   "assets/codex/POTEN_3_RATE_EFFECT_HIT.webp": {
+    "size": 2210,
+    "sha256": "2e035c013cd8168f23a1af6660fd3ba8b4d4d1f20d54d4ea2a8774c56cf195d7"
+   },
+   "assets/codex/POTEN_3_RATE_HP.webp": {
+    "size": 1180,
+    "sha256": "d78297423abf6cdcbafe217f7f77a4ff67d6f880f85456d34bed34aeda858cb1"
+   },
+   "assets/codex/POTEN_3_RATE_REVENGE_ATTACK.webp": {
+    "size": 1828,
+    "sha256": "4a151a5f612f3e0bb717a5bc1c21d3e99939fd8722b6d27b4015dee3e7f27153"
+   },
+   "assets/codex/POTEN_3_TRUN_SPEED.webp": {
+    "size": 1418,
+    "sha256": "81350e3d1159f8169cd554370ce066a836a9e105a03bdb7b2bf2cc4dda7da57d"
+   },
+   "assets/codex/POTEN_ATTACK_BUFF.webp": {
+    "size": 2392,
+    "sha256": "b0199cfa259529f8c653ab95ee35db15d01fe6fabe626407ed28d7b193922399"
+   },
+   "assets/codex/POTEN_DEFENSE_STAT.webp": {
+    "size": 2206,
+    "sha256": "922ebcdd69a2515e78123570e9d889c4d6c5deeda2cb32c65e7db73374ff3aec"
+   },
+   "assets/codex/POTEN_MAINTAIN_DEBUFF.webp": {
+    "size": 2104,
+    "sha256": "97b710f4737a5926c42680f385d59e5f550f74e1d80a98c4d3e09f8b98446710"
+   },
+   "assets/codex/POTEN_QUICK_DEBUFF.webp": {
+    "size": 2494,
+    "sha256": "ec70e6e8a147c721bd405cc5eb0c822e3924f8fa8ccbfb7ad53ca838404b3f45"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_ATK.webp": {
+    "size": 2290,
+    "sha256": "a185f3caaf612e6779ea4cdc10005c4ee63cea952004d9bbacacfa4842d41d90"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_CRITICAL.webp": {
+    "size": 2478,
+    "sha256": "0b7512a62ecc09d008a1ba4b72ce79d5a24f6f39896046353c0b8fa4ccf8c949"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_CRITICAL_DAMAGE.webp": {
+    "size": 2262,
+    "sha256": "df07c7d2e99b02f9e4278a29c2e3b324d358b47ed7d8c1e9d702f1753cc28313"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_DEF.webp": {
+    "size": 1970,
+    "sha256": "e5027b29f0d7d1db0261d20e39c5bce2876109a58c06c2b8db578054b692a034"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_EFFECT_EVADE.webp": {
+    "size": 2250,
+    "sha256": "f5ee5d90629e8b8dd240bda24ae8297aea9a2d9296e75873e8ce5e0c37421d30"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_EFFECT_HIT.webp": {
+    "size": 2604,
+    "sha256": "bcd9d5a29a6fe189deb49470ded91868ed0c9b0a6f885b143ec2fb4a009f136f"
+   },
+   "assets/codex/POTEN_SPECIAL_RATE_HP.webp": {
+    "size": 1890,
+    "sha256": "c80b036c1f376127cd9036e504934256b138dc172cf1c456f692256e35765643"
+   },
+   "assets/codex/POTEN_SPECIAL_TRUN_SPEED.webp": {
+    "size": 2050,
+    "sha256": "7b89e421eda66dce4efab2a7616542e38f5035e224bdeec422d38d67eed1bd96"
+   },
+   "assets/codex/POTEN_STAT_ENDURANCE_ICON.webp": {
+    "size": 2098,
+    "sha256": "7790bd1be9ac2fc538c48844012e2fe2046c51984c1feb9d90b9820781443dd6"
+   },
+   "assets/codex/POTEN_STAT_FOCUS_ICON.webp": {
+    "size": 3720,
+    "sha256": "07f3f2e603e857181c42e0b4603a96e5b3137ce994a72301ae02167229cc0f5a"
+   },
+   "assets/codex/POTEN_STAT_HEALTH_ICON.webp": {
+    "size": 2892,
+    "sha256": "dea03743bdc21e8d9dc3502570362298479ddfbe4d7a02354f80a8dc2eebb7c9"
+   },
+   "assets/codex/POTEN_STAT_POWER_ICON.webp": {
+    "size": 2542,
+    "sha256": "1d6ed7551899a4b4d1cbd40219b9de94069884515fe8655e151b21c40b995b86"
+   },
+   "assets/codex/POTEN_STAT_PROTECT_ICON.webp": {
+    "size": 3294,
+    "sha256": "3e4caf21be11dfba19431fae7d2e297c22cad0a1a02a55b8d1c1850aa420c19d"
+   },
+   "assets/codex/POTEN_UTILITY_BUFF.webp": {
+    "size": 2212,
+    "sha256": "32a5b2e0406affd70622f9a41bda5e3a952205cebb8ec279542ddebd60750676"
+   },
+   "assets/codex/SKILL_APOSTLE_GILLE_ATTACK.webp": {
+    "size": 1604,
+    "sha256": "50833d16c1664fc48d43415b7934a4684841cca9e60bb2574e339af1609635f5"
+   },
+   "assets/codex/SKILL_APOSTLE_GILLE_HYPER.webp": {
+    "size": 2732,
+    "sha256": "b6232b0a0a876acde9ad55c3cffabc72d5ef637b52fc4637cb1dea5377ddbbd0"
+   },
+   "assets/codex/SKILL_APOSTLE_GILLE_SPECIAL.webp": {
+    "size": 2166,
+    "sha256": "407e05e6397c74fb01227146bca6276a7925b94d290e717a14b47abd104fe54d"
+   },
+   "assets/codex/SKILL_APOSTLE_TYRIA_ATTACK.webp": {
+    "size": 2224,
+    "sha256": "b1af1fdbbdda1775005a039f78578d394be74071632502206b6b619f850dc689"
+   },
+   "assets/codex/SKILL_APOSTLE_TYRIA_HYPER.webp": {
+    "size": 2686,
+    "sha256": "22a9ccf934dd548ec87484d788a32dfb5a1d6e4dafdcd802a262da9dd3de62ed"
+   },
+   "assets/codex/SKILL_APOSTLE_TYRIA_SPECIAL.webp": {
+    "size": 2610,
+    "sha256": "8579a5cfb555c6f67563627439520cd2a6092d698ae72086bb045e5c18cdeafb"
+   },
+   "assets/codex/SKILL_APOSTLE_TYRIA_UNIQUE_PASSIVE.webp": {
+    "size": 1818,
+    "sha256": "8f95585e2f56357855083d12e718bb742113f7923ea296c22c94dc5b4da01277"
+   },
+   "assets/codex/SKILL_COMMON_BEAM_ATTACK.webp": {
+    "size": 2580,
+    "sha256": "3329545c0d258473bb726520ff36fc2bfdb27f7f79fd918dbaad36b040d97f60"
+   },
+   "assets/codex/SKILL_COMMON_BEAM_HYPER.webp": {
+    "size": 2888,
+    "sha256": "34fe8c92f458d08f17261c08313ab226f671df1f2c907e76a40f17c4af85c934"
+   },
+   "assets/codex/SKILL_COMMON_BEAM_SPECIAL.webp": {
+    "size": 2498,
+    "sha256": "801f804d348987682cd3a687c05fa1d644190b6d2fe845aee1257bed7bc25a12"
+   },
+   "assets/codex/SKILL_COMMON_BOLT_ATTACK.webp": {
+    "size": 1938,
+    "sha256": "864f517f466e7230e392acc5edb3fc230be8842f9e47ac5165640f74554b5995"
+   },
+   "assets/codex/SKILL_COMMON_BOLT_HYPER.webp": {
+    "size": 2584,
+    "sha256": "013f8dafeac7d0b131fa2f84560de393cdbb8bf57a5150821dfe6f3cd4c77dd7"
+   },
+   "assets/codex/SKILL_COMMON_BOLT_SPECIAL.webp": {
+    "size": 1990,
+    "sha256": "117d3cae49f3493ecd11c94d323f8dcd90a140705c1a620cc708968a40686fee"
+   },
+   "assets/codex/SKILL_COMMON_CLAW_ATTACK.webp": {
+    "size": 1534,
+    "sha256": "9eb09d088d82551590c505619f79699b04d16eefd7bc8f93fefd827673afd01d"
+   },
+   "assets/codex/SKILL_COMMON_CLAW_HYPER.webp": {
+    "size": 2168,
+    "sha256": "b493fa0b356d70d47e5d8798a0c0acd47db10ca6d877b1971bad7b12787ca359"
+   },
+   "assets/codex/SKILL_COMMON_CLAW_SPECIAL.webp": {
+    "size": 1986,
+    "sha256": "95c05368b1d493ea10d62a3cd4555ac753477e7a2211c60017c0feedbe30e0c1"
+   },
+   "assets/codex/SKILL_COMMON_EFFECT_PASSIVE.webp": {
+    "size": 2246,
+    "sha256": "e98ff35a95a91931b0ed0667e8df60fa64c16e19ce276a6fd0bb6b701539cb17"
+   },
+   "assets/codex/SKILL_COMMON_FIST_ATTACK.webp": {
+    "size": 2366,
+    "sha256": "bad9d594c357977f7a533e249d488a2d183eab4a16b9966e5b4cbe95c75f28bc"
+   },
+   "assets/codex/SKILL_COMMON_MUTANT_EFFECT_PASSIVE.webp": {
+    "size": 2626,
+    "sha256": "a6d12deb5a76b1104491171ab4ed1a8eca22d3d2f83ccf4dfea077500ac85ab8"
+   },
+   "assets/codex/SKILL_COMMON_MUTANT_STACK_PASSIVE.webp": {
+    "size": 2882,
+    "sha256": "253cebbf4dc439f405fc6c137db60117aaac4c2a15e7cdd3720d32e22d21e00d"
+   },
+   "assets/codex/SKILL_COMMON_NONATTACK_SPECIAL.webp": {
+    "size": 2352,
+    "sha256": "0c478fd5c9fb8404d2683ed8b076f2dd0656118f945437e706f87cdb2edbb0f3"
+   },
+   "assets/codex/SKILL_COMMON_SMASH_ATTACK.webp": {
+    "size": 2690,
+    "sha256": "107a6e0c9b4d1cea30a1b75d88917f35bb76fe3f8551aa93dc40876dbcabe845"
+   },
+   "assets/codex/SKILL_COMMON_SMASH_HYPER.webp": {
+    "size": 2738,
+    "sha256": "99adfbc21f06c173701255c9750a6a593dead3b857fe24fc4917d87211ce529f"
+   },
+   "assets/codex/SKILL_COMMON_SMASH_SPECIAL.webp": {
+    "size": 2338,
+    "sha256": "0a9f58b8ad2926e7325d0515ac84b2e1299079dded38e1539a7946a8c8638d70"
+   },
+   "assets/codex/SKILL_COMMON_STACK_PASSIVE.webp": {
+    "size": 2190,
+    "sha256": "de5f24610e7b19705bea0e8794f92e262fe494661fdaa8e1be75f88226f92c1b"
+   },
+   "assets/codex/SKILL_CONSTRUCT_BOMB_ATTACK.webp": {
+    "size": 2310,
+    "sha256": "fe3e908112cd0e3123dae9a06a7def09fb4300d77eab8e2bd940ea8288bd51f0"
+   },
+   "assets/codex/SKILL_CONSTRUCT_BOMB_HYPER.webp": {
+    "size": 2808,
+    "sha256": "69ac1c76e19e6bfc544be241dbf186a346df3f3c406c72e4fa3e817cb82206ab"
+   },
+   "assets/codex/SKILL_CONSTRUCT_BOMB_SPECIAL.webp": {
+    "size": 2516,
+    "sha256": "9247af8d6a46635c1b2af5e9ffe4f3ecf1ea7d3709b315d7a9cc76f890d0db17"
+   },
+   "assets/codex/SKILL_CONSTRUCT_BOMB_UNIQUE_PASSIVE.webp": {
+    "size": 1286,
+    "sha256": "7b02671a1b6d3e5bfbe4108eaf194d16a4dac4832778c602b02ac8e8f370f217"
+   },
+   "assets/codex/SKILL_CONSTRUCT_GADGET_ATTACK.webp": {
+    "size": 2138,
+    "sha256": "b6901738c6c96b52bc58b165cf840e0189950eba330c2120224f3a5126657f76"
+   },
+   "assets/codex/SKILL_CONSTRUCT_GADGET_HYPER.webp": {
+    "size": 2454,
+    "sha256": "29a76fecbf928d4e0c8732a5a97816d9355babaebbebc093170522e5549c74ed"
+   },
+   "assets/codex/SKILL_CONSTRUCT_GADGET_SPECIAL.webp": {
+    "size": 2600,
+    "sha256": "0be02d95c94315b2c4aeb86590f5bfd2fd4b2e25f874f2cc95a661aa6c0597bf"
+   },
+   "assets/codex/SKILL_CONSTRUCT_GADGET_UNIQUE_PASSIVE.webp": {
+    "size": 1466,
+    "sha256": "bfc43038945844f8aed2ae7580d8e48ac9d2ac4b20bc1918261019bc006769c7"
+   },
+   "assets/codex/SKILL_CONSTRUCT_WRENCH_ATTACK.webp": {
+    "size": 2416,
+    "sha256": "1dfb97a47ed518588e89e0b7631b49a22fd9dd087f5e870e920c89f27943b0b0"
+   },
+   "assets/codex/SKILL_CONSTRUCT_WRENCH_HYPER.webp": {
+    "size": 2278,
+    "sha256": "b4208305a170492e6a33ea552840f96747eeaa7efcfee2689677f7f4390b6f57"
+   },
+   "assets/codex/SKILL_CONSTRUCT_WRENCH_SPECIAL.webp": {
+    "size": 2638,
+    "sha256": "a095bd9663ef135f3db11b095959d2c36243e30ffe0a9386a198d9e87b446321"
+   },
+   "assets/codex/SKILL_CONSTRUCT_WRENCH_UNIQUE_PASSIVE.webp": {
+    "size": 1406,
+    "sha256": "2c2900408f3dddb89eeb7d86263afbcc6a91e39ac1aaa02b71756194419b7482"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_HILDE_ATTACK.webp": {
+    "size": 2368,
+    "sha256": "15a28d13e2f5a3143e8da08d9a1fe53378c596c24033d258fada6274b1d260d6"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_HILDE_HYPER.webp": {
+    "size": 2860,
+    "sha256": "d6acd5772425e439539957138616c49decb02b9a76a505e91fcda4d7ba03f506"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_HILDE_SPECIAL.webp": {
+    "size": 3022,
+    "sha256": "b593a7c66540fc44744782e440d8fd141a1fb23985b39af1750f25bf275b6c78"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_HILDE_UNIQUE_PASSIVE.webp": {
+    "size": 1728,
+    "sha256": "4d0a1a48c425d9fbc5cfc5a5ec35cc31f42bffe51f3c09e7eaa043f36e8f91e3"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_MINA_ATTACK.webp": {
+    "size": 2480,
+    "sha256": "b48acc424ae599109d15b9f8296a3c02282cac57edeb112637dd71360a427bcd"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_MINA_HYPER.webp": {
+    "size": 2826,
+    "sha256": "f2f1fea6bb04df585889e56e6c8e107a492b85bfe9c23187dac9afa1af983f43"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_MINA_SPECIAL.webp": {
+    "size": 3040,
+    "sha256": "cf4d1f5ddb935567a069b02a113fc3d5ace5ebb2cba0c043ada7e7afa4e4c1be"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_MINA_UNIQUE_PASSIVE.webp": {
+    "size": 1656,
+    "sha256": "00df3768c0c154006f14bbb5d725fa8ce7f65b50633b4dd89ec57165e5e3012c"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_ROSARIA_ATTACK.webp": {
+    "size": 2660,
+    "sha256": "e0c4e1c897bf3f2e7e38ae138877e765bbd82b1b89e5967b0bb056ed65ab8893"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_ROSARIA_HYPER.webp": {
+    "size": 2306,
+    "sha256": "3e021f028aebaf0a273763e1bff6ae67c8dd1e1adb187d57832718340b82a1ae"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_ROSARIA_SPECIAL.webp": {
+    "size": 2520,
+    "sha256": "ea17c356b1139153a8959b6df8355c36ff2b2e4d711b6a89d443532b2057d56a"
+   },
+   "assets/codex/SKILL_COUNTERSIDE_ROSARIA_UNIQUE_PASSIVE.webp": {
+    "size": 1594,
+    "sha256": "9a29e5ff35f4da901a4834ad44d7281ed721c0b57b8e21d0f1af8a7ac81b492c"
+   },
+   "assets/codex/SKILL_DETECTIVE_PROFESSOR_ATTACK.webp": {
+    "size": 2402,
+    "sha256": "fcc7223499a7cbf3abbe2b48b3392f8249fee4817aa9f0d2a3a5684a0e1b6966"
+   },
+   "assets/codex/SKILL_DETECTIVE_PROFESSOR_HYPER.webp": {
+    "size": 2746,
+    "sha256": "3ef2017e96769d393b37e523625806cd1695c6c1b97ac3d41c347b57702c03e3"
+   },
+   "assets/codex/SKILL_DETECTIVE_PROFESSOR_SPECIAL.webp": {
+    "size": 2662,
+    "sha256": "f39c6c73c4b4ed4dce0e497f3ff0af80a0355c2a70be85781341fc91a564344e"
+   },
+   "assets/codex/SKILL_DETECTIVE_PROFESSOR_UNIQUE_PASSIVE.webp": {
+    "size": 1396,
+    "sha256": "8981d26d32713c3f7759faa6b65f3fd7375661318a358f035dc651a15ed27c10"
+   },
+   "assets/codex/SKILL_DETECTIVE_SHERIFF_ATTACK.webp": {
+    "size": 2788,
+    "sha256": "9a67797d892db540ca0a4f7a3fdb50693a9c9cb4505a57cf4e8de36ee819490a"
+   },
+   "assets/codex/SKILL_DETECTIVE_SHERIFF_HYPER.webp": {
+    "size": 3462,
+    "sha256": "8cbc9503611eb3b41a6fceda40780961f56aad08ba7c831d6c9d7207182d18c3"
+   },
+   "assets/codex/SKILL_DETECTIVE_SHERIFF_SPECIAL.webp": {
+    "size": 3374,
+    "sha256": "048d0bc59590ea79a7e42e7d72abb324dfab367fd91e26d7664acd8fcee41335"
+   },
+   "assets/codex/SKILL_DETECTIVE_SHERIFF_UNIQUE_PASSIVE.webp": {
+    "size": 1672,
+    "sha256": "7003779d5272062832b759f5ccc86cf05cff816d3c2fb110f7b77c0ff37721ed"
+   },
+   "assets/codex/SKILL_DETECTIVE_WATSON_ATTACK.webp": {
+    "size": 2576,
+    "sha256": "19931303cfadef50fdc4c56d6a614e2ed3817b338b7492572e7332149e2cb9af"
+   },
+   "assets/codex/SKILL_DETECTIVE_WATSON_HYPER.webp": {
+    "size": 2686,
+    "sha256": "f74e2fe6b09dd9ababdf12150cedae369ddf80fd195897e15cfedb3005c5a8cf"
+   },
+   "assets/codex/SKILL_DETECTIVE_WATSON_SPECIAL.webp": {
+    "size": 2938,
+    "sha256": "af757e6eb47be80b6ab51ce1d45ed57946fd6e48e735f3276c1cd7dc2d8318a1"
+   },
+   "assets/codex/SKILL_DETECTIVE_WATSON_UNIQUE_PASSIVE.webp": {
+    "size": 1566,
+    "sha256": "a22a0c07a823fdc46fcb3717791d0402fc32e1ad2cc100dac781dbfa5241d0c2"
+   },
+   "assets/codex/SKILL_EASTERN_OWL_ATTACK.webp": {
+    "size": 2490,
+    "sha256": "3a049d49bf3304be21a02d5458ca9049b35d68e699c611b2c646b9a1b30f840b"
+   },
+   "assets/codex/SKILL_EASTERN_OWL_HYPER.webp": {
+    "size": 2784,
+    "sha256": "d44b67815a940f3a6c13abbd8aa50740f108c05b8ec0797b6e8a674a9da55d48"
+   },
+   "assets/codex/SKILL_EASTERN_OWL_SPECIAL.webp": {
+    "size": 2666,
+    "sha256": "ec524a28479ec281aefc779c198eb7c2da30f47110bf0f7c925f66da1c40098a"
+   },
+   "assets/codex/SKILL_EASTERN_OWL_UNIQUE_PASSIVE.webp": {
+    "size": 1440,
+    "sha256": "3b5c86dfced619c8c11aa877dc5de6b8bed52088294ab7322982f1ab9fc120d7"
+   },
+   "assets/codex/SKILL_EASTERN_SWORDMASTER_ATTACK.webp": {
+    "size": 2324,
+    "sha256": "18cb490a3f20d69a79134ad25519d0e2b8a1ad1a2283c6e474bf26dffe481edf"
+   },
+   "assets/codex/SKILL_EASTERN_SWORDMASTER_HYPER.webp": {
+    "size": 2870,
+    "sha256": "85d3eb1c53f1724dbe689b5363681c33a311b844ef761bdfb61e8aafed143daf"
+   },
+   "assets/codex/SKILL_EASTERN_SWORDMASTER_SPECIAL.webp": {
+    "size": 2570,
+    "sha256": "699517e93a5d6a73ef0575df1cc045c175053f795431339fcaf91249df41ca23"
+   },
+   "assets/codex/SKILL_EASTERN_SWORDMASTER_UNIQUE_PASSIVE.webp": {
+    "size": 1628,
+    "sha256": "91d9d3e87017b98b31a3dcf363b7cd481bc39702ea6506baf44011b9d2ad0c11"
+   },
+   "assets/codex/SKILL_EYE_OCTAGON_ATTACK.webp": {
+    "size": 2612,
+    "sha256": "751c96bfdd3139aee2a505a3314332f7c2732b6361cadd5af78cb154f76053f7"
+   },
+   "assets/codex/SKILL_GRACE_DUALSWORD_ATTACK.webp": {
+    "size": 2354,
+    "sha256": "9702e8fdcb4825d52740211c2272e35b002a21d318cf13e8f915acd3c092b153"
+   },
+   "assets/codex/SKILL_GRACE_DUALSWORD_HYPER.webp": {
+    "size": 2386,
+    "sha256": "de9d319155a0feacf6c2207d5a6eb7e27ae71cc74f4318b2bb3871de19214086"
+   },
+   "assets/codex/SKILL_GRACE_DUALSWORD_SPECIAL.webp": {
+    "size": 2368,
+    "sha256": "05a47ec590f353bd2fc049d355abe8112022258557e8c352aff969022ac77a00"
+   },
+   "assets/codex/SKILL_GRACE_DUALSWORD_UNIQUE_PASSIVE.webp": {
+    "size": 1568,
+    "sha256": "d2f7e1db60aa7bf8785aa06ae2281bfabf91106ffb60d8e9b44b66895fafbaa1"
+   },
+   "assets/codex/SKILL_INCOGNITA_FLOWER_ATTACK.webp": {
+    "size": 2768,
+    "sha256": "1711924304b0f50ec61ed9f9cc72082e54246db831184d20681704e7c0e71399"
+   },
+   "assets/codex/SKILL_INCOGNITA_FLOWER_HYPER.webp": {
+    "size": 2564,
+    "sha256": "3d2e644e0657af127bf81a46c4c471258d99dbf953028e2b92853d0ec28bd794"
+   },
+   "assets/codex/SKILL_INCOGNITA_FLOWER_SPECIAL.webp": {
+    "size": 2076,
+    "sha256": "e53bfce041461ed760e066ccc881f36e1c5277d4489d9dfd72e3f0d87ff3bcec"
+   },
+   "assets/codex/SKILL_INCOGNITA_FLOWER_UNIQUE_PASSIVE.webp": {
+    "size": 1482,
+    "sha256": "b117a605392f3b97ea448d405ee68817b3d8c8b3d592968f78eda92a36d3bc74"
+   },
+   "assets/codex/SKILL_INCOGNITA_LANDGRAVE_ATTACK.webp": {
+    "size": 2494,
+    "sha256": "88379cc133cb79466b7b480c146bec75dc65f53b26b01cddaa5d4467f93eaa12"
+   },
+   "assets/codex/SKILL_INCOGNITA_LANDGRAVE_HYPER.webp": {
+    "size": 2926,
+    "sha256": "289d7ed8c0d48d0e7307bf620780813cc3f601f48c4edd0bd4c4c58b019eaa3f"
+   },
+   "assets/codex/SKILL_INCOGNITA_LANDGRAVE_SPECIAL.webp": {
+    "size": 2378,
+    "sha256": "23ed41323f6ec81fbc9d23f4e8965fccb61283ba2883016c0a5e6b8ff8f966af"
+   },
+   "assets/codex/SKILL_INCOGNITA_LANDGRAVE_UNIQUE_PASSIVE.webp": {
+    "size": 1416,
+    "sha256": "bab69c879513548a8618e22906777fbc6eeeaec1fd5fbd28a2d3498b95370895"
+   },
+   "assets/codex/SKILL_INDEPENDENT_DRAGON_ATTACK.webp": {
+    "size": 2120,
+    "sha256": "6207c4818ac768b250a2f384d3bd0a70b678d5157dfc4c7605fbfca0404e4295"
+   },
+   "assets/codex/SKILL_INDEPENDENT_DRAGON_HYPER.webp": {
+    "size": 2824,
+    "sha256": "872d1710632fbea9bdc12db3b492a8420ed3cfed49d55887af643de552bfff2a"
+   },
+   "assets/codex/SKILL_INDEPENDENT_DRAGON_SPECIAL.webp": {
+    "size": 2752,
+    "sha256": "935262b4d186c297ad4351ed0d8991684e11c8078784b860c29dee51d6e27dbf"
+   },
+   "assets/codex/SKILL_INDEPENDENT_DRAGON_UNIQUE_PASSIVE.webp": {
+    "size": 1616,
+    "sha256": "36c7bb29c83b118d7aa876c3b6825347f42fa7151d39c80db3e567ceef001bec"
+   },
+   "assets/codex/SKILL_INDEPENDENT_VAGABOND_ATTACK.webp": {
+    "size": 2510,
+    "sha256": "b9b36620246fd51ecfa06a3e264f172136eeafa0be2f8e73a716d359472da6cd"
+   },
+   "assets/codex/SKILL_INDEPENDENT_VAGABOND_HYPER.webp": {
+    "size": 2746,
+    "sha256": "f44be1ece1445048178634137f8fb9704fcb7f1151d4e5e3faab8f46e3da89ff"
+   },
+   "assets/codex/SKILL_INDEPENDENT_VAGABOND_SPECIAL.webp": {
+    "size": 2486,
+    "sha256": "fe38036d745f940763bc634b3225aa4b09690bfb49ca96beea0d6bfa6925d28b"
+   },
+   "assets/codex/SKILL_INDEPENDENT_VAGABOND_UNIQUE_PASSIVE.webp": {
+    "size": 1744,
+    "sha256": "4fd65250d998371f1b648b509c187fc0ef1ce2827956384a03ffad92e87d680b"
+   },
+   "assets/codex/SKILL_KINGDOM_KNIGHT_ATTACK.webp": {
+    "size": 2330,
+    "sha256": "138fee211a8ac5ef1fb6060b0195c4801e7fb3e86dea7cb922f23c2eb17e814b"
+   },
+   "assets/codex/SKILL_KINGDOM_KNIGHT_HYPER.webp": {
+    "size": 3006,
+    "sha256": "b51f4c2292527342e19a6ed9627555475887fd5f33908f114a4bf8f887aeee39"
+   },
+   "assets/codex/SKILL_KINGDOM_KNIGHT_SPECIAL.webp": {
+    "size": 2554,
+    "sha256": "318409e7ed940b21f2c48ceafc4c98aeedbecf7558ad632b04862c8fb9775737"
+   },
+   "assets/codex/SKILL_KINGDOM_KNIGHT_UNIQUE_PASSIVE.webp": {
+    "size": 1278,
+    "sha256": "f2d957a4101ad3c93e08985ae255243c7bfb1f1eab8465fb1aafcbf1a02a27a5"
+   },
+   "assets/codex/SKILL_KINGDOM_PRAY_ATTACK.webp": {
+    "size": 2286,
+    "sha256": "4ff333eaf5ed2495460738cfab537e1a70825ad2b877c44703e69edd1f985d58"
+   },
+   "assets/codex/SKILL_KINGDOM_PRAY_HYPER.webp": {
+    "size": 2832,
+    "sha256": "9cf735455ebbfc81538ffb7851c23bc3555e9c6323be26aac19806154e93f4bf"
+   },
+   "assets/codex/SKILL_KINGDOM_PRAY_SPECIAL.webp": {
+    "size": 2490,
+    "sha256": "0f7eea18a4e008e79c0ff7751375ecc5647c3568885356abc90a2132adc327c7"
+   },
+   "assets/codex/SKILL_KINGDOM_PRAY_UNIQUE_PASSIVE.webp": {
+    "size": 1498,
+    "sha256": "21361ea2cb2f677e70731adda214b166195e9fd3a1b3d4daee7c63b667748e21"
+   },
+   "assets/codex/SKILL_KINGDOM_SHIELDER_ATTACK.webp": {
+    "size": 1994,
+    "sha256": "9f7bde0c7650940a3d80ff1844749a54405a221405328524670e228a218f1b70"
+   },
+   "assets/codex/SKILL_KINGDOM_SHIELDER_HYPER.webp": {
+    "size": 2530,
+    "sha256": "ca198cee21760f76d2ce5ddc807fa95f58f8e9e8952293bff2888df400edb544"
+   },
+   "assets/codex/SKILL_KINGDOM_SHIELDER_SPECIAL.webp": {
+    "size": 2588,
+    "sha256": "50f42bf1bd86d63e696c5c2aa7fb0d9909fd7c2110511e54810f3b674e43b0bb"
+   },
+   "assets/codex/SKILL_KINGDOM_SHIELDER_UNIQUE_PASSIVE.webp": {
+    "size": 1638,
+    "sha256": "1ad9859eebf06961ddb1dda64b857fcfed5f7d83eb2138e67018887405e6b14f"
+   },
+   "assets/codex/SKILL_LPU_POST_ATTACK.webp": {
+    "size": 2076,
+    "sha256": "04faadaa177f22446cf6f3050fe9a977bd9b9bd7168da051ff5c8b386dce3101"
+   },
+   "assets/codex/SKILL_LPU_POST_HYPER.webp": {
+    "size": 2174,
+    "sha256": "59522d56eac4cd3007f970f7338c2fc91bf5364e7a110a237ee551149c95ccfc"
+   },
+   "assets/codex/SKILL_LPU_POST_SPECIAL.webp": {
+    "size": 2148,
+    "sha256": "6565892af19a6dbfcedec5156e276cc4a5d4ef45ab4852279d159ae273d3a1d3"
+   },
+   "assets/codex/SKILL_LPU_POST_UNIQUE_PASSIVE.webp": {
+    "size": 1372,
+    "sha256": "924bf51eca4943a3e88b0f1f641ad4bc0bb18c0299540d4d55b17b84abc5e588"
+   },
+   "assets/codex/SKILL_MAGICIAN_DRUID_ATTACK.webp": {
+    "size": 2262,
+    "sha256": "167b796f7c7552ceb0af225ace822aab9cf37477f3f35076dc858817765f4d32"
+   },
+   "assets/codex/SKILL_MAGICIAN_DRUID_HYPER.webp": {
+    "size": 2464,
+    "sha256": "6112f43e3577a6149f68f4cb75c3e5dc9b26f963e1d16ddef88161c601292f2c"
+   },
+   "assets/codex/SKILL_MAGICIAN_DRUID_SPECIAL.webp": {
+    "size": 2412,
+    "sha256": "73af3a1983a6bfa540bf329ec92233d78c817f57afc3ce58bedebe6c2278a8ac"
+   },
+   "assets/codex/SKILL_MAGICIAN_DRUID_UNIQUE_PASSIVE.webp": {
+    "size": 1442,
+    "sha256": "85031c3aefec33727eeaa2bf63e31ec7175cdccb80e8f8484cbfa1281a687d35"
+   },
+   "assets/codex/SKILL_MAGICIAN_SNIPER_ATTACK.webp": {
+    "size": 2616,
+    "sha256": "8ae86deb52faa2004e0fe9e3319c35ab89d12267b5daf08cf21e0dceeadebe85"
+   },
+   "assets/codex/SKILL_MAGICIAN_SNIPER_HYPER.webp": {
+    "size": 2862,
+    "sha256": "16e4edd9cd96d478acf5d5532d71fa282f569e3a4818e25ba3558275c27f18fb"
+   },
+   "assets/codex/SKILL_MAGICIAN_SNIPER_SPECIAL.webp": {
+    "size": 2602,
+    "sha256": "5837fe914a59e0002abda5736079574dd6fb9c4b721726ec4f02d46ae6b698d9"
+   },
+   "assets/codex/SKILL_MAGICIAN_SNIPER_UNIQUE_PASSIVE.webp": {
+    "size": 1588,
+    "sha256": "a0e6676636633b861bfcaeeb5f3627b351bdf0c31c2e6e10eebec44ea550e474"
+   },
+   "assets/codex/SKILL_MAID_BELL_ATTACK.webp": {
+    "size": 2038,
+    "sha256": "700d5c79b53cfb0283d9f17c1d3fad2869f880a0428a028a0c65a58fc99d3f30"
+   },
+   "assets/codex/SKILL_MAID_BELL_HYPER.webp": {
+    "size": 2560,
+    "sha256": "695db0debf3aab206d390a290565ac9d8ca2c1b5ce1de135eda95c12ec24dffc"
+   },
+   "assets/codex/SKILL_MAID_BELL_SPECIAL.webp": {
+    "size": 2292,
+    "sha256": "6f34be238fd3da8d7fe43a92ee74c6a2be2fc52eeda6b7d60a689bb1a4a9844d"
+   },
+   "assets/codex/SKILL_MAID_BELL_UNIQUE_PASSIVE.webp": {
+    "size": 1588,
+    "sha256": "7438e5d6c1251097a15b01fa472a3f7641565623b057385acede7df60666a34b"
+   },
+   "assets/codex/SKILL_MAID_LANTERN_ATTACK.webp": {
+    "size": 1930,
+    "sha256": "73a5935a6c90b3df36a7c22b5783bf3fb3da04590903d5d40531386d5d8910ab"
+   },
+   "assets/codex/SKILL_MAID_LANTERN_HYPER.webp": {
+    "size": 2680,
+    "sha256": "a331903004f6cd0af8ef31f1a0a463fc520a33538e415eab1d1f55c2480cbcf3"
+   },
+   "assets/codex/SKILL_MAID_LANTERN_SPECIAL.webp": {
+    "size": 2726,
+    "sha256": "ac5c29d66bdc82060cbc4485125bd196d62f88fe258972d64b41b9edb696df04"
+   },
+   "assets/codex/SKILL_MAID_LANTERN_UNIQUE_PASSIVE.webp": {
+    "size": 1762,
+    "sha256": "80a634c27485a04f211c6fb4770cb24dfdf12b59acffc72341b5ab92721ed3b3"
+   },
+   "assets/codex/SKILL_MAID_SCISSORS_ATTACK.webp": {
+    "size": 1988,
+    "sha256": "88511dd4d5062f0677fa341d4f92cfbccd2642a6b64b87b8d32b74be0c121d0f"
+   },
+   "assets/codex/SKILL_MAID_SCISSORS_HYPER.webp": {
+    "size": 2608,
+    "sha256": "2ef6dbbfa662a81cce718f2a81de87095186dbf76fe19f6e3da1f7843bd02691"
+   },
+   "assets/codex/SKILL_MAID_SCISSORS_SPECIAL.webp": {
+    "size": 2218,
+    "sha256": "777ebaab39577785999b27c61d4593c455152288fabd1fab1c934b368f6aed0d"
+   },
+   "assets/codex/SKILL_MAID_SCISSORS_UNIQUE_PASSIVE.webp": {
+    "size": 1550,
+    "sha256": "4c1b036086b3d40eb977f3a2c64a622e5fc72afce7014dcb2cb4e313cc0ac4f9"
+   },
+   "assets/codex/SKILL_MAID_SPEAR_ATTACK.webp": {
+    "size": 2138,
+    "sha256": "8ba67374960e5cb8026c6a15b4c54b5fa1f2ebf2c0715baa1cf81ad40e37133d"
+   },
+   "assets/codex/SKILL_MAID_SPEAR_HYPER.webp": {
+    "size": 2680,
+    "sha256": "60f92a31554792967a18f7fe1d0e979d0ec8db489ea5f0a4b12665bc51ff46e2"
+   },
+   "assets/codex/SKILL_MAID_SPEAR_SPECIAL.webp": {
+    "size": 2620,
+    "sha256": "2c0ac27a5d423fc1f0b5fe786106633a891c3f5d819892b125ab0234ea5047d6"
+   },
+   "assets/codex/SKILL_MAID_SPEAR_UNIQUE_PASSIVE.webp": {
+    "size": 1692,
+    "sha256": "aab6d06e92fe748a2003c234f2dfd0b490dc8e6404b1778f57ee1de2b1bf2e2a"
+   },
+   "assets/codex/SKILL_MAID_TWOHANDER_ATTACK.webp": {
+    "size": 2348,
+    "sha256": "7a39c0b3e712a9de358281b90fdace3b4cb299ca1a4abf63700630112598129a"
+   },
+   "assets/codex/SKILL_MAID_TWOHANDER_HYPER.webp": {
+    "size": 2542,
+    "sha256": "f8e2c83814898051e93577cf0a9879c870be85d201bf9a9ee513ff7a52963e01"
+   },
+   "assets/codex/SKILL_MAID_TWOHANDER_SPECIAL.webp": {
+    "size": 2676,
+    "sha256": "6a12573142840c0e8a1c9d26688bfa04afa5e79e73469fd2e70fae6ac9b03f68"
+   },
+   "assets/codex/SKILL_MAID_TWOHANDER_UNIQUE_PASSIVE.webp": {
+    "size": 1262,
+    "sha256": "bee1e2df778b9cf4392c0ae443466b3e5e4cf25afa6e83182c51ede517132535"
+   },
+   "assets/codex/SKILL_MONUMENT_OBELISK_ATTACK.webp": {
+    "size": 2282,
+    "sha256": "b083a8d48e3b7b002b713f5e48c5dd80e39e9cd5daa7ce093a0ef63a46066f1e"
+   },
+   "assets/codex/SKILL_MUTANT_MASK_ATTACK.webp": {
+    "size": 2338,
+    "sha256": "502feacc112b75171524a6566459b7327b46ee036b54fa252b78edc46ca2541d"
+   },
+   "assets/codex/SKILL_MUTANT_MASK_HYPER.webp": {
+    "size": 2418,
+    "sha256": "45ad451950d3265ee298a0001020b7e157311b2ccd9fcd3484aac6cb9cc77320"
+   },
+   "assets/codex/SKILL_MUTANT_MASK_SPECIAL.webp": {
+    "size": 2538,
+    "sha256": "b2428037daff3406368dbbf22532faaa35788d6913b2ac3a4362ca08ccf8b495"
+   },
+   "assets/codex/SKILL_MUTANT_MASK_UNIQUE_PASSIVE.webp": {
+    "size": 1496,
+    "sha256": "2fa0f63d0ff82302f4757b1e661104e2b497b9c81b8f7672932e1cb5bada7673"
+   },
+   "assets/codex/SKILL_NIGHTMARE_REAPER_ATTACK.webp": {
+    "size": 2068,
+    "sha256": "e2874ded2d0dfb39cba2ecbda46b15331957f11f3da081e19a9352d4dbf12388"
+   },
+   "assets/codex/SKILL_NIGHTMARE_REAPER_HYPER.webp": {
+    "size": 2780,
+    "sha256": "15d9f0a3fe7bebd50597cc50327614e7353913baaf58817d3d0ea1142b81fb80"
+   },
+   "assets/codex/SKILL_NIGHTMARE_REAPER_SPECIAL.webp": {
+    "size": 2486,
+    "sha256": "82cc764bba08cc2b4ef360408148903fa95876be0a4c6d16cb812aa7cf80448a"
+   },
+   "assets/codex/SKILL_NIGHTMARE_REAPER_UNIQUE_PASSIVE.webp": {
+    "size": 1442,
+    "sha256": "6820c0fbf94f5d2f10073a9bf50649ef9e4e5c76ea620214b3a254497aea3796"
+   },
+   "assets/codex/SKILL_NOA_OBSERVER_ATTACK.webp": {
+    "size": 2340,
+    "sha256": "8992597c13f1de9582efd22c58ba54aff1bc2e16a6a6abe3315b5ad611550568"
+   },
+   "assets/codex/SKILL_NOA_OBSERVER_HYPER.webp": {
+    "size": 2748,
+    "sha256": "4bdef2aa9adad5e23812ecf36f662893d4bdf439786cef40cac5a9ef58486a55"
+   },
+   "assets/codex/SKILL_NOA_OBSERVER_SPECIAL.webp": {
+    "size": 2326,
+    "sha256": "23615671c2dee17c23c21e87346ada431e09de6165a8659accc3228d3902bb63"
+   },
+   "assets/codex/SKILL_NOA_OBSERVER_UNIQUE_PASSIVE.webp": {
+    "size": 1602,
+    "sha256": "bffced8d5d6a93466645e743222be49f5b864cde69deec7f818164fede8d0875"
+   },
+   "assets/codex/SKILL_OFFICER_POLICE_ATTACK.webp": {
+    "size": 2276,
+    "sha256": "fded729aa09d8e1ea77ae25cb4135951b90f91f53822d0dd9fc39f6ff6e297dd"
+   },
+   "assets/codex/SKILL_OFFICER_POLICE_HYPER.webp": {
+    "size": 2624,
+    "sha256": "46ba366ca72fbc4f797ac854e56d2aab0b0da7842a098c37513eb1dd73ba97e9"
+   },
+   "assets/codex/SKILL_OFFICER_POLICE_SPECIAL.webp": {
+    "size": 2462,
+    "sha256": "ca842727e5f32fa602701b2f5fa7c3c76eb9d9f2bdc77a788afd67a70614ee58"
+   },
+   "assets/codex/SKILL_OFFICER_POLICE_UNIQUE_PASSIVE.webp": {
+    "size": 1414,
+    "sha256": "f4fe8379fd3752e25660be584803534e28b232ffc6768cebce4476320f30bba9"
+   },
+   "assets/codex/SKILL_RECON_AMULET_ATTACK.webp": {
+    "size": 2304,
+    "sha256": "b9dbfd4dfe73ef1c1c390d70c64e42952608d508f1f0d1eef16376931ff511de"
+   },
+   "assets/codex/SKILL_RECON_AMULET_HYPER.webp": {
+    "size": 2788,
+    "sha256": "e66fe80f48724e2b472734a53590a4890711419a63849070ae97e62186218e17"
+   },
+   "assets/codex/SKILL_RECON_AMULET_SPECIAL.webp": {
+    "size": 2298,
+    "sha256": "e30d470d24a87d2c9188067209f719e4db31ef98b1c920a133c858719ece46a6"
+   },
+   "assets/codex/SKILL_RECON_AMULET_UNIQUE_PASSIVE.webp": {
+    "size": 1330,
+    "sha256": "747aa19a375f92224b2dfacaf4c1ddca68a13ce0bf79063d81c7c613bc4c579f"
+   },
+   "assets/codex/SKILL_RECON_KNUCKLE_ATTACK.webp": {
+    "size": 2494,
+    "sha256": "1eb83d11a51f12ad4ac80964f1a63e828d88ad9b7c0327280f61db55ae209875"
+   },
+   "assets/codex/SKILL_RECON_KNUCKLE_HYPER.webp": {
+    "size": 2760,
+    "sha256": "1e25145c2b30d69758974b5d2e91587470dfc2150399d00aa75c014f78161597"
+   },
+   "assets/codex/SKILL_RECON_KNUCKLE_SPECIAL.webp": {
+    "size": 2260,
+    "sha256": "6b8b360a37bf9aaf2824257bbbe24ede8961ca868245b32b50ce649ef97490e0"
+   },
+   "assets/codex/SKILL_RECON_KNUCKLE_UNIQUE_PASSIVE.webp": {
+    "size": 1858,
+    "sha256": "fa1ffa1bec467b94cb4f992d469946ae1f84b8ab869508fa633b2a5b92ade902"
+   },
+   "assets/codex/SKILL_SAINTESS_DEMON_ATTACK.webp": {
+    "size": 2542,
+    "sha256": "be91ae316fe15da9679a113ca6bc197bac10d63a50201d5cdf5fe06d86e6f076"
+   },
+   "assets/codex/SKILL_SAINTESS_DEMON_HYPER.webp": {
+    "size": 2852,
+    "sha256": "b9f33dcdadb70249cac3637f86fb18e2920702b13bb3b3e9122847ffea03b90c"
+   },
+   "assets/codex/SKILL_SAINTESS_DEMON_SPECIAL.webp": {
+    "size": 2456,
+    "sha256": "d4d6d7014fe89abc0b1fa8836aaf1f40381f6c9b541ab4f7ec3437f991eac994"
+   },
+   "assets/codex/SKILL_SAINTESS_DEMON_UNIQUE_PASSIVE.webp": {
+    "size": 1374,
+    "sha256": "62e606ef7130dd47e4aefee2a49f2d2627a7ad5ab4c874b8325f78bee260bb90"
+   },
+   "assets/codex/SKILL_SAINTESS_ELF_ATTACK.webp": {
+    "size": 2494,
+    "sha256": "54cdabea27f3c7a5370da2cc539621b7fc275090d4f5bcdc71f364ca4c1960bf"
+   },
+   "assets/codex/SKILL_SAINTESS_ELF_HYPER.webp": {
+    "size": 2824,
+    "sha256": "426afb4d9fb6c4d1aacd8bf426788d280fd8aa7d53b4452ccc19cf049bc93e32"
+   },
+   "assets/codex/SKILL_SAINTESS_ELF_SPECIAL.webp": {
+    "size": 2630,
+    "sha256": "3bf3d66c57df2f36119d95f8deb8b9c64007726e74d519f5dc92facf0661514a"
+   },
+   "assets/codex/SKILL_SAINTESS_ELF_UNIQUE_PASSIVE.webp": {
+    "size": 1448,
+    "sha256": "d23d92e06d8106ffa02de0dec9b4b0cd56e54d727737879d6df24f52200c0c91"
+   },
+   "assets/codex/SKILL_STALKER_SKELETON_ATTACK.webp": {
+    "size": 1678,
+    "sha256": "8133455249da2ab12fd2a641e8712789728d43489836ef4a116c2c9c3c82a5db"
+   },
+   "assets/codex/SKILL_STARPIERCER_OMEGA_ATTACK.webp": {
+    "size": 2664,
+    "sha256": "3be474b16432fd150f3a704ec5ccd08788c332cde18d68407c4e2d788ba28552"
+   },
+   "assets/codex/SKILL_STARPIERCER_OMEGA_HYPER.webp": {
+    "size": 2156,
+    "sha256": "07499215715003b8edc304b5df1f66b1929a4de80433068bd42476abf35885ed"
+   },
+   "assets/codex/SKILL_STARPIERCER_OMEGA_SPECIAL.webp": {
+    "size": 2256,
+    "sha256": "de2e4067f6cc13e33e2f05bab40a10b39ee0890e487d96f1a4913a27d88eaa4e"
+   },
+   "assets/codex/SKILL_STARPIERCER_OMEGA_UNIQUE_PASSIVE.webp": {
+    "size": 1272,
+    "sha256": "bc002a379e79e5a260ab2aa761c72d2f892cc6eec94b5bad6ad84b9777c7430b"
+   },
+   "assets/codex/SKILL_STELLAR_THIEF_ATTACK.webp": {
+    "size": 2530,
+    "sha256": "250acf3b89e3b24b9e5b817275a2fb0d4d19db5d4a5f9b252633ba31bda3d5af"
+   },
+   "assets/codex/SKILL_STELLAR_THIEF_HYPER.webp": {
+    "size": 2608,
+    "sha256": "7ee1eb6ec954aecc73bae87f8826b247d84cf017132e309149f84bed760ae03b"
+   },
+   "assets/codex/SKILL_STELLAR_THIEF_SPECIAL.webp": {
+    "size": 2766,
+    "sha256": "d3009c0d7c147407eb49b356f4c721e38e5355aab458217ddddb23519a0c5517"
+   },
+   "assets/codex/SKILL_STELLAR_THIEF_UNIQUE_PASSIVE.webp": {
+    "size": 1682,
+    "sha256": "297d9c40fb7ab154808c348cf3e9b06ed6854fabc530f47ed3c7062ec0a00e51"
+   },
+   "assets/codex/SKILL_STRANISEARL_ROSEBLADE_ATTACK.webp": {
+    "size": 2572,
+    "sha256": "3b3fd97135da8eddb8f735e3db1faee88234fa4166d46c36b75bcabaa2a84e08"
+   },
+   "assets/codex/SKILL_STRANISEARL_ROSEBLADE_HYPER.webp": {
+    "size": 3064,
+    "sha256": "2fe6998b3806d8c6acb73e127ee8a8bed412d4fcf6eb698ffd681317a233ef16"
+   },
+   "assets/codex/SKILL_STRANISEARL_ROSEBLADE_SPECIAL.webp": {
+    "size": 2982,
+    "sha256": "c4c5eb79649c9354afb0af1e637e51e57d29118f12dbb5e7dbbbb13fef2797c5"
+   },
+   "assets/codex/SKILL_STRANISEARL_ROSEBLADE_UNIQUE_PASSIVE.webp": {
+    "size": 1506,
+    "sha256": "4488425affd5546630cc24dbfff06618cdfc5e7da33dca01d19ea22edd17bb75"
+   },
+   "assets/codex/SKILL_VOIDREAPER_SCYTHE_ATTACK.webp": {
+    "size": 2532,
+    "sha256": "da0b2def0294511cd96904d963df0ed94b2a6ca69144a505d77d5bf2ff8ba78e"
+   },
+   "assets/codex/SKILL_VOIDREAPER_SCYTHE_SPECIAL.webp": {
+    "size": 2274,
+    "sha256": "5afac9de33d29e8fe014bd591632a5ece47624a6f8f63afc8be0a23ebf538b81"
+   },
+   "assets/codex/SKILL_VOYAGER_GUNBLADE_ATTACK.webp": {
+    "size": 1838,
+    "sha256": "a02b338cd6d543923007fa0ce747ffb493192adcb50cb4438092975ffce9b8dd"
+   },
+   "assets/codex/SKILL_VOYAGER_GUNBLADE_HYPER.webp": {
+    "size": 2632,
+    "sha256": "8805b02fc6ffdc65189799646f0d4826ae6cbc24c2cdd0a76a03f87838a92b80"
+   },
+   "assets/codex/SKILL_VOYAGER_GUNBLADE_SPECIAL.webp": {
+    "size": 2106,
+    "sha256": "65b70342575fd6350fe905938ebd949a47743f82082bfddbf128ec274669ce69"
+   },
+   "assets/codex/SKILL_VOYAGER_GUNBLADE_UNIQUE_PASSIVE.webp": {
+    "size": 1844,
+    "sha256": "0bf760192ec27638ca26c8d58bb6db9bd53b49fbe25a21ccaf5d39aa96370341"
+   },
+   "assets/codex/SKILL_VOYAGER_ORACLE_ATTACK.webp": {
+    "size": 2196,
+    "sha256": "e93dec6bca5dcd2cc972a2155307328a9c15726b48fd581e5b5bf7e3297d38ef"
+   },
+   "assets/codex/SKILL_VOYAGER_ORACLE_HYPER.webp": {
+    "size": 2650,
+    "sha256": "1d1333eab0e8283cb0a62f831de245d36c63b11f16903fe0842ce56bf552c3f9"
+   },
+   "assets/codex/SKILL_VOYAGER_ORACLE_SPECIAL.webp": {
+    "size": 2438,
+    "sha256": "5e7449a77e427a203db5560e81df0bad32fd5b588b91f9519692b7af78c78666"
+   },
+   "assets/codex/SKILL_VOYAGER_ORACLE_UNIQUE_PASSIVE.webp": {
+    "size": 1480,
+    "sha256": "fce880e4dae63c6149d1a67c07c4e4a9bbfe5c66330c0f4db085ad9d8df6d31b"
+   },
+   "assets/codex/SKILL_VOYAGER_SMILE_ATTACK.webp": {
+    "size": 2466,
+    "sha256": "15b07abe3173463b7da27b629e0c8662b7678fc07a9a503bd92d77ec850be111"
+   },
+   "assets/codex/SKILL_VOYAGER_SMILE_HYPER.webp": {
+    "size": 2574,
+    "sha256": "7be54c228dbbcd914cdae3eae26cd03b4bfe95e44a356dfa679aff9a7b200d16"
+   },
+   "assets/codex/SKILL_VOYAGER_SMILE_SPECIAL.webp": {
+    "size": 2286,
+    "sha256": "3b63c27f0acea1c62d90c3d9546d878ef0b64dfb315b354a6c6adbaa241407ea"
+   },
+   "assets/codex/SKILL_VOYAGER_SMILE_UNIQUE_PASSIVE.webp": {
+    "size": 1326,
+    "sha256": "972885428338a6427319c23a5591b490170747f391c198948bc498ffa2cffbc2"
+   },
+   "assets/codex/SKILL_VOYAGER_STRANIS_ATTACK.webp": {
+    "size": 2448,
+    "sha256": "ff96113b33f7b9385fcf10d35c3d64078fe6b1657291d7b2cb7ee4d624b124cc"
+   },
+   "assets/codex/SKILL_VOYAGER_STRANIS_HYPER.webp": {
+    "size": 2512,
+    "sha256": "9e6224dea3b3f56ffca88dba2db7765995332cf7ab5f32059c7f3362076ca1d5"
+   },
+   "assets/codex/SKILL_VOYAGER_STRANIS_SPECIAL.webp": {
+    "size": 2422,
+    "sha256": "58e3af343f2a71e141527b54af6e3c4a43f2edea1d0ccc419146c00fb36041d0"
+   },
+   "assets/codex/SKILL_VOYAGER_STRANIS_UNIQUE_PASSIVE.webp": {
+    "size": 1798,
+    "sha256": "de1e880a1bea4e7b106ea7bc46459a3c8aed6e2c2965b426c8614c0a71001ec9"
+   },
+   "assets/codex/SKILL_WATCHER_SHARP_ATTACK.webp": {
+    "size": 2288,
+    "sha256": "71009a5a19d4ef63dfc0d4be854159f1c4e48689124186aea1cb393ab904a8a3"
+   },
+   "assets/codex/SKILL_WEAPON_BLADE_ATTACK.webp": {
+    "size": 2296,
+    "sha256": "b727822503951ce14e2aa2409e9d8b873edc4a3f6ddd1b38c67e408d6a484dd5"
+   },
+   "assets/codex/SKILL_WEST_BEAMSWORD_ATTACK.webp": {
+    "size": 2106,
+    "sha256": "c0e124fc87bc136babdc750559dcd2ab381d71a38e19c575777b6144af6e3243"
+   },
+   "assets/codex/SKILL_WEST_BEAMSWORD_HYPER.webp": {
+    "size": 2376,
+    "sha256": "7b6263dec1f3127b3374fecb6730f11e8dd7a8f6a5ba8728fbe6a37b47bdaa63"
+   },
+   "assets/codex/SKILL_WEST_BEAMSWORD_SPECIAL.webp": {
+    "size": 2300,
+    "sha256": "6485a938c5d331287973934db7e0d058ece482c0fa18f924ffa0d9943ad0f1f6"
+   },
+   "assets/codex/SKILL_WEST_BEAMSWORD_UNIQUE_PASSIVE.webp": {
+    "size": 1550,
+    "sha256": "978f6592488ed23418fdd85bca8a29bc712c71ec262176fef3f78d16c8f7a18f"
+   },
+   "assets/codex/SKILL_WEST_LANCER_ATTACK.webp": {
+    "size": 2464,
+    "sha256": "ccc16078f34bcd6cbc067065a0c5e5bc3dfbdd1f5d3d3b7fbbab6a66cd82a78a"
+   },
+   "assets/codex/SKILL_WEST_LANCER_HYPER.webp": {
+    "size": 2406,
+    "sha256": "24f5c86e77e5d25758289aed5a777fb4f14d08b7349a69b95eb55544d618f511"
+   },
+   "assets/codex/SKILL_WEST_LANCER_SPECIAL.webp": {
+    "size": 2734,
+    "sha256": "53c1b44bc59851e9c5b253fcce6ce3876ef27a2ea8cc5fa04fcfe37cd29e342d"
+   },
+   "assets/codex/SKILL_WEST_LANCER_UNIQUE_PASSIVE.webp": {
+    "size": 1576,
+    "sha256": "453921085c8a6bd167944c22860fe466e6e52d645357eef5318307b30489a23f"
+   },
+   "assets/codex/SKILL_WEST_ROD_ATTACK.webp": {
+    "size": 2538,
+    "sha256": "a509e0d2bae6590dd9f1167f5af1131730cc3c5843b41510b2a0f875a5a7d858"
+   },
+   "assets/codex/SKILL_WEST_ROD_HYPER.webp": {
+    "size": 2614,
+    "sha256": "75d3a58e38f8ec0bb9e6700c0a968c0dd2bf97f3795a7b13169732236a155648"
+   },
+   "assets/codex/SKILL_WEST_ROD_SPECIAL.webp": {
+    "size": 2650,
+    "sha256": "47d6b4536e9997d56ca8aea54d3365c615aad92b60801411d2ab418ad04968e6"
+   },
+   "assets/codex/SKILL_WEST_ROD_UNIQUE_PASSIVE.webp": {
+    "size": 1320,
+    "sha256": "6c7daf0b4c08d289924f880a93ee950db31a1d1980500c170470b6958308ccee"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_METEORWHIP_ATTACK.webp": {
+    "size": 1970,
+    "sha256": "95b2d16e276e1a55202a10de6c9e862b5e060d02b9cb39fac16f0e189ebc235e"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_METEORWHIP_HYPER.webp": {
+    "size": 3060,
+    "sha256": "ee736e75e90bb3b6439763c938e7244f9427b0702586ac05a5af9d900a7cd475"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_METEORWHIP_SPECIAL.webp": {
+    "size": 2050,
+    "sha256": "1b9690d11a993b6bbff9645f75554d12c1e7b8179f050ac98676299d4461c331"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_WINDFAN_ATTACK.webp": {
+    "size": 2598,
+    "sha256": "1d1714962783f97719c6bb8b8b883a0aa54272e7744e3fa7279fd148810c0724"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_WINDFAN_HYPER1.webp": {
+    "size": 2018,
+    "sha256": "f37ac48f3572c8e3a5cbac056dd3df563f5d51b13d25680f0a7e8da9ee5ceeaa"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_WINDFAN_HYPER2.webp": {
+    "size": 2710,
+    "sha256": "2fa5268f40174a32f092084db0f6c16264bc5845a472c2b1736aea2fced66432"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_WINDFAN_HYPER3.webp": {
+    "size": 2994,
+    "sha256": "29e707ae2ceb7e2da50526c0caacb7249ea2df5a912eb32f39899f36fa784a1b"
+   },
+   "assets/codex/SKILL_WHITEDRAGON_WINDFAN_SPECIAL.webp": {
+    "size": 2762,
+    "sha256": "7d073eb99f2d51cc6ec4e210ec46c3037422b6a53b458092839d606ac02d67f0"
+   },
+   "assets/codex/SKILL_WILD_HOG_ATTACK.webp": {
+    "size": 2398,
+    "sha256": "49e5e80cf6af0e5ce575ce953806ca7a7dba939ea56bb1ffcf787358684dbc91"
+   },
+   "assets/codex/SKILL_WILD_HOG_HYPER.webp": {
+    "size": 2540,
+    "sha256": "9cbb17bfc380f31e5ce496fadedd8e789ed41c7104195c5addcdbe9fcf73220e"
+   },
+   "assets/codex/SKILL_WILD_HOG_SPECIAL.webp": {
+    "size": 2248,
+    "sha256": "56cb82b9e9507fa55c801e2b090bbb21b22399aff0dc38cc0d1795bacd9e3382"
+   },
+   "assets/codex/SKILL_WILD_HOG_UNIQUE_PASSIVE.webp": {
+    "size": 1480,
+    "sha256": "6a4e54087adad564370bc3c143afd2c2e2dbd44da195d2995b6191daf4f91297"
+   },
+   "assets/codex/TAB_EVENT_CASINO.webp": {
+    "size": 7372,
+    "sha256": "9451bb63bb3263dd488186aaa63f3b699ad1925df648a17c750dabdb42b06930"
+   },
+   "assets/codex/TAB_EVENT_CASINO2.webp": {
+    "size": 9976,
+    "sha256": "5c818867fb7c0bc963038204c3ff79f1ab9795a6484f4854cd5be20c348c099e"
+   },
+   "assets/codex/TAB_EVENT_CLASH.webp": {
+    "size": 4654,
+    "sha256": "4f9e8cf32461d0dedc714093dc4f4c1473de27e50cd89100bc20bc202d7efe76"
+   },
+   "assets/codex/TAB_EVENT_COUNTERSIDE.webp": {
+    "size": 8964,
+    "sha256": "2bf5baa8f1b508dc077bf9791766a245e3fc0058ebbef8cd325cdd8229b54e22"
+   },
+   "assets/codex/TAB_EVENT_DETECTIVE.webp": {
+    "size": 7084,
+    "sha256": "7737902547257ec4bd39cdc9202b72f9ad4666cf234c09c81f04ccb0213d801b"
+   },
+   "assets/codex/TAB_EVENT_DRESS.webp": {
+    "size": 8126,
+    "sha256": "231e5cd0fecb6ba116d024524f1c29ebc58bc6204149210179540a0d19d32e65"
+   },
+   "assets/codex/TAB_EVENT_EASTERN.webp": {
+    "size": 7518,
+    "sha256": "1d99a33e4cff3c075cc537b7ae68ec5cd2d9d89b225471a56a13df56efa53b5d"
+   },
+   "assets/codex/TAB_EVENT_EPISODE_4.webp": {
+    "size": 6708,
+    "sha256": "d67a0467dc48e6e40aecc48251d464a0c825e5366cdb183648f1e3f826e6795a"
+   },
+   "assets/codex/TAB_EVENT_EPISODE_5.webp": {
+    "size": 8908,
+    "sha256": "0f0aadd166053664ce08ef1429ffc1bd8dc6d5558a2b45f3685ed3922905d10c"
+   },
+   "assets/codex/TAB_EVENT_EPISODE_6.webp": {
+    "size": 8402,
+    "sha256": "3d2246e661271d7e1a021e8c0b21e2f869ca1d01419aa777756de0df972ef58c"
+   },
+   "assets/codex/TAB_EVENT_EPISODE_7.webp": {
+    "size": 6922,
+    "sha256": "5a6bf72585ce689f1f2b8effc7cc5c53660d0ce7725a2fac9cd787cf171ee323"
+   },
+   "assets/codex/TAB_EVENT_LANTERN.webp": {
+    "size": 8060,
+    "sha256": "6a858587382ec85b63c69720e95a175df334545b32b8fe6c57cfcd6df90c5801"
+   },
+   "assets/codex/TAB_EVENT_MINI02.webp": {
+    "size": 10844,
+    "sha256": "e8159154cb5266a2d8cf858f4311dd0947adb0cf9f1e0a5899c6146cd0ddd2fc"
+   },
+   "assets/codex/TAB_EVENT_MOCK.webp": {
+    "size": 7980,
+    "sha256": "6004a86d290df909ee612d8cc366edca35838600fa4c4d20cb14525956422d0a"
+   },
+   "assets/codex/TAB_EVENT_MORREL.webp": {
+    "size": 6318,
+    "sha256": "3b075ece9fb5edea37c0fb22e8ce06813544d1b9d565e12639c4c5dfe8bcfd1c"
+   },
+   "assets/codex/TAB_EVENT_ODYSSEY.webp": {
+    "size": 8066,
+    "sha256": "549229274d1672606212de88181dda7031805ce199d35aeea7d9bfd3b43dd659"
+   },
+   "assets/codex/TAB_EVENT_ORBITAL.webp": {
+    "size": 7420,
+    "sha256": "6230089f7dae8c5fb43a0ca9f7b97e847f704633589849df115786c10baa6f51"
+   },
+   "assets/codex/TAB_EVENT_STARTRAIL.webp": {
+    "size": 6848,
+    "sha256": "f3d811987f0c83d50af3364143916615c8448d96c3687a4b6a90c86c41e76d3f"
+   },
+   "assets/codex/TAB_EVENT_SUMMER.webp": {
+    "size": 8470,
+    "sha256": "6f64f4a0f49f581dac14eb5b7f5c3300e703d2b80a77a34ed193eb303d59471e"
+   },
+   "assets/codex/TAB_EVENT_WEDDING.webp": {
+    "size": 6050,
+    "sha256": "d7c8b09d7c8fb4a20f8a76a0ee80737099fd47a83f159c6aad4f50cea4686b6d"
+   },
+   "assets/codex/TAB_EVENT_WINTER.webp": {
+    "size": 7544,
+    "sha256": "1733250ca1f69bb38cf09e3a6950c88703da37113718c6d5772d445f1cf71144"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_BELLWETHER_HORN_BLACK.webp": {
+    "size": 10480,
+    "sha256": "15160ddf78cbacbf04786b868ee3fcb756d25fd9d87c845c1b47b44fe419637e"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_BELLWETHER_MANE.webp": {
+    "size": 13734,
+    "sha256": "5bca615171fabd5d6f7a74a367ef784be4280fe5fb0118f0bc01e3171fedfb1f"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_CLOAKING_CLAW_BLACK.webp": {
+    "size": 9040,
+    "sha256": "86a7294ea97ab459a16c127b1456c28996348cfaea0560aba15688f929fbe130"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_CLOAKING_CLAW_RED.webp": {
+    "size": 9872,
+    "sha256": "45b48543521f25c83c5b26da7a998973e5c042b8ad49f193c80d9b1272773082"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_COHESION_FLOWER_BLACK.webp": {
+    "size": 10368,
+    "sha256": "f739df4bb0f10c090aa0b86ccc8ba3a48ff29542eee1d3f6abefb8fb39e9f65d"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_COHESION_FUSION_BLACK.webp": {
+    "size": 11884,
+    "sha256": "fa54d7051eb475546cbb2c570d67a20199652b8c8488757007f94cc980c4bd0f"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_CONSIDER_ELITEWORM_BLACK.webp": {
+    "size": 9338,
+    "sha256": "c65148e1c2c3c56917ba02b702d8069eae4f6c7c637fc22e6320b04eab0e1740"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_EXCEED_EYES_BLACK.webp": {
+    "size": 11294,
+    "sha256": "e2c2d53f6ef837380cca5da1382af02a803df2ec962fc6b147d4b66891c71452"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_EXCEED_UNSEAL_BLACK.webp": {
+    "size": 11842,
+    "sha256": "9c8bb158e667320bdcf4b3530a99ef288255cdd67d905573a863437e60e0518e"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_EYE_SAWTOOTH_BLACK.webp": {
+    "size": 8246,
+    "sha256": "810f1d59fb2f2323601d64796fd752e02b96ef4c68a1608c06f2f7cc96b4041d"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_FALLEN_DUALSWORD_BLACK.webp": {
+    "size": 8332,
+    "sha256": "7446eca91c146dc9762d20f040636bb7111dd7f39b350c8ad83ff4929848d2f9"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_FALLEN_DUALSWORD_RED.webp": {
+    "size": 9440,
+    "sha256": "89d1666606aca2df281bcd33504d17efe9ec76762d95ccb538bc4c0f7d8b4f6d"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_FALLEN_SHIELD_BLACK.webp": {
+    "size": 9310,
+    "sha256": "02c40bfcb9c26451addebf32e45876977b757ad412f91fb64c8ca30e6182a41e"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_MONUMENT_TOTEM_BLACK.webp": {
+    "size": 7824,
+    "sha256": "d2f771d0b4fad6d8107bc0b7c4ecf8348fc101a37338c904f07a814f234976e7"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_MOTIVATOR_HANDS_BLACK.webp": {
+    "size": 9578,
+    "sha256": "24b4b35b5275ecf4d7c7d26ac184096e3c39b9b7e83c410628413f37a0a61842"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PERSES_SWORD.webp": {
+    "size": 6322,
+    "sha256": "ba80aa3208b2c7843b704cdeec6820fdc421108c8d9a645be3af63286d381b60"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PILGRIM_ALIEN_BLACK.webp": {
+    "size": 9260,
+    "sha256": "ae1029d8b61238b6c992aac1ec86cb900297d3a1510f2bc5a12fb5080fbefd6b"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PILGRIM_ALIEN_RED.webp": {
+    "size": 11078,
+    "sha256": "390b61aec009240d0a4f3e862119a8306c07282bbce3fbd47d09f4829c4fbbd2"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PROPHET_ELITEJELLY_BLACK.webp": {
+    "size": 9836,
+    "sha256": "b7681daa508c60cc91b3a78edbba39582836d7ac8bdcb95314c80cf35a844230"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PUNISHER_ARMOR_BLACK.webp": {
+    "size": 7754,
+    "sha256": "3b7ff769fc3d72aa8e56388d834e1923d5f80eac9021f4055312eed6a164eefd"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PUNISHER_ARMOR_RED.webp": {
+    "size": 9088,
+    "sha256": "78622a595696745aae284149360ac8f1ec910087ad0d510eda10c26d70f6efe5"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_PUNISHER_HANDS_BLACK.webp": {
+    "size": 7502,
+    "sha256": "f757da109a1ff1cd3c1fa3c1b0d6ac1075622304b78eb9057851df765d69c73a"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_SPOTTER_ELITERING_BLACK.webp": {
+    "size": 7150,
+    "sha256": "e86faaff66831a281cfd2761e58465c507a744b19d0f45b301f8cff7b602e178"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_SPREADER_ELITEBONE_BLACK.webp": {
+    "size": 7678,
+    "sha256": "3afdc45f526cc2f9ffe94b57d91cc731d003f3f1835c95f91508c0facaa4fc8a"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_STALKER_DEATHBONE_BLACK.webp": {
+    "size": 9830,
+    "sha256": "2e27ceb52a38dc5d4c791b7b674e434fcc9fdbdf2093ffd308703e913dc5432c"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_TANKER_IRON_BLACK.webp": {
+    "size": 9024,
+    "sha256": "8697259f53f290e4f6bad645706944c8f7fda2e21fd6b7ab6d5f2af2203ab9a4"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_TUNER_CROWN_BLACK.webp": {
+    "size": 4914,
+    "sha256": "dff83e93f821da406ff7b0a16c5648a38a33e4ed920bb4fab874854b26161af2"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_TUNER_CROWN_PURPLE.webp": {
+    "size": 5684,
+    "sha256": "ce2a27078206935b71a2695a2b2b42b345390c26f85a0c33075192fdf84e731e"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_TUNER_CROWN_RED.webp": {
+    "size": 6568,
+    "sha256": "ef02f618fa273a16ca0e09fa45da72e75228b9b1983f16a60b923a9e2a425281"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_USURPER_CHAIR_BLACK.webp": {
+    "size": 7526,
+    "sha256": "1d0a7fcdf172d6d23c54c080cf24270b153b7465c369b47548bcd5f6dc79424c"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_USURPER_CHAIR_RED.webp": {
+    "size": 8798,
+    "sha256": "7fb71b2c21783b30c7f843aa442638c363b49d62bc846b0d6554b8b3b65023ef"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_VOIDREAPER_SCYTHE_BLACK.webp": {
+    "size": 8236,
+    "sha256": "232ba297bb94edb1127521998e4d5118fe90a9a4c131e9ce7a62e0b56db4e262"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_VOIDREAPER_SCYTHE_RED.webp": {
+    "size": 7340,
+    "sha256": "758eb22f365641e433d0329b24536976613e5698c93b6cb7ffe3bd2bd750f87a"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WANDERER_ELITEPRICKLE_BLACK.webp": {
+    "size": 9928,
+    "sha256": "da0812b1c88b25f322b14cf91b9d556c6a5f68012f894f96039da3364424c7b2"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WATCHER_SPLINTER_BLACK.webp": {
+    "size": 10518,
+    "sha256": "fefe589add4410e31de8642ba29c3f857ee882aefc6d0bfe14f6b368e8da433a"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WEAPON_SWORD_BLACK.webp": {
+    "size": 8420,
+    "sha256": "c7248740cd62c35f0976d3be600f0f4cda364a109ebda75f58374c18a361a5e4"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WENDIGO_SNOW_WHITE.webp": {
+    "size": 7680,
+    "sha256": "3194c79402d22376fd004367db6ca8bbc5ecd7f4bd8cc0b7db91f4491b3db4a8"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WITNESS_COFFIN_BLACK.webp": {
+    "size": 9730,
+    "sha256": "2964d8575c0b3062c5eef33ef6c9b5c9525049f1ca25a48527f3059f9e12102e"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WITNESS_COFFIN_RED.webp": {
+    "size": 10824,
+    "sha256": "d156d45579619976e5405a9f34df33d7dcfc1544631e0cdc8a4c2ead2255f8d2"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_WIZARD_HALO_BLACK.webp": {
+    "size": 8158,
+    "sha256": "f9b127ef719df61d5201fa894ef8e0053ebd08b5f5684c669fe4ec77c1b90787"
+   },
+   "assets/codex/UFM_NKM_UNIT_S_APOSTLE_GILLE.webp": {
+    "size": 4016,
+    "sha256": "239a9a763805ce7668b2b8ed9fda0ca59ddffab3addfcc1601c0990c6737cefa"
+   },
+   "assets/codex/UFM_NKM_UNIT_S_DARK_UNKNOWN.webp": {
+    "size": 4822,
+    "sha256": "455c58cfb4feb0bbee4ec1403b43fd0834e02f069d4d51f2c6c934374c79c3a2"
+   },
+   "assets/codex/UFM_NKM_UNIT_S_WHITEDRAGON_METEORWHIP.webp": {
+    "size": 5862,
+    "sha256": "90777f242397ba3b614ce59654e388ae3e800e21a5ff7a962e574032ac6cef39"
+   },
+   "assets/codex/UFM_NKM_UNIT_S_WHITEDRAGON_WINDFAN.webp": {
+    "size": 4672,
+    "sha256": "40e27fabee68f68a1fa67ca2752750b5d57880b291ccfb8878c751cd18004b1a"
+   },
+   "assets/codex/UFS_NKM_UNIT_MON_STALKER_SKELETON_BLACK.webp": {
+    "size": 6474,
+    "sha256": "5fbb1f85502c388eee05c617c9836858f6ade22aa0dd4ddd544c8f948a0f8c2e"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
+    "size": 7592,
+    "sha256": "d263d7009a359286e11eafce9152cb499653a28636ec78bcfcf13dec3258fd36"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp": {
+    "size": 7468,
+    "sha256": "446c302f23543e73017ee8441416926c90bccbcbc3f24139aaaedc6f27545b55"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp": {
+    "size": 7368,
+    "sha256": "5e589d383812b91b290c1eadac79d376ab551cece3f2088a82e4e85673ed4c09"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp": {
+    "size": 7808,
+    "sha256": "42b6b9799987f6ecd14de2f88b6a6b2f1b6bc0a73e4f7913d8b021017a7cf462"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp": {
+    "size": 7496,
+    "sha256": "0d455fd65c57e612a1a3cd90f52441bdc5fef71c96bd3fd9c79c4cdd09d906c8"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp": {
+    "size": 5802,
+    "sha256": "3aa502b81e2d9fa1033cc7924bd955641971904bdae1b4b4e05c1127230fc511"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
+    "size": 6156,
+    "sha256": "bf8a956873f57dbecfe242f388272b011338b9b6f1c686c12b12964477657e55"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
+    "size": 5572,
+    "sha256": "15e594c23b6472e7506fb082398b9d182a7cb8e8047033306e13af93b85d7db3"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp": {
+    "size": 7912,
+    "sha256": "5af57e4067f3a60c917a80cf1639d0ae2a7014070246bb9c0439ab7900232ae2"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp": {
+    "size": 7956,
+    "sha256": "84595c0b6c3c365228c633c79e1b95300751854b4d250c0bee3ba6b3cca03428"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_EASTERN_OWL.webp": {
+    "size": 7530,
+    "sha256": "ba186c7f58261b7fa6ad0dd80ad5ebf6d8fe9253da10df0867bf54ae343ddc3d"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp": {
+    "size": 8254,
+    "sha256": "d17db5937de5df4b6eba28505a14b9c3a75d94032f8715fe330566e863380f93"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
+    "size": 7896,
+    "sha256": "b527be83db1b1fa11012614a60e3eb70891c7b69bec7979f33c1a8cf2cffe045"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
+    "size": 8938,
+    "sha256": "54c14f79915db83ed074b938b5a12f957e95c2ffd6a61ede1a4cff760fb79c93"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp": {
+    "size": 7180,
+    "sha256": "45117901d4bf2a7e06806f3e8c34f7eae1864a2b43a7ba90a3023327b6a2452c"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp": {
+    "size": 9364,
+    "sha256": "cf42a7f8688457c4a666647cabde34bb182fb233e6e78ddfb2348a862f072596"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp": {
+    "size": 6738,
+    "sha256": "b0c2d02f9639980ae56cca5eab3bf93963fbf9abcfa8ee7ae90e70f8dc722c6f"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp": {
+    "size": 8256,
+    "sha256": "2267925d84d8d29bdb566a12afaf734e8f51a0e88a023015097decc34c5bdf10"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp": {
+    "size": 7528,
+    "sha256": "d3bc996a72f8791a67e5daa5f908a54b633be6178c6fe835b77c3ed91bf34b51"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp": {
+    "size": 6970,
+    "sha256": "78adb456e386cc0d397ec072f3a9362d6c05a5721529b8098086a9b0596de666"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_LPU_POST.webp": {
+    "size": 6892,
+    "sha256": "faf87f254acf4b6fb19f3e7a91d4e4e400cd32731c77e63ecd59965fd18a3ae4"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp": {
+    "size": 8918,
+    "sha256": "cdc78000fa5e80c8144b8f9166dd30fb9ed5f0d07f57607d46d5a0c1f3ad97c3"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp": {
+    "size": 8466,
+    "sha256": "b5fb906df14dd42cdb28d3bb3cd416bf434aa986c0039a93be4465dc6831c1ab"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAID_BELL.webp": {
+    "size": 6052,
+    "sha256": "d96cb2edfa54d3b92f6bd0fcff6406074d4cc0ddf1294f31fd57e09541ee5a23"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAID_LANTERN.webp": {
+    "size": 7722,
+    "sha256": "ae32ee06476631399980dcd89b18aa677e1b7b4169e88a2c0759a3b8285a1234"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAID_SCISSORS.webp": {
+    "size": 6746,
+    "sha256": "430c1b492e6cd36bbbbc690926c4edde536facb48376cc5b58687644dba5a337"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAID_SPEAR.webp": {
+    "size": 7478,
+    "sha256": "26bdb8a0883e1d97e116ce1cf93b1219372deca26208cfbf93390cae04d92131"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp": {
+    "size": 7508,
+    "sha256": "4c260dad86ec5701c57a553d83b8ce7c84053b2342e71f3fe914b12a6b743ceb"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_MUTANT_MASK.webp": {
+    "size": 8824,
+    "sha256": "9f233bb98bbca243c83feb9bd8f9984066de2125b081ba94a634477d04173752"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_NIEL.webp": {
+    "size": 7520,
+    "sha256": "886c18c1d77a61c6bfc0f1144583d250e773e95c7c645ed5883800f9ecacd5c3"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp": {
+    "size": 8176,
+    "sha256": "3f55c65aafbc6d6506f4df974bb31ca774a6ae03bc48d68288f8377145ea4533"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_NOA_ALICIA.webp": {
+    "size": 4436,
+    "sha256": "b13cc3fc70f62ae32f629403ec592d93cbb3d02ecaf4547ec5cf753ba7571675"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_NOA_LISA.webp": {
+    "size": 4386,
+    "sha256": "6a018267233c225abe14f2a7f1c1c98c9e0e1609719aa136fca3d7edd9a8e70d"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_NOA_OBSERVER.webp": {
+    "size": 7498,
+    "sha256": "107065aaf2104a8e048d4112ef165790cef94317c4d14686a45d1a4f0a5df13e"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_NOA_SHOP.webp": {
+    "size": 4796,
+    "sha256": "e97629a5dd4ff7389867544d5d0a19d67982ab7b48f117144dadc97d336a2a9e"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_OFFICER_POLICE.webp": {
+    "size": 7150,
+    "sha256": "8cd8117b61f463fc70465344f92887d33a17ac7f6705eec4c341989f924f4f46"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_RECON_AMULET.webp": {
+    "size": 7580,
+    "sha256": "bf4e795725709896e160e21e1eb5a24b13f0e5d3a5ee5fbc210abf8d276d3999"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp": {
+    "size": 7048,
+    "sha256": "71e80bdf82a251774c65da02837b95c9a270417e6b2e6065259b74f11154acb2"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp": {
+    "size": 8182,
+    "sha256": "6c99e58f440128004eab008617395f9177d587fe755b8a13b0098aae2893a5a2"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_SAINTESS_ELF.webp": {
+    "size": 7176,
+    "sha256": "37b57844829da4f96117c27db268ccf9aee5d697df875b423ebfcd611bbf5582"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp": {
+    "size": 8522,
+    "sha256": "59c78d3c06a93dc972234a5281ec22acb5e9f31c6bd70e866e7ae1c1705080c7"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_STELLAR_THIEF.webp": {
+    "size": 7586,
+    "sha256": "cc1b427fcab080f4575e9d3e9019491662260a90eb7ca0b9452d616e5b005bcd"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp": {
+    "size": 9174,
+    "sha256": "0e55efad5771acf2f9527b6905ead261e56e1eeaae224c3865e1c57f3d812f3a"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp": {
+    "size": 6036,
+    "sha256": "99f838cb87113e727019a255b629b5393cc7c8d513d05cb23728e253c0660d66"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp": {
+    "size": 7012,
+    "sha256": "92499832316b7ede48940ec1b5f596cbe4e107d41a93ee646d0fd40dbdad76db"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp": {
+    "size": 6726,
+    "sha256": "b43b8fc94b9e76cab6a74564a6d38c7777b0d51523544f85722c162249a4826c"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp": {
+    "size": 7024,
+    "sha256": "177e9c895a9e2749d615c2c819796464218bdafafe616d5612c3610dab8046e4"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_WEST_LANCER.webp": {
+    "size": 8472,
+    "sha256": "6f5bf21ac96791962272531bfbab86d91c42680f93809f2089cc6a520b14fe6c"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_WEST_ROD.webp": {
+    "size": 7510,
+    "sha256": "e83770c5c491fe0d0955e2282ba46ab2cadd439035a2d3de1d157bd6cffb3ced"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_WILD_HOG.webp": {
+    "size": 7426,
+    "sha256": "91a89dc965bddfa4717f1b05a377259574f4b557eee69290f38d898364dac89e"
+   },
+   "assets/codex/UF_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
+    "size": 27402,
+    "sha256": "f938a89e9901c5302052e1a47b17c6ab4613827ca99c21ce02699d65a9acd5f0"
+   },
+   "assets/codex/UF_NKM_UNIT_S_BUNNY_KNIGHT.webp": {
+    "size": 29754,
+    "sha256": "10c1d82d4732b5a01c91b15ad11baaa490d24e306bbe84db805a09761035a006"
+   },
+   "assets/codex/UF_NKM_UNIT_S_BUNNY_PRAY.webp": {
+    "size": 30234,
+    "sha256": "25dfb3febc6db850c96f537469c6eedbfe62576c43473dabaef0cef844dff744"
+   },
+   "assets/codex/UF_NKM_UNIT_S_BUNNY_SCISSORS.webp": {
+    "size": 29404,
+    "sha256": "2e65b4779bf3ce9cf8bc10cda71351e7d11ac37c03024d00033c899ea4e4e0d5"
+   },
+   "assets/codex/UF_NKM_UNIT_S_BUNNY_SPEAR.webp": {
+    "size": 29970,
+    "sha256": "ad7bc18ceeb9bfdb65547674b668143d56f64b3ebfbf7f096820e33662657fd1"
+   },
+   "assets/codex/UF_NKM_UNIT_S_CONSTRUCT_BOMB.webp": {
+    "size": 34450,
+    "sha256": "d370148f7a038378b72c7d82ab39909687cd93dc15686792126457eb416eafaf"
+   },
+   "assets/codex/UF_NKM_UNIT_S_CONSTRUCT_GADGET.webp": {
+    "size": 26804,
+    "sha256": "208d04714356bbb2ce8a928f75066281de404a3b86dcf9b6d23b538d4916bd32"
+   },
+   "assets/codex/UF_NKM_UNIT_S_CONSTRUCT_WRENCH.webp": {
+    "size": 37934,
+    "sha256": "83f392a70101909806e1298822893dbc627d764c9a1588985976f5c02162cde7"
+   },
+   "assets/codex/UF_NKM_UNIT_S_COUNTERSIDE_HILDE.webp": {
+    "size": 30904,
+    "sha256": "3cf78eeb47dbac9883d914afa90304c25ca0ab0810eb88146a39329a1434d4e0"
+   },
+   "assets/codex/UF_NKM_UNIT_S_COUNTERSIDE_MINA.webp": {
+    "size": 21334,
+    "sha256": "b0aa7f607d0903b3870cba48a06c340ef480330d040462a81dbaf6ccc61fcec5"
+   },
+   "assets/codex/UF_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
+    "size": 26106,
+    "sha256": "1f8ea60784e3f62cafb0416f6ec8ce48a7fe6bbdfbd650d31db9835712a6ba1e"
+   },
+   "assets/codex/UF_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
+    "size": 21948,
+    "sha256": "fe5cc1a02d70ccc06faad20c0f811ee2c021aeb5e6ea441fffe81d49f49afee6"
+   },
+   "assets/codex/UF_NKM_UNIT_S_DETECTIVE_SHERIFF.webp": {
+    "size": 29822,
+    "sha256": "07783bfb3e6d38ed56c85f012764ec079b9cbed1059934a2fe619736e4d84586"
+   },
+   "assets/codex/UF_NKM_UNIT_S_DETECTIVE_WATSON.webp": {
+    "size": 33936,
+    "sha256": "609034f1a1df34e6b069d862684a44c99420a093c75024a6f08590898dfdeb62"
+   },
+   "assets/codex/UF_NKM_UNIT_S_DRESS_STRANIS.webp": {
+    "size": 25766,
+    "sha256": "ee569eedf376eea5f8f3c363842ce1a491e5dbf417017446fef19c09e65ce1c8"
+   },
+   "assets/codex/UF_NKM_UNIT_S_EASTERN_OWL.webp": {
+    "size": 31016,
+    "sha256": "255c63b563c514e659c0e5dc4a58c3bab08f6f53a4c55ce22ef1dafdcd5cd8e1"
+   },
+   "assets/codex/UF_NKM_UNIT_S_EASTERN_SWORDMASTER.webp": {
+    "size": 35784,
+    "sha256": "cfaf2049c65fb7597d7e79b0efd58d91b7cee85ae59ed58c4fdd288e7c09b8d2"
+   },
+   "assets/codex/UF_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
+    "size": 30480,
+    "sha256": "29d54dc22204c8ceb509b619fc24987871d84c6f3ab4dc1a0cdc794966584fc4"
+   },
+   "assets/codex/UF_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
+    "size": 32560,
+    "sha256": "1d73ca045b0e131891c181d8201e8c26e4bf05d9c1b0fe1fdb93964a85f64aab"
+   },
+   "assets/codex/UF_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp": {
+    "size": 29352,
+    "sha256": "470a7c87ae2661a6cb26d63b9485af98e5b1c5176ba316745c6cf409ed2bc29c"
+   },
+   "assets/codex/UF_NKM_UNIT_S_INDEPENDENT_DRAGON.webp": {
+    "size": 36374,
+    "sha256": "91bd0930affc71f8b91994f7fb217e1cfdafa8e74e5035724a46c6097e775083"
+   },
+   "assets/codex/UF_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp": {
+    "size": 29580,
+    "sha256": "f9c37939ee3e853dad8f6b8fcf1c979caaed36854695ec0ecd7c51fa8f02316a"
+   },
+   "assets/codex/UF_NKM_UNIT_S_KINGDOM_KNIGHT.webp": {
+    "size": 28026,
+    "sha256": "53e398fa98385dfa0d86898aeb662f5c1fb4bbdc8c3250ec89f8ed77315d0691"
+   },
+   "assets/codex/UF_NKM_UNIT_S_KINGDOM_PRAY.webp": {
+    "size": 26596,
+    "sha256": "b93c12f18a5ca5373a5a1c69857d06f6eefd483dd873d64034c4638d9d491386"
+   },
+   "assets/codex/UF_NKM_UNIT_S_KINGDOM_SHIELDER.webp": {
+    "size": 28040,
+    "sha256": "5c61e0684ff803de21e97627f29d4f50ae643df56613ff964108007e30943da7"
+   },
+   "assets/codex/UF_NKM_UNIT_S_LPU_POST.webp": {
+    "size": 31634,
+    "sha256": "7fa6d9263f503c8c4b2f9482d49bfa81c17fe317baa1f3e1706310afa987753d"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAGICIAN_DRUID.webp": {
+    "size": 37648,
+    "sha256": "c3c463d7d504b0da3637b46dd6c5f9fa9bfcfa65e0dda472eeaf84322a0e42d8"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAGICIAN_SNIPER.webp": {
+    "size": 33968,
+    "sha256": "73f430fac90f6e6d4f72e7c21ed14468c90af25d0fedd71262c894d2c95d69c0"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAID_BELL.webp": {
+    "size": 28876,
+    "sha256": "600cc4081dc3beb4cf476210f61454780f56cf9b06bffc70eb9b5c837cb9ef5f"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAID_LANTERN.webp": {
+    "size": 27660,
+    "sha256": "63006112e9e8cbecfb56d80a67e591fd33bb6f1b7606b5c54c89de7d301323fa"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAID_SCISSORS.webp": {
+    "size": 29938,
+    "sha256": "2e59a5688031cd985ca683848601674ffc7d4921ab4fa1bd60aa72c7dca308dc"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAID_SPEAR.webp": {
+    "size": 27508,
+    "sha256": "08ca50ed14e1d14dae61c7a0bdb6c9f200230b80db86d16a4311b6b9224737f5"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MAID_TWOHANDER.webp": {
+    "size": 29156,
+    "sha256": "a45f51f5787255a3d6b3b4e39ea507ec2cc74a807143c386273d5e1c8290f49c"
+   },
+   "assets/codex/UF_NKM_UNIT_S_MUTANT_MASK.webp": {
+    "size": 36476,
+    "sha256": "5a89924168665c2ed052fec2dab4f638b9ed2917a482e05f7b2b0ce9648aad32"
+   },
+   "assets/codex/UF_NKM_UNIT_S_NIEL.webp": {
+    "size": 27282,
+    "sha256": "7736a8eb172945cd9793e35946a4195594c3411051075b3338a8b91a9674000a"
+   },
+   "assets/codex/UF_NKM_UNIT_S_NIEL_ENEMY.webp": {
+    "size": 7424,
+    "sha256": "c44973bb80ae311710068f8d57e6f6922d6df5644dbdb66f070722c6a373bd10"
+   },
+   "assets/codex/UF_NKM_UNIT_S_NIGHTMARE_REAPER.webp": {
+    "size": 29816,
+    "sha256": "f570d062fa4b69176d6210a85768de44cbf3e5a1a93618a323e076d1e80116e3"
+   },
+   "assets/codex/UF_NKM_UNIT_S_NOA_OBSERVER.webp": {
+    "size": 27746,
+    "sha256": "764d1021e85156fa9de046e76e518aa162b31b860066269d14a81b9445ceac22"
+   },
+   "assets/codex/UF_NKM_UNIT_S_OFFICER_POLICE.webp": {
+    "size": 31816,
+    "sha256": "2dd1dcd3989f01338a85f0367fb0ccc1c203e2e8033cee09da965ad6c5806f96"
+   },
+   "assets/codex/UF_NKM_UNIT_S_RECON_AMULET.webp": {
+    "size": 25022,
+    "sha256": "cd0d1328c9c1311067726bfde66634cd5b0a4d3b16f65000a74c033dc50d69e9"
+   },
+   "assets/codex/UF_NKM_UNIT_S_RECON_KNUCKLE.webp": {
+    "size": 23818,
+    "sha256": "035b7547a00664f7f67c06c9b99b73567a6953f2243de17a5e05d06f9c9e849b"
+   },
+   "assets/codex/UF_NKM_UNIT_S_SAINTESS_DEMON.webp": {
+    "size": 34290,
+    "sha256": "fbcb808cb5480af5adc3dff7decc6ec7d6b9eaa1812d6e0fddbeb47acd75f02e"
+   },
+   "assets/codex/UF_NKM_UNIT_S_SAINTESS_ELF.webp": {
+    "size": 31702,
+    "sha256": "269f4ca272c8972931a62d80d242fc50ba1c4da3d58bc590e590fc425bbbb448"
+   },
+   "assets/codex/UF_NKM_UNIT_S_STARPIERCER_OMEGA.webp": {
+    "size": 32566,
+    "sha256": "885cc9f5b1adb4471c8de08dbdace530ade9267ab31a6870a44d684ffa2665f8"
+   },
+   "assets/codex/UF_NKM_UNIT_S_STELLAR_THIEF.webp": {
+    "size": 29740,
+    "sha256": "9cc5b42c8170bf7ccd1109a2e038a1ad509f8a863c76a34f3987a4b8f3b3e6dd"
+   },
+   "assets/codex/UF_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp": {
+    "size": 33560,
+    "sha256": "a625c95fd614dbd112930b34d430dbc1070f549b6e333947fc23811795ada611"
+   },
+   "assets/codex/UF_NKM_UNIT_S_SUMMER_ORACLE.webp": {
+    "size": 25250,
+    "sha256": "7409e2f585a9be23d6380ea4e5e8ba98d62d362f22be834d58a0feffb95cd4b5"
+   },
+   "assets/codex/UF_NKM_UNIT_S_SUMMER_SMILE.webp": {
+    "size": 25356,
+    "sha256": "3ff56f9084ae153c221dd745da1f2bc16c30b077b9554369d91e00ac8645d43d"
+   },
+   "assets/codex/UF_NKM_UNIT_S_VOYAGER_ORACLE.webp": {
+    "size": 25502,
+    "sha256": "4809a3fb03bd9a8d949b851dbe092c244e220292b6cd44f95da328f976310f1c"
+   },
+   "assets/codex/UF_NKM_UNIT_S_VOYAGER_SMILE.webp": {
+    "size": 28952,
+    "sha256": "8763133ed7ee61bdf91bc0ba0cf9171dce2e283c5f5f2efbe429a90ce4aa91cb"
+   },
+   "assets/codex/UF_NKM_UNIT_S_VOYAGER_STRANIS.webp": {
+    "size": 25516,
+    "sha256": "faa4c107785c8efdd7d70b3d4353d91d1a5e63a54425f0e8f7b0bb316cf6ade5"
+   },
+   "assets/codex/UF_NKM_UNIT_S_WEDDING_DUALSWORD.webp": {
+    "size": 31968,
+    "sha256": "02dda42486d40e59ce8aa6356377d3a71718e7f36fbb279d3489d80963292342"
+   },
+   "assets/codex/UF_NKM_UNIT_S_WEDDING_SHIELDER.webp": {
+    "size": 28852,
+    "sha256": "5164ac67a0acf35856822f7dc6dc77f8251a954e4025c1d462ecb11e60413342"
+   },
+   "assets/codex/UF_NKM_UNIT_S_WEST_BEAMSWORD.webp": {
+    "size": 30740,
+    "sha256": "a8cf35f67f1db5394d674ed7fd2305780550fd5453ccd75a0f576ff758492a64"
+   },
+   "assets/codex/UF_NKM_UNIT_S_WEST_LANCER.webp": {
+    "size": 33046,
+    "sha256": "0ef4a66bc0a716d2c04bb8434653308daf85ba7505edbd35fcdcf38945a82c40"
+   },
+   "assets/codex/UF_NKM_UNIT_S_WEST_ROD.webp": {
+    "size": 28966,
+    "sha256": "d43d8014ad77b9301aaaf167b3ba3324d3a6acf9b65b248aa4690e77df50fa0a"
+   },
+   "assets/codex/UF_NKM_UNIT_S_WILD_HOG.webp": {
+    "size": 30684,
+    "sha256": "537ab578d76679211edad89475c7a33bfb9d7d84fb9c0e0469d955d48554dac4"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_APOSTLE_TYRIA.webp": {
+    "size": 3232,
+    "sha256": "92158a3387c13195e12204bd6b324048231823ba7f8c3745434edc06629020ba"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_BASIC.webp": {
+    "size": 1288,
+    "sha256": "86abfc6796242e29cb11ecb8c2b124dc478987a692f11be00772627ddbeb0bd7"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_BUNNY_KNIGHT.webp": {
+    "size": 3448,
+    "sha256": "8d0aa46e6a75a5a13b704126ac12923859d7a1cb1c47e05cb02677247dc2197e"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_BUNNY_PRAY.webp": {
+    "size": 3498,
+    "sha256": "1f83040032299dec80350b4e68ec3fa97bc601b533d4e87561c8f87cd7862027"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_BUNNY_SCISSORS.webp": {
+    "size": 3456,
+    "sha256": "f089ea9153ec7eb3ec6535d5846e336efd2e47ff10ece45b18c4f54d38f04679"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_BUNNY_SPEAR.webp": {
+    "size": 3086,
+    "sha256": "ebe90081bf766926571868eef7814cf53dce65bb9f81e8723d57aea0755bd06f"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_BUY_SHOP.webp": {
+    "size": 2174,
+    "sha256": "8bf0e6b020bd0401157d274a9b1cdfdf07c657e0ff657b64db8d2e224a705d79"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CLOISTER_INTERSTELLAR.webp": {
+    "size": 1826,
+    "sha256": "3a717349008eeb561afc90fb10834917d669822b9968157ec6e296b9e3596982"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CLOISTER_MOON.webp": {
+    "size": 2380,
+    "sha256": "d828d9c83520dbeccd150d8085c313f09208ba39d6913b582b7af4c0703571b7"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CLOISTER_STAR.webp": {
+    "size": 2258,
+    "sha256": "4e175b196742f6451b445f7311cd2e4ecc3df69fb0f0d20bba74a6092b455ba3"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CLOISTER_SUN.webp": {
+    "size": 2516,
+    "sha256": "d4119cf52240f02fda4d55bc89e1b59e7efca52d432222b80c2cf44dd7e72f75"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CONSTRUCT_BOMB.webp": {
+    "size": 3338,
+    "sha256": "570ae60b584402b0711c636b4762de172127314ff843e6d5b9e9260effda5995"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CONSTRUCT_GADGET.webp": {
+    "size": 3236,
+    "sha256": "3e4a02d8b7bc8b74f1cd688c2e3f3e7cd250593409cc75088c65ae6587a119d1"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CONSTRUCT_WRENCH.webp": {
+    "size": 3636,
+    "sha256": "a304a7b43ad94266a85144a46eb0d7bf024b45b2a998635460904074fe0958f5"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_COUNTERSIDE_HILDE.webp": {
+    "size": 3262,
+    "sha256": "087d1ae06d1157fc4c1284039234be2f49cef66f6806d843b5375737848c4fef"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_COUNTERSIDE_MINA.webp": {
+    "size": 2998,
+    "sha256": "dd906d1d0c66ae47106d8ac52e2ea578cc69a0c1bf1d857878a452c0b9804645"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_COUNTERSIDE_ROSARIA.webp": {
+    "size": 2966,
+    "sha256": "a85bf34ff84cbabe0ebde71340998e64454d160eebcf630450108305b881d04d"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_CUBE.webp": {
+    "size": 1960,
+    "sha256": "f836912b384a70b82cdd30da5d4cbaf4220556ab87704e475e9a2796f90bab48"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_DETECTIVE_PROFESSOR.webp": {
+    "size": 3356,
+    "sha256": "a217a1bee5deaee65522c38352cce54c82c64326ed825b4e0a62396b46222c29"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_DETECTIVE_SHERIFF.webp": {
+    "size": 3138,
+    "sha256": "0260a3bc0cfb0cb1bfe7004749de61be3401ea4e845878f8213a27316ebb6b03"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_DETECTIVE_WATSON.webp": {
+    "size": 3450,
+    "sha256": "562fddb130ddf25ad9ea430daabd4db94a8088ec5186d4c60fd80ecece3193e1"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_DRESS_STRANIS.webp": {
+    "size": 3338,
+    "sha256": "3776a97611c8f657ac48ff7c6408d7e008a4b9ad3cda05772a91651eefba73ff"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_EASTERN_OWL.webp": {
+    "size": 3176,
+    "sha256": "3c19af5ca78214fb4e7cfcb34cf629109fa5a31090bd928c99f20c293a196062"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_EASTERN_SWORDMASTER.webp": {
+    "size": 3268,
+    "sha256": "780ce25fccd92254a663885b7ab3134672d7acdb6c01a523793a19026d6fb50b"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_FAVOR.webp": {
+    "size": 1952,
+    "sha256": "cb0260de5d663afe6410a6499665edd4e6217f0b2c2ec2ce70e21e46f3b669f2"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_GRACE_DUALSWORD.webp": {
+    "size": 3514,
+    "sha256": "2802cab9d889735c22ae0ddc420ed6ad720d6e8290a58c0c296a327f4f8b1362"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_INCOGNITA_FLOWER.webp": {
+    "size": 3222,
+    "sha256": "e5e422a9d44184e83e6b6caf7cd4132a5c729895ca5563ecfdddf34bfac8ec4c"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_INCOGNITA_LANDGRAVE.webp": {
+    "size": 3142,
+    "sha256": "4daa90d3f575279e0b6b08eca643020097aea90cf033d624953994c000e8cf57"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_INDEPENDENT_DRAGON.webp": {
+    "size": 3316,
+    "sha256": "9eeaa5c39a2e607e193f10dc62bb500d066aec73a89117eb5de869df89df0fd5"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_INDEPENDENT_VAGABOND.webp": {
+    "size": 3206,
+    "sha256": "73f4a39e1166e7a155f391dd9ffddb8af3bfa85ef59614579832395e56142e7a"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_JOURNEY.webp": {
+    "size": 1966,
+    "sha256": "fa92d548146b185802c7b46ef1338bf8603cf8c035a5485a3dfc63db7997491d"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_KINGDOM_KNIGHT.webp": {
+    "size": 3248,
+    "sha256": "223fdf45413126d608ce2b4e6efec26b8fd506e0e88a1a5516e50d796b6ed459"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_KINGDOM_PRAY.webp": {
+    "size": 3440,
+    "sha256": "af8f189bf68b99a80f277612e82a292622874b18d9a718f1dc37597f639408a4"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_KINGDOM_SHIELDER.webp": {
+    "size": 3270,
+    "sha256": "e4d1e379ffbff0c62e30723a67837bdbfeadcc05a461228507e6ddd3e9a3b4e5"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_LPU_POST.webp": {
+    "size": 3164,
+    "sha256": "02f948f999118491bab5b6c78bd9ba6b3c15a680af79b50233981d766cfb7f64"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAGICIAN_DRUID.webp": {
+    "size": 3306,
+    "sha256": "4c84c9b03b4540292d60c955890b1024f0c79f414e6b203fb4188d54f7ebf92c"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAGICIAN_SNIPER.webp": {
+    "size": 3440,
+    "sha256": "1f92395b8d014a7224e2c94b784eff0394ce6f39a53c04b3c75293e6e40d2126"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAID_BELL.webp": {
+    "size": 2968,
+    "sha256": "13a1d962981cd8b9b147db756d95d1b4ee800be13673b9ee9127a0c571a18506"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAID_LANTERN.webp": {
+    "size": 3220,
+    "sha256": "5898465aefb4ddf12f3d77a6b512de4fa083bf01dc809872fd78fd6da46fcd32"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAID_SCISSORS.webp": {
+    "size": 3310,
+    "sha256": "65a5203cab18ebfc9450f262ad31606a23222dcf622af9d69afa46d994b72ed3"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAID_SPEAR.webp": {
+    "size": 3298,
+    "sha256": "021ff975e5c2bf439b76ae347bea656e55b1099b0fb5c87fd051b2332c3656cc"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAID_TWOHANDER.webp": {
+    "size": 3254,
+    "sha256": "5da854bdc643cb02d322f105cbccb596549cde9d2975ed63b1012f105fc417ac"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MAINSTORY.webp": {
+    "size": 1640,
+    "sha256": "ac5898c359eae69a5be26261f7f74113e5ce4b95256666abaac93382a698fc6b"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_MUTANT_MASK.webp": {
+    "size": 3446,
+    "sha256": "be6f4436f2d45e9ddb22069aa5f56c7084c7693d1a931f09898b00b4ffb141f6"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_NIGHTMARE_REAPER.webp": {
+    "size": 3182,
+    "sha256": "dbdc425be2df5fb37068c1129486df0757dced8faf187fa5621db5bb855688a4"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_NOA_OBSERVER.webp": {
+    "size": 3122,
+    "sha256": "e805f45acef5ccf100256396949f4311174ade15f0e71c892a9cae611f13b68d"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_OBSERVE.webp": {
+    "size": 2146,
+    "sha256": "680639e9cd5f9d001b17acd3a155df8930945afe690a4714ffd91b7a89ecb63c"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_OFFICER_POLICE.webp": {
+    "size": 3162,
+    "sha256": "9c7baef9d7ab9d40407edb5a39f00f1204a1a0a5762cab4ba9f14f608611ddff"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_RECON_AMULET.webp": {
+    "size": 3340,
+    "sha256": "828871e1b060a0e8c4c29c18663ff7ccc31a981f74a7ce17f697d7e04b59fc06"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_RECON_KNUCKLE.webp": {
+    "size": 3278,
+    "sha256": "31f13bb243991743267fc8d9a1d1ddfa0ae6d840cfa456208c018e30554d3a80"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_SAINTESS_DEMON.webp": {
+    "size": 3400,
+    "sha256": "93c6f88b1aefe0b5f9ffe14d759fa327efcfdc43fad449f290005939f9928267"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_SAINTESS_ELF.webp": {
+    "size": 3222,
+    "sha256": "81e4909da26b5013047bee9f492f8098e580e23b0eb5031a5fdf4fca08ffaffb"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_STARPIERCER_OMEGA.webp": {
+    "size": 3414,
+    "sha256": "c5fabc4fcf119e9562f5ad2926eb1b1544f4269497b0facbd62f10bfcb90a045"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_STELLAR_THIEF.webp": {
+    "size": 3182,
+    "sha256": "851bad44e3f91b5b57cfa4dc1b8265ef17275c936ba1079d805a97e1e65a4f52"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_STRANISEARL_ROSEBLADE.webp": {
+    "size": 3234,
+    "sha256": "8d8611743a060cd0f16485dc0c4399defbd96c95f864447fab0fd94381614bde"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_SUMMER_ORACLE.webp": {
+    "size": 3390,
+    "sha256": "8a2c52ffd1115d8cc3bdf51b016670e22f924469ec33922ded54f00c62972541"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_SUMMER_SMILE.webp": {
+    "size": 3462,
+    "sha256": "095542a692c2ab2651873fab6ce9e52c04f257d1007c8749d0fa4e7a51f30278"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_BUY_SHOP_1000TIMES.webp": {
+    "size": 10196,
+    "sha256": "c4498101743c89346a150d88543b562cf5762f12697917ec52789dcf7c3f76d3"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CHAMPION.webp": {
+    "size": 6628,
+    "sha256": "44507866b2d4f8ce994a97e6a1f1644e35a2e779a94376a2b18ca4df4e00d9e1"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_MOON_MOONBLESSED.webp": {
+    "size": 7312,
+    "sha256": "859c872b333c3b31240548c4281575544728b3abeaf214f7c7d3116a932846a9"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_MOON_SAVIOR_OF_MOONLIGHT.webp": {
+    "size": 6350,
+    "sha256": "7a2d00fe69a97c358b4c529d8a83f2b232fd9f6ec39e3e862e3f4f32847877f1"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_STAR_SAVIOR_OF_STARLIGHT.webp": {
+    "size": 6310,
+    "sha256": "88171d1fa42a0a151619b85831d7fc446265ccc9e01a36e2a4da17d7fe99a927"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_STAR_STARBLESSED.webp": {
+    "size": 7484,
+    "sha256": "c7a6663d43a5d4c6854ae1335ccde53468ca4ac6743c402fe2b227c015d0b286"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_SUN_SAVIOR_OF_SUNLIGHT.webp": {
+    "size": 6276,
+    "sha256": "9f04aaf660e9774c7ac685ae8c69a0f7ce1fd83b43acdec0992f6368d646f6ff"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_SUN_SUNBLESSED.webp": {
+    "size": 6546,
+    "sha256": "6c47365a0e1345655869f7b3dba2e03111cacb6c7b87d81bd20e15052ca4ae88"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_THE_ENDLESS.webp": {
+    "size": 5440,
+    "sha256": "83df42296673e5123389c12bc83331e5102c944cde75e20472a9cebf3d8a7292"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_THE_ETERNAL.webp": {
+    "size": 8292,
+    "sha256": "9585b4ffb21741a2de9178762a66f68b7ecf9a1aafc37238af4086ac40f8b85d"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_THE_INFINITE.webp": {
+    "size": 6014,
+    "sha256": "ea925e29280460a95ddf01744ea1505619ca86146b651af15f9688616d2ce2e0"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_DIMENSIONAL_CHALLENGER.webp": {
+    "size": 8606,
+    "sha256": "b8b34aa63181af0ddfd058e669e7b805ecd8be0969077bfa0761ebf2a29da5f5"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_ETERNAL_MILESTONE.webp": {
+    "size": 6952,
+    "sha256": "cb1f347162ea9c53aba73d7da70a566cd67ba3b78a74b5548c4316214440cc37"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_PIECE_OF_FATE.webp": {
+    "size": 4756,
+    "sha256": "a1d38415cc199e3d97c0cce14ae36602644582d2264683ee0530951ec65a68f4"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_USE_ITEM.webp": {
+    "size": 1908,
+    "sha256": "9c72d2b4e7070af974e5478be92fe761828614968aa45a585f67d6d1845f09c1"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_VOYAGER_ORACLENN.webp": {
+    "size": 3362,
+    "sha256": "2ca9e6eb86d9cfef5543e02dbdac24398055f5435d89561a0ad9f9c7c8077e0b"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_VOYAGER_SMILE.webp": {
+    "size": 3546,
+    "sha256": "ee91adcf230def918ba30de94e2322e0a74d2d1a88576528b310a97e448517ea"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_VOYAGER_STRANIS.webp": {
+    "size": 3310,
+    "sha256": "160455dcb91586985d617f4b288f471af3c0555a565a5b9c6dc17f0346ea4426"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_WEDDING_DUALSWORD.webp": {
+    "size": 3364,
+    "sha256": "303e1bd9b53525d16807c5ca7523fef22157c6e62788e1d0d203e9c3a9b33564"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_WEDDING_SHIELDER.webp": {
+    "size": 3504,
+    "sha256": "a96e4277d2c2428a4ee1ff7b6d1e7dc1d677317c8597d064e8b30fe1eb2dac49"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_WEST_BEAMSWORD.webp": {
+    "size": 3198,
+    "sha256": "09adec355fab1ae822f06a19e5b47a3aaa70ee68ebec8cdb9cbc7d484d804197"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_WEST_LANCER.webp": {
+    "size": 3478,
+    "sha256": "76bae3632a2e80b720c445b45ac6a8aedf1bb9b9cf3de1d841e9bb5c4afdf870"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_WEST_ROD.webp": {
+    "size": 3068,
+    "sha256": "1fb2a0fccc2727d9e149c3a1e1f37b7e47edf9c75e587762aaa79d034521b341"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_WILD_HOG.webp": {
+    "size": 3326,
+    "sha256": "598869f01e8a9fbec6d2c9bb3da1aece80617c6ff5f60d5a1b9324140a16d531"
+   },
+   "assets/codex_index.json": {
+    "size": 114429,
+    "sha256": "0e1b440dc24830516cdf8122d5568b4666cea3c1ba72fcd526739da370fbfe7a"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
+    "size": 7998,
+    "sha256": "d3b0b9512d1a401b3715142f6ab65930d7059228e851a729c78d40284def1583"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp": {
+    "size": 9996,
+    "sha256": "36cd3850cae840794f9ca41eb360460dc88ed67cf698fd33d0cb749638e932da"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp": {
+    "size": 7914,
+    "sha256": "4264a392bc286181f8bd768d6bac293650a63e4fe3768c63a646feb15f7dc1af"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp": {
+    "size": 7438,
+    "sha256": "d90d9bb8e94c8a871bc52786c31fdf5a0a783fbd60dd3b4d7f9cf81549f6e037"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp": {
+    "size": 8096,
+    "sha256": "58fc75902e3218f272d1135c1efc3b70760afeed1f83fc93726c61b94abc311b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp": {
+    "size": 7940,
+    "sha256": "4db18fa35a29b47f0b82265df97cc70d1ef143fb30225d4058ef6af2c5ed1f63"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp": {
+    "size": 7940,
+    "sha256": "d07c6c11714332740deb4c1e13317533198a99817a4fcc8eebae546d8881ad31"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp": {
+    "size": 8290,
+    "sha256": "0d4c70c537f1679174e421847a26cfadd3a72f67e59a8a14dd68c9a2370b3d84"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp": {
+    "size": 8028,
+    "sha256": "62a08070f5ab4ccb94b63892e396bab986b574b4f3224345b902814444acb92f"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp": {
+    "size": 6366,
+    "sha256": "1c9aae93a30cbcd15b65276e59e713c41ae9d9a711a07da96ae36f10e86b5a40"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
+    "size": 6644,
+    "sha256": "b634c3bc2ffc107b669a14383944dbe6f4ec16581ff21024d31daeaae57ea5be"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
+    "size": 6124,
+    "sha256": "15cfc2544eeb70dea4f6a5a23f883cd2e72ce8b2f29b84364a2c2463d4d00465"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp": {
+    "size": 8488,
+    "sha256": "299cd19417309728ea759c9acb329dc438e1ccc7b9e2909a122b319781187219"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp": {
+    "size": 8460,
+    "sha256": "93319173126cd3e1d83d6e2dc6798ecc7b940394b20817e14a8650b7227eab4b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp": {
+    "size": 8436,
+    "sha256": "96d849e66a015147fe3623c1698d72690734217487c518b7154823c849e4418b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp": {
+    "size": 7968,
+    "sha256": "4ca2039c834c0d5ea62fb18c7c37c08a68e238156b243047bf71da84f3b26b9c"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp": {
+    "size": 8852,
+    "sha256": "8b8926ad79fa7dbce2f90a5856418afde1fb31758eaeefe9b6aee0bb256f9360"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
+    "size": 8324,
+    "sha256": "7a31401aef50b304a25d7fa50b793d59f4cf1154136b98331d0995d6b0eecfc2"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
+    "size": 9452,
+    "sha256": "754fbc9241ff60a21f49da6aeddf804770f64a94dea9ca3afd8172688f31a682"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp": {
+    "size": 7612,
+    "sha256": "14611c3d91a11caf1345006e9d69718257831864636bfb10a4b8e1a42d8d9183"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp": {
+    "size": 9770,
+    "sha256": "57329332c47f56acd1ca34209c3f714f6ba53191386011771e61b6a4919bb1ab"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp": {
+    "size": 7360,
+    "sha256": "0a4a51a0133fee9d24657541bccf9f5f1749ffdc19a7c9618c0273622eec71de"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp": {
+    "size": 8848,
+    "sha256": "9a8b790b7a29d1b02afc622054a23787ca5ae11f0a7d6e5073fe6f1e4bee9fd7"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp": {
+    "size": 8000,
+    "sha256": "5b11216e6eb1f65c4bd86650be22ad0ded5e3958eb243c15163c3320b28d045d"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp": {
+    "size": 7458,
+    "sha256": "e0e565e4351e9342bc46313ced8d0ed5166f06fc5a63819e6b82c55c38d9b3fc"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_LPU_POST.webp": {
+    "size": 7322,
+    "sha256": "118f95d9a0a391f576e2be8b4c7164cb5cc69312c853ad166dab3dbdeef0db39"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp": {
+    "size": 9404,
+    "sha256": "8eb32782a738e0729458d2805450cbe53699c467a1673d6b8f44bca0fb3957f2"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp": {
+    "size": 8884,
+    "sha256": "780181b7d60d5e024b5965578438e907b33bb2a55cea6d4fe8c073f8c7e0607a"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAID_BELL.webp": {
+    "size": 6546,
+    "sha256": "d765d960514078c7e3824fba56ef42669434b806e32d676cc2883eda69e1a9a2"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp": {
+    "size": 8306,
+    "sha256": "a294829bc209bd898921828c6546a96e2494c25ead2d64035404ca4e33d58b8b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp": {
+    "size": 7308,
+    "sha256": "b68469f7c1c90dfcaffc9d13be2455d1afabc478333c2d89c7726b05f6bb71cd"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp": {
+    "size": 8002,
+    "sha256": "24fb1bb0c92841b698b72f1bb2561d2c0916a302bfb10b804c429ff837e3edf8"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp": {
+    "size": 8008,
+    "sha256": "893cd4d7234b3c67908548af95bec52d6e8dea58a048dcbebf8433f59624e9c4"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp": {
+    "size": 9296,
+    "sha256": "01d4d8c583f521d9914067967dda1646db6911af2583efe2bf88f18e4c89bcfd"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_NIEL.webp": {
+    "size": 7988,
+    "sha256": "7a37fd92aba4fa429932efdb184251836be337eda9916195f0f4071417ad70ec"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp": {
+    "size": 8632,
+    "sha256": "3fc7863d172574dd73a5c51addf3548b7573a347ae3eea15ade2ce0f52103b38"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp": {
+    "size": 7976,
+    "sha256": "7204940bebce83442b26de827d89d805e897e7091a928144fb49072082799771"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp": {
+    "size": 7702,
+    "sha256": "f53c0e9d8c5964ddcb9c9e056b190d282d567ba703038ca7b6836aa5b72eda6a"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_RECON_AMULET.webp": {
+    "size": 8012,
+    "sha256": "65f67833c1db13b805e3fd0252c87b9b22fc5b6f557350a2d19bf41122f37e97"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp": {
+    "size": 7524,
+    "sha256": "d73034e5b4d3b52c03eee23e09a3de2cfb5c238fb8f1e60921887afe5501089c"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp": {
+    "size": 8644,
+    "sha256": "55803cca0ba98108b726e01df7c002c7f0bcc21d52e169db49e156be16f692ff"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp": {
+    "size": 7700,
+    "sha256": "5a0e8311a4f01e24150907a9a5d4220e688e5c300652427733341c32ead74809"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp": {
+    "size": 9054,
+    "sha256": "6b7e0450c25f80205ce0ecc0cf58b72e95b48763d8b3d424f6e94c3dbc3a2b18"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp": {
+    "size": 8112,
+    "sha256": "6de1e9faa94ddbc98d47c90562dca605005f6b848eeb4a034aa817fdd1724304"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp": {
+    "size": 9828,
+    "sha256": "09f0495d6b7ccd87c7dfb9b12f1ac9c07679f7f0a76f24bb9a237f7f0d0ded40"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp": {
+    "size": 6374,
+    "sha256": "5fb21af482b2adf75364e429c1ae8fc60c766b1ddbaebf36a664e211f2567f19"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp": {
+    "size": 7498,
+    "sha256": "4576e5c7791ae2bc8b63392fa22c9004ada941e335c56e913a0950c481264852"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp": {
+    "size": 6468,
+    "sha256": "970c5b13324bd6bfd06d53a45000ab02824608024adb3a5e23f94e2bb86feb4d"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp": {
+    "size": 7530,
+    "sha256": "3934495babc06152e15f0b24497c77458c86a634c221886f1f9b55e36d98bc2b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp": {
+    "size": 7166,
+    "sha256": "5a251fda86c391bc0a2a679364ac9718636c3bff2001ba7d009e56dddf8c8e1b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp": {
+    "size": 10508,
+    "sha256": "43fe19d77b3645549165454c1adf4529bb0789a66e480e51b908f5f4ae1880be"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp": {
+    "size": 7152,
+    "sha256": "47dc90482a98ee1d2b427e65f00e2e5161c784cd39b3a1dba3d27f728e2cce14"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp": {
+    "size": 7400,
+    "sha256": "4633f0150bcbe58e2fdd41a387647a820202825988198c7b1bae6423bfb9ff31"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_WEST_LANCER.webp": {
+    "size": 8934,
+    "sha256": "c817a9668d37f7f9ef52971e65700babc201980063c9a03c9f81cdd3b9d0734b"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_WEST_ROD.webp": {
+    "size": 7988,
+    "sha256": "ee13b064dce5804f9c96d489f6e079095a467bbe78048b0f54e5db2714f53063"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_WILD_HOG.webp": {
+    "size": 7900,
+    "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
+   },
+   "assets/index.json": {
+    "size": 12702,
+    "sha256": "4f51689b736791cbeaa4ababff2526de36db3502eeef16e580a8edaa7653d003"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
+    "size": 21198,
+    "sha256": "74aecf0a3ff5ff020d5e149cf44382dcab42bd45a2d46e5cbc6dae02fe284e70"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp": {
+    "size": 25260,
+    "sha256": "c166d6a5892d4a46f5f5e3851ded8dd0e396ae64f08af083f1eb5ca43869c19b"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_BUNNY_PRAY.webp": {
+    "size": 20780,
+    "sha256": "15eca4778301d6cc640d0818f6562c3e4ba8b71d4d27e42c5c9ba4a064226323"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp": {
+    "size": 18722,
+    "sha256": "b65fdb93b22e58e8647f7982b4bfb25ee908cda5cd5761e444fa7c879a8d31f5"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp": {
+    "size": 19892,
+    "sha256": "008bd39f5e6ce12a992bee4cb56b94ac0dc44a650d6b2b2b2b8a5511a70a3335"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp": {
+    "size": 20334,
+    "sha256": "b322d8c3fae6909d2d83fa5c99caccdf01d3eb420a9b0ef4ec552c2a61fd59c3"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp": {
+    "size": 20038,
+    "sha256": "c6af60d330a174c0cd98a0b8e86143c0b84fe3f47f63f3afbf3b38b9031f625e"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp": {
+    "size": 22030,
+    "sha256": "cdaf6792bd76153a9cec8b855ace300125527e4ebb8514acf8d39192b3b9593a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp": {
+    "size": 21510,
+    "sha256": "10b7f4cdd90742104737d768c52fff5d3262d82e5659703a77bd2cc5da90d266"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp": {
+    "size": 15290,
+    "sha256": "b63fc6ad737a9eea9899e023193136e5835bb7584a8ff6bc05b3e06a178f0b86"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
+    "size": 16970,
+    "sha256": "6e11475872bc0e617f86bcd2f987132425d804b0c0b66d802c623aaca3b3f906"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
+    "size": 15632,
+    "sha256": "3e4c783ffd3545004bf6a2cfd237b66b01a92324f106e498382875ba12ebc2ee"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp": {
+    "size": 21212,
+    "sha256": "723978bb9d0497df0b23eef0840b34866958f0395818224fbe539809b9a92677"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp": {
+    "size": 22104,
+    "sha256": "7fa2fe1805c42b84d98a1595cfd473d0f58abcb34e2375e9fff8b817a477ad9c"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_DRESS_STRANIS.webp": {
+    "size": 21376,
+    "sha256": "c7d8ca14ec21da1465075b9901beac109a99124716cc64a73e53cd53267b918a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_EASTERN_OWL.webp": {
+    "size": 20466,
+    "sha256": "b4900d81976606c67338cc960bd15196cdbe791320b8687c54a66aec91b2c366"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp": {
+    "size": 23032,
+    "sha256": "81b36bfab4f09033ee253f43c93f5e425918f9e289ede186f8dffc908a3aed72"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
+    "size": 21372,
+    "sha256": "a4facded0e2909bf9c1218945b3b02bdc9938a7200ad3de86d72e369f335df7a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
+    "size": 24268,
+    "sha256": "022939ff4bba6b89edc8107d01d98ab27c30515f9c4436fea12ae25080bae8f5"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp": {
+    "size": 19230,
+    "sha256": "80da9d201bb9742eedbc9985ef745005a8685c9af2ca778c9d68a92f7e9639f6"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp": {
+    "size": 26878,
+    "sha256": "4f4e75fdaa89bdd4afe1825e04c3d866dbfe46b2c6969210538f5d16a60b507f"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp": {
+    "size": 19394,
+    "sha256": "83aefebfcbba718b2f8788d49a182f763b6f32fe858cd2f87a923dd255c1ceb1"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp": {
+    "size": 23020,
+    "sha256": "6cc6ddff2d392e8a57986796402078413497c89e8d239b15210067be15018fb9"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp": {
+    "size": 20166,
+    "sha256": "7fcc9cd80797963233eb1c1e848cc9dbd358e943db91e06d072321748fb447a1"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp": {
+    "size": 18506,
+    "sha256": "b06172d3cdaccc722b1b47476547f339309fa3bc32382c596aebd6cc856b522b"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_LPU_POST.webp": {
+    "size": 18274,
+    "sha256": "3ee9fa377dd38ae3c149edb639f22e3424485e2663c111ec4a6d5fa238022b33"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp": {
+    "size": 23082,
+    "sha256": "8e2aa8b5e665710a8e69183171817ac93c0acf40fceec01385c22f57f57a1877"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp": {
+    "size": 23062,
+    "sha256": "bac0838ae70da64de90c823d472d6762954224cca1c5d1a41bcf4fbd7c4b615f"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAID_BELL.webp": {
+    "size": 16186,
+    "sha256": "6e98c6d49bc6964253ffcb561cd9f84a7618b5cb0989d772342a577411bedd53"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAID_LANTERN.webp": {
+    "size": 21830,
+    "sha256": "a8ad5bada3ead830228110d95c660f1213d2ef3b415c533ad93e609b856396b7"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAID_SCISSORS.webp": {
+    "size": 19070,
+    "sha256": "6ba788ea87086ed18b6f47aab4bcdb5fcd22387ed8a3575e4edf370adad59757"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAID_SPEAR.webp": {
+    "size": 19434,
+    "sha256": "b904b661eec008be4db8a0f3f2005e2016828505fc1c96344434646ccf00023f"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp": {
+    "size": 20504,
+    "sha256": "37a0311c808913aa74d2ec28236f79813f1a2e200ff3c0f0960781852163c4f1"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_MUTANT_MASK.webp": {
+    "size": 24096,
+    "sha256": "cca7f7bd46d02aeeb79635985122f352acc2bce30d1efc0636e83b856588e8a3"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp": {
+    "size": 21446,
+    "sha256": "ff4474a52d0f7a943ffaa783ee00facd1b58ba8e094714348a4a966182d6545a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_NOA_LISA.webp": {
+    "size": 17488,
+    "sha256": "5092a4f4eca985c889cddbc09c21c5f5c631c0e4c76d3e1c29c83184a98bb14f"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_NOA_OBSERVER.webp": {
+    "size": 19900,
+    "sha256": "8530dc3c10225acf1fdeabe1b31264e8b0fe5eeda23ce4488df24e22812fa4b6"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_NOA_SHOP.webp": {
+    "size": 19310,
+    "sha256": "56f48ae26747c936cfeb5cfe2e2d4f5505d611a97bb89ee3ea8d6bb7766d95a7"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_OFFICER_POLICE.webp": {
+    "size": 19484,
+    "sha256": "43d1d650c75aebc65f2e1434a5012dcc83f4cb74d1790f477249d1eafebb4339"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_RECON_AMULET.webp": {
+    "size": 18366,
+    "sha256": "dbac1d02aa3c5d16e76c736f04abb8172d1b2249f2543994417079f5a6f46f46"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp": {
+    "size": 18110,
+    "sha256": "acc1e993635009b88616f953cf263c7c2f16dd3f8ee929b0b63f791b9cf3a680"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp": {
+    "size": 22130,
+    "sha256": "146f899ecfad99a37bad14542f6a8025fdf1d6478cbe8ec19edd1421ce2f96ec"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_SAINTESS_ELF.webp": {
+    "size": 18830,
+    "sha256": "d8f05030f31968205a46357037d28a763805007b7d5a463451fe956857eaaf8f"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp": {
+    "size": 22376,
+    "sha256": "f964f95c29128ae29fc50e0c51a3a2b8e4ec411088d778e1f0fefeb57a4d62bd"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_STELLAR_THIEF.webp": {
+    "size": 20580,
+    "sha256": "3203437371f5f95737ddb88e72c0ca2e9605edb9cc5303c4b6933dc160c9b183"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp": {
+    "size": 24772,
+    "sha256": "ddda8ea5b810f68786e7d9b77c5e8898ce1971885ec0d14a989b0a6d666c37ec"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp": {
+    "size": 16494,
+    "sha256": "e52e16c7443dfd08509267c00d22e9dc2a98ad09261546e45bb9c133d1f1de76"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_SUMMER_SMILE.webp": {
+    "size": 18686,
+    "sha256": "b7f9b77ec7f74ffee14608e15318aa9383862f394dcd02963ec9208bf5777501"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp": {
+    "size": 16480,
+    "sha256": "83489f992a98b0fa832c60a45de6065e926717886a987aadb2135a8b94dc3c11"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp": {
+    "size": 18870,
+    "sha256": "6b7603d88f86a7a996432b59eda4dca27b295e866dcd2d0cf173a7aba908ead0"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp": {
+    "size": 17684,
+    "sha256": "1b8972e5d58a544ee2a703f67e56f03f9ed3272f8f5bb4eac34cccd01edc7a27"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp": {
+    "size": 27024,
+    "sha256": "b6a0fbc4aae211b502fcedc0b8ffbac559232ae6474860dcca386f9340871e65"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp": {
+    "size": 19592,
+    "sha256": "3fff104fba6f304ecd2cd08445f1a9d42d30d408429956ce31dac395445076ba"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp": {
+    "size": 19260,
+    "sha256": "98600f9447085e8067f04dc9e00326d5e619fb9a91f232213bea4bfa69889d15"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_WEST_LANCER.webp": {
+    "size": 22614,
+    "sha256": "27df0a268f0ca02349ff85c95c9c42f1ef0ad45afa28e6a8fd7b9b1683a5791a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_WEST_ROD.webp": {
+    "size": 18730,
+    "sha256": "5145e3bc1caed1ebd4fb0af15a4b383bb5972788078c4e604658fbae031cd8a8"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_WILD_HOG.webp": {
+    "size": 19318,
+    "sha256": "b36c10bcb1a74532121c5d70968114ddd563800ad65c03a0c664969e75e7fa7b"
+   },
+   "out/codex.json": {
+    "size": 12738213,
+    "sha256": "3c40d282cef4bf463a1c6413c3a856aa6bbd42841ab9ea3d49624e5205b13d0d"
+   },
+   "out/journey_kb.json": {
+    "size": 1710995,
+    "sha256": "144e48a99f1c376da2530fb54d71c1cec561ed42a6f7a7487ea75b97e52cbfa8"
+   },
+   "out/portrait_index.json": {
+    "size": 124641,
+    "sha256": "d5ca5a4323e571096706f875f9703c4fa95da30b0d28cbda4916ef947625d0b9"
+   }
+  }
+ },
+ "changelog_url": "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/changelog.md"
+}
