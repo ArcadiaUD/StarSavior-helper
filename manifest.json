@@ -1,22 +1,22 @@
 {
  "schema": 1,
  "app": {
-  "version": "1.0.0",
-  "tag": "V1.0",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V1.0/StarSavior-helper-V1.0.zip",
+  "version": "2.0.0",
+  "tag": "V2.0",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V2.0/StarSavior-helper-V2.0.zip",
   "package_size": null,
   "sha256": null,
   "notes": ""
  },
  "data": {
-  "version": "2026-10-03.1",
-  "min_app_version": "1.0.0",
-  "released_at": "2026-10-03T00:55:01+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-03.1/data-2026-10-03.1.zip",
-  "package_size": 12779313,
-  "sha256": "14904b12e3332513a8f83fbada2e1f71478f97328561195180fd9b5d100076e4",
-  "total_size": 25631937,
-  "file_count": 1146,
+  "version": "2026-10-05.1",
+  "min_app_version": "2.0.0",
+  "released_at": "2026-10-05T19:41:44+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-05.1/data-2026-10-05.1.zip",
+  "package_size": 21753786,
+  "sha256": "bbd70e4c3e314fc8b51199fcbdc905fa072c6ddf9a2e05575fccb8bac926ccab",
+  "total_size": 34654497,
+  "file_count": 1166,
   "stats": {
    "characters": 47,
    "arcanas": 82,
@@ -4613,9 +4613,89 @@
     "size": 19318,
     "sha256": "b36c10bcb1a74532121c5d70968114ddd563800ad65c03a0c664969e75e7fa7b"
    },
+   "assets/tier/tier_strength.png": {
+    "size": 4071880,
+    "sha256": "1f4cf3475978fcc54b31c8730b2cbb0a8d0d34dab0d524257c551fdc06b7e2e3"
+   },
+   "assets/tier/tier_support.png": {
+    "size": 2998904,
+    "sha256": "b6a8c5cbf2ff80cf7010ad0ccd69d5c88c996ff7c04c56275d90f65919687e48"
+   },
    "out/codex.json": {
     "size": 12738213,
     "sha256": "3c40d282cef4bf463a1c6413c3a856aa6bbd42841ab9ea3d49624e5205b13d0d"
+   },
+   "out/guide.json": {
+    "size": 3902,
+    "sha256": "ce4f8d532a49d44390a00aef4d6688b0d409d942caf7b948fa0493da9608cc04"
+   },
+   "out/guide_img/image1.png": {
+    "size": 148790,
+    "sha256": "a8894d0eecdbbc443e3aa7d749e2e83bd76f056b104154b5afa1c5715b3de509"
+   },
+   "out/guide_img/image10.png": {
+    "size": 108830,
+    "sha256": "fd868975b23f7f56ec22934c54448ff709203358cb901800ec78dd479b792657"
+   },
+   "out/guide_img/image11.png": {
+    "size": 122319,
+    "sha256": "7d84747820190ee2f8caddb1832e2238e1723525532d4899bd5b12ec3b24cc37"
+   },
+   "out/guide_img/image12.png": {
+    "size": 163584,
+    "sha256": "d4c58dd2e94e2484a2aa0ba0d5705e739f51b503133817f63b08923b2287a4e6"
+   },
+   "out/guide_img/image13.png": {
+    "size": 104599,
+    "sha256": "0573cf0b044c05960b4bdf5b5b7aa11c801bb17cad9822b4f2e6bee3717a4e5d"
+   },
+   "out/guide_img/image14.png": {
+    "size": 96054,
+    "sha256": "886c5b9a9c9c1a05f45f213eb1cca9f03846ce94431ebc500da97ed397c422dd"
+   },
+   "out/guide_img/image15.png": {
+    "size": 105741,
+    "sha256": "eba2da22bcbb15577e6c87fe09edad864d246ab831867b3655233f58dc166ef0"
+   },
+   "out/guide_img/image16.png": {
+    "size": 110835,
+    "sha256": "ee0a575726f9f79fce91c66dcbef141db6ba6cd2e7d966dfc2ad1ee0f69b03c4"
+   },
+   "out/guide_img/image17.png": {
+    "size": 95797,
+    "sha256": "e0837cd4f5c7e94286caba116890a1e8f82b550f3f6c2a56d88dc04cce744fc0"
+   },
+   "out/guide_img/image2.png": {
+    "size": 144849,
+    "sha256": "52d1dff9cfd7da0f0e4ed074d888b05d3c15777cc02a7578f5441ed7ba8b5e73"
+   },
+   "out/guide_img/image3.png": {
+    "size": 132190,
+    "sha256": "a7e2e57828e8a5e287fe1303ee977c09fd99239f0a9e28e95f378793688a34f7"
+   },
+   "out/guide_img/image4.png": {
+    "size": 152992,
+    "sha256": "94e34ae2627f1f1a14e05441ace5c75caca61158658a4430e40382eba8f21b02"
+   },
+   "out/guide_img/image5.png": {
+    "size": 31969,
+    "sha256": "739245dc23ec6a898420cbe53b3550fca6410b7a368a28257a10a7be7c485fb5"
+   },
+   "out/guide_img/image6.png": {
+    "size": 115474,
+    "sha256": "e70b5de76df77be9a67f3aa8f7a19bb82c41801dfe2ae550416a1ae7a0ebba74"
+   },
+   "out/guide_img/image7.png": {
+    "size": 35537,
+    "sha256": "0f1ef6cc52b316132e60b5d0423bb259f2a5b47dbf368c06dfb5639bee46c07b"
+   },
+   "out/guide_img/image8.png": {
+    "size": 162821,
+    "sha256": "05b9395a00f8a7fdc7ba8d052501900223947d530e4863bf3995e8a75aeb8178"
+   },
+   "out/guide_img/image9.png": {
+    "size": 115493,
+    "sha256": "369cb0978c261addbe3425607e27f5de81d9fec9522cfd1b360da00ee2b5dc79"
    },
    "out/journey_kb.json": {
     "size": 1710995,
