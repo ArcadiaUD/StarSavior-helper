@@ -8,11 +8,11 @@
    "slot": 144,
    "group": "全场景必练T0",
    "name": "gn",
-   "content": 147,
-   "contentName": "M教授",
+   "content": 144,
+   "contentName": "gn",
    "art": null,
-   "char": "M教授",
-   "form": null,
+   "char": "亚瑟菈",
+   "form": "星光华尔兹",
    "textChanged": false,
    "text": null,
    "textFrom": null,
@@ -59,11 +59,11 @@
    "slot": 147,
    "group": "全场景必练T0",
    "name": "M教授",
-   "content": 144,
-   "contentName": "gn",
+   "content": 147,
+   "contentName": "M教授",
    "art": null,
-   "char": "亚瑟菈",
-   "form": "星光华尔兹",
+   "char": "M教授",
+   "form": null,
    "textChanged": false,
    "text": null,
    "textFrom": null,
@@ -1268,7 +1268,7 @@
    ],
    "ring": 8,
    "bg": "#ecc476",
-   "content": 147
+   "content": 144
   },
   {
    "slot": 145,
@@ -1313,7 +1313,7 @@
    ],
    "ring": 11,
    "bg": "#9f9fa8",
-   "content": 144
+   "content": 147
   },
   {
    "slot": 7001,
