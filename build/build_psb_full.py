@@ -344,10 +344,13 @@ def main() -> None:
              "bases": {"layers": "layers/", "faces": "faces/"},
              "items": items, "grades": grades}
     dump = json.dumps(board, ensure_ascii=False)
-    (WEB / "board.json").write_text(dump, encoding="utf-8")
-    (WEB / "board_data.js").write_text("window.BOARD_DATA = " + dump + ";\n", encoding="utf-8")
+    # 统一写 LF：本机（Windows）默认会写成 CRLF，云上构建写 LF，
+    # 两边字节不一致就会每次自动重建都多出一个「没有实际改动」的提交
+    (WEB / "board.json").write_text(dump, encoding="utf-8", newline="\n")
+    (WEB / "board_data.js").write_text("window.BOARD_DATA = " + dump + ";\n",
+                                       encoding="utf-8", newline="\n")
     shutil.copy2(TMP / "board.js", WEB / "board.js")   # 渲染实现只有一份，面板侧从同一处复制
-    (WEB / "index.html").write_text(HTML_TMPL, encoding="utf-8")
+    (WEB / "index.html").write_text(HTML_TMPL, encoding="utf-8", newline="\n")
     n_img = sum(1 for i in items if i["t"] == "img")
     print(f"网页 -> {WEB / 'index.html'}（数据 board.json、渲染 board.js）"
           + (f"（已应用编辑改动 {applied} 处）" if applied else ""))
