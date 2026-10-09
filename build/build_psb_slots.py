@@ -1635,6 +1635,48 @@ async function ghConnect(silent) {
     ghEl("ghMsg").textContent = e.message;
   }
 }
+/* ---------- 「已生效」反馈 ----------
+   保存成功只代表存档进了仓库，站点要等云端重建完才换数据。这里拿自己刚提交的那份
+   存档去比对云端写下的指纹，对上了就说明重建完成，状态从「已保存」变「已生效」。 */
+const MARK_URL = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/board_build.json";
+const MARK_WAIT_MS = 180000;
+let ghPollT = null, ghPendingSha = null;
+
+async function ghSha256(text) {
+  /* 本地用 file:// 打开时没有 crypto.subtle，这种情况只显示「已保存」 */
+  if (!(window.crypto && crypto.subtle)) return null;
+  const d = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(d)).map(b => b.toString(16).padStart(2, "0")).join("");
+}
+
+async function ghWaitEffect(payload, shortSha) {
+  const sha = await ghSha256(payload);
+  if (!sha) { ghState("已保存 " + shortSha, "ok"); return; }
+  ghPendingSha = sha;
+  const t0 = Date.now();
+  ghState("已保存 " + shortSha + " · 站点重建中…", "ok");
+  clearInterval(ghPollT);
+  ghPollT = setInterval(async () => {
+    if (ghPendingSha !== sha) { clearInterval(ghPollT); return; }
+    try {
+      const r = await fetch(MARK_URL + "?t=" + Date.now(), { cache: "no-store" });
+      if (r.ok) {
+        const m = await r.json();
+        if (m && m.slots_sha256 === sha) {
+          clearInterval(ghPollT); ghPendingSha = null;
+          ghState("已生效（" + Math.round((Date.now() - t0) / 1000) + " 秒）· " + shortSha, "ok");
+          flash("站点已生效");
+          return;
+        }
+      }
+    } catch (e) {}
+    if (Date.now() - t0 > MARK_WAIT_MS) {
+      clearInterval(ghPollT); ghPendingSha = null;
+      ghState("已保存 " + shortSha + "（站点还没重建完）", "bad");
+    }
+  }, 3000);
+}
+
 async function ghPush() {
   if (GH.busy) return;
   if (!GH.canPush) { flash("没连上仓库或没有写权限，保存被拒"); return; }
@@ -1650,8 +1692,9 @@ async function ghPush() {
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if (cur.ok) sha = (await cur.json()).sha;
     else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
+    const payload = JSON.stringify(data, null, 1);
     const body = { message: "编辑保存（" + (GH.login || "协作者") + "）",
-                   content: b64utf8(JSON.stringify(data, null, 1)), branch: GH.branch };
+                   content: b64utf8(payload), branch: GH.branch };
     if (sha) body.sha = sha;
     const put = () => ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
     let r = await put();
@@ -1661,8 +1704,9 @@ async function ghPush() {
     }
     if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 160));
     const out = await r.json();
-    ghState("已保存 " + out.commit.sha.slice(0, 7), "ok");
-    flash("已存到仓库 " + out.commit.sha.slice(0, 7));
+    const short = out.commit.sha.slice(0, 7);
+    flash("已存到仓库 " + short);
+    await ghWaitEffect(payload, short);
   } catch (e) {
     ghState("保存失败", "bad");
     flash("保存失败：" + e.message);

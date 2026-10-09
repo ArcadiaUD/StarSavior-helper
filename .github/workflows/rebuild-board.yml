@@ -70,6 +70,23 @@ jobs:
           rm -rf docs/layers docs/faces
           cp -r build/psb_web/layers build/psb_web/faces docs/
 
+      - name: 写构建标记
+        run: |
+          python - <<'PY'
+          import hashlib, json, time
+          from pathlib import Path
+          slots, board = Path("docs/psb_slots.json"), Path("docs/board.json")
+          rec = {
+              "built_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
+              # 编辑器靠这个指纹判断「我提交的存档是不是已经被构建进去了」
+              "slots_sha256": hashlib.sha256(slots.read_bytes()).hexdigest() if slots.is_file() else None,
+              "board_sha256": hashlib.sha256(board.read_bytes()).hexdigest(),
+          }
+          Path("docs/board_build.json").write_text(
+              json.dumps(rec, ensure_ascii=False), encoding="utf-8", newline="\n")
+          print(rec)
+          PY
+
       - name: 提交回仓库
         run: |
           git config user.name "github-actions[bot]"
