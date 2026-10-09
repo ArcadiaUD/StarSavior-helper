@@ -1,4 +1,6 @@
 # 云端重建榜单数据要用的依赖。
 # 只装无界面的 OpenCV：runner 上不需要图形库，装 headless 版既快又不出幺蛾子。
-opencv-python-headless
-numpy
+# 版本锁死有三点好处：pip 不用去索引解析（配合工作流里的依赖缓存，装依赖从 4 秒降到 1 秒出头）、
+# 云端与本机结果可复现、上游发新版不会悄悄改变构建结果。
+opencv-python-headless==5.0.0.93
+numpy==2.5.3
