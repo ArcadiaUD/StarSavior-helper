@@ -1582,14 +1582,18 @@ function validatePayload(data) {
     if (x < -2 || y < -2 || x + w > W + 2 || y + h > H + 2)
       return "格位越出画布：" + id;
   }
-  for (const id of Object.keys(data.pos || {})) {
-    if (!seen.has(id)) return "位移指向了不存在的格位：" + id;
+  // 位移是按「可拖动项」（文字条、图层名）建键的，不是格位编号，所以只校验数值形状
+  for (const k of Object.keys(data.pos || {})) {
+    const v = data.pos[k];
+    if (!Array.isArray(v) || v.length !== 2 ||
+        !v.every(n => typeof n === "number" && isFinite(n)))
+      return "位移数值不合法：" + k;
   }
   for (const l of (data.slots || [])) {
     if (!l) return "改动记录里有空项";
     const id = sid(l.slot);
     if (!seen.has(id)) return "改动记录指向了不存在的格位：" + id;
-    if (l.content !== null && l.content !== undefined && typeof l.content !== "string")
+    if (l.content !== null && l.content !== undefined && !sid(l.content))
       return "内容引用不合法：" + id;
     if (l.char) {
       const k = l.char + (l.form ? "|" + l.form : "");
