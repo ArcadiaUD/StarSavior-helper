@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>强度榜格位编辑器</title>
+<style>
+  :root { --z: 0.26; }
+  html,body { margin:0; background:#15171c; color:#dfe3ec;
+              font-family:"Microsoft YaHei","Segoe UI",sans-serif; }
+  #bar { display:flex; align-items:center; gap:8px;
+         padding:8px 12px; background:#1b1e26; border-bottom:1px solid #2e3342; flex-wrap:wrap; }
+  #head { position:sticky; top:0; z-index:98; }
+  #bar b { font-size:13px; }
+  .hint { font-size:12px; color:#98a0b3; }
+  button { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
+           padding:5px 11px; font-size:12px; cursor:pointer; }
+  button.on { border-color:#6ea8fe; color:#8fb8f5; }
+  button:disabled { opacity:.4; cursor:default; }
+  #toast { position:fixed; left:50%; top:66px; transform:translateX(-50%); z-index:120;
+           background:#2a3040; border:1px solid #3d4560; color:#dfe3ec; font-size:13px;
+           padding:8px 14px; border-radius:8px; opacity:0; transition:opacity .18s;
+           pointer-events:none; }
+  #toast.on { opacity:1; }
+  #wrap { padding:16px; overflow:auto; }
+  #fit { position:relative; width:calc(3621px * var(--z)); height:calc(6761px * var(--z)); }
+  #stage { position:absolute; top:0; left:0; width:3621px; height:6761px; background:#303030;
+           transform-origin:0 0; transform:scale(var(--z)); }
+  .lb { position:absolute; white-space:pre; }
+  .bg { position:absolute; pointer-events:none; }
+  .bg img { width:100%; height:100%; display:block; }
+  /* 素材可拖模式：只有真正铺满整幅的大底图让点击穿透，其余素材都能被鼠标命中 */
+  body.pickbg .bg:not(.wall) { pointer-events:auto; cursor:move; }
+  body.pickbg .bg:not(.wall):hover { outline:1px dashed #6ea8fe; }
+  .slot { position:absolute; cursor:grab; }
+  .slot img { width:100%; height:100%; display:block; pointer-events:none;
+              position:relative; z-index:1; }
+  .ring { position:absolute; inset:0; box-sizing:border-box; border-style:solid;
+          pointer-events:none; z-index:3; }
+  body.frames .slot::before, body.frames .slot::after {
+    content:""; position:absolute; width:26%; height:26%; pointer-events:none;
+    border:6px solid #8ab4ff; z-index:2; box-sizing:border-box; }
+  body.frames .slot::before { left:0; top:0; border-right:0; border-bottom:0; }
+  body.frames .slot::after  { right:0; bottom:0; border-left:0; border-top:0; }
+  .slot.empty { outline:3px dashed #ff8b8b; background:#000000aa; }
+  .slot.blank { outline:2px dashed #464d60; outline-offset:-2px; }
+  .slot.blank.empty { outline:3px dashed #ff8b8b; background:#000000aa; }
+  .slot.ph { outline:3px solid #fedd62; outline-offset:-3px; }   /* 补齐档位的金框空位 */
+  .slot.empty img { display:none; }
+  .slot.dragging img { opacity:.2; }
+  .slot.drop { outline:4px solid #6ea8fe; outline-offset:-3px; background:#6ea8fe33; }
+  .slot.sel { outline:2px solid #6ea8fe; outline-offset:-2px; }
+  .slot.fromlib img { box-shadow:inset 0 0 0 3px #5fd3a0; }
+  .sltext { position:absolute; white-space:pre-wrap; overflow-wrap:anywhere;
+            cursor:text; border-radius:4px; padding:1px 3px; }
+  .sltext.hint { overflow:hidden; background:#8fb8f526; border-bottom:3px dashed #8fb8f599; }
+  .sltext.hint.open { background:#00000066; border-bottom-color:#6ea8fe; }
+  .sltext:focus { outline:2px solid #6ea8fe; background:#00000066; }
+  .sltext:empty::before { content:"＋ 填说明"; color:#8fb8f580; }
+  .tag { position:absolute; left:0; top:-17px; font-size:11px; color:#8fb8f5;
+         background:#11131acc; padding:0 4px; border-radius:4px; display:none; white-space:nowrap; }
+  body.tags .slot .tag { display:block; }
+  body.tags .slot.pending .tag { color:#ff8b8b; }
+  #ghost { position:fixed; pointer-events:none; z-index:9999; opacity:.85;
+           outline:2px solid #6ea8fe; border-radius:4px; overflow:hidden;
+           box-shadow:0 6px 18px #000a; }
+  #ghost img { width:100%; height:100%; display:block; }
+  #libBtn { position:fixed; right:16px; top:44%; z-index:60; writing-mode:vertical-rl;
+            padding:14px 8px; font-size:13px; letter-spacing:2px;
+            background:#1b1e26; border:1px solid #2e3342; border-radius:10px; }
+  #libBtn.on { border-color:#6ea8fe; color:#8fb8f5; }
+  body.libopen #libBtn { right:330px; }
+  #lib { position:fixed; right:0; top:46px; bottom:0; width:312px; z-index:120;
+         background:#15171cf5; border-left:1px solid #2e3342; display:none;
+         flex-direction:column; }
+  #lib.open { display:flex; }
+  #lib .hd { padding:10px 12px; border-bottom:1px solid #2e3342; display:flex;
+             align-items:center; gap:8px; font-size:13px; }
+  #lib .hd input { flex:1; background:#101319; color:#dfe3ec; border:1px solid #2e3342;
+                   border-radius:6px; padding:5px 8px; font-size:12px; }
+  #lib .bd { flex:1; overflow:auto; padding:10px; display:grid; gap:8px;
+             grid-template-columns:repeat(3, 1fr); align-content:start; }
+  .libItem { cursor:grab; text-align:center; }
+  .libItem img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px;
+                 border:1px solid #2e3342; display:block; background:#0e1116; }
+  .libItem span { font-size:10px; color:#98a0b3; display:block; margin-top:3px;
+                  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .libItem:hover img { border-color:#6ea8fe; }
+  #insp { position:fixed; right:14px; bottom:14px; width:268px; background:#1b1e26ee;
+          border:1px solid #2e3342; border-radius:10px; padding:10px 12px; font-size:12px;
+          box-shadow:0 6px 24px #0008; display:none; z-index:61; }
+  #insp .t { font-weight:700; margin-bottom:6px; word-break:break-all; }
+  #insp .r { display:flex; align-items:center; gap:6px; margin:5px 0; flex-wrap:wrap; }
+  #insp select { flex:1; background:#101319; color:#dfe3ec; border:1px solid #2e3342;
+          border-radius:5px; padding:3px; font-size:12px; }
+  .sub { color:#98a0b3; }
+  #textbar { display:none; align-items:center; gap:8px; flex-wrap:wrap;
+            padding:8px 12px; background:#1b1e26; border-bottom:1px solid #2e3342; font-size:12px; }
+  #textbar.on { display:flex; }
+  #textbar .t { font-weight:700; }
+  #textbar select { background:#101319; color:#dfe3ec; border:1px solid #2e3342;
+                   border-radius:5px; padding:3px 6px; font-size:12px; max-width:340px; }
+  #textbar input[type=number], #textbar input[type=text] { background:#101319; color:#dfe3ec;
+                   border:1px solid #2e3342; border-radius:5px; padding:3px 6px; font-size:12px; }
+  #textbar input[type=number] { width:62px; }
+  #textbar input[type=text] { width:280px; }
+  #textbar input[type=color] { width:34px; height:22px; padding:0; background:#101319;
+                   border:1px solid #2e3342; border-radius:5px; }
+  #textbar button.on { background:#2a3b5c; border-color:#6ea8fe; color:#dfe3ec; }
+  #textbar input:disabled, #textbar select:disabled, #textbar button:disabled { opacity:.45; }
+  #textbar .sep { width:1px; height:20px; background:#2e3342; margin:0 4px; }
+  #textbar button { padding:4px 9px; font-size:12px; }
+  .movable { cursor: move; }
+  .movable:hover { outline:1px dashed #6ea8fe66; }
+  .moving { z-index:999 !important; outline:1px dashed #6ea8fe; }
+  .bg.pick, .lb.pick { outline:2px solid #fedd62; z-index:500; }
+  .nt { position:absolute; white-space:pre; padding:2px 4px; border-radius:4px;
+        outline:1px dashed #6ea8fe55; z-index:70; cursor:move; }
+  .nt:hover { outline-color:#6ea8fe; }
+  .nt[contenteditable=true] { cursor:text; outline:1px solid #6ea8fe; }
+#ghbox { display:none; position:fixed; right:18px; top:60px; width:352px; z-index:900;
+         background:#1b1e26; border:1px solid #2e3342; border-radius:10px; padding:14px;
+         box-shadow:0 14px 34px #0009; font-size:12px; line-height:1.6; }
+#ghbox.on { display:block; }
+#ghbox h4 { margin:0 0 6px; font-size:13px; }
+#ghbox p { margin:0 0 9px; color:#98a0b3; }
+#ghbox input { width:100%; box-sizing:border-box; background:#15171c; color:#dfe3ec;
+               border:1px solid #2e3342; border-radius:6px; padding:6px 8px; font-size:12px; }
+#ghbox .r { display:flex; gap:8px; align-items:center; margin-top:10px; }
+#ghState.ok { color:#8fd694; }
+#ghState.bad { color:#f08a7a; }
+</style></head><body>
+<div id="head">
+<div id="bar">
+  <b>强度榜格位编辑器</b>
+  <span class="hint">拖头像到别的洞即交换 · 右侧头像库可拖入洞中 · 说明栏：有内容的常驻显示，空的显示为一条浅色虚线，鼠标移到洞上即展开</span>
+  <button id="bFrame">显示取景角标</button>
+  <button id="bTags">显示图层名</button>
+  <button id="bBig">隐藏整图底</button>
+  <button id="bPick" class="on">素材可拖</button>
+  <button id="bUndo" disabled>↶ 撤回</button>
+  <button id="bAdd">＋ 格</button>
+  <button id="bText">文字</button>
+  <button id="bOut">缩小</button>
+  <button id="bIn">放大</button>
+  <button id="bSave">导出改动</button>
+  <button id="bLoad">导入改动</button>
+  <button id="bClear">清空改动</button>
+  <button id="bGh">连接 GitHub</button>
+  <button id="bPush" disabled>存到仓库</button>
+  <span class="hint" id="ghState">未连接仓库</span>
+  <span class="hint" id="ztext"></span>
+  <input id="file" type="file" accept=".json" style="display:none">
+</div>
+<div id="textbar">
+  <span class="t">文字</span>
+  <span class="sub">条目</span><select id="tbPick"></select>
+  <span class="sep"></span>
+  <span class="sub">内容</span><input id="tbText" type="text" placeholder="输入文字内容">
+  <span class="sub">字号</span><input id="tbFs" type="number" step="2" min="8">
+  <span class="sub">颜色</span><input id="tbColor" type="color">
+  <button id="tbBold">加粗</button>
+  <span class="sub">X</span><input id="tbX" type="number" step="1">
+  <span class="sub">Y</span><input id="tbY" type="number" step="1">
+  <span class="sep"></span>
+  <button id="tbNew">＋ 新建文本</button>
+  <button id="tbHide">隐藏该条</button>
+  <button id="tbRevert">还原该条</button>
+  <span class="sub" id="tbInfo"></span>
+  <button id="tbClose">关闭</button>
+</div>
+</div>
+<div id="toast"></div>
+<div id="ghbox">
+  <h4>连接 GitHub（保存到仓库）</h4>
+  <p>贴一个细粒度令牌：只勾选这个仓库的 <b>Contents 读写</b>，并设一个有效期。令牌只存在这台浏览器里，不会发到别处。不在仓库协作者名单里的账号即使连接成功也只能看不能存。</p>
+  <input id="ghToken" type="password" placeholder="github_pat_..." autocomplete="off">
+  <div class="r"><button id="ghDo">连接</button><button id="ghForget">清除令牌</button><span class="hint" id="ghMsg"></span></div>
+</div>
+<div id="wrap"><div id="fit"><div id="stage"></div></div></div>
+<button id="libBtn">头像库</button>
+<div id="lib">
+  <div class="hd">游戏内头像 <input id="libQ" placeholder="搜角色名"><button id="libClose">×</button></div>
+  <div class="bd" id="libList"></div>
+</div>
+<div id="insp">
+  <div class="t" id="iName">未选中</div>
+  <div class="r"><span class="sub" id="iInfo"></span></div>
+  <div class="r" id="iCharRow">角色 <select id="iChar"></select></div>
+  <div class="r"><button id="iEmpty">取出头像（空出该洞）</button><button id="iRevert">还原该洞</button></div>
+  <div class="r"><span class="sub" id="iCount"></span><button id="iClose">取消选中</button></div>
+</div>
+<script>
+const SLOTS = [{"id": 13, "name": "fl", "group": "T2功能角色", "file": "T2功能角色__fl.png", "box": [45, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#aab9b6", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "text": {"text": "水奶下位", "color": "#ffffff", "box": [96, 2870, 202, 49], "lines": 1, "from": 20}}, {"id": 14, "name": "qila", "group": "T2功能角色", "file": "T2功能角色__qila.png", "box": [456, 2523, 321, 320], "attr": false, "ring": 12, "bg": "#3b3c49", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "text": {"text": "隐身", "color": "#ffffff", "box": [568, 2859, 98, 50], "lines": 1, "from": 26}}, {"id": 15, "name": "slf", "group": "T2功能角色", "file": "T2功能角色__slf.png", "box": [867, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#ccc9b4", "char": "瑟乐芬", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "text": {"text": "免疫单次伤害/奶妈", "color": "#ffffff", "box": [811, 2861, 429, 54], "lines": 1, "from": 25}}, {"id": 16, "name": "zbeila", "group": "T2功能角色", "file": "T2功能角色__zbeila.png", "box": [1276, 2523, 320, 320], "attr": false, "ring": 8, "bg": "#a9999b", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "text": {"text": "跑得快奶妈", "color": "#ffffff", "box": [1309, 2859, 253, 50], "lines": 1, "from": 21}}, {"id": 17, "name": "lsf", "group": "T2功能角色", "file": "T2功能角色__lsf.png", "box": [1685, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#414750", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "text": {"text": "嘲讽/护盾", "color": "#ffffff", "box": [1736, 2861, 221, 54], "lines": 1, "from": 22}}, {"id": 18, "name": "凌", "group": "T2功能角色", "file": "T2功能角色__凌.png", "box": [2096, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#d9d1c9", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "text": {"text": "草叠层/增伤", "color": "#ffffff", "box": [2120, 2862, 272, 54], "lines": 1, "from": 23}}, {"id": 19, "name": "ptla", "group": "T2功能角色", "file": "T2功能角色__ptla.png", "box": [2496, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#e7cc8e", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "text": {"text": "高破韧/挂减防", "color": "#ffffff", "box": [2494, 2861, 325, 54], "lines": 1, "from": 24}}, {"id": 28, "name": "sla", "group": "T1功能角色", "file": "T1功能角色__sla.png", "box": [45, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#c6b3ad", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "text": {"text": "增伤/拉条/减速", "color": "#ffffff", "box": [32, 2281, 347, 54], "lines": 1, "from": 37}}, {"id": 29, "name": "zanna", "group": "T1功能角色", "file": "T1功能角色__zanna.png", "box": [1686, 1945, 321, 320], "attr": false, "ring": 8, "bg": "#d3b9d4", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "text": {"text": "加防御/挂减攻", "color": "#ffffff", "box": [1678, 2281, 328, 54], "lines": 1, "from": 43}}, {"id": 30, "name": "wikiSS克莉丝特头像", "group": "T1功能角色", "file": "T1功能角色__wikiSS克莉丝特头像.png", "box": [866, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#4b576c", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "text": {"text": "挂燃烧/自拉条", "color": "#ffffff", "box": [863, 2281, 326, 54], "lines": 1, "from": 38}}, {"id": 31, "name": "luge", "group": "T1功能角色", "file": "T1功能角色__luge.png", "box": [1276, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#454f6e", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "text": {"text": "挂冻结/挂减防", "color": "#ffffff", "box": [1272, 2281, 326, 54], "lines": 1, "from": 42}}, {"id": 32, "name": "hali", "group": "T1功能角色", "file": "T1功能角色__hali.png", "box": [449, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#625055", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "text": {"text": "推条/加防御", "color": "#ffffff", "box": [472, 2281, 274, 54], "lines": 1, "from": 44}}, {"id": 33, "name": "泳装露娜", "group": "T1功能角色", "file": "T1功能角色__泳装露娜.png", "box": [2096, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e5cbd3", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp", "text": {"text": "队友挨打暴击反击\n挂减攻", "color": "#ffffff", "box": [2046, 2281, 405, 110], "lines": 2, "from": 45}}, {"id": 34, "name": "miulier", "group": "T1功能角色", "file": "T1功能角色__miulier.png", "box": [2496, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#848798", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "text": {"text": "挂减攻/挂燃烧", "color": "#ffffff", "box": [2493, 2283, 326, 54], "lines": 1, "from": 41}}, {"id": 35, "name": "laixi", "group": "T1功能角色", "file": "T1功能角色__laixi.png", "box": [2903, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e9aebb", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "text": {"text": "挂减攻/挨打回血", "color": "#ffffff", "box": [2874, 2281, 378, 54], "lines": 1, "from": 40}}, {"id": 36, "name": "cuisita", "group": "T1功能角色", "file": "T1功能角色__cuisita.png", "box": [3301, 1945, 320, 320], "attr": false, "ring": 8, "bg": "#a7c4fd", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "text": {"text": "AOE对策", "color": "#ffffff", "box": [3356, 2280, 210, 49], "lines": 1, "from": 39}}, {"id": 47, "name": "gn", "group": "光系", "file": "光系__gn.png", "box": [149, 3574, 213, 213], "attr": true, "ring": 6, "bg": "#c58f20", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 48, "name": "阿莫拉", "group": "光系", "file": "光系__阿莫拉.png", "box": [381, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b7939d", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 52, "name": "nna", "group": "光系", "file": "光系__nna.png", "box": [149, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#dead95", "char": "露娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"}, {"id": 53, "name": "sla", "group": "光系", "file": "光系__sla.png", "box": [381, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#f3d5eb", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"}, {"id": 61, "name": "tnji", "group": "草系", "file": "草系__tnji.png", "box": [3001, 5696, 213, 213], "attr": true, "ring": 8, "bg": "#c9c9cd", "char": "塔妮娅", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp"}, {"id": 62, "name": "amj", "group": "草系", "file": "草系__amj.png", "box": [3233, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#647abd", "char": "奥米嘉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp"}, {"id": 63, "name": "dna", "group": "草系", "file": "草系__dna.png", "box": [3001, 5926, 213, 213], "attr": true, "ring": 11, "bg": "#b5aa94", "char": "达娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp"}, {"id": 64, "name": "lmn", "group": "草系", "file": "草系__lmn.png", "box": [3001, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#332425", "char": "刘米娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp"}, {"id": 65, "name": "wx", "group": "草系", "file": "草系__wx.png", "box": [3233, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#8a92a2", "char": "微笑", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp"}, {"id": 66, "name": "best", "group": "草系", "file": "草系__best.png", "box": [3233, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#2b2f3f", "char": "贝尔·莉丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp"}, {"id": 67, "name": "crs", "group": "草系", "file": "草系__crs.png", "box": [3001, 5338, 213, 213], "attr": true, "ring": 7, "bg": "#5d6863", "char": "崔瑞丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp"}, {"id": 68, "name": "fl", "group": "草系", "file": "草系__fl.png", "box": [3233, 5926, 213, 213], "attr": true, "ring": 8, "bg": "#8e9e8a", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp"}, {"id": 69, "name": "cuisita", "group": "草系", "file": "草系__cuisita.png", "box": [3233, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#819bd9", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp"}, {"id": 70, "name": "lbt", "group": "草系", "file": "草系__lbt.png", "box": [3001, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#7159af", "char": "萝贝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp"}, {"id": 71, "name": "nalu", "group": "草系", "file": "草系__nalu.png", "box": [3001, 4162, 213, 213], "attr": true, "ring": 5, "bg": "#4b362f", "char": "娜鲁", "form": null, "face": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp"}, {"id": 72, "name": "格温", "group": "草系", "file": "草系__格温.png", "box": [3233, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#4b4b69", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp"}, {"id": 73, "name": "klls", "group": "草系", "file": "草系__klls.png", "box": [3001, 3804, 213, 213], "attr": true, "ring": 5, "bg": "#849279", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 74, "name": "凌", "group": "草系", "file": "草系__凌.png", "box": [3001, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#c9baaa", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp"}, {"id": 75, "name": "泳装微笑", "group": "草系", "file": "草系__泳装微笑.png", "box": [3001, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#9d959f", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 76, "name": "mudun", "group": "草系", "file": "草系__mudun.png", "box": [3233, 3574, 213, 213], "attr": true, "ring": 7, "bg": "#a39455", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 84, "name": "zbeila", "group": "水系", "file": "水系__zbeila.png", "box": [2281, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#b1a2b3", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp"}, {"id": 85, "name": "yasela", "group": "水系", "file": "水系__yasela.png", "box": [2281, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#f1e2d8", "char": "亚瑟菈", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp"}, {"id": 86, "name": "lili", "group": "水系", "file": "水系__lili.png", "box": [2513, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#e6c7c2", "char": "莉莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp"}, {"id": 87, "name": "tfl", "group": "水系", "file": "水系__tfl.png", "box": [2281, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#81c5af", "char": "芙蕾", "form": "贵族公主", "face": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp"}, {"id": 88, "name": "laidai", "group": "水系", "file": "水系__laidai.png", "box": [2513, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#f5e9da", "char": "艾芬黛尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp"}, {"id": 89, "name": "霏", "group": "水系", "file": "水系__霏.png", "box": [2281, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b3afd3", "char": "霏", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp"}, {"id": 91, "name": "kler", "group": "水系", "file": "水系__kler.png", "box": [2281, 4392, 213, 213], "attr": true, "ring": 8, "bg": "#bd9e97", "char": "克莱儿", "form": "无瑕蓝玫瑰", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp"}, {"id": 92, "name": "zkelaier", "group": "水系", "file": "水系__zkelaier.png", "box": [2513, 4392, 213, 213], "attr": true, "ring": 5, "bg": "#55629a", "char": "克莱儿", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp"}, {"id": 93, "name": "luge", "group": "水系", "file": "水系__luge.png", "box": [2281, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#475372", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp"}, {"id": 94, "name": "aimili", "group": "水系", "file": "水系__aimili.png", "box": [2513, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#9097a5", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 95, "name": "瑟莱丝", "group": "水系", "file": "水系__瑟莱丝.png", "box": [2281, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#cec8cc", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 96, "name": "hka", "group": "水系", "file": "水系__hka.png", "box": [2513, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#7580ae", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 97, "name": "M教授", "group": "水系", "file": "水系__M教授.png", "box": [2281, 4034, 213, 213], "attr": true, "ring": 8, "bg": "#c9c8ce", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 99, "name": "tuxia", "group": "火系", "file": "火系__tuxia.png", "box": [1575, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#ad5770", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 100, "name": "hdj", "group": "火系", "file": "火系__hdj.png", "box": [1807, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#5c4a93", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 101, "name": "wikiSS克莉丝特头像", "group": "火系", "file": "火系__wikiSS克莉丝特头像.png", "box": [1575, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#40475f", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp"}, {"id": 102, "name": "zmaerxi", "group": "火系", "file": "火系__zmaerxi.png", "box": [1807, 3932, 213, 213], "attr": true, "ring": 5, "bg": "#907c5c", "char": "玛尔希", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp"}, {"id": 103, "name": "hf", "group": "火系", "file": "火系__hf.png", "box": [1575, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#dcdee2", "char": "艾芬黛尔", "form": "花绽祝福", "face": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp"}, {"id": 109, "name": "skl", "group": "火系", "file": "火系__skl.png", "box": [1575, 5338, 213, 213], "attr": true, "ring": 9, "bg": "#b43d55", "char": "丝卡蕾", "form": "小暴君", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp"}, {"id": 110, "name": "ptla", "group": "火系", "file": "火系__ptla.png", "box": [1807, 5338, 213, 213], "attr": true, "ring": 13, "bg": "#e0c788", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp"}, {"id": 111, "name": "lsf", "group": "火系", "file": "火系__lsf.png", "box": [1575, 5568, 213, 213], "attr": true, "ring": 8, "bg": "#e2d5d3", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp"}, {"id": 112, "name": "zanna", "group": "火系", "file": "火系__zanna.png", "box": [1807, 5568, 213, 213], "attr": true, "ring": 5, "bg": "#e8d5ea", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp"}, {"id": 113, "name": "qila", "group": "火系", "file": "火系__qila.png", "box": [1575, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#895a6c", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp"}, {"id": 114, "name": "zsikalei", "group": "火系", "file": "火系__zsikalei.png", "box": [1807, 4520, 213, 213], "attr": true, "ring": 5, "bg": "#c24551", "char": "丝卡蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp"}, {"id": 115, "name": "xe", "group": "火系", "file": "火系__xe.png", "box": [1575, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e19da7", "char": "夏尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp"}, {"id": 116, "name": "miulier", "group": "火系", "file": "火系__miulier.png", "box": [1807, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e598a6", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp"}, {"id": 117, "name": "泳装露娜", "group": "火系", "file": "火系__泳装露娜.png", "box": [1575, 4980, 213, 213], "attr": true, "ring": 9, "bg": "#f9cbd6", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp"}, {"id": 118, "name": "hali", "group": "火系", "file": "火系__hali.png", "box": [1807, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#7e7f92", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp"}, {"id": 120, "name": "卡", "group": "暗系", "file": "暗系__卡.png", "box": [857, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#8d8fb6", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 127, "name": "ailisha", "group": "暗系", "file": "暗系__ailisha.png", "box": [857, 5006, 213, 213], "attr": true, "ring": 8, "bg": "#4c4b6d", "char": "艾莉莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp"}, {"id": 129, "name": "laixi", "group": "暗系", "file": "暗系__laixi.png", "box": [857, 4290, 213, 213], "attr": true, "ring": 9, "bg": "#a88bbd", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp"}, {"id": 130, "name": "ldy", "group": "暗系", "file": "暗系__ldy.png", "box": [1089, 4290, 213, 213], "attr": true, "ring": 8, "bg": "#aa979b", "char": "莉迪亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp"}, {"id": 131, "name": "yiz", "group": "暗系", "file": "暗系__yiz.png", "box": [857, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#594b56", "char": "罗莎莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"}, {"id": 133, "name": "tuxia", "group": "全场景必练T0.5", "file": "全场景必练T0.5__tuxia.png", "box": [45, 1352, 321, 320], "attr": false, "ring": 11, "bg": "#d0a3b6", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 134, "name": "hdj", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hdj.png", "box": [456, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#50397e", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 135, "name": "hka", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hka.png", "box": [866, 1351, 320, 320], "attr": false, "ring": 11, "bg": "#c7cfd0", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 136, "name": "aimili", "group": "全场景必练T0.5", "file": "全场景必练T0.5__aimili.png", "box": [1276, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#8d9aab", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 137, "name": "卡", "group": "全场景必练T0.5", "file": "全场景必练T0.5__卡.png", "box": [1686, 1352, 321, 320], "attr": false, "ring": 12, "bg": "#626598", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 138, "name": "格温", "group": "全场景必练T0.5", "file": "全场景必练T0.5__格温.png", "box": [2096, 1351, 320, 319], "attr": false, "ring": 11, "bg": "#49475f", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "text": {"text": "隐身上位", "color": "#ffffff", "box": [2122, 1675, 270, 63], "lines": 1, "from": 139}}, {"id": 141, "name": "泳装微笑", "group": "全场景必练T0", "file": "全场景必练T0__泳装微笑.png", "box": [45, 773, 321, 320], "attr": false, "ring": 11, "bg": "#e0d1cd", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 142, "name": "克拉丽莎", "group": "全场景必练T0", "file": "全场景必练T0__克拉丽莎.png", "box": [456, 773, 320, 320], "attr": false, "ring": 8, "bg": "#917090", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 143, "name": "瑟莱丝", "group": "全场景必练T0", "file": "全场景必练T0__瑟莱丝.png", "box": [866, 773, 320, 321], "attr": false, "ring": 11, "bg": "#efa7b5", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 144, "name": "gn", "group": "全场景必练T0", "file": "全场景必练T0__gn.png", "box": [1276, 773, 319, 321], "attr": false, "ring": 8, "bg": "#ecc476", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 145, "name": "mudun", "group": "全场景必练T0", "file": "全场景必练T0__mudun.png", "box": [1685, 773, 321, 321], "attr": false, "ring": 10, "bg": "#d6bd88", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 146, "name": "阿莫拉", "group": "全场景必练T0", "file": "全场景必练T0__阿莫拉.png", "box": [2096, 774, 321, 320], "attr": false, "ring": 11, "bg": "#26365b", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 147, "name": "M教授", "group": "全场景必练T0", "file": "全场景必练T0__M教授.png", "box": [2507, 773, 320, 320], "attr": false, "ring": 11, "bg": "#9f9fa8", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 7001, "name": "T3空位", "group": "光系", "file": "", "box": [149, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7002, "name": "T4空位", "group": "光系", "file": "", "box": [149, 5006, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7003, "name": "T3空位", "group": "暗系", "file": "", "box": [857, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7004, "name": "T2空位", "group": "光系", "file": "", "box": [149, 4290, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}];
+const OTHERS = [{"t": "img", "seq": 1, "name": "背景", "group": null, "box": [-5, -13, 3634, 7268], "file": "背景.png", "big": true, "grow": false, "bg": true}, {"t": "img", "seq": 2, "name": "UI_CHAT_EMO_CHAR_04", "group": null, "box": [3232, 175, 385, 354], "file": "UI_CHAT_EMO_CHAR_04.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 3, "name": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01", "group": null, "box": [-23, 191, 348, 349], "file": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 4, "name": "图层 1", "group": null, "box": [1, 517, 3626, 6598], "file": "图层 1.png", "big": true, "grow": true, "bg": true}, {"t": "img", "seq": 5, "name": "底边", "group": null, "box": [1, 6684, 3620, 76], "file": "底边.png", "big": true, "grow": false, "bg": true}, {"t": "text", "seq": 6, "name": "强度排行榜推荐", "group": null, "box": [1843, 197, 1099, 143], "text": "强度排行榜推荐", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 7, "name": "DM_20260814174448_001", "group": null, "box": [664, 169, 1137, 253], "file": "DM_20260814174448_001.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8, "name": "图片版本:M教授 格温 更新时间10月2号", "group": null, "box": [1810, 367, 1096, 56], "text": "图片版本:M教授 格温 更新时间10月2号", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 9, "name": "人物持立牌图片", "group": null, "box": [3082, 6335, 443, 426], "file": "人物持立牌图片.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 10, "name": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836 叠甲:尽量客观全", "group": null, "box": [751, 529, 2112, 116], "text": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836\n叠甲:尽量客观全面,有何疑问可加群询问或直接跟老顾等人讨论,不喜勿喷,谢谢配合", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 11, "name": "全属性梯度排行榜 排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "group": null, "box": [43, 3041, 2282, 146], "text": "全属性梯度排行榜\n排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 12, "name": "T2功能角色", "group": "T2功能角色", "box": [44, 2415, 409, 74], "text": "T2功能角色", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 27, "name": "T1功能角色（包含副C/叠层/挂db手）", "group": "T1功能角色", "box": [44, 1822, 1302, 80], "text": "T1功能角色（包含副C/叠层/挂db手）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 46, "name": "矩形 1", "group": "光系", "box": [32, 3321, 687, 2989], "file": "光系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 49, "name": "光标", "group": "光系", "box": [259, 3206, 233, 233], "file": "光系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 50, "name": "T0", "group": "光系", "box": [324, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 51, "name": "T1", "group": "光系", "box": [326, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 54, "name": "矩形 1", "group": "草系", "box": [2875, 3321, 687, 2989], "file": "草系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 55, "name": "光标", "group": "草系", "box": [3102, 3206, 233, 233], "file": "草系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 56, "name": "T0 拷贝 4", "group": "草系", "box": [3176, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 57, "name": "T1", "group": "草系", "box": [3178, 4060, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 58, "name": "T2", "group": "草系", "box": [3177, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 59, "name": "T3", "group": "草系", "box": [3177, 5005, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 60, "name": "T4", "group": "草系", "box": [3176, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 77, "name": "矩形 1", "group": "水系", "box": [2162, 3321, 687, 2989], "file": "水系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 78, "name": "光标", "group": "水系", "box": [2389, 3206, 233, 233], "file": "水系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 79, "name": "T0 拷贝 3", "group": "水系", "box": [2456, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 80, "name": "T1", "group": "水系", "box": [2458, 4290, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 81, "name": "T2", "group": "水系", "box": [2457, 4878, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 82, "name": "T3", "group": "水系", "box": [2457, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 83, "name": "T4", "group": "水系", "box": [2456, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 90, "name": "闪避成功T0 闪避失败 T10086", "group": "水系", "box": [2510, 3593, 271, 186], "text": "闪避成功T0\n闪避失败\nT10086", "lines": 3, "color": "#ffffff"}, {"t": "img", "seq": 98, "name": "矩形 1", "group": "火系", "box": [1449, 3321, 687, 2989], "file": "火系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 104, "name": "光标", "group": "火系", "box": [1676, 3206, 233, 233], "file": "火系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 105, "name": "T0 拷贝 2", "group": "火系", "box": [1750, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 106, "name": "T1", "group": "火系", "box": [1752, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 107, "name": "T2", "group": "火系", "box": [1751, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 108, "name": "T3", "group": "火系", "box": [1751, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 119, "name": "矩形 1", "group": "暗系", "box": [735, 3321, 689, 2989], "file": "暗系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 121, "name": "光标", "group": "暗系", "box": [963, 3206, 233, 233], "file": "暗系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 122, "name": "T0 拷贝", "group": "暗系", "box": [1032, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 123, "name": "T1", "group": "暗系", "box": [1034, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 124, "name": "T2", "group": "暗系", "box": [1033, 4188, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 125, "name": "T3", "group": "暗系", "box": [1033, 4545, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 126, "name": "T4", "group": "暗系", "box": [1032, 4904, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 132, "name": "全场景必练T0.5", "group": "全场景必练T0.5", "box": [45, 1244, 565, 74], "text": "全场景必练T0.5", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 140, "name": "全场景必练T0（含推图+宇宙门）", "group": "全场景必练T0", "box": [45, 689, 1120, 75], "text": "全场景必练T0（含推图+宇宙门）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 148, "name": "特别感谢", "group": null, "box": [3131, 517, 472, 293], "file": "特别感谢.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8601, "name": "T3", "group": "光系", "text": "T3", "lines": 1, "color": "#ffffff", "box": [326, 4546, 92, 58]}, {"t": "text", "seq": 8602, "name": "T4", "group": "光系", "text": "T4", "lines": 1, "color": "#ffffff", "box": [326, 4904, 92, 58]}, {"t": "text", "seq": 8604, "name": "T2", "group": "光系", "text": "T2", "lines": 1, "color": "#ffffff", "box": [326, 4188, 92, 58]}];
+const ROSTER = [{"n": "니엘", "f": ["航行者救援团"]}, {"n": "亚瑟菈", "f": ["航行者救援团", "星光华尔兹"]}, {"n": "微笑", "f": ["航行者救援团", "阳光猫娘"]}, {"n": "露娜", "f": ["航行者救援团", "白珍珠"]}, {"n": "卡奈莉亚", "f": ["流浪者"]}, {"n": "贝尔·莉丝", "f": ["烛光广场"]}, {"n": "埃米莉", "f": ["烛光广场"]}, {"n": "夏尔", "f": ["莫纳斯提尔骑士团", "莫纳斯提尔之心"]}, {"n": "卡蜜", "f": ["莫纳斯提尔骑士团", "永恒誓约"]}, {"n": "芙蕾", "f": ["莫纳斯提尔骑士团", "贵族公主"]}, {"n": "赛拉", "f": ["梦魇"]}, {"n": "崔瑞丝", "f": ["阿塞卢斯协会"]}, {"n": "凌", "f": ["风月堂"]}, {"n": "克莉丝特", "f": ["莫雷尔海运商会"]}, {"n": "艾黛", "f": ["莫雷尔海运商会"]}, {"n": "瑟乐芬", "f": ["风月堂"]}, {"n": "达娜", "f": ["卡诺普斯警备队"]}, {"n": "缪莉尔", "f": ["莫诺利斯教团"]}, {"n": "艾莉莎", "f": ["莫诺利斯教团"]}, {"n": "缇莉雅", "f": ["执行者"]}, {"n": "萝贝塔", "f": ["轨道搜索队"]}, {"n": "卢格", "f": ["轨道搜索队"]}, {"n": "霏", "f": ["流浪者"]}, {"n": "艾芬黛尔", "f": ["奥尔兰家族", "花绽祝福"]}, {"n": "奥米嘉", "f": ["航行者救援团"]}, {"n": "瑟莱丝", "f": ["西部收复部队"]}, {"n": "莉迪亚", "f": ["西部收复部队"]}, {"n": "M教授", "f": ["兰帕迪斯"]}, {"n": "克温", "f": ["兰帕迪斯"]}, {"n": "哈莉", "f": ["地狱救援者"]}, {"n": "佩特拉", "f": ["佩特拉联合"]}, {"n": "莱希", "f": ["流浪者"]}, {"n": "塔妮娅", "f": ["佩特拉联合"]}, {"n": "莉莉", "f": ["兰帕迪斯"]}, {"n": "绮拉", "f": ["绮拉根本没有朋友"]}, {"n": "阿莫拉", "f": ["斯特拉尼斯伯爵家"]}, {"n": "薇丝塔", "f": ["西部收复部队"]}, {"n": "安娜", "f": ["NOA城镇守卫"]}, {"n": "玛尔希", "f": ["佩特拉联合"]}, {"n": "贝拉", "f": ["送货员协会"]}, {"n": "娜鲁", "f": ["轨道搜索队"]}, {"n": "克莱儿", "f": ["无瑕蓝玫瑰", "烛光广场"]}, {"n": "丝卡蕾", "f": ["小暴君", "烛光广场"]}, {"n": "克拉丽莎", "f": ["卡诺普斯警备队"]}, {"n": "希尔德", "f": ["芬里尔小队"]}, {"n": "刘米娜", "f": ["芬里尔小队"]}, {"n": "罗莎莉亚", "f": ["堕落之鹰"]}];
+const LIB = [{"c": "M教授", "f": "兰帕迪斯", "s": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"c": "丝卡蕾", "f": "小暴君", "s": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp"}, {"c": "丝卡蕾", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp"}, {"c": "亚瑟菈", "f": "星光华尔兹", "s": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"c": "亚瑟菈", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp"}, {"c": "佩特拉", "f": "佩特拉联合", "s": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp"}, {"c": "克拉丽莎", "f": "卡诺普斯警备队", "s": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"c": "克温", "f": "兰帕迪斯", "s": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp"}, {"c": "克莉丝特", "f": "莫雷尔海运商会", "s": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp"}, {"c": "克莱儿", "f": "无瑕蓝玫瑰", "s": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp"}, {"c": "克莱儿", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp"}, {"c": "凌", "f": "风月堂", "s": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp"}, {"c": "刘米娜", "f": "芬里尔小队", "s": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp"}, {"c": "卡奈莉亚", "f": "流浪者", "s": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"c": "卡蜜", "f": "永恒誓约", "s": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"c": "卡蜜", "f": "莫纳斯提尔骑士团", "s": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp"}, {"c": "卢格", "f": "轨道搜索队", "s": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp"}, {"c": "哈莉", "f": "地狱救援者", "s": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp"}, {"c": "埃米莉", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"c": "塔妮娅", "f": "佩特拉联合", "s": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp"}, {"c": "夏尔", "f": "莫纳斯提尔之心", "s": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"c": "夏尔", "f": "莫纳斯提尔骑士团", "s": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp"}, {"c": "奥米嘉", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp"}, {"c": "娜鲁", "f": "轨道搜索队", "s": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp"}, {"c": "安娜", "f": "NOA城镇守卫", "s": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp"}, {"c": "崔瑞丝", "f": "阿塞卢斯协会", "s": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp"}, {"c": "希尔德", "f": "芬里尔小队", "s": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp"}, {"c": "微笑", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp"}, {"c": "微笑", "f": "阳光猫娘", "s": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"c": "玛尔希", "f": "佩特拉联合", "s": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp"}, {"c": "瑟乐芬", "f": "风月堂", "s": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp"}, {"c": "瑟莱丝", "f": "西部收复部队", "s": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"c": "绮拉", "f": "绮拉根本没有朋友", "s": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp"}, {"c": "缇莉雅", "f": "执行者", "s": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"c": "缪莉尔", "f": "莫诺利斯教团", "s": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp"}, {"c": "罗莎莉亚", "f": "堕落之鹰", "s": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"}, {"c": "艾芬黛尔", "f": "奥尔兰家族", "s": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp"}, {"c": "艾芬黛尔", "f": "花绽祝福", "s": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp"}, {"c": "艾莉莎", "f": "莫诺利斯教团", "s": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp"}, {"c": "艾黛", "f": "莫雷尔海运商会", "s": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"c": "芙蕾", "f": "莫纳斯提尔骑士团", "s": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp"}, {"c": "芙蕾", "f": "贵族公主", "s": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp"}, {"c": "莉莉", "f": "兰帕迪斯", "s": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp"}, {"c": "莉迪亚", "f": "西部收复部队", "s": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp"}, {"c": "莱希", "f": "流浪者", "s": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp"}, {"c": "萝贝塔", "f": "轨道搜索队", "s": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp"}, {"c": "薇丝塔", "f": "西部收复部队", "s": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp"}, {"c": "贝尔·莉丝", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp"}, {"c": "贝拉", "f": "送货员协会", "s": "faces/UFS_NKM_UNIT_S_LPU_POST.webp"}, {"c": "赛拉", "f": "梦魇", "s": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"}, {"c": "达娜", "f": "卡诺普斯警备队", "s": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp"}, {"c": "阿莫拉", "f": "斯特拉尼斯伯爵家", "s": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"c": "霏", "f": "流浪者", "s": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp"}, {"c": "露娜", "f": "白珍珠", "s": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp"}, {"c": "露娜", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"}, {"c": "니엘", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_NIEL.webp"}];
+const FACES = {"니엘|": "faces/UFS_NKM_UNIT_S_NIEL.webp", "니엘|航行者救援团": "faces/UFS_NKM_UNIT_S_NIEL.webp", "니엘": "faces/UFS_NKM_UNIT_S_NIEL.webp", "亚瑟菈|": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp", "亚瑟菈|航行者救援团": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp", "亚瑟菈|星光华尔兹": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp", "亚瑟菈": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp", "微笑|": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp", "微笑|航行者救援团": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp", "微笑|阳光猫娘": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp", "微笑": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp", "露娜|": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp", "露娜|航行者救援团": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp", "露娜|白珍珠": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp", "露娜": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp", "卡奈莉亚|": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp", "卡奈莉亚|流浪者": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp", "卡奈莉亚": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp", "贝尔·莉丝|": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp", "贝尔·莉丝|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp", "贝尔·莉丝": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp", "埃米莉|": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp", "埃米莉|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp", "埃米莉": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp", "夏尔|": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp", "夏尔|莫纳斯提尔骑士团": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp", "夏尔|莫纳斯提尔之心": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp", "夏尔": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp", "卡蜜|": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp", "卡蜜|莫纳斯提尔骑士团": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp", "卡蜜|永恒誓约": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp", "卡蜜": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp", "芙蕾|": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "芙蕾|莫纳斯提尔骑士团": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "芙蕾|贵族公主": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp", "芙蕾": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "赛拉|": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "赛拉|梦魇": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "赛拉": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "崔瑞丝|": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp", "崔瑞丝|阿塞卢斯协会": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp", "崔瑞丝": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp", "凌|": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "凌|风月堂": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "凌": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "克莉丝特|": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "克莉丝特|莫雷尔海运商会": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "克莉丝特": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "艾黛|": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp", "艾黛|莫雷尔海运商会": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp", "艾黛": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp", "瑟乐芬|": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "瑟乐芬|风月堂": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "瑟乐芬": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "达娜|": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp", "达娜|卡诺普斯警备队": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp", "达娜": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp", "缪莉尔|": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "缪莉尔|莫诺利斯教团": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "缪莉尔": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "艾莉莎|": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp", "艾莉莎|莫诺利斯教团": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp", "艾莉莎": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp", "缇莉雅|": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp", "缇莉雅|执行者": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp", "缇莉雅": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp", "萝贝塔|": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp", "萝贝塔|轨道搜索队": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp", "萝贝塔": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp", "卢格|": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "卢格|轨道搜索队": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "卢格": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "霏|": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp", "霏|流浪者": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp", "霏": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp", "艾芬黛尔|": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp", "艾芬黛尔|奥尔兰家族": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp", "艾芬黛尔|花绽祝福": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp", "艾芬黛尔": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp", "奥米嘉|": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp", "奥米嘉|航行者救援团": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp", "奥米嘉": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp", "瑟莱丝|": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp", "瑟莱丝|西部收复部队": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp", "瑟莱丝": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp", "莉迪亚|": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp", "莉迪亚|西部收复部队": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp", "莉迪亚": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp", "M教授|": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp", "M教授|兰帕迪斯": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp", "M教授": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp", "克温|": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "克温|兰帕迪斯": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "克温": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "哈莉|": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "哈莉|地狱救援者": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "哈莉": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "佩特拉|": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "佩特拉|佩特拉联合": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "佩特拉": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "莱希|": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "莱希|流浪者": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "莱希": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "塔妮娅|": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp", "塔妮娅|佩特拉联合": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp", "塔妮娅": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp", "莉莉|": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp", "莉莉|兰帕迪斯": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp", "莉莉": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp", "绮拉|": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "绮拉|绮拉根本没有朋友": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "绮拉": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "阿莫拉|": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp", "阿莫拉|斯特拉尼斯伯爵家": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp", "阿莫拉": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp", "薇丝塔|": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "薇丝塔|西部收复部队": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "薇丝塔": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "安娜|": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "安娜|NOA城镇守卫": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "安娜": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "玛尔希|": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp", "玛尔希|佩特拉联合": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp", "玛尔希": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp", "贝拉|": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "贝拉|送货员协会": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "贝拉": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "娜鲁|": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp", "娜鲁|轨道搜索队": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp", "娜鲁": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp", "克莱儿|": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp", "克莱儿|无瑕蓝玫瑰": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp", "克莱儿|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp", "克莱儿": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp", "丝卡蕾|": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp", "丝卡蕾|小暴君": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp", "丝卡蕾|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp", "丝卡蕾": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp", "克拉丽莎|": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp", "克拉丽莎|卡诺普斯警备队": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp", "克拉丽莎": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp", "希尔德|": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "希尔德|芬里尔小队": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "希尔德": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "刘米娜|": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp", "刘米娜|芬里尔小队": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp", "刘米娜": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp", "罗莎莉亚|": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp", "罗莎莉亚|堕落之鹰": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp", "罗莎莉亚": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"};                         /* 角色名 / 角色名|形态名 → 面板头像 */
+const PANEL_BOX = {"光系": [32, 3321, 687, 2989], "草系": [2875, 3321, 687, 2989], "水系": [2162, 3321, 687, 2989], "火系": [1449, 3321, 687, 2989], "暗系": [735, 3321, 689, 2989]};                     /* 每个属性栏的背板矩形，加格不得越出 */
+const GRADES = {"니엘": "SSR", "니엘|航行者救援团": "SSR", "亚瑟菈": "SSR", "亚瑟菈|航行者救援团": "SSR", "亚瑟菈|星光华尔兹": "SSR", "微笑": "SSR", "微笑|航行者救援团": "SSR", "微笑|阳光猫娘": "SSR", "露娜": "SSR", "露娜|航行者救援团": "SSR", "露娜|白珍珠": "SSR", "卡奈莉亚": "SSR", "卡奈莉亚|流浪者": "SSR", "贝尔·莉丝": "SSR", "贝尔·莉丝|烛光广场": "SSR", "埃米莉": "SSR", "埃米莉|烛光广场": "SSR", "夏尔": "SSR", "夏尔|莫纳斯提尔骑士团": "SSR", "夏尔|莫纳斯提尔之心": "SSR", "卡蜜": "SSR", "卡蜜|莫纳斯提尔骑士团": "SSR", "卡蜜|永恒誓约": "SSR", "芙蕾": "SSR", "芙蕾|莫纳斯提尔骑士团": "SSR", "芙蕾|贵族公主": "SSR", "赛拉": "SSR", "赛拉|梦魇": "SSR", "崔瑞丝": "SSR", "崔瑞丝|阿塞卢斯协会": "SSR", "凌": "SSR", "凌|风月堂": "SSR", "克莉丝特": "SSR", "克莉丝特|莫雷尔海运商会": "SSR", "艾黛": "SSR", "艾黛|莫雷尔海运商会": "SSR", "瑟乐芬": "SSR", "瑟乐芬|风月堂": "SSR", "达娜": "SSR", "达娜|卡诺普斯警备队": "SSR", "缪莉尔": "SSR", "缪莉尔|莫诺利斯教团": "SSR", "艾莉莎": "SSR", "艾莉莎|莫诺利斯教团": "SSR", "缇莉雅": "SSR", "缇莉雅|执行者": "SSR", "萝贝塔": "SSR", "萝贝塔|轨道搜索队": "SSR", "卢格": "SSR", "卢格|轨道搜索队": "SSR", "霏": "SSR", "霏|流浪者": "SSR", "艾芬黛尔": "SSR", "艾芬黛尔|奥尔兰家族": "SSR", "艾芬黛尔|花绽祝福": "SSR", "奥米嘉": "SSR", "奥米嘉|航行者救援团": "SSR", "瑟莱丝": "SSR", "瑟莱丝|西部收复部队": "SSR", "莉迪亚": "SSR", "莉迪亚|西部收复部队": "SSR", "M教授": "SSR", "M教授|兰帕迪斯": "SSR", "克温": "SSR", "克温|兰帕迪斯": "SSR", "哈莉": "SSR", "哈莉|地狱救援者": "SSR", "佩特拉": "SSR", "佩特拉|佩特拉联合": "SSR", "莱希": "SSR", "莱希|流浪者": "SSR", "塔妮娅": "SSR", "塔妮娅|佩特拉联合": "SSR", "莉莉": "SSR", "莉莉|兰帕迪斯": "SSR", "绮拉": "SSR", "绮拉|绮拉根本没有朋友": "SSR", "阿莫拉": "SSR", "阿莫拉|斯特拉尼斯伯爵家": "SSR", "薇丝塔": "SR", "薇丝塔|西部收复部队": "SR", "安娜": "SR", "安娜|NOA城镇守卫": "SR", "玛尔希": "SR", "玛尔希|佩特拉联合": "SR", "贝拉": "SR", "贝拉|送货员协会": "SR", "娜鲁": "SR", "娜鲁|轨道搜索队": "SR", "克莱儿": "SR", "克莱儿|无瑕蓝玫瑰": "SSR", "克莱儿|烛光广场": "SR", "丝卡蕾": "SR", "丝卡蕾|小暴君": "SSR", "丝卡蕾|烛光广场": "SR", "克拉丽莎": "SR", "克拉丽莎|卡诺普斯警备队": "SR", "希尔德": "SSR", "希尔德|芬里尔小队": "SSR", "刘米娜": "SSR", "刘米娜|芬里尔小队": "SSR", "罗莎莉亚": "SSR", "罗莎莉亚|堕落之鹰": "SSR"};                       /* 角色名 / 角色名|形态名 → SSR / SR */
+const RARITY_COLOR = { SSR: "#fedd62", SR: "#a874e8", "": "#8b93a8" };
+const stage = document.getElementById("stage");
+/* 提示条：加格越界这类情况只提示一下，不用弹窗打断操作 */
+let toastT = 0;
+function flash(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("on");
+  clearTimeout(toastT);
+  toastT = setTimeout(() => t.classList.remove("on"), 2400);
+}
+let z = 0.26, hideBig = false, sel = null, drag = null, dropTarget = null;
+
+/* place[洞] = 该洞头像来自哪个洞；art[洞] = 该洞换成了头像库里的素材；"" 表示空出
+   newSlots = 网页上新增的格位（行尾追加、满行换行）；down = 各组因新增行而增加的高度，
+   按组顺序累积作用到后面所有内容上
+   slotShift[格位] / layerShift[图层] = 属性栏里「就地插行」造成的个人位移：在哪个格位
+   后面插了一行，那个格位以下（含档位标签 T几）就整体下移一行高 */
+const edit = { place:{}, art:{}, text:{}, slotText:{}, char:{}, tstyle:{}, pos:{}, nt:[],
+               newSlots:[], down:{}, slotShift:{}, layerShift:{} };
+try {
+  const s = JSON.parse(localStorage.getItem("psbSlots") || "null");
+  if (s) for (const k of ["place","art","text","slotText","char","tstyle","pos"]) if (s[k]) edit[k] = s[k];
+  if (s && s.nt) edit.nt = s.nt;
+  if (s && s.newSlots) edit.newSlots = s.newSlots;
+  if (s && s.down) edit.down = s.down;
+  if (s && s.slotShift) edit.slotShift = s.slotShift;
+  if (s && s.layerShift) edit.layerShift = s.layerShift;
+} catch (e) {}
+const save = () => {
+  try { localStorage.setItem("psbSlots", JSON.stringify(edit)); } catch (e) {}
+  const cur = snap();
+  if (undoLock || undoBase === null || cur === undoBase) { undoBase = cur; return; }
+  undoStack.push(undoBase);
+  if (undoStack.length > UNDO_MAX) undoStack.shift();
+  undoBase = cur;
+  undoState();
+};
+const EMPTY = "";
+const contentOf = id => edit.place[id] !== undefined ? edit.place[id] : id;
+const isSlotEmpty = id => contentOf(id) === EMPTY;
+const artOf = id => edit.art[id] || null;
+
+/* ---- 撤回：每次提交前压一份改动快照，撤回即回到上一步 ----
+   所有改动都汇聚到 save()，所以在 save 里记录上一次状态最省事，也不会漏掉操作。 */
+const undoStack = [], UNDO_MAX = 80;
+const snap = () => JSON.stringify(edit);
+let undoBase = null, undoLock = false;
+const undoState = () => { document.getElementById("bUndo").disabled = !undoStack.length; };
+function applyEdit(s) {
+  const o = JSON.parse(s);
+  for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = o[k] || {};
+  edit.nt = o.nt || []; edit.newSlots = o.newSlots || []; edit.down = o.down || {};
+  edit.slotShift = o.slotShift || {}; edit.layerShift = o.layerShift || {};
+}
+function undo() {
+  if (!undoStack.length) return;
+  undoLock = true;
+  applyEdit(undoStack.pop());
+  try { localStorage.setItem("psbSlots", JSON.stringify(edit)); } catch (e) {}
+  undoBase = snap(); undoLock = false;
+  freeDrag = null; drag = null; dropTarget = null; sel = null;
+  hideInsp(); render(); tbFill(); undoState();
+}
+const charOf = s => {
+  if (edit.char[s.id] !== undefined) return edit.char[s.id];
+  const a = artOf(s.id);
+  if (a) return a.char ? a.char + (a.form ? "|" + a.form : "") : "";
+  return s.char ? s.char + (s.form ? "|" + s.form : "") : "";
+};
+const textOf = s => edit.slotText[s.id] !== undefined ? edit.slotText[s.id] : (s.text ? s.text.text : "");
+const gradeOf = s => {
+  const c = charOf(s);
+  return c ? (GRADES[c] || GRADES[c.split("|")[0]] || "") : "";
+};
+const textBoxOf = s => {
+  const d = downOf(s.group, s.name);
+  const b = s.text ? s.text.box : [s.box[0], s.box[1] + s.box[3] + 8, s.box[2], 0];
+  return [b[0], b[1] + d, b[2], b[3]];
+};
+
+/* ---- 格位表：作者原稿的格位 + 网页上行尾新增的格位 ---- */
+const ATTR_G = ["光系", "暗系", "火系", "水系", "草系"];
+const TAIL_G = ["底边", "人物持立牌图片"];
+const ORD_G = ["全场景必练T0", "全场景必练T0.5", "T1功能角色", "T2功能角色", "__attr__", "__tail__"];
+const STEP_X = 410, STEP_Y = 410, ATTR_STEP = 230, GAP_X = 45;
+const slotsAll = () => SLOTS.concat(edit.newSlots || []);
+const findSlot = id => slotsAll().find(s => s.id === id) || null;
+/* 分组层级：上半部四档各占一层（上下排列），五属性栏共享一层（横排，互不影响），版脚在最后。
+   某一层新增了一行，就按这个顺序把后面所有层整体往下让。 */
+const ordKey = (group, name) => {
+  if (ORD_G.indexOf(group) >= 0) return group;
+  if (ATTR_G.indexOf(group) >= 0) return "__attr__";
+  if (name && name.indexOf("全属性梯度") === 0) return "__attr__";
+  if (name && TAIL_G.indexOf(name) >= 0) return "__tail__";
+  return "";
+};
+const cumDown = key => {
+  let n = 0;
+  for (const g of ORD_G) { if (g === key) break; n += (edit.down || {})[g] || 0; }
+  return n;
+};
+const downOf = (group, name) => { const k = ordKey(group, name); return k ? cumDown(k) : 0; };
+/* 属性栏里就地插行造成的个人位移：插入点以下（含档位标签）整体让开一行高 */
+const shiftOf = id => (edit.slotShift || {})[id] || 0;
+const lshiftOf = seq => (edit.layerShift || {})[seq] || 0;
+const boxOf = s => [s.box[0], s.box[1] + shiftOf(s.id) + downOf(s.group, s.name),
+                    s.box[2], s.box[3]];
+/* 头像来源：头像库拖入的素材优先，其次是该身份在面板里的头像；两样都没有就是空位。
+   原稿那张格位图（金框 + 浅底 + 立绘）不再使用。 */
+const faceOf = s => {
+  if (isSlotEmpty(s.id)) return null;            /* 空出的洞不挂头像 */
+  const a = artOf(s.id);
+  if (a) return a.src;
+  const c = charOf(s);
+  if (!c) return null;
+  return FACES[c] || FACES[c.split("|")[0]] || null;
+};
+function barFits(sid, l, t, w, h) {
+  const area = w * h;
+  const hit = b => {
+    const ox = Math.min(l + w, b[0] + b[2]) - Math.max(l, b[0]);
+    const oy = Math.min(t + h, b[1] + b[3]) - Math.max(t, b[1]);
+    return ox > 0 && oy > 0 && ox * oy > area * 0.15;
+  };
+  for (const o of OTHERS) {
+    if (o.bg) continue;                        /* 背景、底边、栏位背板、光标：不算拦路 */
+    if (hit([o.box[0], o.box[1] + downOf(o.group, o.name), o.box[2], o.box[3]])) return false;
+  }
+  for (const o of slotsAll()) {
+    if (o.id === sid) continue;
+    if (hit(boxOf(o))) return false;
+  }
+  return true;
+}
+function barRectOf(s) {
+  const tb = textBoxOf(s), ts = specOf(), b = boxOf(s);
+  const lines = s.text ? (s.text.lines || 1) : 1;
+  const h = ts.lh * lines;
+  /* 栏宽不超过头像宽度；原稿文字比头像宽时居中收进格宽 */
+  const w = Math.min(tb[2], b[2]);
+  const left = tb[0] + (tb[2] - w) / 2;
+  /* 有原稿说明：按原文字框纵向居中；没有：格底下方 3px，放不下才贴格内下缘 */
+  let top = s.text ? tb[1] + tb[3] / 2 - h / 2 : b[1] + b[3] + 3;
+  if (!s.text && !barFits(s.id, left, top, w, h)) top = b[1] + b[3] - h - 4;
+  return { left, top, width: w, height: h, hint: !s.text };
+}
+const specOf = () => ({ fs: 40, lh: 50 });      /* 说明栏统一规格 */
+const tstyleOf = k => (edit.tstyle && edit.tstyle[k]) || {};
+const posOf = (k, x, y) => (edit.pos && edit.pos[k]) || [x, y];
+const textStyleOf = s => {
+  const st = tstyleOf("s" + s.id);
+  return { color: st.color || (s.text ? s.text.color : "#e8ebf2"),
+           size: st.fs || specOf().fs, lh: st.lh || specOf().lh };
+};
+
+function barOf(id) { return stage.querySelector('[data-slot-text="' + id + '"]'); }
+function setBarOpen(t, open) {
+  if (!t || !t.classList.contains("hint")) return;
+  t.classList.toggle("open", open);
+  t.style.fontSize = open ? t.dataset.fs + "px" : "0px";
+  t.style.minHeight = open ? t.dataset.nh + "px" : "0px";
+  t.style.height = open ? "" : "6px";
+  t.style.top = (parseFloat(t.dataset.top) + (open ? 0 : t.dataset.nh - 6)) + "px";
+}
+
+/* 铺满整幅的大底图：让点击穿透，否则会挡住所有头像格位 */
+const WALL = o => o.t === "img" && o.box[2] * o.box[3] >= 3621 * 6761 * 0.5;
+/* 五个属性栏的背板（矩形 1）：随格位加格一起往下延长 */
+const IS_PANEL = o => o.t === "img" && o.name === "矩形 1" && ATTR_G.indexOf(o.group) >= 0;
+const ATTR_PAD = 297;   /* 原稿里背板底到最下格底的余量，延长时按同样的余量留 */
+
+let rseq = 0;                    /* 渲染代号：重建 DOM 后旧元素的 blur 处理器据此认出自己已被替换 */
+function render() {
+  rseq += 1;
+  stage.innerHTML = "";
+  /* 版面因加格变高后，画布与滚动区都要跟着长 */
+  const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
+  /* 属性栏背板随格位加长：取五栏里最靠下的格底、加上原稿的底部余量，五栏一起延长同样的量 */
+  const panelBottom = Math.max(...ATTR_G.map(g => PANEL_BOX[g] ? PANEL_BOX[g][1] + PANEL_BOX[g][3] : 0));
+  const attrGrow = Math.max(0, ...ATTR_G.map(g => {
+    const p = PANEL_BOX[g], mine = slotsAll().filter(s => s.group === g);
+    if (!p || !mine.length) return 0;
+    return Math.max(...mine.map(s => s.box[1] + shiftOf(s.id) + s.box[3]))
+           + ATTR_PAD - (p[1] + p[3]);
+  }));
+  const canvasH = Math.max(6761 + totalDown, panelBottom + cumDown("__attr__") + attrGrow
+                           + (panelBottom ? Math.max(40, 6761 - panelBottom) : 40));
+  /* 版脚（底边、人物持立牌）贴着黑底最下端：黑底跟着画布走，版脚再跟着黑底走 */
+  const tailBottom = Math.max(0, ...OTHERS.filter(o => TAIL_G.indexOf(o.name) >= 0)
+      .map(o => o.box[1] + o.box[3] + downOf(o.group, o.name)));
+  const tailDrop = Math.max(0, canvasH - tailBottom);
+  stage.style.height = canvasH + "px";
+  document.getElementById("fit").style.height = "calc(" + canvasH + "px * var(--z))";
+  const all = [
+    ...OTHERS.map(o => ({ seq:o.seq, kind:"other", o })),
+    ...slotsAll().map(s => ({ seq:s.id, kind:"slot", s }))
+  ].sort((a, b) => a.seq - b.seq);
+  for (const item of all) {
+    if (item.kind === "other") {
+      const o = item.o, ok = "o" + o.seq;
+      if (hideBig && o.big) continue;
+      const ost = tstyleOf(ok);
+      if (ost.hide) continue;
+      const el = document.createElement("div");
+      el.className = (o.t === "text" ? "lb" : "bg") + (WALL(o) ? " wall" : "");
+      const p = posOf(ok, o.box[0], o.box[1]);
+      /* 属性栏档位标签跟着插行让位；版脚再额外贴到黑底最下端 */
+      const dy0 = downOf(o.group, o.name) + lshiftOf(o.seq)
+                  + (TAIL_G.indexOf(o.name) >= 0 ? tailDrop : 0);
+      el.style.left = p[0] + "px"; el.style.top = (p[1] + dy0) + "px";
+      el.style.width = (o.t === "text" ? o.box[2] + 40 : o.box[2]) + "px";
+      /* 黑底那张标了 grow 的跟着画布走；属性栏背板随加格延长；其余按原尺寸 */
+      el.style.height = (o.grow ? (canvasH - (p[1] + dy0))
+                                : o.box[3] + (IS_PANEL(o) ? attrGrow : 0)) + "px";
+      if (o.t === "text") {
+        const lh = Math.round(o.box[3] / (o.lines || 1));
+        const fs = ost.fs || Math.round(lh * 0.78);
+        el.style.fontSize = fs + "px";
+        el.style.lineHeight = (ost.lh || (ost.fs ? Math.round(ost.fs * 1.22) : lh)) + "px";
+        el.style.color = ost.color || o.color;
+        el.style.fontWeight = ost.bold === undefined ? (lh >= 46 ? "700" : "400")
+                                                     : (ost.bold ? "700" : "400");
+        if (ost.fs || ost.lh) { el.style.height = "auto"; el.style.minHeight = o.box[3] + "px"; }
+        el.textContent = edit.text[o.seq] !== undefined ? edit.text[o.seq] : o.text;
+        el.addEventListener("dblclick", e => { e.stopPropagation(); editText(o, el); });
+      } else {
+        const img = document.createElement("img");
+        img.src = "layers/" + o.file;
+        img.draggable = false;
+        el.appendChild(img);
+      }
+      el.dataset.seq = o.seq;
+      el.dataset.key = ok;
+      el.dataset.rseq = rseq;
+      el.title = (o.name || "") + " · 可拖动";
+      el.classList.add("movable");
+      el.addEventListener("pointerdown", e => startFreeDrag(e, el, ok));
+      stage.appendChild(el);
+      continue;
+    }
+    const s = item.s, a = artOf(s.id), b = boxOf(s), face = faceOf(s);
+    const el = document.createElement("div");
+    el.className = "slot" + (face ? "" : " blank") + (isSlotEmpty(s.id) ? " empty" : "")
+                 + (s.ph ? " ph" : "") + (a ? " fromlib" : "") + (sel === s.id ? " sel" : "");
+    el.style.left = b[0] + "px"; el.style.top = b[1] + "px";
+    el.style.width = b[2] + "px"; el.style.height = b[3] + "px";
+    el.style.background = s.bg || "#2b3038";
+    el.dataset.slot = s.id;
+    if (face) {
+      const img = document.createElement("img");
+      img.src = face;
+      img.alt = charOf(s) || s.name;
+      el.appendChild(img);
+      const ring = document.createElement("i");   /* 原稿金边随原图一起去掉，框改由这里按稀有度画 */
+      ring.className = "ring";
+      ring.style.borderWidth = Math.max(s.ring || 6, 2) + "px";
+      ring.style.borderColor = RARITY_COLOR[gradeOf(s)] || RARITY_COLOR[""];
+      el.appendChild(ring);
+    }
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    const c = charOf(s), fromSlot = findSlot(contentOf(s.id));
+    tag.textContent = s.group + " · " + s.name + " ← "
+                    + (a ? "头像库·" + a.char
+                         : face ? (fromSlot ? fromSlot.name : "面板头像") : "空位")
+                    + (c ? "（" + c.replace("|", "·") + "）" : "（未指定）");
+    el.appendChild(tag);
+    el.addEventListener("pointerdown", e => startDrag(e, s, el));
+    el.addEventListener("pointerenter", () => setBarOpen(barOf(s.id), true));
+    el.addEventListener("pointerleave", () => {
+      const a = document.activeElement;
+      if (a && a.dataset && a.dataset.slotText === String(s.id)) return;
+      setBarOpen(barOf(s.id), false);
+    });
+    el.addEventListener("dragover", e => { e.preventDefault(); el.classList.add("drop"); });
+    el.addEventListener("dragleave", () => el.classList.remove("drop"));
+    el.addEventListener("drop", e => {
+      e.preventDefault(); el.classList.remove("drop");
+      let d = null;
+      try { d = JSON.parse(e.dataTransfer.getData("text/plain") || "null"); } catch (err) {}
+      if (!d || !d.src) return;
+      edit.art[s.id] = { src: d.src, char: d.c || null, form: d.f || null };
+      delete edit.char[s.id];
+      save(); render();
+    });
+    stage.appendChild(el);
+    if (s.attr) continue;              /* 全属性梯度排行榜的格位不带说明栏 */
+    if (tstyleOf("s" + s.id).hide) continue;   /* 文字条里隐藏的说明栏 */
+    const ts = textStyleOf(s), R = barRectOf(s);
+    const hint = R.hint && textOf(s) === "";
+    const t = document.createElement("div");
+    t.className = "sltext" + (hint ? " hint" : "");
+    t.style.left = R.left + "px";
+    t.style.top = (R.top + (hint ? R.height - 6 : 0)) + "px";
+    t.style.width = R.width + "px";
+    t.style.minHeight = R.height + "px";
+    t.style.fontSize = ts.size + "px";
+    t.style.color = ts.color;
+    t.style.fontWeight = tstyleOf("s" + s.id).bold ? "700" : "";
+    t.style.lineHeight = ts.lh + "px";
+    t.textContent = textOf(s);
+    t.contentEditable = "true";
+    t.dataset.slotText = s.id;
+    t.dataset.fs = ts.size; t.dataset.nh = R.height; t.dataset.top = R.top;
+    t.dataset.rseq = rseq;
+    if (hint) setBarOpen(t, false);
+    t.addEventListener("pointerdown", e => e.stopPropagation());
+    /* 文字栏只管打字，不接受拖放：否则头像库素材拖到栏上会把带的信息嵌进输入框 */
+    t.addEventListener("dragover", e => { e.preventDefault(); e.dataTransfer.dropEffect = "none"; });
+    t.addEventListener("drop", e => { e.preventDefault(); e.stopPropagation(); });
+    t.addEventListener("pointerenter", () => setBarOpen(t, true));
+    t.addEventListener("pointerleave", () => { if (document.activeElement !== t) setBarOpen(t, false); });
+    t.addEventListener("focus", () => setBarOpen(t, true));
+    t.addEventListener("blur", () => {
+      if (t.dataset.rseq !== String(rseq)) return;   /* 元素已被重建，忽略这次 blur */
+      const v = t.textContent;
+      const wasHint = t.classList.contains("hint");
+      if (v === (s.text ? s.text.text : "")) delete edit.slotText[s.id];
+      else edit.slotText[s.id] = v;
+      save(); refreshCount();
+      if (wasHint !== (!s.text && !v)) render(); else setBarOpen(t, false);
+    });
+    stage.appendChild(t);
+  }
+  /* 自定义文本（PS 式新建文字层） */
+  for (const nt of (edit.nt || [])) {
+    if (nt.hide) continue;
+    const el = document.createElement("div");
+    el.className = "nt";
+    const p = posOf("n" + nt.id, nt.x, nt.y);
+    el.style.left = p[0] + "px"; el.style.top = p[1] + "px";
+    el.style.fontSize = nt.fs + "px";
+    el.style.lineHeight = Math.round(nt.fs * 1.25) + "px";
+    el.style.color = nt.color;
+    el.style.fontWeight = nt.bold ? "700" : "400";
+    el.style.minWidth = Math.max(80, nt.fs * 1.5) + "px";
+    el.textContent = nt.txt || "双击输入文字";
+    el.dataset.key = "n" + nt.id;
+    el.dataset.rseq = rseq;
+    el.title = "自定义文本 · 拖动移位置 · 双击改字";
+    el.addEventListener("pointerdown", e => startFreeDrag(e, el, "n" + nt.id));
+    el.addEventListener("dblclick", e => { e.stopPropagation(); editNT(nt, el); });
+    stage.appendChild(el);
+  }
+  document.getElementById("ztext").textContent = "缩放 " + Math.round(z * 100) + "%";
+  refreshCount();
+}
+
+function editText(o, el) {
+  el.contentEditable = "true"; el.focus();
+  el.addEventListener("dragover", e => { e.preventDefault(); e.dataTransfer.dropEffect = "none"; });
+  el.addEventListener("drop", e => { e.preventDefault(); e.stopPropagation(); });
+  el.addEventListener("blur", () => {
+    el.contentEditable = "false";
+    if (el.dataset.rseq !== String(rseq)) return;   /* 元素已被重建，忽略这次 blur */
+    edit.text[o.seq] = el.textContent;
+    save();
+  }, { once: true });
+}
+
+/* ---- 自由拖动：背景素材、原稿文字层、自定义文本 ---- */
+let freeDrag = null;
+function startFreeDrag(e, el, key) {
+  if (e.button !== 0 || el.isContentEditable) return;
+  e.preventDefault(); e.stopPropagation();
+  freeDrag = { el, key, sx: e.clientX, sy: e.clientY,
+               x0: parseFloat(el.style.left) || 0, y0: parseFloat(el.style.top) || 0,
+               moved: false };
+  el.classList.add("moving");
+}
+document.addEventListener("pointermove", e => {
+  if (!freeDrag) return;
+  const dx = (e.clientX - freeDrag.sx) / z, dy = (e.clientY - freeDrag.sy) / z;
+  if (Math.abs(dx) > 2 || Math.abs(dy) > 2) freeDrag.moved = true;
+  freeDrag.el.style.left = Math.round(freeDrag.x0 + dx) + "px";
+  freeDrag.el.style.top = Math.round(freeDrag.y0 + dy) + "px";
+});
+document.addEventListener("pointerup", () => {
+  if (!freeDrag) return;
+  const el = freeDrag.el, key = freeDrag.key, moved = freeDrag.moved;
+  el.classList.remove("moving");
+  freeDrag = null;
+  if (!moved) return;
+  const x = Math.round(parseFloat(el.style.left) || 0), y = Math.round(parseFloat(el.style.top) || 0);
+  if (key[0] === "n") {
+    const nt = (edit.nt || []).find(t => "n" + t.id === key);
+    if (nt) { nt.x = x; nt.y = y; }
+  } else {
+    const o = OTHERS.find(t => "o" + t.seq === key);
+    edit.pos[key] = [x, y - (o ? downOf(o.group, o.name) : 0)];   /* 存基线坐标，加格时跟着下移 */
+  }
+  save(); tbSync();
+});
+
+/* ---- 新建文本（PS 式文字层） ---- */
+function editNT(nt, el) {
+  el.contentEditable = "true";
+  el.focus();
+  const r = document.createRange();
+  r.selectNodeContents(el);
+  const sl = window.getSelection();
+  sl.removeAllRanges(); sl.addRange(r);
+  el.addEventListener("blur", () => {
+    el.contentEditable = "false";
+    if (el.dataset.rseq !== String(rseq)) return;   /* 元素已被重建，忽略这次 blur */
+    const v = el.textContent.replace(/\s+/g, " ").trim();
+    nt.txt = v || "双击输入文字";
+    save(); render(); tbFill();
+  }, { once: true });
+}
+function addNT() {
+  const wrapEl = document.getElementById("wrap");
+  const id = (edit.nt || []).reduce((m, t) => Math.max(m, t.id), 0) + 1;
+  const cx = Math.round((wrapEl.scrollLeft + wrapEl.clientWidth / 2) / z) - 140;
+  const cy = Math.round((wrapEl.scrollTop + wrapEl.clientHeight / 2) / z);
+  const nt = { id: id,
+               x: Math.max(0, Math.min(cx, 3621 - 360)),
+               y: Math.max(0, Math.min(cy, 6761 - 120)),
+               txt: "新文字", fs: 40, color: "#ffffff", bold: false };
+  edit.nt.push(nt);
+  save(); render();
+  if (tbEl("textbar").classList.contains("on")) { tbCur = "n" + id; tbFill(); }
+  const el = stage.querySelector('[data-key="n' + id + '"]');
+  if (el) editNT(nt, el);
+  return nt;
+}
+
+/* ---- 加格：新格接在「选中那一格」的后面 ----
+   先看它所在的那一排还有没有位置：有就补在它后面；这一排已经排满，才在该组最下面一行
+   的下方新起一排。横向只往后接、纵向只在换排时往下走，所以其它头像的纵轴一格不动；
+   新起一排时该组变高，按组顺序把后面的档位、属性栏、版脚整体往下让。 */
+const cluster = (vals, tol) => {                 /* 原稿是手摆的，同一行/列的坐标会差一两像素 */
+  const out = [];
+  for (const v of vals.slice().sort((a, b) => a - b)) {
+    const g = out[out.length - 1];
+    if (g && v - g[g.length - 1] <= tol) g.push(v); else out.push([v]);
+  }
+  return out;
+};
+const modeOf = a => {                            /* 一簇里出现最多的那个值就是这一列的标准位置 */
+  const n = {}; let best = a[0], bn = 0;
+  for (const v of a) { n[v] = (n[v] || 0) + 1; if (n[v] > bn) { bn = n[v]; best = v; } }
+  return best;
+};
+function addSlot(seedId) {
+  const s = findSlot(seedId);
+  if (!s) { flash("先在画布上点选一个格位，新格会加在它后面"); return; }
+  const grp = s.group, attr = !!s.attr, W = s.box[2], Hh = s.box[3];
+  const kin = slotsAll().filter(x => x.group === grp);
+  const rows = cluster(kin.map(k => k.box[1]), 30);
+  const lastY = rows[rows.length - 1][0];
+  const rowAt = (yy, list) => list.filter(k => Math.abs(k.box[1] - yy) <= 30)
+                                  .sort((a, b) => a.box[0] - b.box[0]);
+  const mine = rowAt((rows.find(r => r.some(v => Math.abs(v - s.box[1]) <= 30)) || [s.box[1]])[0], kin);
+  let x, y = mine[0].box[1], grown = 0, insert = null;
+  if (attr) {
+    const cols = cluster(kin.map(k => k.box[0]), 30).map(modeOf);
+    if (mine.length < cols.length) x = cols[mine.length];      /* 这一排后面还空着，补上去 */
+    else {              /* 这一排满了：就在它下面就地插一行，后面的档位与 T 几 标签整体让开 */
+      const a = mine[0];
+      x = cols[0]; y = a.box[1] + ATTR_STEP;
+      insert = { anchor: a, top: boxOf(a)[1] };
+    }
+    const p = PANEL_BOX[grp];
+    /* 纵向不再设上限：新起的排会把背板一起往下延长，五栏同长 */
+    if (p && (x < p[0] - 1 || x + W > p[0] + p[2] + 1)) {
+      flash("这一排横向已经到边框，放不下了"); return;
+    }
+  } else {
+    const tail = mine[mine.length - 1];
+    x = tail.box[0] + STEP_X;                                  /* 接在选中那一排的队尾 */
+    if (x + W > 3621 - GAP_X) {                               /* 这一排顶到右边缘：在最下面一行下面新起一排 */
+      const lrow = rowAt(lastY, kin);
+      x = lrow[0].box[0]; y = lastY + STEP_Y; grown = STEP_Y;
+    }
+  }
+  const id = (edit.newSlots || []).reduce((m, t) => Math.max(m, t.id), 999) + 1;
+  const n = (edit.newSlots || []).filter(t => t.group === grp).length + 1;
+  const ns = { id, new: true, group: grp, name: "新格" + n, attr,
+               box: [x, y, W, Hh], ring: s.ring || Math.max(6, Math.round(W * 0.025)),
+               bg: s.bg || "#2b3038" };
+  edit.newSlots = (edit.newSlots || []).concat(ns);
+  if (grown) edit.down[grp] = (edit.down[grp] || 0) + grown;   /* 后面所有层整体往下让 */
+  if (insert) {
+    /* 插入点以下（不含锚点那一排）的格位与档位标签各让一行；新行沿用锚点的位移 */
+    for (const k of kin) if (boxOf(k)[1] > insert.top + 1) {
+      edit.slotShift[k.id] = (edit.slotShift[k.id] || 0) + ATTR_STEP;
+    }
+    for (const o of OTHERS) {
+      if (o.group !== grp || IS_PANEL(o)) continue;
+      if (o.box[1] + lshiftOf(o.seq) + downOf(o.group, o.name) > insert.top + 1) {
+        edit.layerShift[o.seq] = (edit.layerShift[o.seq] || 0) + ATTR_STEP;
+      }
+    }
+    edit.slotShift[id] = shiftOf(insert.anchor.id);
+  }
+  save(); render(); tbFill();
+  const el = stage.querySelector('[data-slot="' + id + '"]');
+  if (el) { select(ns, el); el.scrollIntoView({ block: "center" }); }
+}
+
+function startDrag(e, s, el) {
+  e.preventDefault();
+  select(s, el);
+  if (isSlotEmpty(s.id)) return;
+  const r = el.getBoundingClientRect();
+  const ghost = document.createElement("div");
+  ghost.id = "ghost";
+  ghost.style.width = r.width + "px"; ghost.style.height = r.height + "px";
+  const cur = el.querySelector("img");      /* 金框空位这类没有头像子元素，幽灵按底色走 */
+  if (cur) {
+    const img = document.createElement("img");
+    img.src = cur.src;
+    ghost.appendChild(img);
+  } else {
+    ghost.style.background = s.bg && s.bg !== "transparent" ? s.bg : "#2b3038";
+    ghost.style.outlineColor = s.ph ? "#fedd62" : "#6ea8fe";
+  }
+  document.body.appendChild(ghost);
+  drag = { s, el, ghost, ox: e.clientX - r.left, oy: e.clientY - r.top };
+  el.classList.add("dragging");
+  moveGhost(e);
+}
+function moveGhost(e) {
+  drag.ghost.style.left = (e.clientX - drag.ox) + "px";
+  drag.ghost.style.top = (e.clientY - drag.oy) + "px";
+}
+document.addEventListener("pointermove", e => {
+  if (!drag) return;
+  moveGhost(e);
+  const t = document.elementFromPoint(e.clientX, e.clientY);
+  const slotEl = t && t.closest ? t.closest(".slot") : null;
+  const id = slotEl ? parseInt(slotEl.dataset.slot, 10) : null;
+  if (dropTarget && dropTarget !== id) {
+    const prev = stage.querySelector('[data-slot="' + dropTarget + '"]');
+    if (prev) prev.classList.remove("drop");
+  }
+  dropTarget = id;
+  if (id !== null && id !== drag.s.id) {
+    const cur = stage.querySelector('[data-slot="' + id + '"]');
+    if (cur) cur.classList.add("drop");
+  }
+});
+document.addEventListener("pointerup", e => {
+  if (!drag) return;
+  const srcId = drag.s.id;
+  drag.ghost.remove();
+  drag.el.classList.remove("dragging");
+  const t = document.elementFromPoint(e.clientX, e.clientY);
+  const slotEl = t && t.closest ? t.closest(".slot") : null;
+  const dstId = slotEl ? parseInt(slotEl.dataset.slot, 10) : null;
+  for (const el of stage.querySelectorAll(".drop")) el.classList.remove("drop");
+  drag = null; dropTarget = null;
+  if (dstId !== null && dstId !== srcId) swap(srcId, dstId);
+  else render();
+});
+
+function charKeyOfSlot(id) {
+  if (edit.char[id] !== undefined) return edit.char[id];
+  const a = artOf(id);
+  if (a) return a.char ? a.char + (a.form ? "|" + a.form : "") : "";
+  const cid = contentOf(id);
+  if (cid === EMPTY) return "";
+  const src = findSlot(cid) || findSlot(id);
+  return src && src.char ? src.char + (src.form ? "|" + src.form : "") : "";
+}
+function swap(a, b) {
+  const ca = contentOf(a), cb = contentOf(b);
+  const aa = artOf(a), ab = artOf(b);
+  const ka = charKeyOfSlot(a), kb = charKeyOfSlot(b);
+  edit.place[a] = cb === b ? b : cb;
+  edit.place[b] = ca === a ? a : ca;
+  const putArt = (id, v) => { if (v) edit.art[id] = v; else delete edit.art[id]; };
+  putArt(a, ab); putArt(b, aa);
+  const putChar = (id, k) => { if (k) edit.char[id] = k; else delete edit.char[id]; };
+  putChar(a, kb); putChar(b, ka);
+  save(); sel = null; hideInsp(); render();
+}
+
+function select(s, el) {
+  sel = s.id;
+  for (const e of stage.querySelectorAll(".slot.sel")) e.classList.remove("sel");
+  if (el) el.classList.add("sel");
+  document.getElementById("insp").style.display = "block";
+  const a = artOf(s.id), cid = contentOf(s.id), src = findSlot(cid) || s;
+  document.getElementById("iName").textContent = s.group + " · " + s.name;
+  document.getElementById("iInfo").textContent = isSlotEmpty(s.id) ? "该洞已空出"
+    : a ? "头像来自头像库：" + (a.char || "未命名") : "头像来自：" + src.group + " · " + src.name;
+  const dd = document.getElementById("iChar");
+  dd.innerHTML = "";
+  const o0 = document.createElement("option");
+  o0.value = ""; o0.textContent = "（待定）";
+  dd.appendChild(o0);
+  for (const c of ROSTER) {
+    const g = document.createElement("optgroup"); g.label = c.n;
+    for (const f of (c.f && c.f.length ? c.f : [""])) {
+      const o = document.createElement("option");
+      o.value = f ? c.n + "|" + f : c.n;
+      o.textContent = f ? c.n + " · " + f : c.n + " · 原型";
+      g.appendChild(o);
+    }
+    dd.appendChild(g);
+  }
+  dd.value = charOf(s);
+  dd.onchange = () => {
+    if (dd.value) edit.char[s.id] = dd.value; else delete edit.char[s.id];
+    save(); render();
+  };
+  document.getElementById("iEmpty").onclick = () => {
+    edit.place[s.id] = EMPTY; delete edit.art[s.id]; delete edit.char[s.id];
+    save(); sel = null; hideInsp(); render();
+  };
+  document.getElementById("iRevert").onclick = () => {
+    delete edit.place[s.id]; delete edit.art[s.id]; delete edit.char[s.id];
+    delete edit.slotText[s.id];
+    save(); render();
+  };
+  document.getElementById("iClose").onclick = () => { sel = null; hideInsp(); render(); };
+}
+function hideInsp() { document.getElementById("insp").style.display = "none"; }
+
+function changed() {
+  const out = [];
+  for (const s of slotsAll()) {
+    const cid = contentOf(s.id), empty = cid === EMPTY, a = artOf(s.id);
+    const ch = edit.char[s.id];
+    const st = s.attr ? undefined : edit.slotText[s.id];   /* 属性栏格位没有说明栏 */
+    const textChanged = st !== undefined && st !== (s.text ? s.text.text : "");
+    if (cid === s.id && !a && ch === undefined && !textChanged) continue;
+    const [c, f] = (ch || "").split("|");
+    const ts = textStyleOf(s), R = barRectOf(s);
+    out.push({ slot: s.id, group: s.group, name: s.name,
+               content: empty ? null : cid,
+               contentName: empty ? null : (findSlot(cid) || s).name,
+               art: a ? { src: a.src, char: a.char, form: a.form } : null,
+               char: ch ? c : null, form: f || null,
+               textChanged: textChanged, text: textChanged ? st : null,
+               textFrom: s.text ? s.text.from : null,
+               textBox: textChanged ? [R.left, Math.round(R.top), R.width, R.height] : null,
+               textColor: textChanged ? ts.color : null,
+               textFs: textChanged ? ts.size : null,
+               textLh: textChanged ? ts.lh : null });
+  }
+  return out;
+}
+function refreshCount() {
+  document.getElementById("iCount").textContent = "已改 " + changed().length + " 处";
+}
+
+/* ---- 自由拖动工具提示 ---- */
+
+/* ---------- 文字条：只作用于网页显示，改动存在浏览器本地 ---------- */
+let tbCur = "";
+const tbEl = id => document.getElementById(id);
+const HEX6 = c => {
+  const v = String(c || "").trim();
+  if (/^#[0-9a-f]{6}$/i.test(v)) return v;
+  const m = v.match(/(\d+)\D+(\d+)\D+(\d+)/);
+  return m ? "#" + [1, 2, 3].map(i => (+m[i]).toString(16).padStart(2, "0")).join("") : "#ffffff";
+};
+const ntf = k => (edit.nt || []).find(t => "n" + t.id === k) || null;
+const tbBase = k => {
+  if (k[0] === "s") {
+    const s = findSlot(Number(k.slice(1)));
+    return { group: s.group, txt: textOf(s), st: textStyleOf(s),
+             color: s.text ? s.text.color : "#e8ebf2", kind: "slot" };
+  }
+  if (k[0] === "n") {
+    const nt = ntf(k) || { txt: "", fs: 40, color: "#ffffff", x: 0, y: 0 };
+    return { group: "自定义文本", txt: nt.txt,
+             st: { size: nt.fs, lh: Math.round(nt.fs * 1.25) }, color: nt.color,
+             pos: posOf(k, nt.x, nt.y), kind: "nt" };
+  }
+  const o = OTHERS.find(x => "o" + x.seq === k);
+  const lh0 = Math.round(o.box[3] / (o.lines || 1));
+  return { group: o.group || "未分组",
+           txt: o.t === "text" ? (edit.text[o.seq] !== undefined ? edit.text[o.seq] : o.text)
+                               : "图片素材：" + o.name,
+           st: { size: o.t === "text" ? (tstyleOf(k).fs || Math.round(lh0 * 0.78)) : 0,
+                 lh: tstyleOf(k).lh || lh0 },
+           color: o.color || "#ffffff",
+           pos: (p => [p[0], p[1] + downOf(o.group, o.name)])(posOf(k, o.box[0], o.box[1])),
+           kind: o.t === "text" ? "text" : "img" };
+};
+function tbFill() {
+  const sel = tbEl("tbPick"), keep = tbCur;
+  sel.innerHTML = "";
+  const ph = document.createElement("option");
+  ph.value = ""; ph.textContent = "— 选择要编辑的文字 —";
+  sel.appendChild(ph);
+  const sets = [["说明栏（洞下）", slotsAll().filter(s => !s.attr).map(s => "s" + s.id)],
+                ["原稿文字", OTHERS.filter(o => o.t === "text").map(o => "o" + o.seq)],
+                ["素材图层", OTHERS.filter(o => o.t !== "text").map(o => "o" + o.seq)],
+                ["自定义文本", (edit.nt || []).map(t => "n" + t.id)]];
+  for (const [label, keys] of sets) {
+    if (!keys.length) continue;
+    const og = document.createElement("optgroup"); og.label = label;
+    for (const k of keys) {
+      const b = tbBase(k);
+      if (!b) continue;
+      const sum = String(b.txt || "").replace(/\s+/g, " ").trim();
+      const op = document.createElement("option");
+      op.value = k;
+      op.textContent = (tstyleOf(k).hide ? "✕ " : "") + (b.group ? b.group + " · " : "")
+                     + (sum ? sum.slice(0, 22) : "（空）");
+      og.appendChild(op);
+    }
+    sel.appendChild(og);
+  }
+  sel.value = keep && sel.querySelector('option[value="' + keep + '"]') ? keep : "";
+  tbSync();
+}
+function tbSync() {
+  tbCur = tbEl("tbPick").value;
+  const on = !!tbCur, b = on ? tbBase(tbCur) : null, st = tstyleOf(tbCur);
+  const canStyle = on && b.kind !== "img";
+  const canMove = on && b.kind !== "slot";
+  tbEl("tbText").disabled = !canStyle;
+  for (const id of ["tbFs", "tbColor", "tbBold"]) tbEl(id).disabled = !canStyle;
+  tbEl("tbX").disabled = !canMove; tbEl("tbY").disabled = !canMove;
+  tbEl("tbHide").disabled = !on; tbEl("tbRevert").disabled = !on;
+  tbEl("tbRevert").textContent = on && b.kind === "nt" ? "删除该条" : "还原该条";
+  if (!on) {
+    tbEl("tbInfo").textContent = "共 " + slotsAll().filter(s => !s.attr).length + " 条说明栏 + "
+                               + OTHERS.filter(o => o.t === "text").length + " 条原稿文字 + "
+                               + OTHERS.filter(o => o.t !== "text").length + " 个素材图层，"
+                               + "自定义文本 " + (edit.nt || []).length + " 条";
+    tbEl("tbX").value = ""; tbEl("tbY").value = "";
+    return;
+  }
+  tbEl("tbText").value = b.txt;
+  tbEl("tbFs").value = b.st.size || 0;
+  tbEl("tbColor").value = HEX6(st.color || b.color);
+  tbEl("tbBold").classList.toggle("on", !!st.bold);
+  tbEl("tbHide").classList.toggle("on", !!st.hide);
+  if (canMove) { tbEl("tbX").value = Math.round(b.pos[0]); tbEl("tbY").value = Math.round(b.pos[1]); }
+  else { tbEl("tbX").value = ""; tbEl("tbY").value = ""; }
+  const moved = edit.pos && edit.pos[tbCur];
+  tbEl("tbInfo").textContent = (b.group || "") + (st.hide ? " · 已隐藏" : "")
+                             + (moved ? " · 已挪位置" : "")
+                             + (st.fs || st.color || st.bold !== undefined ? " · 已改样式" : "");
+  for (const e of stage.querySelectorAll('.pick')) e.classList.remove('pick');
+  if (tbCur[0] === "o") {
+    const e = stage.querySelector('[data-key="' + tbCur + '"]');
+    if (e) e.classList.add("pick");
+  }
+}
+const tbMove = () => {
+  if (!tbCur) return;
+  const x = parseInt(tbEl("tbX").value, 10), y = parseInt(tbEl("tbY").value, 10);
+  if (isNaN(x) || isNaN(y)) return;
+  if (tbCur[0] === "n") { const nt = ntf(tbCur); if (nt) { nt.x = x; nt.y = y; } }
+  else {
+    const o = OTHERS.find(t => "o" + t.seq === tbCur);
+    edit.pos[tbCur] = [x, y - (o ? downOf(o.group, o.name) : 0)];
+  }
+  save(); render(); tbSync();
+};
+function tbSet(patch) {
+  if (!tbCur) return;
+  if (tbCur[0] === "n") {
+    const nt = ntf(tbCur); if (!nt) return;
+    if (patch.fs) nt.fs = patch.fs;
+    if (patch.color) nt.color = patch.color;
+    if (patch.bold !== undefined) { if (patch.bold) nt.bold = true; else delete nt.bold; }
+    if (patch.hide !== undefined) { if (patch.hide) nt.hide = true; else delete nt.hide; }
+    save(); render(); tbSync();
+    return;
+  }
+  const st = edit.tstyle[tbCur] = edit.tstyle[tbCur] || {};
+  for (const k in patch) { if (patch[k] === null) delete st[k]; else st[k] = patch[k]; }
+  if (!Object.keys(st).length) delete edit.tstyle[tbCur];
+  save(); render(); tbSync();
+}
+tbEl("tbPick").onchange = tbSync;
+tbEl("tbText").onchange = e => {
+  if (!tbCur) return;
+  const v = e.target.value;
+  if (tbCur[0] === "s") {
+    const s = findSlot(Number(tbCur.slice(1)));
+    if (v === (s.text ? s.text.text : "")) delete edit.slotText[s.id];
+    else edit.slotText[s.id] = v;
+  } else if (tbCur[0] === "n") {
+    const nt = ntf(tbCur);
+    if (nt) nt.txt = v || "双击输入文字";
+  } else {
+    const o = OTHERS.find(x => "o" + x.seq === tbCur);
+    if (v === o.text) delete edit.text[o.seq]; else edit.text[o.seq] = v;
+  }
+  save(); render(); refreshCount(); tbFill();
+};
+tbEl("tbFs").onchange = e => tbSet({ fs: Math.max(8, parseInt(e.target.value, 10) || 0) });
+tbEl("tbColor").onchange = e => tbSet({ color: e.target.value });
+tbEl("tbBold").onclick = () => {
+  const n = ntf(tbCur);
+  tbSet({ bold: (n ? n.bold : tstyleOf(tbCur).bold) ? null : true });
+};
+tbEl("tbHide").onclick = () => {
+  const n = ntf(tbCur);
+  const cur = n ? n.hide : tstyleOf(tbCur).hide;
+  tbSet({ hide: cur ? null : true });
+};
+tbEl("tbRevert").onclick = () => {
+  if (!tbCur) return;
+  delete edit.tstyle[tbCur];
+  if (edit.pos) delete edit.pos[tbCur];
+  if (tbCur[0] === "s") delete edit.slotText[tbCur.slice(1)];
+  else if (tbCur[0] === "o") delete edit.text[+tbCur.slice(1)];
+  else if (tbCur[0] === "n") edit.nt = (edit.nt || []).filter(t => "n" + t.id !== tbCur);
+  save(); render(); refreshCount(); tbFill();
+};
+tbEl("tbNew").onclick = () => addNT();
+tbEl("tbX").onchange = tbMove;
+tbEl("tbY").onchange = tbMove;
+function tbClose() {
+  tbEl("textbar").classList.remove("on");
+  tbEl("bText").classList.remove("on");
+}
+tbEl("tbClose").onclick = tbClose;
+tbEl("bText").onclick = e => {
+  const p = tbEl("textbar");
+  p.classList.toggle("on");
+  e.target.classList.toggle("on", p.classList.contains("on"));
+  if (p.classList.contains("on")) tbFill();
+};
+function exportData() {
+  const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
+  return { canvas: [3621, 6761 + totalDown], slots: changed(),
+           pos: edit.pos || {}, nt: edit.nt || [],
+           newSlots: edit.newSlots || [], down: edit.down || {},
+           slotShift: edit.slotShift || {}, layerShift: edit.layerShift || {},
+           allSlots: slotsAll().map(s => ({ slot: s.id, group: s.group, name: s.name,
+                                            attr: !!s.attr, box: boxOf(s),
+                                            ring: s.ring || 6, bg: s.bg || "",
+                                            content: isSlotEmpty(s.id) ? null : contentOf(s.id) })) };
+}
+/* ---------- 导出到本地文件（没有仓库写权限时的退路） ---------- */
+function exportLocal() {
+  const data = exportData();
+  const blob = new Blob([JSON.stringify(data, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "psb_slots.json"; a.click();
+}
+
+/* ---------- 云端保存 ----------
+   令牌只存这台浏览器；能不能存不靠页面判断，靠仓库权限：写入被拒就是没权限。
+   保存前先校验，坏数据一律不写进仓库。 */
+const GH = { owner: "ArcadiaUD", repo: "StarSavior-helper", branch: "main",
+             path: "docs/psb_slots.json", token: "", login: "", canPush: false, busy: false };
+const TOKEN_KEY = "psbGhToken";
+const ghEl = id => document.getElementById(id);
+function ghState(text, cls) {
+  const e = ghEl("ghState");
+  e.textContent = text;
+  e.className = "hint" + (cls ? " " + cls : "");
+}
+function ghHeaders(extra) {
+  return Object.assign({ "Authorization": "Bearer " + GH.token,
+                         "Accept": "application/vnd.github+json",
+                         "X-GitHub-Api-Version": "2022-11-28" }, extra || {});
+}
+function ghFetch(path, opt) {
+  const o = Object.assign({}, opt || {});
+  o.headers = ghHeaders(o.headers);
+  return fetch("https://api.github.com" + path, o);
+}
+function b64utf8(s) {
+  const bytes = new TextEncoder().encode(s);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+/* 写入前校验：坏数据写进仓库会直接打穿面板，这里一律拦下 */
+function validatePayload(data) {
+  if (!Array.isArray(data.canvas) || data.canvas.length !== 2 ||
+      !data.canvas.every(n => typeof n === "number" && isFinite(n) && n > 0))
+    return "画布尺寸不合法";
+  const [W, H] = data.canvas;
+  const all = data.allSlots;
+  if (!Array.isArray(all) || !all.length) return "格位列表为空";
+  const sid = v => (typeof v === "string" || typeof v === "number") ? String(v) : "";
+  const seen = new Set();
+  for (const s of all) {
+    if (!s) return "格位列表里有空项";
+    const id = sid(s.slot);
+    if (!id) return "有格位缺编号";
+    if (seen.has(id)) return "格位编号重复：" + id;
+    seen.add(id);
+    if (!Array.isArray(s.box) || s.box.length !== 4 ||
+        !s.box.every(n => typeof n === "number" && isFinite(n)))
+      return "格位坐标不合法：" + id;
+    const [x, y, w, h] = s.box;
+    if (x < -2 || y < -2 || x + w > W + 2 || y + h > H + 2)
+      return "格位越出画布：" + id;
+  }
+  for (const id of Object.keys(data.pos || {})) {
+    if (!seen.has(id)) return "位移指向了不存在的格位：" + id;
+  }
+  for (const l of (data.slots || [])) {
+    if (!l) return "改动记录里有空项";
+    const id = sid(l.slot);
+    if (!seen.has(id)) return "改动记录指向了不存在的格位：" + id;
+    if (l.content !== null && l.content !== undefined && typeof l.content !== "string")
+      return "内容引用不合法：" + id;
+    if (l.char) {
+      const k = l.char + (l.form ? "|" + l.form : "");
+      if (!(FACES[k] || FACES[l.char])) return "头像身份查不到：" + k + "（" + id + "）";
+    }
+    if (l.art && !/^(layers|faces)\//.test(l.art.src || ""))
+      return "素材引用不合法：" + id + " → " + (l.art && l.art.src);
+  }
+  return null;
+}
+function ghSetConnected() {
+  ghEl("bPush").disabled = !GH.canPush;
+  ghEl("ghbox").classList.remove("on");
+}
+async function ghConnect(silent) {
+  const typed = (ghEl("ghToken").value || "").trim();
+  const token = typed || GH.token;
+  if (!token) { ghEl("ghbox").classList.add("on"); ghEl("ghMsg").textContent = "先贴令牌"; return; }
+  GH.token = token;
+  if (!silent) ghState("校验令牌…");
+  try {
+    const r = await ghFetch(`/repos/${GH.owner}/${GH.repo}`);
+    if (!r.ok) throw new Error("读仓库失败 " + r.status + (r.status === 401 ? "（令牌无效或已过期）" : ""));
+    const repo = await r.json();
+    const me = await ghFetch("/user");
+    GH.login = me.ok ? (await me.json()).login : "";
+    GH.canPush = !!(repo.permissions && repo.permissions.push);
+    ghSetConnected();
+    if (GH.canPush) {
+      localStorage.setItem(TOKEN_KEY, token);
+      ghState("已连接 " + (GH.login || "?") + " · 可保存", "ok");
+    } else {
+      ghState("已连接 " + (GH.login || "?") + " · 只读", "bad");
+    }
+  } catch (e) {
+    GH.canPush = false; ghSetConnected();
+    ghState("连接失败", "bad");
+    ghEl("ghbox").classList.add("on");
+    ghEl("ghMsg").textContent = e.message;
+  }
+}
+async function ghPush() {
+  if (GH.busy) return;
+  if (!GH.canPush) { flash("没连上仓库或没有写权限，保存被拒"); return; }
+  let data;
+  try { data = exportData(); } catch (e) { flash("导出失败：" + e.message); return; }
+  const bad = validatePayload(data);
+  if (bad) { flash("校验未过，已拒绝写入：" + bad); return; }
+  GH.busy = true;
+  ghState("保存中…");
+  const url = `/repos/${GH.owner}/${GH.repo}/contents/${GH.path}`;
+  try {
+    let sha = null;
+    const cur = await ghFetch(url + "?ref=" + GH.branch);
+    if (cur.ok) sha = (await cur.json()).sha;
+    else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
+    const body = { message: "编辑保存（" + (GH.login || "协作者") + "）",
+                   content: b64utf8(JSON.stringify(data, null, 1)), branch: GH.branch };
+    if (sha) body.sha = sha;
+    const put = () => ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
+    let r = await put();
+    if (r.status === 409 || r.status === 422) {           /* 别人刚好也存过，取新版本再试一次 */
+      const c2 = await ghFetch(url + "?ref=" + GH.branch);
+      if (c2.ok) { body.sha = (await c2.json()).sha; r = await put(); }
+    }
+    if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 160));
+    const out = await r.json();
+    ghState("已保存 " + out.commit.sha.slice(0, 7), "ok");
+    flash("已存到仓库 " + out.commit.sha.slice(0, 7));
+  } catch (e) {
+    ghState("保存失败", "bad");
+    flash("保存失败：" + e.message);
+  } finally {
+    GH.busy = false;
+  }
+}
+ghEl("bGh").onclick = () => {
+  const box = ghEl("ghbox");
+  box.classList.toggle("on");
+  if (box.classList.contains("on")) ghEl("ghToken").focus();
+};
+ghEl("ghDo").onclick = () => ghConnect(false);
+ghEl("ghToken").onkeydown = e => { if (e.key === "Enter") ghConnect(false); };
+ghEl("ghForget").onclick = () => {
+  GH.token = ""; GH.login = ""; GH.canPush = false;
+  localStorage.removeItem(TOKEN_KEY);
+  ghEl("ghToken").value = ""; ghSetConnected(); ghState("未连接仓库");
+};
+ghEl("bPush").onclick = ghPush;
+document.getElementById("bSave").onclick = () => { if (GH.canPush) ghPush(); else exportLocal(); };
+addEventListener("keydown", e => {
+  if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "S")) {
+    e.preventDefault();
+    if (GH.canPush) ghPush();
+    else { exportLocal(); flash("还没连上仓库（或没有写权限），已改为导出文件"); }
+  }
+});
+/* 上次连过就静默复连，省得每次重贴令牌 */
+(function () {
+  const t = localStorage.getItem(TOKEN_KEY);
+  if (t) { GH.token = t; ghState("恢复连接…"); ghConnect(true); }
+})();
+document.getElementById("bLoad").onclick = () => document.getElementById("file").click();
+document.getElementById("file").onchange = e => {
+  const f = e.target.files[0]; if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try {
+      const data = JSON.parse(rd.result);
+      if (data.pos) edit.pos = data.pos;
+      if (data.nt) edit.nt = data.nt;
+      edit.newSlots = data.newSlots || [];
+      edit.down = data.down || {};
+      edit.slotShift = data.slotShift || {};
+      edit.layerShift = data.layerShift || {};
+      for (const l of data.slots || []) {
+        if (l.content === null) edit.place[l.slot] = EMPTY;
+        else if (l.content !== undefined) edit.place[l.slot] = l.content;
+        if (l.art) edit.art[l.slot] = l.art;
+        if (l.char) edit.char[l.slot] = l.char + (l.form ? "|" + l.form : "");
+        else delete edit.char[l.slot];
+        if (l.textChanged) edit.slotText[l.slot] = l.text || "";
+      }
+      save(); render(); tbFill();
+    } catch (err) { flash("导入失败：" + err.message); }
+  };
+  rd.readAsText(f);
+};
+document.getElementById("bClear").onclick = () => {
+  if (!confirm("清空全部改动，回到作者原稿？")) return;
+  for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = {};
+  edit.nt = []; edit.newSlots = []; edit.down = {};
+  edit.slotShift = {}; edit.layerShift = {};
+  save(); sel = null; hideInsp(); render(); tbFill();
+};
+
+function renderLib() {
+  const q = document.getElementById("libQ").value.trim();
+  const box = document.getElementById("libList");
+  box.innerHTML = "";
+  for (const it of LIB) {
+    if (q && !(it.c.includes(q) || it.f.includes(q))) continue;
+    const d = document.createElement("div");
+    d.className = "libItem";
+    d.draggable = true;
+    d.title = it.c + " · " + it.f;
+    const img = document.createElement("img");
+    img.src = it.s;
+    img.draggable = false;
+    const sp = document.createElement("span");
+    sp.textContent = it.c;
+    d.appendChild(img); d.appendChild(sp);
+    d.addEventListener("dragstart", e => {
+      e.dataTransfer.setData("text/plain", JSON.stringify({ src: it.s, c: it.c, f: it.f }));
+      e.dataTransfer.effectAllowed = "copy";
+    });
+    box.appendChild(d);
+  }
+}
+document.getElementById("libBtn").onclick = e => {
+  const lib = document.getElementById("lib");
+  lib.classList.toggle("open");
+  document.body.classList.toggle("libopen", lib.classList.contains("open"));
+  e.target.classList.toggle("on");
+  if (lib.classList.contains("open")) renderLib();
+};
+document.getElementById("libClose").onclick = () => {
+  document.getElementById("lib").classList.remove("open");
+  document.body.classList.remove("libopen");
+  document.getElementById("libBtn").classList.remove("on");
+};
+document.getElementById("libQ").addEventListener("input", renderLib);
+
+document.getElementById("bFrame").onclick = e => { document.body.classList.toggle("frames"); e.target.classList.toggle("on"); };
+document.getElementById("bTags").onclick = e => { document.body.classList.toggle("tags"); e.target.classList.toggle("on"); };
+document.getElementById("bBig").onclick = e => { hideBig = !hideBig; e.target.classList.toggle("on"); render(); };
+document.body.classList.add("pickbg");           /* 素材默认可拖 */
+document.getElementById("bPick").onclick = e => {
+  const on = document.body.classList.toggle("pickbg");
+  e.target.classList.toggle("on", on);
+};
+document.getElementById("bOut").onclick = () => { z = Math.max(0.1, z - 0.06); setZoom(); };
+document.getElementById("bIn").onclick = () => { z = Math.min(1.2, z + 0.06); setZoom(); };
+document.getElementById("bUndo").onclick = undo;
+document.getElementById("bAdd").onclick = () => {
+  if (sel === null) { flash("先在画布上点选一个格位，新格会加在它后面"); return; }
+  addSlot(sel);
+};
+document.addEventListener("keydown", e => {
+  if (!(e.ctrlKey || e.metaKey) || e.shiftKey || String(e.key).toLowerCase() !== "z") return;
+  const a = document.activeElement, tag = a ? a.tagName : "";
+  if (a && (a.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA")) return;
+  e.preventDefault(); undo();
+});
+undoBase = snap();
+setZoom();
+function setZoom() { document.getElementById("fit").style.setProperty("--z", z); render(); }
+render();
+</script></body></html>

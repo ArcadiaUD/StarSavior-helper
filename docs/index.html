@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>强度榜 PSB 整版实验稿</title>
+<style>
+  :root { --z: 0.26; }
+  html,body { margin:0; background:#15171c; color:#dfe3ec;
+              font-family:"Microsoft YaHei","Segoe UI",sans-serif; }
+  #bar { position:sticky; top:0; z-index:99; display:flex; align-items:center; gap:10px;
+         padding:10px 14px; background:#1b1e26; border-bottom:1px solid #2e3342; flex-wrap:wrap; }
+  #bar b { font-size:13px; }
+  #bar .hint { font-size:12px; color:#98a0b3; }
+  button { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
+           padding:5px 12px; font-size:12px; cursor:pointer; }
+  button.on { border-color:#6ea8fe; color:#8fb8f5; }
+  #wrap { padding:16px; overflow:auto; }
+  #stage { position:relative; background:#303030;
+           transform-origin:0 0; transform:scale(var(--z)); }
+  .lb { position:absolute; white-space:pre; }
+  .lyr { position:absolute; }
+  .lyr img { width:100%; height:100%; display:block; }
+  .ring { position:absolute; inset:0; box-sizing:border-box; border-style:solid;
+          pointer-events:none; z-index:3; }
+  .tag { position:absolute; left:0; top:-17px; font-size:11px; color:#8fb8f5;
+         background:#11131acc; padding:0 4px; border-radius:4px; display:none; white-space:nowrap; }
+  body.tags .cell .tag { display:block; }
+  .cell.blank { outline:2px dashed #464d60; outline-offset:-2px; }
+  .cell.ph { outline:3px solid #fedd62; outline-offset:-3px; }   /* 补齐档位的金框空位 */
+</style></head><body>
+<div id="bar">
+  <b>强度榜 PSB 整版实验稿</b>
+  <span class="hint">版式与素材取自 PSB 原稿；角色格只显示实际挂上的头像（面板形象或头像库素材）</span>
+  <button id="bTags">显示图层名</button>
+  <button id="bBig">隐藏整图底</button>
+  <button id="bZoomOut">缩小</button>
+  <button id="bZoomIn">放大</button>
+  <span class="hint" id="ztext"></span>
+</div>
+<div id="wrap"><div id="stage"></div></div>
+<script src="board_data.js"></script>
+<script src="board.js"></script>
+<script>
+/* 渲染实现只有一份（board.js）：网页成品页与面板只读页都调它，版面永远一致 */
+BoardView.create(document.getElementById("stage"), window.BOARD_DATA);
+</script></body></html>

@@ -1,0 +1,81 @@
+name: 重建强度榜数据
+
+# 编辑器把编辑存档存进 docs/psb_slots.json 之后，这里跑一遍构建，
+# 把榜单数据（board.json / board_data.js）与页面重新生成并提交回站点目录。
+# 平时的流程就是：攻略组在编辑器里改、Ctrl+S，等一分钟站点自动更新。
+
+on:
+  push:
+    paths:
+      - "docs/psb_slots.json"
+      - "build/**"
+      - ".github/workflows/rebuild-board.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 装构建依赖
+        run: pip install --quiet opencv-python-headless numpy
+
+      - name: 把编辑器存档放进构建工作目录
+        run: |
+          mkdir -p build/psb_web
+          if [ -f docs/psb_slots.json ]; then
+            cp docs/psb_slots.json build/psb_web/psb_slots.json
+          else
+            echo "还没有编辑存档，按原稿构建"
+          fi
+
+      - name: 跑构建
+        working-directory: build
+        env:
+          PSB_TMP: ${{ github.workspace }}/build
+          PSB_PANEL: ${{ github.workspace }}/build/panel
+        run: python build_psb_full.py
+
+      - name: 校验产物齐全
+        run: |
+          for f in index.html board.json board_data.js board.js; do
+            test -s "build/psb_web/$f" || { echo "缺产物：$f"; exit 1; }
+          done
+          test -d build/psb_web/layers || { echo "缺 layers"; exit 1; }
+          test -d build/psb_web/faces  || { echo "缺 faces"; exit 1; }
+          python - <<'PY'
+          import json
+          d = json.load(open("build/psb_web/board.json", encoding="utf-8"))
+          items = d["items"]
+          cells = [i for i in items if i.get("cell")]
+          print(f"画布 {d['w']}×{d['h']}，图层 {len(items)} 个，其中格位 {len(cells)} 个")
+          assert cells, "一个格位都没有，数据可疑，不提交"
+          PY
+
+      - name: 搬进站点目录
+        run: |
+          cp -f build/psb_web/index.html build/psb_web/board.json \
+                build/psb_web/board_data.js build/psb_web/board.js docs/
+          rm -rf docs/layers docs/faces
+          cp -r build/psb_web/layers build/psb_web/faces docs/
+
+      - name: 提交回仓库
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "站点内容没有变化，不提交"
+          else
+            git commit -m "重建强度榜数据（来自编辑器存档） [skip ci]"
+            git push
+          fi

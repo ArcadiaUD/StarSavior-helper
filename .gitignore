@@ -9,3 +9,6 @@ panel.log
 restart.log
 __pycache__/
 *.pyc
+
+# 仓库内构建的临时工作目录（产物提交到 docs/，这里只是 Actions 与本机复现用的草稿区）
+build/psb_web/
