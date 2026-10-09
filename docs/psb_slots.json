@@ -8,10 +8,10 @@
    "slot": 145,
    "group": "全场景必练T0",
    "name": "mudun",
-   "content": 147,
-   "contentName": "M教授",
+   "content": 145,
+   "contentName": "mudun",
    "art": null,
-   "char": "M教授",
+   "char": "艾黛",
    "form": null,
    "textChanged": false,
    "text": null,
@@ -42,10 +42,10 @@
    "slot": 147,
    "group": "全场景必练T0",
    "name": "M教授",
-   "content": 145,
-   "contentName": "mudun",
+   "content": 147,
+   "contentName": "M教授",
    "art": null,
-   "char": "艾黛",
+   "char": "M教授",
    "form": null,
    "textChanged": false,
    "text": null,
@@ -1261,7 +1261,7 @@
    ],
    "ring": 10,
    "bg": "#d6bd88",
-   "content": 147
+   "content": 145
   },
   {
    "slot": 146,
@@ -1291,7 +1291,7 @@
    ],
    "ring": 11,
    "bg": "#9f9fa8",
-   "content": 145
+   "content": 147
   },
   {
    "slot": 7001,
