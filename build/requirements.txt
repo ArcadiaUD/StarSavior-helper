@@ -1,0 +1,4 @@
+# 云端重建榜单数据要用的依赖。
+# 只装无界面的 OpenCV：runner 上不需要图形库，装 headless 版既快又不出幺蛾子。
+opencv-python-headless
+numpy
