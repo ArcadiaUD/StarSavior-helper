@@ -1,0 +1,1340 @@
+{
+ "canvas": [
+  3621,
+  6761
+ ],
+ "slots": [
+  {
+   "slot": 146,
+   "group": "全场景必练T0",
+   "name": "阿莫拉",
+   "content": 147,
+   "contentName": "M教授",
+   "art": null,
+   "char": "M教授",
+   "form": null,
+   "textChanged": false,
+   "text": null,
+   "textFrom": null,
+   "textBox": null,
+   "textColor": null,
+   "textFs": null,
+   "textLh": null
+  },
+  {
+   "slot": 147,
+   "group": "全场景必练T0",
+   "name": "M教授",
+   "content": 146,
+   "contentName": "阿莫拉",
+   "art": null,
+   "char": "阿莫拉",
+   "form": null,
+   "textChanged": false,
+   "text": null,
+   "textFrom": null,
+   "textBox": null,
+   "textColor": null,
+   "textFs": null,
+   "textLh": null
+  }
+ ],
+ "pos": {},
+ "nt": [],
+ "newSlots": [],
+ "down": {},
+ "slotShift": {},
+ "layerShift": {},
+ "allSlots": [
+  {
+   "slot": 13,
+   "group": "T2功能角色",
+   "name": "fl",
+   "attr": false,
+   "box": [
+    45,
+    2523,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#aab9b6",
+   "content": 13
+  },
+  {
+   "slot": 14,
+   "group": "T2功能角色",
+   "name": "qila",
+   "attr": false,
+   "box": [
+    456,
+    2523,
+    321,
+    320
+   ],
+   "ring": 12,
+   "bg": "#3b3c49",
+   "content": 14
+  },
+  {
+   "slot": 15,
+   "group": "T2功能角色",
+   "name": "slf",
+   "attr": false,
+   "box": [
+    867,
+    2523,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#ccc9b4",
+   "content": 15
+  },
+  {
+   "slot": 16,
+   "group": "T2功能角色",
+   "name": "zbeila",
+   "attr": false,
+   "box": [
+    1276,
+    2523,
+    320,
+    320
+   ],
+   "ring": 8,
+   "bg": "#a9999b",
+   "content": 16
+  },
+  {
+   "slot": 17,
+   "group": "T2功能角色",
+   "name": "lsf",
+   "attr": false,
+   "box": [
+    1685,
+    2523,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#414750",
+   "content": 17
+  },
+  {
+   "slot": 18,
+   "group": "T2功能角色",
+   "name": "凌",
+   "attr": false,
+   "box": [
+    2096,
+    2523,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#d9d1c9",
+   "content": 18
+  },
+  {
+   "slot": 19,
+   "group": "T2功能角色",
+   "name": "ptla",
+   "attr": false,
+   "box": [
+    2496,
+    2523,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#e7cc8e",
+   "content": 19
+  },
+  {
+   "slot": 28,
+   "group": "T1功能角色",
+   "name": "sla",
+   "attr": false,
+   "box": [
+    45,
+    1945,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#c6b3ad",
+   "content": 28
+  },
+  {
+   "slot": 29,
+   "group": "T1功能角色",
+   "name": "zanna",
+   "attr": false,
+   "box": [
+    1686,
+    1945,
+    321,
+    320
+   ],
+   "ring": 8,
+   "bg": "#d3b9d4",
+   "content": 29
+  },
+  {
+   "slot": 30,
+   "group": "T1功能角色",
+   "name": "wikiSS克莉丝特头像",
+   "attr": false,
+   "box": [
+    866,
+    1945,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#4b576c",
+   "content": 30
+  },
+  {
+   "slot": 31,
+   "group": "T1功能角色",
+   "name": "luge",
+   "attr": false,
+   "box": [
+    1276,
+    1945,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#454f6e",
+   "content": 31
+  },
+  {
+   "slot": 32,
+   "group": "T1功能角色",
+   "name": "hali",
+   "attr": false,
+   "box": [
+    449,
+    1945,
+    320,
+    320
+   ],
+   "ring": 12,
+   "bg": "#625055",
+   "content": 32
+  },
+  {
+   "slot": 33,
+   "group": "T1功能角色",
+   "name": "泳装露娜",
+   "attr": false,
+   "box": [
+    2096,
+    1945,
+    320,
+    320
+   ],
+   "ring": 12,
+   "bg": "#e5cbd3",
+   "content": 33
+  },
+  {
+   "slot": 34,
+   "group": "T1功能角色",
+   "name": "miulier",
+   "attr": false,
+   "box": [
+    2496,
+    1945,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#848798",
+   "content": 34
+  },
+  {
+   "slot": 35,
+   "group": "T1功能角色",
+   "name": "laixi",
+   "attr": false,
+   "box": [
+    2903,
+    1945,
+    320,
+    320
+   ],
+   "ring": 12,
+   "bg": "#e9aebb",
+   "content": 35
+  },
+  {
+   "slot": 36,
+   "group": "T1功能角色",
+   "name": "cuisita",
+   "attr": false,
+   "box": [
+    3301,
+    1945,
+    320,
+    320
+   ],
+   "ring": 8,
+   "bg": "#a7c4fd",
+   "content": 36
+  },
+  {
+   "slot": 47,
+   "group": "光系",
+   "name": "gn",
+   "attr": true,
+   "box": [
+    149,
+    3574,
+    213,
+    213
+   ],
+   "ring": 6,
+   "bg": "#c58f20",
+   "content": 47
+  },
+  {
+   "slot": 48,
+   "group": "光系",
+   "name": "阿莫拉",
+   "attr": true,
+   "box": [
+    381,
+    3574,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#b7939d",
+   "content": 48
+  },
+  {
+   "slot": 52,
+   "group": "光系",
+   "name": "nna",
+   "attr": true,
+   "box": [
+    149,
+    3932,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#dead95",
+   "content": 52
+  },
+  {
+   "slot": 53,
+   "group": "光系",
+   "name": "sla",
+   "attr": true,
+   "box": [
+    381,
+    3932,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#f3d5eb",
+   "content": 53
+  },
+  {
+   "slot": 61,
+   "group": "草系",
+   "name": "tnji",
+   "attr": true,
+   "box": [
+    3001,
+    5696,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#c9c9cd",
+   "content": 61
+  },
+  {
+   "slot": 62,
+   "group": "草系",
+   "name": "amj",
+   "attr": true,
+   "box": [
+    3233,
+    5108,
+    213,
+    213
+   ],
+   "ring": 7,
+   "bg": "#647abd",
+   "content": 62
+  },
+  {
+   "slot": 63,
+   "group": "草系",
+   "name": "dna",
+   "attr": true,
+   "box": [
+    3001,
+    5926,
+    213,
+    213
+   ],
+   "ring": 11,
+   "bg": "#b5aa94",
+   "content": 63
+  },
+  {
+   "slot": 64,
+   "group": "草系",
+   "name": "lmn",
+   "attr": true,
+   "box": [
+    3001,
+    5108,
+    213,
+    213
+   ],
+   "ring": 7,
+   "bg": "#332425",
+   "content": 64
+  },
+  {
+   "slot": 65,
+   "group": "草系",
+   "name": "wx",
+   "attr": true,
+   "box": [
+    3233,
+    4750,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#8a92a2",
+   "content": 65
+  },
+  {
+   "slot": 66,
+   "group": "草系",
+   "name": "best",
+   "attr": true,
+   "box": [
+    3233,
+    4520,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#2b2f3f",
+   "content": 66
+  },
+  {
+   "slot": 67,
+   "group": "草系",
+   "name": "crs",
+   "attr": true,
+   "box": [
+    3001,
+    5338,
+    213,
+    213
+   ],
+   "ring": 7,
+   "bg": "#5d6863",
+   "content": 67
+  },
+  {
+   "slot": 68,
+   "group": "草系",
+   "name": "fl",
+   "attr": true,
+   "box": [
+    3233,
+    5926,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#8e9e8a",
+   "content": 68
+  },
+  {
+   "slot": 69,
+   "group": "草系",
+   "name": "cuisita",
+   "attr": true,
+   "box": [
+    3233,
+    5696,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#819bd9",
+   "content": 69
+  },
+  {
+   "slot": 70,
+   "group": "草系",
+   "name": "lbt",
+   "attr": true,
+   "box": [
+    3001,
+    4520,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#7159af",
+   "content": 70
+  },
+  {
+   "slot": 71,
+   "group": "草系",
+   "name": "nalu",
+   "attr": true,
+   "box": [
+    3001,
+    4162,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#4b362f",
+   "content": 71
+  },
+  {
+   "slot": 72,
+   "group": "草系",
+   "name": "格温",
+   "attr": true,
+   "box": [
+    3233,
+    4162,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#4b4b69",
+   "content": 72
+  },
+  {
+   "slot": 73,
+   "group": "草系",
+   "name": "klls",
+   "attr": true,
+   "box": [
+    3001,
+    3804,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#849279",
+   "content": 73
+  },
+  {
+   "slot": 74,
+   "group": "草系",
+   "name": "凌",
+   "attr": true,
+   "box": [
+    3001,
+    4750,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#c9baaa",
+   "content": 74
+  },
+  {
+   "slot": 75,
+   "group": "草系",
+   "name": "泳装微笑",
+   "attr": true,
+   "box": [
+    3001,
+    3574,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#9d959f",
+   "content": 75
+  },
+  {
+   "slot": 76,
+   "group": "草系",
+   "name": "mudun",
+   "attr": true,
+   "box": [
+    3233,
+    3574,
+    213,
+    213
+   ],
+   "ring": 7,
+   "bg": "#a39455",
+   "content": 76
+  },
+  {
+   "slot": 84,
+   "group": "水系",
+   "name": "zbeila",
+   "attr": true,
+   "box": [
+    2281,
+    5696,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#b1a2b3",
+   "content": 84
+  },
+  {
+   "slot": 85,
+   "group": "水系",
+   "name": "yasela",
+   "attr": true,
+   "box": [
+    2281,
+    5338,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#f1e2d8",
+   "content": 85
+  },
+  {
+   "slot": 86,
+   "group": "水系",
+   "name": "lili",
+   "attr": true,
+   "box": [
+    2513,
+    5338,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#e6c7c2",
+   "content": 86
+  },
+  {
+   "slot": 87,
+   "group": "水系",
+   "name": "tfl",
+   "attr": true,
+   "box": [
+    2281,
+    4980,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#81c5af",
+   "content": 87
+  },
+  {
+   "slot": 88,
+   "group": "水系",
+   "name": "laidai",
+   "attr": true,
+   "box": [
+    2513,
+    4980,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#f5e9da",
+   "content": 88
+  },
+  {
+   "slot": 89,
+   "group": "水系",
+   "name": "霏",
+   "attr": true,
+   "box": [
+    2281,
+    3574,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#b3afd3",
+   "content": 89
+  },
+  {
+   "slot": 91,
+   "group": "水系",
+   "name": "kler",
+   "attr": true,
+   "box": [
+    2281,
+    4392,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#bd9e97",
+   "content": 91
+  },
+  {
+   "slot": 92,
+   "group": "水系",
+   "name": "zkelaier",
+   "attr": true,
+   "box": [
+    2513,
+    4392,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#55629a",
+   "content": 92
+  },
+  {
+   "slot": 93,
+   "group": "水系",
+   "name": "luge",
+   "attr": true,
+   "box": [
+    2281,
+    4622,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#475372",
+   "content": 93
+  },
+  {
+   "slot": 94,
+   "group": "水系",
+   "name": "aimili",
+   "attr": true,
+   "box": [
+    2513,
+    4622,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#9097a5",
+   "content": 94
+  },
+  {
+   "slot": 95,
+   "group": "水系",
+   "name": "瑟莱丝",
+   "attr": true,
+   "box": [
+    2281,
+    3804,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#cec8cc",
+   "content": 95
+  },
+  {
+   "slot": 96,
+   "group": "水系",
+   "name": "hka",
+   "attr": true,
+   "box": [
+    2513,
+    3804,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#7580ae",
+   "content": 96
+  },
+  {
+   "slot": 97,
+   "group": "水系",
+   "name": "M教授",
+   "attr": true,
+   "box": [
+    2281,
+    4034,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#c9c8ce",
+   "content": 97
+  },
+  {
+   "slot": 99,
+   "group": "火系",
+   "name": "tuxia",
+   "attr": true,
+   "box": [
+    1575,
+    3574,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#ad5770",
+   "content": 99
+  },
+  {
+   "slot": 100,
+   "group": "火系",
+   "name": "hdj",
+   "attr": true,
+   "box": [
+    1807,
+    3574,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#5c4a93",
+   "content": 100
+  },
+  {
+   "slot": 101,
+   "group": "火系",
+   "name": "wikiSS克莉丝特头像",
+   "attr": true,
+   "box": [
+    1575,
+    3932,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#40475f",
+   "content": 101
+  },
+  {
+   "slot": 102,
+   "group": "火系",
+   "name": "zmaerxi",
+   "attr": true,
+   "box": [
+    1807,
+    3932,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#907c5c",
+   "content": 102
+  },
+  {
+   "slot": 103,
+   "group": "火系",
+   "name": "hf",
+   "attr": true,
+   "box": [
+    1575,
+    4162,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#dcdee2",
+   "content": 103
+  },
+  {
+   "slot": 109,
+   "group": "火系",
+   "name": "skl",
+   "attr": true,
+   "box": [
+    1575,
+    5338,
+    213,
+    213
+   ],
+   "ring": 9,
+   "bg": "#b43d55",
+   "content": 109
+  },
+  {
+   "slot": 110,
+   "group": "火系",
+   "name": "ptla",
+   "attr": true,
+   "box": [
+    1807,
+    5338,
+    213,
+    213
+   ],
+   "ring": 13,
+   "bg": "#e0c788",
+   "content": 110
+  },
+  {
+   "slot": 111,
+   "group": "火系",
+   "name": "lsf",
+   "attr": true,
+   "box": [
+    1575,
+    5568,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#e2d5d3",
+   "content": 111
+  },
+  {
+   "slot": 112,
+   "group": "火系",
+   "name": "zanna",
+   "attr": true,
+   "box": [
+    1807,
+    5568,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#e8d5ea",
+   "content": 112
+  },
+  {
+   "slot": 113,
+   "group": "火系",
+   "name": "qila",
+   "attr": true,
+   "box": [
+    1575,
+    4520,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#895a6c",
+   "content": 113
+  },
+  {
+   "slot": 114,
+   "group": "火系",
+   "name": "zsikalei",
+   "attr": true,
+   "box": [
+    1807,
+    4520,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#c24551",
+   "content": 114
+  },
+  {
+   "slot": 115,
+   "group": "火系",
+   "name": "xe",
+   "attr": true,
+   "box": [
+    1575,
+    4750,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#e19da7",
+   "content": 115
+  },
+  {
+   "slot": 116,
+   "group": "火系",
+   "name": "miulier",
+   "attr": true,
+   "box": [
+    1807,
+    4750,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#e598a6",
+   "content": 116
+  },
+  {
+   "slot": 117,
+   "group": "火系",
+   "name": "泳装露娜",
+   "attr": true,
+   "box": [
+    1575,
+    4980,
+    213,
+    213
+   ],
+   "ring": 9,
+   "bg": "#f9cbd6",
+   "content": 117
+  },
+  {
+   "slot": 118,
+   "group": "火系",
+   "name": "hali",
+   "attr": true,
+   "box": [
+    1807,
+    4980,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#7e7f92",
+   "content": 118
+  },
+  {
+   "slot": 120,
+   "group": "暗系",
+   "name": "卡",
+   "attr": true,
+   "box": [
+    857,
+    3574,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#8d8fb6",
+   "content": 120
+  },
+  {
+   "slot": 127,
+   "group": "暗系",
+   "name": "ailisha",
+   "attr": true,
+   "box": [
+    857,
+    5006,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#4c4b6d",
+   "content": 127
+  },
+  {
+   "slot": 129,
+   "group": "暗系",
+   "name": "laixi",
+   "attr": true,
+   "box": [
+    857,
+    4290,
+    213,
+    213
+   ],
+   "ring": 9,
+   "bg": "#a88bbd",
+   "content": 129
+  },
+  {
+   "slot": 130,
+   "group": "暗系",
+   "name": "ldy",
+   "attr": true,
+   "box": [
+    1089,
+    4290,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#aa979b",
+   "content": 130
+  },
+  {
+   "slot": 131,
+   "group": "暗系",
+   "name": "yiz",
+   "attr": true,
+   "box": [
+    857,
+    3932,
+    213,
+    213
+   ],
+   "ring": 8,
+   "bg": "#594b56",
+   "content": 131
+  },
+  {
+   "slot": 133,
+   "group": "全场景必练T0.5",
+   "name": "tuxia",
+   "attr": false,
+   "box": [
+    45,
+    1352,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#d0a3b6",
+   "content": 133
+  },
+  {
+   "slot": 134,
+   "group": "全场景必练T0.5",
+   "name": "hdj",
+   "attr": false,
+   "box": [
+    456,
+    1351,
+    320,
+    321
+   ],
+   "ring": 11,
+   "bg": "#50397e",
+   "content": 134
+  },
+  {
+   "slot": 135,
+   "group": "全场景必练T0.5",
+   "name": "hka",
+   "attr": false,
+   "box": [
+    866,
+    1351,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#c7cfd0",
+   "content": 135
+  },
+  {
+   "slot": 136,
+   "group": "全场景必练T0.5",
+   "name": "aimili",
+   "attr": false,
+   "box": [
+    1276,
+    1351,
+    320,
+    321
+   ],
+   "ring": 11,
+   "bg": "#8d9aab",
+   "content": 136
+  },
+  {
+   "slot": 137,
+   "group": "全场景必练T0.5",
+   "name": "卡",
+   "attr": false,
+   "box": [
+    1686,
+    1352,
+    321,
+    320
+   ],
+   "ring": 12,
+   "bg": "#626598",
+   "content": 137
+  },
+  {
+   "slot": 138,
+   "group": "全场景必练T0.5",
+   "name": "格温",
+   "attr": false,
+   "box": [
+    2096,
+    1351,
+    320,
+    319
+   ],
+   "ring": 11,
+   "bg": "#49475f",
+   "content": 138
+  },
+  {
+   "slot": 141,
+   "group": "全场景必练T0",
+   "name": "泳装微笑",
+   "attr": false,
+   "box": [
+    45,
+    773,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#e0d1cd",
+   "content": 141
+  },
+  {
+   "slot": 142,
+   "group": "全场景必练T0",
+   "name": "克拉丽莎",
+   "attr": false,
+   "box": [
+    456,
+    773,
+    320,
+    320
+   ],
+   "ring": 8,
+   "bg": "#917090",
+   "content": 142
+  },
+  {
+   "slot": 143,
+   "group": "全场景必练T0",
+   "name": "瑟莱丝",
+   "attr": false,
+   "box": [
+    866,
+    773,
+    320,
+    321
+   ],
+   "ring": 11,
+   "bg": "#efa7b5",
+   "content": 143
+  },
+  {
+   "slot": 144,
+   "group": "全场景必练T0",
+   "name": "gn",
+   "attr": false,
+   "box": [
+    1276,
+    773,
+    319,
+    321
+   ],
+   "ring": 8,
+   "bg": "#ecc476",
+   "content": 144
+  },
+  {
+   "slot": 145,
+   "group": "全场景必练T0",
+   "name": "mudun",
+   "attr": false,
+   "box": [
+    1685,
+    773,
+    321,
+    321
+   ],
+   "ring": 10,
+   "bg": "#d6bd88",
+   "content": 145
+  },
+  {
+   "slot": 146,
+   "group": "全场景必练T0",
+   "name": "阿莫拉",
+   "attr": false,
+   "box": [
+    2096,
+    774,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#26365b",
+   "content": 147
+  },
+  {
+   "slot": 147,
+   "group": "全场景必练T0",
+   "name": "M教授",
+   "attr": false,
+   "box": [
+    2507,
+    773,
+    320,
+    320
+   ],
+   "ring": 11,
+   "bg": "#9f9fa8",
+   "content": 146
+  },
+  {
+   "slot": 7001,
+   "group": "光系",
+   "name": "T3空位",
+   "attr": true,
+   "box": [
+    149,
+    4648,
+    213,
+    213
+   ],
+   "ring": 6,
+   "bg": "transparent",
+   "content": 7001
+  },
+  {
+   "slot": 7002,
+   "group": "光系",
+   "name": "T4空位",
+   "attr": true,
+   "box": [
+    149,
+    5006,
+    213,
+    213
+   ],
+   "ring": 6,
+   "bg": "transparent",
+   "content": 7002
+  },
+  {
+   "slot": 7003,
+   "group": "暗系",
+   "name": "T3空位",
+   "attr": true,
+   "box": [
+    857,
+    4648,
+    213,
+    213
+   ],
+   "ring": 6,
+   "bg": "transparent",
+   "content": 7003
+  },
+  {
+   "slot": 7004,
+   "group": "光系",
+   "name": "T2空位",
+   "attr": true,
+   "box": [
+    149,
+    4290,
+    213,
+    213
+   ],
+   "ring": 6,
+   "bg": "transparent",
+   "content": 7004
+  }
+ ]
+}
