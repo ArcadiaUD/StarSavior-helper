@@ -186,10 +186,6 @@
 <div id="bar">
   <span id="tabs"><button id="tabChar" class="tab on">角色强度榜</button><button id="tabSc" class="tab">支援卡强度榜</button></span>
   <b>强度榜格位编辑器</b>
-  <span class="hint">拖头像到别的洞即交换 · 右侧头像库可拖入洞中 · 说明栏：有内容的常驻显示，空的显示为一条浅色虚线，鼠标移到洞上即展开</span>
-  <button id="bFrame">显示取景角标</button>
-  <button id="bTags">显示图层名</button>
-  <button id="bBig">隐藏整图底</button>
   <button id="bPick" class="on">素材可拖</button>
   <button id="bUndo" disabled>↶ 撤回</button>
   <button id="bAdd">＋ 格</button>
@@ -200,7 +196,6 @@
   <button id="bLoad">导入改动</button>
   <button id="bClear">清空改动</button>
   <b class="sconly">支援卡强度榜</b>
-  <span class="hint sconly">从右侧卡库拖卡进来</span>
   <button id="scTextBtn" class="sconly">文字</button>
   <button id="scAdd" class="sconly">＋ 格</button>
   <button id="scDel" class="sconly">删掉该格</button>
@@ -302,7 +297,7 @@ function flash(msg) {
   clearTimeout(toastT);
   toastT = setTimeout(() => t.classList.remove("on"), 2400);
 }
-let z = 0.26, hideBig = false, sel = null, drag = null, dropTarget = null;
+let z = 0.26, sel = null, drag = null, dropTarget = null;
 
 /* place[洞] = 该洞头像来自哪个洞；art[洞] = 该洞换成了头像库里的素材；"" 表示空出
    newSlots = 网页上新增的格位（行尾追加、满行换行）；down = 各组因新增行而增加的高度，
@@ -492,7 +487,6 @@ function render() {
   for (const item of all) {
     if (item.kind === "other") {
       const o = item.o, ok = "o" + o.seq;
-      if (hideBig && o.big) continue;
       const ost = tstyleOf(ok);
       if (ost.hide) continue;
       const el = document.createElement("div");
@@ -1986,9 +1980,6 @@ document.getElementById("libClose").onclick = () => {
 };
 document.getElementById("libQ").addEventListener("input", renderLib);
 
-document.getElementById("bFrame").onclick = e => { document.body.classList.toggle("frames"); e.target.classList.toggle("on"); };
-document.getElementById("bTags").onclick = e => { document.body.classList.toggle("tags"); e.target.classList.toggle("on"); };
-document.getElementById("bBig").onclick = e => { hideBig = !hideBig; e.target.classList.toggle("on"); render(); };
 document.body.classList.add("pickbg");           /* 素材默认可拖 */
 document.getElementById("bPick").onclick = e => {
   const on = document.body.classList.toggle("pickbg");

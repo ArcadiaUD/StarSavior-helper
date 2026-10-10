@@ -31,9 +31,6 @@
   <b>强度榜</b>
   <button id="tabC" class="on">角色强度榜</button>
   <button id="tabS">支援卡强度榜</button>
-  <span class="hint" id="hint"></span>
-  <button id="bTags">显示图层名</button>
-  <button id="bBig">隐藏整图底</button>
   <button id="bOut">缩小</button>
   <button id="bIn">放大</button>
   <span class="hint" id="ztext"></span>
@@ -50,11 +47,6 @@
 const TABS = { c: { wrap: "wrapC", stage: "stageC" }, s: { wrap: "wrapS", stage: "stageS" } };
 let viewC = null, viewS = null, active = "c";
 
-function hint(k) {
-  document.getElementById("hint").textContent = k === "c"
-    ? "角色强度榜：版式与素材取自作者原稿，角色格只显示实际挂上的头像"
-    : "支援卡强度榜：卡框取自原稿，卡面为作者挂上的卡";
-}
 function zoomText(v) {
   document.getElementById("ztext").textContent =
     v ? "缩放 " + Math.round(v.zoom * 100) + "%" : "";
@@ -76,9 +68,6 @@ function show(k) {
   for (const key in TABS) document.getElementById(TABS[key].wrap).hidden = key !== k;
   document.getElementById("tabC").classList.toggle("on", k === "c");
   document.getElementById("tabS").classList.toggle("on", k === "s");
-  document.getElementById("bTags").hidden = k !== "c";
-  document.getElementById("bBig").hidden = k !== "c";
-  hint(k);
   zoomText(ensure(k));
   window.scrollTo(0, 0);
 }
@@ -93,15 +82,5 @@ document.getElementById("tabC").onclick = () => show("c");
 document.getElementById("tabS").onclick = () => show("s");
 document.getElementById("bOut").onclick = () => zoomBy(-0.06);
 document.getElementById("bIn").onclick = () => zoomBy(0.06);
-document.getElementById("bBig").onclick = e => {
-  if (!viewC) return;
-  viewC.hideBig = !viewC.hideBig;
-  e.target.classList.toggle("on", viewC.hideBig);
-  viewC.render();
-};
-document.getElementById("bTags").onclick = e => {
-  document.body.classList.toggle("tags");
-  e.target.classList.toggle("on");
-};
 show("c");
 </script></body></html>
