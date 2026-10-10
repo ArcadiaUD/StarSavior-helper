@@ -1,21 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
-<title>强度榜 PSB 整版实验稿</title>
+<title>强度榜整版（角色 / 支援卡）</title>
 <style>
   :root { --z: 0.26; }
   html,body { margin:0; background:#15171c; color:#dfe3ec;
               font-family:"Microsoft YaHei","Segoe UI",sans-serif; }
-  #bar { position:sticky; top:0; z-index:99; display:flex; align-items:center; gap:10px;
-         padding:10px 14px; background:#1b1e26; border-bottom:1px solid #2e3342; flex-wrap:wrap; }
-  #bar b { font-size:13px; }
+  #bar { position:sticky; top:0; z-index:99; display:flex; align-items:center; gap:8px;
+         padding:9px 14px; background:#1b1e26; border-bottom:1px solid #2e3342; flex-wrap:wrap; }
+  #bar b { font-size:13px; margin-right:4px; }
   #bar .hint { font-size:12px; color:#98a0b3; }
+  #tabs { display:flex; gap:6px; margin-right:6px; }
+  .tab { background:#222634; color:#98a0b3; border:1px solid #2e3342; border-radius:7px;
+         padding:5px 14px; font-size:12px; cursor:pointer; }
+  .tab.on { border-color:#6ea8fe; color:#dfe3ec; background:#26304a; }
+  .sep { width:1px; height:20px; background:#2e3342; margin:0 4px; }
   button { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
            padding:5px 12px; font-size:12px; cursor:pointer; }
   button.on { border-color:#6ea8fe; color:#8fb8f5; }
-  #wrap { padding:16px; overflow:auto; }
-  #stage { position:relative; background:#303030;
-           transform-origin:0 0; transform:scale(var(--z)); }
+  #wrap { padding:16px; }
+  .fit { position:relative; overflow:hidden; display:none; }
+  .fit.on { display:block; }
+  .stage { position:absolute; left:0; top:0; transform-origin:0 0;
+           transform:scale(var(--z)); background:#303030; }
   .lb { position:absolute; white-space:pre; }
   .lyr { position:absolute; }
   .lyr img { width:100%; height:100%; display:block; }
@@ -25,21 +32,113 @@
          background:#11131acc; padding:0 4px; border-radius:4px; display:none; white-space:nowrap; }
   body.tags .cell .tag { display:block; }
   .cell.blank { outline:2px dashed #464d60; outline-offset:-2px; }
-  .cell.ph { outline:3px solid #fedd62; outline-offset:-3px; }   /* 补齐档位的金框空位 */
+  .cell.ph { outline:3px solid #fedd62; outline-offset:-3px; }
 </style></head><body>
 <div id="bar">
-  <b>强度榜 PSB 整版实验稿</b>
-  <span class="hint">版式与素材取自 PSB 原稿；角色格只显示实际挂上的头像（面板形象或头像库素材）</span>
-  <button id="bTags">显示图层名</button>
-  <button id="bBig">隐藏整图底</button>
-  <button id="bZoomOut">缩小</button>
-  <button id="bZoomIn">放大</button>
+  <b>强度榜</b>
+  <span id="tabs">
+    <button class="tab on" data-k="char">角色强度榜</button>
+    <button class="tab" data-k="sc">支援卡强度榜</button>
+  </span>
+  <span class="sep"></span>
+  <button id="navTags">显示图层名</button>
+  <button id="navBig">隐藏整图底</button>
+  <button id="navFit">适合宽度</button>
+  <button id="navOut">缩小</button>
+  <button id="navIn">放大</button>
   <span class="hint" id="ztext"></span>
+  <span class="hint" id="srcHint">版式与素材取自作者原稿</span>
 </div>
-<div id="wrap"><div id="stage"></div></div>
-<script src="board_data.js"></script>
+<div id="wrap">
+  <div class="fit on" id="fitChar"><div class="stage" id="stageChar"></div></div>
+  <div class="fit" id="fitSc"><div class="stage" id="stageSc"></div></div>
+</div>
 <script src="board.js"></script>
+<script src="board_data.js"></script>
+<script>window.BOARD_CHAR = window.BOARD_DATA;</script>
+<script src="sc/board_data.js"></script>
 <script>
-/* 渲染实现只有一份（board.js）：网页成品页与面板只读页都调它，版面永远一致 */
-BoardView.create(document.getElementById("stage"), window.BOARD_DATA);
+  /* 两份数据用的是同一个全局名（各自榜单页独立用），这里抢先存下角色榜那份；
+     支援卡那份素材有自己的目录（两者有 7 个同名不同内容的文件），前缀在这里改掉。 */
+  window.BOARD_SC = window.BOARD_DATA;
+  window.BOARD_SC.bases = Object.assign({}, window.BOARD_SC.bases, {layers: "sc/layers/"});
+</script>
+<script>
+/* 分页外壳：两个榜共用同一份渲染器（board.js），切到哪个才第一次渲染，
+   省掉一上来就把一百五十多张图全铺开。工具栏按钮由本页统一管，不交给单个渲染器绑。 */
+const BOARDS = [
+  { key: "char", label: "角色强度榜", fit: "fitChar", stage: "stageChar", data: () => window.BOARD_CHAR },
+  { key: "sc",   label: "支援卡强度榜", fit: "fitSc",  stage: "stageSc",  data: () => window.BOARD_SC },
+];
+const views = {};          /* key → BoardView 实例（懒建） */
+let active = null;
+
+function fitZoom(board) {
+  const wrap = document.getElementById("wrap");
+  const usable = (wrap.clientWidth || window.innerWidth) - 32 - 2;
+  return Math.max(0.1, Math.min(1, usable / board.w));
+}
+
+function boot(key) {
+  if (!views[key]) {
+    const cfg = BOARDS.find(b => b.key === key);
+    const stage = document.getElementById(cfg.stage);
+    views[key] = BoardView.create(stage, cfg.data());
+    views[key].setZoom(fitZoom(views[key].board));
+  }
+  return views[key];
+}
+
+function syncFit(view, key) {
+  /* 舞台是 transform:scale 缩放的，布局尺寸仍是原图尺寸，所以外面这层要按缩放后的
+     尺寸撑开，否则页面会拖出一条跟内容一样高的空白 */
+  const box = document.getElementById(BOARDS.find(b => b.key === key).fit);
+  const z = view.zoom;
+  box.style.width = Math.round(view.board.w * z) + "px";
+  box.style.height = Math.round(view.board.h * z) + "px";
+}
+
+function show(key) {
+  active = key;
+  for (const b of BOARDS) {
+    document.getElementById(b.fit).classList.toggle("on", b.key === key);
+    document.querySelector('.tab[data-k="' + b.key + '"]').classList.toggle("on", b.key === key);
+  }
+  const v = boot(key);
+  syncFit(v, key);
+  v.setZoom(v.zoom);
+  document.getElementById("navBig").classList.toggle("on", !!v.hideBig);
+  document.body.classList.remove("tags");
+  document.getElementById("navTags").classList.remove("on");
+  window.scrollTo(0, 0);
+}
+
+document.querySelectorAll(".tab").forEach(t => t.onclick = () => show(t.dataset.k));
+
+document.getElementById("navTags").onclick = e => {
+  document.body.classList.toggle("tags");
+  e.target.classList.toggle("on");
+};
+document.getElementById("navBig").onclick = e => {
+  const v = views[active];
+  v.hideBig = !v.hideBig;
+  e.target.classList.toggle("on", v.hideBig);
+  v.render();
+  syncFit(v, active);
+};
+document.getElementById("navFit").onclick = () => {
+  const v = views[active];
+  v.setZoom(fitZoom(v.board));
+  syncFit(v, active);
+};
+function zoomBy(step) {
+  const v = views[active];
+  v.zoomBy(step);
+  syncFit(v, active);
+}
+document.getElementById("navOut").onclick = () => zoomBy(-0.06);
+document.getElementById("navIn").onclick = () => zoomBy(0.06);
+
+addEventListener("resize", () => { if (views[active]) syncFit(views[active], active); });
+show("char");
 </script></body></html>
