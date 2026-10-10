@@ -1,0 +1,59 @@
+name: 重建支援卡榜数据
+
+# 编辑器把支援卡存档存进 docs/sc_psb_slots.json 之后，这里把它并进榜单数据
+# （docs/sc/sc_board.json），面板开窗时就会拉到最新的那一份。
+# 这一步只改数据，不动卡框与卡面素材——那些随数据包下发。
+
+on:
+  push:
+    paths:
+      - "docs/sc_psb_slots.json"
+      - "build/sc_apply_archive.py"
+      - "docs/sc/sc_board.json"
+      - ".github/workflows/rebuild-sc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 纯标准库：只做数据合并，不装任何依赖
+      - name: 并入存档
+        run: python build/sc_apply_archive.py
+
+      - name: 校验产物
+        run: |
+          python - <<'PY'
+          import json
+          d = json.load(open("docs/sc/sc_board.json", encoding="utf-8"))
+          slots, items, cards = d["slots"], d["items"], d.get("cards") or []
+          ids = {c["id"] for c in cards}
+          assert slots is not None and len(slots) > 0, "格位为空，数据可疑"
+          for s in slots:
+              assert s["id"] and s["box"] and s["frame"], f"格位字段不全：{s}"
+              assert s.get("卡") is None or s["卡"] in ids, f"挂了不在卡库里的卡：{s['id']}"
+          print(f"格位 {len(slots)} 个（挂了卡 "
+                f"{sum(1 for s in slots if s.get('卡') and not s.get('空'))} 个）／图层 {len(items)} 个")
+          PY
+
+      - name: 提交回仓库
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/sc/sc_board.json
+          if git diff --cached --quiet; then
+            echo "榜单数据没有变化，不提交"
+          else
+            git commit -m "重建支援卡榜数据（来自编辑器存档） [skip ci]"
+            git push
+          fi
