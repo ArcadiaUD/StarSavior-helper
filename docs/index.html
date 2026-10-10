@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="robots" content="noindex,nofollow">
-<title>强度榜 PSB 整版实验稿</title>
+<title>强度榜（角色 / 支援卡）</title>
 <style>
   :root { --z: 0.26; }
   html,body { margin:0; background:#15171c; color:#dfe3ec;
@@ -10,12 +10,12 @@
          padding:10px 14px; background:#1b1e26; border-bottom:1px solid #2e3342; flex-wrap:wrap; }
   #bar b { font-size:13px; }
   #bar .hint { font-size:12px; color:#98a0b3; }
-  button { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
-           padding:5px 12px; font-size:12px; cursor:pointer; }
-  button.on { border-color:#6ea8fe; color:#8fb8f5; }
-  #wrap { padding:16px; overflow:auto; }
-  #stage { position:relative; background:#303030;
-           transform-origin:0 0; transform:scale(var(--z)); }
+  #bar button { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
+                padding:5px 12px; font-size:12px; cursor:pointer; }
+  #bar button.on { border-color:#6ea8fe; color:#8fb8f5; }
+  #wrapC, #wrapS { padding:16px; overflow:auto; }
+  #stageC, #stageS { position:relative; background:#303030;
+                     transform-origin:0 0; transform:scale(var(--z)); }
   .lb { position:absolute; white-space:pre; }
   .lyr { position:absolute; }
   .lyr img { width:100%; height:100%; display:block; }
@@ -25,21 +25,82 @@
          background:#11131acc; padding:0 4px; border-radius:4px; display:none; white-space:nowrap; }
   body.tags .cell .tag { display:block; }
   .cell.blank { outline:2px dashed #464d60; outline-offset:-2px; }
-  .cell.ph { outline:3px solid #fedd62; outline-offset:-3px; }   /* 补齐档位的金框空位 */
+  .cell.ph { outline:3px solid #fedd62; outline-offset:-3px; }
 </style></head><body>
 <div id="bar">
-  <b>强度榜 PSB 整版实验稿</b>
-  <span class="hint">版式与素材取自 PSB 原稿；角色格只显示实际挂上的头像（面板形象或头像库素材）</span>
+  <b>强度榜</b>
+  <button id="tabC" class="on">角色强度榜</button>
+  <button id="tabS">支援卡强度榜</button>
+  <span class="hint" id="hint"></span>
   <button id="bTags">显示图层名</button>
   <button id="bBig">隐藏整图底</button>
-  <button id="bZoomOut">缩小</button>
-  <button id="bZoomIn">放大</button>
+  <button id="bOut">缩小</button>
+  <button id="bIn">放大</button>
   <span class="hint" id="ztext"></span>
 </div>
-<div id="wrap"><div id="stage"></div></div>
-<script src="board_data.js"></script>
+<div id="wrapC"><div id="stageC"></div></div>
+<div id="wrapS" hidden><div id="stageS"></div></div>
 <script src="board.js"></script>
+<script src="board_data.js"></script>
+<script src="sc_board.js"></script>
+<script src="sc/sc_board_data.js"></script>
 <script>
-/* 渲染实现只有一份（board.js）：网页成品页与面板只读页都调它，版面永远一致 */
-BoardView.create(document.getElementById("stage"), window.BOARD_DATA);
+/* 两个榜一个页面两个页签：共用同一批渲染器（board.js / sc_board.js），面板侧同样是只读。
+   切到哪个才第一次渲染，刚打开时不会把两百多张图全铺开。 */
+const TABS = { c: { wrap: "wrapC", stage: "stageC" }, s: { wrap: "wrapS", stage: "stageS" } };
+let viewC = null, viewS = null, active = "c";
+
+function hint(k) {
+  document.getElementById("hint").textContent = k === "c"
+    ? "角色强度榜：版式与素材取自作者原稿，角色格只显示实际挂上的头像"
+    : "支援卡强度榜：卡框取自原稿，卡面为作者挂上的卡";
+}
+function zoomText(v) {
+  document.getElementById("ztext").textContent =
+    v ? "缩放 " + Math.round(v.zoom * 100) + "%" : "";
+}
+function ensure(k) {
+  if (k === "c" && !viewC && window.BOARD_DATA) {
+    viewC = BoardView.create(document.getElementById("stageC"), window.BOARD_DATA);
+  }
+  if (k === "s" && !viewS && window.SC_BOARD_DATA) {
+    const d = window.SC_BOARD_DATA;
+    d.bases = { layers: "sc/layers/", frames: "sc/frames/", cards: "sc/cards/" };
+    viewS = SCBoardView.create(document.getElementById("stageS"), d);
+  }
+  return k === "c" ? viewC : viewS;
+}
+function show(k) {
+  active = k;
+  for (const key in TABS) document.getElementById(TABS[key].wrap).hidden = key !== k;
+  document.getElementById("tabC").classList.toggle("on", k === "c");
+  document.getElementById("tabS").classList.toggle("on", k === "s");
+  document.getElementById("bTags").hidden = k !== "c";
+  document.getElementById("bBig").hidden = k !== "c";
+  hint(k);
+  zoomText(ensure(k));
+  window.scrollTo(0, 0);
+}
+function zoomBy(d) {
+  const v = ensure(active);
+  if (!v) return;
+  v.zoom = Math.min(1.2, Math.max(0.1, v.zoom + d));
+  v.applyZoom();
+  zoomText(v);
+}
+document.getElementById("tabC").onclick = () => show("c");
+document.getElementById("tabS").onclick = () => show("s");
+document.getElementById("bOut").onclick = () => zoomBy(-0.06);
+document.getElementById("bIn").onclick = () => zoomBy(0.06);
+document.getElementById("bBig").onclick = e => {
+  if (!viewC) return;
+  viewC.hideBig = !viewC.hideBig;
+  e.target.classList.toggle("on", viewC.hideBig);
+  viewC.render();
+};
+document.getElementById("bTags").onclick = e => {
+  document.body.classList.toggle("tags");
+  e.target.classList.toggle("on");
+};
+show("c");
 </script></body></html>
