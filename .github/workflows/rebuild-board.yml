@@ -65,9 +65,8 @@ jobs:
 
       - name: 搬进站点目录
         run: |
-          # 注意：不覆盖 docs/index.html。站点首页是分页外壳（角色榜 / 支援卡榜两个页签），
-          # 由仓库直接维护；这里只更新角色榜的数据与素材。
-          cp -f build/psb_web/board.json build/psb_web/board_data.js build/psb_web/board.js docs/
+          cp -f build/psb_web/index.html build/psb_web/board.json \
+                build/psb_web/board_data.js build/psb_web/board.js docs/
           rm -rf docs/layers docs/faces
           cp -r build/psb_web/layers build/psb_web/faces docs/
 
