@@ -127,9 +127,64 @@
 #ghbox .r { display:flex; gap:8px; align-items:center; margin-top:10px; }
 #ghState.ok { color:#8fd694; }
 #ghState.bad { color:#f08a7a; }
+  /* 分页：角色榜（本编辑器）/ 支援卡榜（整版，暂时只读） */
+  #tabs { display:flex; gap:6px; margin-right:6px; }
+  .tab { background:#222634; color:#98a0b3; border:1px solid #2e3342; border-radius:7px;
+         padding:5px 14px; font-size:12px; cursor:pointer; }
+  .tab.on { border-color:#6ea8fe; color:#dfe3ec; background:#26304a; }
+  #scPage { padding:16px; }
+  #scFit { position:relative; overflow:hidden; }
+  #scStage { position:absolute; top:0; left:0; transform-origin:0 0;
+             transform:scale(var(--z)); background:#303030; }
+  #scStage .lyr { position:absolute; }
+  #scStage .lyr img { width:100%; height:100%; display:block; }
+  #scStage .cell.blank { outline:2px dashed #464d60; outline-offset:-2px; }
+  /* 支援卡库抽屉：样式与头像库一致，只是两列、卡面比头像宽 */
+  #scLibBtn { position:fixed; right:16px; top:56%; z-index:60; writing-mode:vertical-rl;
+              padding:14px 8px; font-size:13px; letter-spacing:2px;
+              background:#1b1e26; border:1px solid #2e3342; border-radius:10px; }
+  #scLibBtn.on { border-color:#6ea8fe; color:#8fb8f5; }
+  body.sclibopen #scLibBtn { right:348px; }
+  #scLib { position:fixed; right:0; top:46px; bottom:0; width:330px; z-index:120;
+           background:#15171cf5; border-left:1px solid #2e3342; display:none;
+           flex-direction:column; }
+  #scLib.open { display:flex; }
+  #scLib .hd { padding:10px 12px; border-bottom:1px solid #2e3342; display:flex;
+               align-items:center; gap:8px; font-size:13px; }
+  #scLib .hd input { flex:1; background:#101319; color:#dfe3ec; border:1px solid #2e3342;
+                     border-radius:6px; padding:5px 8px; font-size:12px; }
+  #scLib .bd { flex:1; overflow:auto; padding:12px; display:grid; gap:10px;
+               grid-template-columns:repeat(2, minmax(0, 1fr)); align-content:start; }
+  .scCardItem { cursor:grab; text-align:center; min-width:0; position:relative; }
+  .scCardItem img { width:100%; aspect-ratio:304/299; object-fit:cover; border-radius:8px;
+                    border:1px solid #2e3342; display:block; background:#0e1116; }
+  .scCardItem span { display:block; min-width:0; margin-top:4px; font-size:10px;
+                     color:#98a0b3; line-height:1.4; overflow:hidden;
+                     text-overflow:ellipsis; white-space:nowrap; }
+  .scCardItem i { position:absolute; right:5px; top:5px; font-size:10px; font-style:normal;
+                  background:#11131acc; color:#fedd62; border-radius:5px; padding:0 4px; }
+  /* 支援卡的文字条：结构与角色榜那条一致，只是独立一份，互不影响 */
+  #scTextbar { display:none; align-items:center; gap:8px; flex-wrap:wrap;
+               padding:8px 12px; background:#1b1e26; border-bottom:1px solid #2e3342; font-size:12px; }
+  #scTextbar.on { display:flex; }
+  #scTextbar .t { font-weight:700; }
+  #scTextbar .sub { color:#98a0b3; }
+  #scTextbar select { background:#101319; color:#dfe3ec; border:1px solid #2e3342;
+                      border-radius:5px; padding:3px 6px; font-size:12px; max-width:300px; }
+  #scTextbar input[type=number], #scTextbar input[type=text] { background:#101319; color:#dfe3ec;
+                      border:1px solid #2e3342; border-radius:5px; padding:3px 6px; font-size:12px; }
+  #scTextbar input[type=number] { width:62px; }
+  #scTextbar input[type=text] { width:280px; }
+  #scTextbar input[type=color] { width:34px; height:22px; padding:0; background:#101319;
+                      border:1px solid #2e3342; border-radius:5px; }
+  #scTextbar button.on { background:#2a3b5c; border-color:#6ea8fe; color:#dfe3ec; }
+  #scTextbar input:disabled, #scTextbar select:disabled, #scTextbar button:disabled { opacity:.45; }
+  #scTextbar .sep { width:1px; height:20px; background:#2e3342; margin:0 4px; }
+  #scTextbar button { padding:4px 9px; font-size:12px; }
 </style></head><body>
 <div id="head">
 <div id="bar">
+  <span id="tabs"><button id="tabChar" class="tab on">角色强度榜</button><button id="tabSc" class="tab">支援卡强度榜</button></span>
   <b>强度榜格位编辑器</b>
   <span class="hint">拖头像到别的洞即交换 · 右侧头像库可拖入洞中 · 说明栏：有内容的常驻显示，空的显示为一条浅色虚线，鼠标移到洞上即展开</span>
   <button id="bFrame">显示取景角标</button>
@@ -144,6 +199,22 @@
   <button id="bSave">导出改动</button>
   <button id="bLoad">导入改动</button>
   <button id="bClear">清空改动</button>
+  <b class="sconly">支援卡强度榜</b>
+  <span class="hint sconly">从右侧卡库拖卡进来</span>
+  <button id="scTextBtn" class="sconly">文字</button>
+  <button id="scAdd" class="sconly">＋ 格</button>
+  <button id="scDel" class="sconly">删掉该格</button>
+  <button id="scEmpty" class="sconly">清空该格</button>
+  <button id="scUndo" class="sconly">撤回</button>
+  <button id="scExport" class="sconly">导出改动</button>
+  <button id="scImport" class="sconly">导入改动</button>
+  <button id="scReset" class="sconly">回到原稿</button>
+  <button id="scPush" class="sconly">存到仓库</button>
+  <button id="scOut" class="sconly">缩小</button>
+  <button id="scIn" class="sconly">放大</button>
+  <span class="hint sconly" id="scZoom"></span>
+  <span class="hint sconly" id="scInfo">未选中格位</span>
+  <input id="scFile" type="file" accept=".json" style="display:none">
   <button id="bGh">连接 GitHub</button>
   <button id="bPush" disabled>存到仓库</button>
   <span class="hint" id="ghState">未连接仓库</span>
@@ -167,6 +238,20 @@
   <span class="sub" id="tbInfo"></span>
   <button id="tbClose">关闭</button>
 </div>
+<div id="scTextbar">
+  <span class="t">文字</span>
+  <span class="sub">条目</span><select id="stPick"></select>
+  <span class="sep"></span>
+  <span class="sub">内容</span><input id="stText" type="text" placeholder="输入文字内容">
+  <span class="sub">字号</span><input id="stFs" type="number" step="2" min="8">
+  <span class="sub">颜色</span><input id="stColor" type="color">
+  <button id="stBold">加粗</button>
+  <span class="sep"></span>
+  <button id="stNew">＋ 新建文本</button>
+  <button id="stHide">隐藏该条</button>
+  <button id="stRevert">还原该条</button>
+  <span class="sub" id="stInfo"></span>
+</div>
 </div>
 <div id="toast"></div>
 <div id="ghbox">
@@ -176,10 +261,18 @@
   <div class="r"><button id="ghDo">连接</button><button id="ghForget">清除令牌</button><span class="hint" id="ghMsg"></span></div>
 </div>
 <div id="wrap"><div id="fit"><div id="stage"></div></div></div>
+<div id="scPage" hidden>
+  <div id="scFit"><div id="scStage"></div></div>
+</div>
 <button id="libBtn">头像库</button>
 <div id="lib">
   <div class="hd">游戏内头像 <input id="libQ" placeholder="搜角色名"><button id="libClose">×</button></div>
   <div class="bd" id="libList"></div>
+</div>
+<button id="scLibBtn" hidden>卡库</button>
+<div id="scLib">
+  <div class="hd">支援卡库 <input id="scLibQ" placeholder="搜角色名或卡名"><button id="scLibClose">×</button></div>
+  <div class="bd" id="scLibList"></div>
 </div>
 <div id="insp">
   <div class="t" id="iName">未选中</div>
@@ -188,6 +281,9 @@
   <div class="r"><button id="iEmpty">取出头像（空出该洞）</button><button id="iRevert">还原该洞</button></div>
   <div class="r"><span class="sub" id="iCount"></span><button id="iClose">取消选中</button></div>
 </div>
+<script src="sc_board.js"></script>
+<script src="sc_board_data.js"></script>
+<script>window.SC_BOARD = window.SC_BOARD_DATA;</script>
 <script>
 const SLOTS = [{"id": 13, "name": "fl", "group": "T2功能角色", "file": "T2功能角色__fl.png", "box": [45, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#aab9b6", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "text": {"text": "水奶下位", "color": "#ffffff", "box": [96, 2870, 202, 49], "lines": 1, "from": 20}}, {"id": 14, "name": "qila", "group": "T2功能角色", "file": "T2功能角色__qila.png", "box": [456, 2523, 321, 320], "attr": false, "ring": 12, "bg": "#3b3c49", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "text": {"text": "隐身", "color": "#ffffff", "box": [568, 2859, 98, 50], "lines": 1, "from": 26}}, {"id": 15, "name": "slf", "group": "T2功能角色", "file": "T2功能角色__slf.png", "box": [867, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#ccc9b4", "char": "瑟乐芬", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "text": {"text": "免疫单次伤害/奶妈", "color": "#ffffff", "box": [811, 2861, 429, 54], "lines": 1, "from": 25}}, {"id": 16, "name": "zbeila", "group": "T2功能角色", "file": "T2功能角色__zbeila.png", "box": [1276, 2523, 320, 320], "attr": false, "ring": 8, "bg": "#a9999b", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "text": {"text": "跑得快奶妈", "color": "#ffffff", "box": [1309, 2859, 253, 50], "lines": 1, "from": 21}}, {"id": 17, "name": "lsf", "group": "T2功能角色", "file": "T2功能角色__lsf.png", "box": [1685, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#414750", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "text": {"text": "嘲讽/护盾", "color": "#ffffff", "box": [1736, 2861, 221, 54], "lines": 1, "from": 22}}, {"id": 18, "name": "凌", "group": "T2功能角色", "file": "T2功能角色__凌.png", "box": [2096, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#d9d1c9", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "text": {"text": "草叠层/增伤", "color": "#ffffff", "box": [2120, 2862, 272, 54], "lines": 1, "from": 23}}, {"id": 19, "name": "ptla", "group": "T2功能角色", "file": "T2功能角色__ptla.png", "box": [2496, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#e7cc8e", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "text": {"text": "高破韧/挂减防", "color": "#ffffff", "box": [2494, 2861, 325, 54], "lines": 1, "from": 24}}, {"id": 28, "name": "sla", "group": "T1功能角色", "file": "T1功能角色__sla.png", "box": [45, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#c6b3ad", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "text": {"text": "增伤/拉条/减速", "color": "#ffffff", "box": [32, 2281, 347, 54], "lines": 1, "from": 37}}, {"id": 29, "name": "zanna", "group": "T1功能角色", "file": "T1功能角色__zanna.png", "box": [1686, 1945, 321, 320], "attr": false, "ring": 8, "bg": "#d3b9d4", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "text": {"text": "加防御/挂减攻", "color": "#ffffff", "box": [1678, 2281, 328, 54], "lines": 1, "from": 43}}, {"id": 30, "name": "wikiSS克莉丝特头像", "group": "T1功能角色", "file": "T1功能角色__wikiSS克莉丝特头像.png", "box": [866, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#4b576c", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "text": {"text": "挂燃烧/自拉条", "color": "#ffffff", "box": [863, 2281, 326, 54], "lines": 1, "from": 38}}, {"id": 31, "name": "luge", "group": "T1功能角色", "file": "T1功能角色__luge.png", "box": [1276, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#454f6e", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "text": {"text": "挂冻结/挂减防", "color": "#ffffff", "box": [1272, 2281, 326, 54], "lines": 1, "from": 42}}, {"id": 32, "name": "hali", "group": "T1功能角色", "file": "T1功能角色__hali.png", "box": [449, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#625055", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "text": {"text": "推条/加防御", "color": "#ffffff", "box": [472, 2281, 274, 54], "lines": 1, "from": 44}}, {"id": 33, "name": "泳装露娜", "group": "T1功能角色", "file": "T1功能角色__泳装露娜.png", "box": [2096, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e5cbd3", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp", "text": {"text": "队友挨打暴击反击\n挂减攻", "color": "#ffffff", "box": [2046, 2281, 405, 110], "lines": 2, "from": 45}}, {"id": 34, "name": "miulier", "group": "T1功能角色", "file": "T1功能角色__miulier.png", "box": [2496, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#848798", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "text": {"text": "挂减攻/挂燃烧", "color": "#ffffff", "box": [2493, 2283, 326, 54], "lines": 1, "from": 41}}, {"id": 35, "name": "laixi", "group": "T1功能角色", "file": "T1功能角色__laixi.png", "box": [2903, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e9aebb", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "text": {"text": "挂减攻/挨打回血", "color": "#ffffff", "box": [2874, 2281, 378, 54], "lines": 1, "from": 40}}, {"id": 36, "name": "cuisita", "group": "T1功能角色", "file": "T1功能角色__cuisita.png", "box": [3301, 1945, 320, 320], "attr": false, "ring": 8, "bg": "#a7c4fd", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "text": {"text": "AOE对策", "color": "#ffffff", "box": [3356, 2280, 210, 49], "lines": 1, "from": 39}}, {"id": 47, "name": "gn", "group": "光系", "file": "光系__gn.png", "box": [149, 3574, 213, 213], "attr": true, "ring": 6, "bg": "#c58f20", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 48, "name": "阿莫拉", "group": "光系", "file": "光系__阿莫拉.png", "box": [381, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b7939d", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 52, "name": "nna", "group": "光系", "file": "光系__nna.png", "box": [149, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#dead95", "char": "露娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"}, {"id": 53, "name": "sla", "group": "光系", "file": "光系__sla.png", "box": [381, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#f3d5eb", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"}, {"id": 61, "name": "tnji", "group": "草系", "file": "草系__tnji.png", "box": [3001, 5696, 213, 213], "attr": true, "ring": 8, "bg": "#c9c9cd", "char": "塔妮娅", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp"}, {"id": 62, "name": "amj", "group": "草系", "file": "草系__amj.png", "box": [3233, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#647abd", "char": "奥米嘉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp"}, {"id": 63, "name": "dna", "group": "草系", "file": "草系__dna.png", "box": [3001, 5926, 213, 213], "attr": true, "ring": 11, "bg": "#b5aa94", "char": "达娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp"}, {"id": 64, "name": "lmn", "group": "草系", "file": "草系__lmn.png", "box": [3001, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#332425", "char": "刘米娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp"}, {"id": 65, "name": "wx", "group": "草系", "file": "草系__wx.png", "box": [3233, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#8a92a2", "char": "微笑", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp"}, {"id": 66, "name": "best", "group": "草系", "file": "草系__best.png", "box": [3233, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#2b2f3f", "char": "贝尔·莉丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp"}, {"id": 67, "name": "crs", "group": "草系", "file": "草系__crs.png", "box": [3001, 5338, 213, 213], "attr": true, "ring": 7, "bg": "#5d6863", "char": "崔瑞丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp"}, {"id": 68, "name": "fl", "group": "草系", "file": "草系__fl.png", "box": [3233, 5926, 213, 213], "attr": true, "ring": 8, "bg": "#8e9e8a", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp"}, {"id": 69, "name": "cuisita", "group": "草系", "file": "草系__cuisita.png", "box": [3233, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#819bd9", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp"}, {"id": 70, "name": "lbt", "group": "草系", "file": "草系__lbt.png", "box": [3001, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#7159af", "char": "萝贝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp"}, {"id": 71, "name": "nalu", "group": "草系", "file": "草系__nalu.png", "box": [3001, 4162, 213, 213], "attr": true, "ring": 5, "bg": "#4b362f", "char": "娜鲁", "form": null, "face": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp"}, {"id": 72, "name": "格温", "group": "草系", "file": "草系__格温.png", "box": [3233, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#4b4b69", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp"}, {"id": 73, "name": "klls", "group": "草系", "file": "草系__klls.png", "box": [3001, 3804, 213, 213], "attr": true, "ring": 5, "bg": "#849279", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 74, "name": "凌", "group": "草系", "file": "草系__凌.png", "box": [3001, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#c9baaa", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp"}, {"id": 75, "name": "泳装微笑", "group": "草系", "file": "草系__泳装微笑.png", "box": [3001, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#9d959f", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 76, "name": "mudun", "group": "草系", "file": "草系__mudun.png", "box": [3233, 3574, 213, 213], "attr": true, "ring": 7, "bg": "#a39455", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 84, "name": "zbeila", "group": "水系", "file": "水系__zbeila.png", "box": [2281, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#b1a2b3", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp"}, {"id": 85, "name": "yasela", "group": "水系", "file": "水系__yasela.png", "box": [2281, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#f1e2d8", "char": "亚瑟菈", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp"}, {"id": 86, "name": "lili", "group": "水系", "file": "水系__lili.png", "box": [2513, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#e6c7c2", "char": "莉莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp"}, {"id": 87, "name": "tfl", "group": "水系", "file": "水系__tfl.png", "box": [2281, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#81c5af", "char": "芙蕾", "form": "贵族公主", "face": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp"}, {"id": 88, "name": "laidai", "group": "水系", "file": "水系__laidai.png", "box": [2513, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#f5e9da", "char": "艾芬黛尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp"}, {"id": 89, "name": "霏", "group": "水系", "file": "水系__霏.png", "box": [2281, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b3afd3", "char": "霏", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp"}, {"id": 91, "name": "kler", "group": "水系", "file": "水系__kler.png", "box": [2281, 4392, 213, 213], "attr": true, "ring": 8, "bg": "#bd9e97", "char": "克莱儿", "form": "无瑕蓝玫瑰", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp"}, {"id": 92, "name": "zkelaier", "group": "水系", "file": "水系__zkelaier.png", "box": [2513, 4392, 213, 213], "attr": true, "ring": 5, "bg": "#55629a", "char": "克莱儿", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp"}, {"id": 93, "name": "luge", "group": "水系", "file": "水系__luge.png", "box": [2281, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#475372", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp"}, {"id": 94, "name": "aimili", "group": "水系", "file": "水系__aimili.png", "box": [2513, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#9097a5", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 95, "name": "瑟莱丝", "group": "水系", "file": "水系__瑟莱丝.png", "box": [2281, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#cec8cc", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 96, "name": "hka", "group": "水系", "file": "水系__hka.png", "box": [2513, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#7580ae", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 97, "name": "M教授", "group": "水系", "file": "水系__M教授.png", "box": [2281, 4034, 213, 213], "attr": true, "ring": 8, "bg": "#c9c8ce", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 99, "name": "tuxia", "group": "火系", "file": "火系__tuxia.png", "box": [1575, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#ad5770", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 100, "name": "hdj", "group": "火系", "file": "火系__hdj.png", "box": [1807, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#5c4a93", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 101, "name": "wikiSS克莉丝特头像", "group": "火系", "file": "火系__wikiSS克莉丝特头像.png", "box": [1575, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#40475f", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp"}, {"id": 102, "name": "zmaerxi", "group": "火系", "file": "火系__zmaerxi.png", "box": [1807, 3932, 213, 213], "attr": true, "ring": 5, "bg": "#907c5c", "char": "玛尔希", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp"}, {"id": 103, "name": "hf", "group": "火系", "file": "火系__hf.png", "box": [1575, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#dcdee2", "char": "艾芬黛尔", "form": "花绽祝福", "face": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp"}, {"id": 109, "name": "skl", "group": "火系", "file": "火系__skl.png", "box": [1575, 5338, 213, 213], "attr": true, "ring": 9, "bg": "#b43d55", "char": "丝卡蕾", "form": "小暴君", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp"}, {"id": 110, "name": "ptla", "group": "火系", "file": "火系__ptla.png", "box": [1807, 5338, 213, 213], "attr": true, "ring": 13, "bg": "#e0c788", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp"}, {"id": 111, "name": "lsf", "group": "火系", "file": "火系__lsf.png", "box": [1575, 5568, 213, 213], "attr": true, "ring": 8, "bg": "#e2d5d3", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp"}, {"id": 112, "name": "zanna", "group": "火系", "file": "火系__zanna.png", "box": [1807, 5568, 213, 213], "attr": true, "ring": 5, "bg": "#e8d5ea", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp"}, {"id": 113, "name": "qila", "group": "火系", "file": "火系__qila.png", "box": [1575, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#895a6c", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp"}, {"id": 114, "name": "zsikalei", "group": "火系", "file": "火系__zsikalei.png", "box": [1807, 4520, 213, 213], "attr": true, "ring": 5, "bg": "#c24551", "char": "丝卡蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp"}, {"id": 115, "name": "xe", "group": "火系", "file": "火系__xe.png", "box": [1575, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e19da7", "char": "夏尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp"}, {"id": 116, "name": "miulier", "group": "火系", "file": "火系__miulier.png", "box": [1807, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e598a6", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp"}, {"id": 117, "name": "泳装露娜", "group": "火系", "file": "火系__泳装露娜.png", "box": [1575, 4980, 213, 213], "attr": true, "ring": 9, "bg": "#f9cbd6", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp"}, {"id": 118, "name": "hali", "group": "火系", "file": "火系__hali.png", "box": [1807, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#7e7f92", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp"}, {"id": 120, "name": "卡", "group": "暗系", "file": "暗系__卡.png", "box": [857, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#8d8fb6", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 127, "name": "ailisha", "group": "暗系", "file": "暗系__ailisha.png", "box": [857, 5006, 213, 213], "attr": true, "ring": 8, "bg": "#4c4b6d", "char": "艾莉莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp"}, {"id": 129, "name": "laixi", "group": "暗系", "file": "暗系__laixi.png", "box": [857, 4290, 213, 213], "attr": true, "ring": 9, "bg": "#a88bbd", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp"}, {"id": 130, "name": "ldy", "group": "暗系", "file": "暗系__ldy.png", "box": [1089, 4290, 213, 213], "attr": true, "ring": 8, "bg": "#aa979b", "char": "莉迪亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp"}, {"id": 131, "name": "yiz", "group": "暗系", "file": "暗系__yiz.png", "box": [857, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#594b56", "char": "罗莎莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"}, {"id": 133, "name": "tuxia", "group": "全场景必练T0.5", "file": "全场景必练T0.5__tuxia.png", "box": [45, 1352, 321, 320], "attr": false, "ring": 11, "bg": "#d0a3b6", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 134, "name": "hdj", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hdj.png", "box": [456, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#50397e", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 135, "name": "hka", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hka.png", "box": [866, 1351, 320, 320], "attr": false, "ring": 11, "bg": "#c7cfd0", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 136, "name": "aimili", "group": "全场景必练T0.5", "file": "全场景必练T0.5__aimili.png", "box": [1276, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#8d9aab", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 137, "name": "卡", "group": "全场景必练T0.5", "file": "全场景必练T0.5__卡.png", "box": [1686, 1352, 321, 320], "attr": false, "ring": 12, "bg": "#626598", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 138, "name": "格温", "group": "全场景必练T0.5", "file": "全场景必练T0.5__格温.png", "box": [2096, 1351, 320, 319], "attr": false, "ring": 11, "bg": "#49475f", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "text": {"text": "隐身上位", "color": "#ffffff", "box": [2122, 1675, 270, 63], "lines": 1, "from": 139}}, {"id": 141, "name": "泳装微笑", "group": "全场景必练T0", "file": "全场景必练T0__泳装微笑.png", "box": [45, 773, 321, 320], "attr": false, "ring": 11, "bg": "#e0d1cd", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 142, "name": "克拉丽莎", "group": "全场景必练T0", "file": "全场景必练T0__克拉丽莎.png", "box": [456, 773, 320, 320], "attr": false, "ring": 8, "bg": "#917090", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 143, "name": "瑟莱丝", "group": "全场景必练T0", "file": "全场景必练T0__瑟莱丝.png", "box": [866, 773, 320, 321], "attr": false, "ring": 11, "bg": "#efa7b5", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 144, "name": "gn", "group": "全场景必练T0", "file": "全场景必练T0__gn.png", "box": [1276, 773, 319, 321], "attr": false, "ring": 8, "bg": "#ecc476", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 145, "name": "mudun", "group": "全场景必练T0", "file": "全场景必练T0__mudun.png", "box": [1685, 773, 321, 321], "attr": false, "ring": 10, "bg": "#d6bd88", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 146, "name": "阿莫拉", "group": "全场景必练T0", "file": "全场景必练T0__阿莫拉.png", "box": [2096, 774, 321, 320], "attr": false, "ring": 11, "bg": "#26365b", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 147, "name": "M教授", "group": "全场景必练T0", "file": "全场景必练T0__M教授.png", "box": [2507, 773, 320, 320], "attr": false, "ring": 11, "bg": "#9f9fa8", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 7001, "name": "T3空位", "group": "光系", "file": "", "box": [149, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7002, "name": "T4空位", "group": "光系", "file": "", "box": [149, 5006, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7003, "name": "T3空位", "group": "暗系", "file": "", "box": [857, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7004, "name": "T2空位", "group": "光系", "file": "", "box": [149, 4290, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}];
 const OTHERS = [{"t": "img", "seq": 1, "name": "背景", "group": null, "box": [-5, -13, 3634, 7268], "file": "背景.png", "big": true, "grow": false, "bg": true}, {"t": "img", "seq": 2, "name": "UI_CHAT_EMO_CHAR_04", "group": null, "box": [3232, 175, 385, 354], "file": "UI_CHAT_EMO_CHAR_04.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 3, "name": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01", "group": null, "box": [-23, 191, 348, 349], "file": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 4, "name": "图层 1", "group": null, "box": [1, 517, 3626, 6598], "file": "图层 1.png", "big": true, "grow": true, "bg": true}, {"t": "img", "seq": 5, "name": "底边", "group": null, "box": [1, 6684, 3620, 76], "file": "底边.png", "big": true, "grow": false, "bg": true}, {"t": "text", "seq": 6, "name": "强度排行榜推荐", "group": null, "box": [1843, 197, 1099, 143], "text": "强度排行榜推荐", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 7, "name": "DM_20260814174448_001", "group": null, "box": [664, 169, 1137, 253], "file": "DM_20260814174448_001.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8, "name": "图片版本:M教授 格温 更新时间10月2号", "group": null, "box": [1810, 367, 1096, 56], "text": "图片版本:M教授 格温 更新时间10月2号", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 9, "name": "人物持立牌图片", "group": null, "box": [3082, 6335, 443, 426], "file": "人物持立牌图片.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 10, "name": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836 叠甲:尽量客观全", "group": null, "box": [751, 529, 2112, 116], "text": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836\n叠甲:尽量客观全面,有何疑问可加群询问或直接跟老顾等人讨论,不喜勿喷,谢谢配合", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 11, "name": "全属性梯度排行榜 排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "group": null, "box": [43, 3041, 2282, 146], "text": "全属性梯度排行榜\n排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 12, "name": "T2功能角色", "group": "T2功能角色", "box": [44, 2415, 409, 74], "text": "T2功能角色", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 27, "name": "T1功能角色（包含副C/叠层/挂db手）", "group": "T1功能角色", "box": [44, 1822, 1302, 80], "text": "T1功能角色（包含副C/叠层/挂db手）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 46, "name": "矩形 1", "group": "光系", "box": [32, 3321, 687, 2989], "file": "光系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 49, "name": "光标", "group": "光系", "box": [259, 3206, 233, 233], "file": "光系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 50, "name": "T0", "group": "光系", "box": [324, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 51, "name": "T1", "group": "光系", "box": [326, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 54, "name": "矩形 1", "group": "草系", "box": [2875, 3321, 687, 2989], "file": "草系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 55, "name": "光标", "group": "草系", "box": [3102, 3206, 233, 233], "file": "草系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 56, "name": "T0 拷贝 4", "group": "草系", "box": [3176, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 57, "name": "T1", "group": "草系", "box": [3178, 4060, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 58, "name": "T2", "group": "草系", "box": [3177, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 59, "name": "T3", "group": "草系", "box": [3177, 5005, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 60, "name": "T4", "group": "草系", "box": [3176, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 77, "name": "矩形 1", "group": "水系", "box": [2162, 3321, 687, 2989], "file": "水系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 78, "name": "光标", "group": "水系", "box": [2389, 3206, 233, 233], "file": "水系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 79, "name": "T0 拷贝 3", "group": "水系", "box": [2456, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 80, "name": "T1", "group": "水系", "box": [2458, 4290, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 81, "name": "T2", "group": "水系", "box": [2457, 4878, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 82, "name": "T3", "group": "水系", "box": [2457, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 83, "name": "T4", "group": "水系", "box": [2456, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 90, "name": "闪避成功T0 闪避失败 T10086", "group": "水系", "box": [2510, 3593, 271, 186], "text": "闪避成功T0\n闪避失败\nT10086", "lines": 3, "color": "#ffffff"}, {"t": "img", "seq": 98, "name": "矩形 1", "group": "火系", "box": [1449, 3321, 687, 2989], "file": "火系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 104, "name": "光标", "group": "火系", "box": [1676, 3206, 233, 233], "file": "火系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 105, "name": "T0 拷贝 2", "group": "火系", "box": [1750, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 106, "name": "T1", "group": "火系", "box": [1752, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 107, "name": "T2", "group": "火系", "box": [1751, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 108, "name": "T3", "group": "火系", "box": [1751, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 119, "name": "矩形 1", "group": "暗系", "box": [735, 3321, 689, 2989], "file": "暗系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 121, "name": "光标", "group": "暗系", "box": [963, 3206, 233, 233], "file": "暗系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 122, "name": "T0 拷贝", "group": "暗系", "box": [1032, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 123, "name": "T1", "group": "暗系", "box": [1034, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 124, "name": "T2", "group": "暗系", "box": [1033, 4188, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 125, "name": "T3", "group": "暗系", "box": [1033, 4545, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 126, "name": "T4", "group": "暗系", "box": [1032, 4904, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 132, "name": "全场景必练T0.5", "group": "全场景必练T0.5", "box": [45, 1244, 565, 74], "text": "全场景必练T0.5", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 140, "name": "全场景必练T0（含推图+宇宙门）", "group": "全场景必练T0", "box": [45, 689, 1120, 75], "text": "全场景必练T0（含推图+宇宙门）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 148, "name": "特别感谢", "group": null, "box": [3131, 517, 472, 293], "file": "特别感谢.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8601, "name": "T3", "group": "光系", "text": "T3", "lines": 1, "color": "#ffffff", "box": [326, 4546, 92, 58]}, {"t": "text", "seq": 8602, "name": "T4", "group": "光系", "text": "T4", "lines": 1, "color": "#ffffff", "box": [326, 4904, 92, 58]}, {"t": "text", "seq": 8604, "name": "T2", "group": "光系", "text": "T2", "lines": 1, "color": "#ffffff", "box": [326, 4188, 92, 58]}];
@@ -1249,6 +1345,552 @@ addEventListener("keydown", e => {
   const t = localStorage.getItem(TOKEN_KEY);
   if (t) { GH.token = t; ghState("恢复连接…"); ghConnect(true); }
 })();
+
+/* ---------- 分页：角色强度榜（本编辑器）↔ 支援卡强度榜 ----------
+   支援卡这版：格位是「洞」（只留卡框、窗口空的），卡从右侧卡库拖进来；
+   加格、拖素材/拖条、导入导出、存到仓库都在这一屏里。
+   用 var 声明状态：编辑器初始化时会调 setZoom → scSyncZoom，那时 const 还在暂时死区。 */
+var scState = { view: null, data: null, sel: null, undo: [] };
+
+var SC_COL = 425, SC_ROW = 435, SC_CARD = 325, SC_MARGIN = 45;
+
+function scClone(o) { return JSON.parse(JSON.stringify(o)); }
+var SC_LS = "scBoardEdits";             /* 改动存本地浏览器：刷新后自动恢复 */
+
+function scArchive() {
+  const d = scClone(scState.data);
+  delete d.cards;                       /* 卡库随时会更新，存档不带走它，导入时用当前卡库 */
+  return d;
+}
+function scSave() {
+  try { localStorage.setItem(SC_LS, JSON.stringify(scArchive())); } catch (e) {}
+}
+function scLoad() {
+  const base = scClone(window.SC_BOARD);
+  let saved = null;
+  try { saved = JSON.parse(localStorage.getItem(SC_LS) || "null"); } catch (e) {}
+  if (saved && saved.slots && saved.items && saved.w && saved.h) {
+    if (saved.ver && base.ver && saved.ver !== base.ver) {
+      /* 原稿换过新版（比如我重建了版面）：旧存档对不上了，丢掉，免得把新版盖住 */
+      try { localStorage.removeItem(SC_LS); } catch (e2) {}
+      flash("原稿已更新，旧的本地改动已作废");
+      return base;
+    }
+    saved.cards = base.cards;
+    saved.bases = Object.assign({}, base.bases, saved.bases || {});
+    saved.ver = base.ver;
+    return saved;
+  }
+  return base;
+}
+function scSlot(id) {
+  return ((scState.data && scState.data.slots) || []).find(s => s.id === id) || null;
+}
+function scCard(id) {
+  return ((scState.data && scState.data.cards) || []).find(c => c.id === id) || null;
+}
+function scLayout() {
+  const v = scState.view;
+  if (!v) return;
+  const k = v.zoom || z;                    /* 用视图自己的缩放，免得与外面那份 z 不一致时被裁 */
+  document.getElementById("scFit").style.width = Math.round(v.board.w * k) + "px";
+  document.getElementById("scFit").style.height = Math.round(v.board.h * k) + "px";
+  document.getElementById("scZoom").textContent = "缩放 " + Math.round(k * 100) + "%";
+}
+function scSyncZoom() {
+  const v = scState.view;
+  if (!v) return;
+  v.zoom = z;
+  v.applyZoom();
+  scLayout();
+}
+function scInfo() {
+  const el = document.getElementById("scInfo");
+  if (!el) return;
+  const s = scState.sel ? scSlot(scState.sel) : null;
+  if (!s) { el.textContent = "未选中格位"; return; }
+  const c = scCard(s["卡"]);
+  el.textContent = s.name + "：" + (c ? c["角色"] + "·" + c["卡名"] : "空位");
+}
+function scSelect(id) {
+  scState.sel = id;
+  document.querySelectorAll("#scStage .slot.sel").forEach(e => e.classList.remove("sel"));
+  const n = scState.view && scState.view.nodes[id];
+  if (n) n.el.classList.add("sel");
+  scInfo();
+}
+function scSnapshot() {
+  scState.undo.push(JSON.stringify(scState.data));
+  if (scState.undo.length > 80) scState.undo.shift();
+}
+function scRender() {
+  const v = scState.view;
+  if (!v) return;
+  v.board = scState.data;
+  v.render();
+  scBindSlots();
+  scBindMovable();
+  if (scState.sel) scSelect(scState.sel);
+  scLayout();
+  scSave();                      /* 每次改动都落一次本地存档，刷新不丢 */
+  const bar = document.getElementById("scTextbar");
+  if (bar && bar.classList.contains("on")) stFill();
+}
+function scSetCard(id, cardId) {
+  const s = scSlot(id);
+  if (!s) return;
+  scSnapshot();
+  s["卡"] = cardId;
+  s["空"] = false;
+  scRender();
+}
+function scSwap(a, b) {
+  const sa = scSlot(a), sb = scSlot(b);
+  if (!sa || !sb || a === b) return;
+  scSnapshot();
+  const c = sa["卡"], e = sa["空"];
+  sa["卡"] = sb["卡"]; sa["空"] = sb["空"];
+  sb["卡"] = c; sb["空"] = e;
+  scRender();
+  scSelect(b);
+}
+function scUndo() {
+  if (!scState.undo.length) { flash("没有可撤回的改动"); return; }
+  scState.data = JSON.parse(scState.undo.pop());
+  scRender();
+  flash("已撤回");
+}
+
+/* 加格：插在选中格右边；这一行放不下就落到下一行行首，下方内容整体下移一行 */
+function scAddSlot() {
+  if (!scState.sel) { flash("先点选一个格位，新格插在它右边"); return; }
+  const cur = scSlot(scState.sel);
+  if (!cur) return;
+  scSnapshot();
+  const g = cur.group, rowY = cur.box[1];
+  const row = scState.data.slots
+    .filter(s => s.group === g && Math.abs(s.box[1] - rowY) < 60)
+    .sort((a, b) => a.box[0] - b.box[0]);
+  const left = row.length ? row[0].box[0] : cur.box[0];
+  const rightMost = row.reduce((m, s) => Math.max(m, s.box[0] + SC_CARD), 0);
+  const id = "新格" + (scState.data.slots.length + 1);
+  let box;
+  if (rightMost + SC_COL + SC_CARD <= 3621 - SC_MARGIN) {
+    row.filter(s => s.box[0] > cur.box[0]).forEach(s => {
+      s.box[0] += SC_COL; s.win[0] += SC_COL;
+    });
+    box = [cur.box[0] + SC_COL, rowY, SC_CARD, SC_CARD];
+  } else {
+    const cut = rowY + SC_CARD - 10;
+    scState.data.slots.forEach(s => {
+      if (s.box[1] >= cut) { s.box[1] += SC_ROW; s.win[1] += SC_ROW; }
+    });
+    scState.data.items.forEach(it => { if (it.box[1] >= cut) it.box[1] += SC_ROW; });
+    scState.data.h += SC_ROW;
+    box = [left, rowY + SC_ROW, SC_CARD, SC_CARD];
+  }
+  scState.data.slots.push({
+    id: id, group: g, name: id, box: box,
+    win: [box[0] + 10, box[1] + 13, 304, 299],
+    frame: (row[0] || cur).frame, "卡": null, "空": true
+  });
+  scRender();
+  scSelect(id);
+  flash("已加一格：" + id);
+}
+
+/* 格位交互：点选、拖到别的格上＝交换、从卡库拖进来＝挂卡 */
+function scBindSlots() {
+  document.querySelectorAll("#scStage .slot").forEach(el => {
+    const id = el.dataset.slot;
+    el.onclick = () => scSelect(id);
+    el.draggable = true;
+    el.addEventListener("dragstart", e => {
+      e.dataTransfer.setData("text/plain", JSON.stringify({ scSlot: id }));
+      e.dataTransfer.effectAllowed = "move";
+    });
+    el.addEventListener("dragover", e => {
+      if ((e.dataTransfer.types || []).indexOf("text/plain") >= 0) {
+        e.preventDefault();
+        el.classList.add("drop");
+      }
+    });
+    el.addEventListener("dragleave", () => el.classList.remove("drop"));
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      el.classList.remove("drop");
+      let d = null;
+      try { d = JSON.parse(e.dataTransfer.getData("text/plain") || "null"); } catch (err) {}
+      if (!d) return;
+      if (d.scCard != null) scSetCard(id, d.scCard);
+      else if (d.scSlot) scSwap(d.scSlot, id);
+    });
+  });
+}
+/* 拖素材 / 拖条：非格位的图片与文字层都能自由拖动改位置 */
+function scBindMovable() {
+  document.querySelectorAll("#scStage .lyr, #scStage .lb").forEach(el => {
+    const it = (scState.data.items || [])[+el.dataset.idx];
+    if (!it) return;
+    el.style.cursor = "move";
+    el.addEventListener("mousedown", e => {
+      if (e.button !== 0) return;
+      e.preventDefault();
+      e.stopPropagation();
+      const sx = e.clientX, sy = e.clientY, x0 = it.box[0], y0 = it.box[1];
+      let moved = false;
+      const move = ev => {
+        const dx = (ev.clientX - sx) / z, dy = (ev.clientY - sy) / z;
+        if (!moved && Math.abs(dx) + Math.abs(dy) > 2) { moved = true; scSnapshot(); }
+        el.style.left = (x0 + dx) + "px";
+        el.style.top = (y0 + dy) + "px";
+      };
+      const up = ev => {
+        window.removeEventListener("mousemove", move);
+        window.removeEventListener("mouseup", up);
+        if (!moved) return;
+        it.box[0] = Math.round(x0 + (ev.clientX - sx) / z);
+        it.box[1] = Math.round(y0 + (ev.clientY - sy) / z);
+        scRender();
+      };
+      window.addEventListener("mousemove", move);
+      window.addEventListener("mouseup", up);
+    });
+  });
+}
+
+/* ---------- 支援卡文字条：原稿文字层可改内容／字号／颜色／加粗／隐藏／还原，也能新建 ---------- */
+let stSoftTime = 0;
+function stSnapSoft() {                 /* 连续打字时别把撤回栈刷爆 */
+  const now = Date.now();
+  if (now - stSoftTime > 1200) { scSnapshot(); stSoftTime = now; }
+}
+function stList() {
+  return (scState.data.items || []).map((it, i) => ({ it: it, i: i }))
+                                   .filter(o => o.it.t === "text");
+}
+function stCur() {
+  const v = document.getElementById("stPick").value;
+  const it = (scState.data.items || [])[+v];
+  return (it && it.t === "text") ? it : null;
+}
+function stFill() {
+  const sel = document.getElementById("stPick");
+  const keep = sel.value;
+  sel.innerHTML = "";
+  stList().forEach((o, n) => {
+    const op = document.createElement("option");
+    op.value = o.i;
+    op.textContent = (n + 1) + " · " + (o.it.text || "").replace(/\n/g, " ").slice(0, 26);
+    sel.appendChild(op);
+  });
+  if (keep && sel.querySelector('option[value="' + keep + '"]')) sel.value = keep;
+  stSync();
+}
+function stSync() {
+  const it = stCur();
+  for (const id of ["stText", "stFs", "stColor", "stBold", "stHide", "stRevert"])
+    document.getElementById(id).disabled = !it;
+  const info = document.getElementById("stInfo");
+  if (!it) { info.textContent = "没有可编辑的文字"; return; }
+  document.getElementById("stText").value = it.text || "";
+  document.getElementById("stFs").value =
+    it.fs || Math.round((it.box[3] / (it.lines || 1)) * 0.78);
+  document.getElementById("stColor").value = it.color || "#ffffff";
+  document.getElementById("stBold").classList.toggle("on", !!it.bold);
+  document.getElementById("stHide").textContent = it.hidden ? "显示该条" : "隐藏该条";
+  info.textContent = (it.name || "") + (it.hidden ? "（已隐藏）" : "");
+}
+function stApply(fn) {
+  const it = stCur();
+  if (!it) return;
+  stSnapSoft();
+  fn(it);
+  it.edited = true;
+  scRender();
+  stSync();
+}
+document.getElementById("scTextBtn").onclick = e => {
+  const bar = document.getElementById("scTextbar");
+  bar.classList.toggle("on");
+  e.target.classList.toggle("on", bar.classList.contains("on"));
+  if (bar.classList.contains("on")) stFill();
+};
+document.getElementById("stPick").onchange = stSync;
+document.getElementById("stText").oninput = e =>
+  stApply(it => { it.text = e.target.value; });
+document.getElementById("stFs").onchange = e => stApply(it => {
+  const v = +e.target.value;
+  if (v > 0) { it.fs = v; it.lh = Math.round(v * 1.28); }
+});
+document.getElementById("stColor").oninput = e =>
+  stApply(it => { it.color = e.target.value; });
+document.getElementById("stBold").onclick = () =>
+  stApply(it => { it.bold = !it.bold; });
+document.getElementById("stHide").onclick = () =>
+  stApply(it => { it.hidden = !it.hidden; });
+document.getElementById("stRevert").onclick = () => {
+  const it = stCur();
+  if (!it) return;
+  scSnapshot();
+  const base = ((window.SC_BOARD && window.SC_BOARD.items) || [])
+    .find(b => b.t === "text" && b.seq === it.seq);
+  if (base) {
+    it.text = base.text;
+    it.color = base.color;
+    it.box = base.box.slice();
+    delete it.fs; delete it.lh; delete it.bold; delete it.hidden; delete it.edited;
+  } else {
+    const idx = scState.data.items.indexOf(it);     /* 新建的没有原稿可还原，直接删掉 */
+    if (idx >= 0) scState.data.items.splice(idx, 1);
+  }
+  scRender();
+  stFill();
+  flash("已还原该条");
+};
+document.getElementById("stNew").onclick = () => {
+  scSnapshot();
+  const n = (scState.data.items || []).filter(i => i.t === "text" && i.seq >= 900000).length + 1;
+  const item = { t: "text", name: "新建文本" + n, text: "新建文本",
+                 box: [200, 200 + n * 120, 900, 90], lines: 1, lh: 100, fs: 78,
+                 color: "#ffffff", seq: 900000 + n, edited: true };
+  scState.data.items.push(item);
+  scRender();
+  stFill();
+  document.getElementById("stPick").value = String(scState.data.items.length - 1);
+  stSync();
+  flash("已新建文本，拖动它换位置");
+};
+
+/* ---------- 存档：导出／导入／写入前校验／存到仓库 ---------- */
+function scExport() {
+  const blob = new Blob([JSON.stringify(scArchive(), null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "sc_psb_slots.json";
+  a.click();
+}
+function scImport(data) {
+  const cards = (window.SC_BOARD && window.SC_BOARD.cards) || [];
+  const bases = Object.assign({}, (window.SC_BOARD || {}).bases, data.bases || {});
+  scSnapshot();
+  scState.data = Object.assign({}, data, { cards: cards, bases: bases });
+  scState.sel = null;
+  scRender();
+  flash("已导入改动");
+}
+function scValidate(d) {
+  if (!(d.w > 0) || !(d.h > 0)) return "画布尺寸不合法";
+  const W = d.w, H = d.h;
+  const cards = {};
+  (d.cards || []).forEach(c => { cards[c.id] = 1; });
+  const seen = {};
+  for (const s of (d.slots || [])) {
+    if (!s.id || seen[s.id]) return "格位编号重复或缺失：" + (s.id || "?");
+    seen[s.id] = 1;
+    if (!Array.isArray(s.box) || s.box.length !== 4) return "格位坐标不合法：" + s.id;
+    if (s.box[0] < -2 || s.box[1] < -2 ||
+        s.box[0] + s.box[2] > W + 2 || s.box[1] + s.box[3] > H + 2)
+      return "格位越出画布：" + s.id + "（画布 " + W + "×" + H + "）";
+    if (!s.frame) return "格位缺卡框：" + s.id;
+    if (s["卡"] != null && !cards[s["卡"]]) return "格位挂的卡不在卡库里：" + s.id;
+  }
+  for (const it of (d.items || [])) {
+    if (!Array.isArray(it.box) || it.box.length !== 4) return "图层坐标不合法：" + (it.name || "?");
+    if (it.box[0] + it.box[2] < 0 || it.box[1] + it.box[3] < 0 ||
+        it.box[0] > W || it.box[1] > H) return "图层跑到画布外了：" + (it.name || "?");
+  }
+  return null;
+}
+async function scPush() {
+  if (!GH.canPush) { flash("先在顶部「连接 GitHub」拿到写权限"); return; }
+  const full = scClone(scState.data);           /* 校验要连卡库一起看 */
+  const bad = scValidate(full);
+  if (bad) { flash("校验未过，已拒绝写入：" + bad); return; }
+  ghState("支援卡存档保存中…");
+  const url = "/repos/" + GH.owner + "/" + GH.repo + "/contents/" + SC_PATH;
+  try {
+    let sha = null;
+    const cur = await ghFetch(url + "?ref=" + GH.branch);
+    if (cur.ok) sha = (await cur.json()).sha;
+    else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
+    const body = { message: "支援卡编辑存档（" + (GH.login || "协作者") + "）",
+                   content: b64utf8(JSON.stringify(scArchive(), null, 1)),
+                   branch: GH.branch };
+    if (sha) body.sha = sha;
+    const put = () => ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
+    let r = await put();
+    if (r.status === 409 || r.status === 422) {
+      const c2 = await ghFetch(url + "?ref=" + GH.branch);
+      if (c2.ok) { body.sha = (await c2.json()).sha; r = await put(); }
+    }
+    if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 160));
+    const out = await r.json();
+    const short = out.commit.sha.slice(0, 7);
+    ghState("支援卡存档已保存 " + short, "ok");
+    flash("支援卡存档已保存 " + short);
+  } catch (e) {
+    ghState("支援卡存档保存失败", "bad");
+    flash("保存失败：" + e.message);
+  }
+}
+var SC_PATH = "docs/sc_psb_slots.json";
+
+/* 右侧卡库抽屉（与头像库同款，两列） */
+function renderScLib() {
+  const q = (document.getElementById("scLibQ").value || "").trim();
+  const box = document.getElementById("scLibList");
+  box.innerHTML = "";
+  const cards = (window.SC_BOARD && window.SC_BOARD.cards) || [];
+  for (const c of cards) {
+    const hay = (c["角色"] || "") + (c["卡名"] || "") + (c["稀有度"] || "") + (c["属性"] || "") + (c["职业"] || "");
+    if (q && hay.indexOf(q) < 0) continue;
+    const d = document.createElement("div");
+    d.className = "scCardItem";
+    d.draggable = true;
+    d.title = c["角色"] + " · " + c["卡名"] + "（" + c["稀有度"] + "｜" + c["属性"] + "｜" + c["职业"] + "）";
+    const img = document.createElement("img");
+    img.src = "sc_cards/" + c.file;
+    img.draggable = false;
+    const sp = document.createElement("span");
+    sp.textContent = c["角色"] + "·" + c["卡名"];
+    const em = document.createElement("i");
+    em.textContent = c["稀有度"] || "";
+    d.appendChild(img);
+    d.appendChild(em);
+    d.appendChild(sp);
+    d.addEventListener("dragstart", e => {
+      e.dataTransfer.setData("text/plain", JSON.stringify({ scCard: c.id }));
+      e.dataTransfer.effectAllowed = "copy";
+    });
+    box.appendChild(d);
+  }
+}
+function showPage(which) {
+  const isSc = which === "sc";
+  document.getElementById("wrap").hidden = isSc;
+  document.getElementById("libBtn").hidden = isSc;
+  document.getElementById("lib").classList.remove("open");
+  document.body.classList.remove("libopen");
+  document.getElementById("libBtn").classList.remove("on");
+  document.getElementById("scLibBtn").hidden = !isSc;
+  document.getElementById("insp").hidden = isSc;
+  document.getElementById("textbar").classList.remove("on");
+  document.getElementById("scPage").hidden = !isSc;
+  document.querySelectorAll("#bar .charonly").forEach(el => { el.hidden = isSc; });
+  document.querySelectorAll("#bar .sconly").forEach(el => { el.hidden = !isSc; });
+  document.getElementById("tabChar").classList.toggle("on", !isSc);
+  document.getElementById("tabSc").classList.toggle("on", isSc);
+  if (!isSc) {
+    document.getElementById("scLib").classList.remove("open");
+    document.body.classList.remove("sclibopen");
+    document.getElementById("scLibBtn").classList.remove("on");
+    document.getElementById("scTextbar").classList.remove("on");
+    document.getElementById("scTextBtn").classList.remove("on");
+  }
+  if (isSc) {
+    if (!scState.data) scState.data = scLoad();
+    if (!scState.view && window.SCBoardView) {
+      const v = SCBoardView.create(document.getElementById("scStage"), scState.data);
+      v.zoom = z;
+      v.applyZoom();
+      scState.view = v;
+      scBindSlots();
+      scBindMovable();
+    }
+    scSyncZoom();
+    scInfo();
+  }
+}
+document.getElementById("tabChar").onclick = () => showPage("char");
+document.getElementById("tabSc").onclick = () => showPage("sc");
+document.getElementById("scOut").onclick = () => { z = Math.max(0.1, z - 0.06); setZoom(); };
+document.getElementById("scIn").onclick = () => { z = Math.min(1.2, z + 0.06); setZoom(); };
+document.getElementById("scAdd").onclick = scAddSlot;
+/* 删格：删掉选中格，本档同一行里它右边的格整体左移一列（画布不动，少了就少着） */
+document.getElementById("scDel").onclick = () => {
+  if (!scState.sel) { flash("先点选要删的格位"); return; }
+  const cur = scSlot(scState.sel);
+  if (!cur) return;
+  if (scState.data.slots.length <= 1) { flash("只剩一格了，不删"); return; }
+  scSnapshot();
+  const g = cur.group, rowY = cur.box[1];
+  const row = scState.data.slots
+    .filter(s => s.group === g && Math.abs(s.box[1] - rowY) < 60)
+    .sort((a, b) => a.box[0] - b.box[0]);
+  scState.data.slots = scState.data.slots.filter(s => s.id !== cur.id);
+  row.filter(s => s.box[0] > cur.box[0]).forEach(s => {
+    s.box[0] -= SC_COL; s.win[0] -= SC_COL;
+  });
+  scState.sel = null;
+  scRender();
+  flash("已删掉该格：" + cur.name);
+};
+document.getElementById("scEmpty").onclick = () => {
+  if (!scState.sel) { flash("先点选一个格位"); return; }
+  const s = scSlot(scState.sel);
+  scSnapshot(); s["卡"] = null; s["空"] = true;
+  scRender();
+  flash("已清空：" + s.name);
+};
+document.getElementById("scUndo").onclick = scUndo;
+document.getElementById("scReset").onclick = () => {
+  scSnapshot();
+  try { localStorage.removeItem(SC_LS); } catch (e) {}
+  scState.data = scClone(window.SC_BOARD);
+  scState.sel = null;
+  scRender();
+  flash("已回到原稿（本地存档也清了）");
+};
+document.getElementById("scExport").onclick = scExport;
+document.getElementById("scImport").onclick = () => document.getElementById("scFile").click();
+document.getElementById("scFile").onchange = e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const rd = new FileReader();
+  rd.onload = () => {
+    try { scImport(JSON.parse(rd.result)); }
+    catch (err) { flash("导入失败：" + err.message); }
+  };
+  rd.readAsText(f);
+  e.target.value = "";
+};
+document.getElementById("scPush").onclick = scPush;
+document.getElementById("scLibBtn").onclick = e => {
+  const lib = document.getElementById("scLib");
+  lib.classList.toggle("open");
+  document.body.classList.toggle("sclibopen", lib.classList.contains("open"));
+  e.target.classList.toggle("on");
+  if (lib.classList.contains("open")) renderScLib();
+};
+document.getElementById("scLibClose").onclick = () => {
+  document.getElementById("scLib").classList.remove("open");
+  document.body.classList.remove("sclibopen");
+  document.getElementById("scLibBtn").classList.remove("on");
+};
+document.getElementById("scLibQ").addEventListener("input", renderScLib);
+addEventListener("keydown", e => {          /* 支援卡页签下 Ctrl+Z 撤回 */
+  if (!(e.ctrlKey || e.metaKey) || String(e.key).toLowerCase() !== "z") return;
+  if (document.getElementById("scPage").hidden) return;
+  const a = document.activeElement, tag = a ? a.tagName : "";
+  if (a && (a.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA")) return;
+  e.preventDefault();
+  scUndo();
+});
+addEventListener("resize", () => {
+  if (scState.view && !document.getElementById("scPage").hidden) scLayout();
+});
+/* 角色榜专属的工具栏按钮统一标出来：切到支援卡时一起藏掉，免得误以为能编辑；
+   「连接 GitHub」与状态文字是两榜共用的，留在原地；支援卡那套自己标了 sconly */
+(function () {
+  const keep = { tabs: 1, file: 1, scFile: 1, bGh: 1, ghState: 1 };
+  for (const el of [...document.getElementById("bar").children]) {
+    if (keep[el.id] || el.classList.contains("sconly")) continue;
+    el.classList.add("charonly");
+  }
+  /* 初始停在角色榜：先把支援卡那套收起来 */
+  document.querySelectorAll("#bar .sconly").forEach(el => { el.hidden = true; });
+})();
 document.getElementById("bLoad").onclick = () => document.getElementById("file").click();
 document.getElementById("file").onchange = e => {
   const f = e.target.files[0]; if (!f) return;
@@ -1343,6 +1985,10 @@ document.addEventListener("keydown", e => {
 });
 undoBase = snap();
 setZoom();
-function setZoom() { document.getElementById("fit").style.setProperty("--z", z); render(); }
+function setZoom() {
+  document.getElementById("fit").style.setProperty("--z", z);
+  render();
+  scSyncZoom();          /* 两个页签共用同一个缩放，支援卡跟着一起变 */
+}
 render();
 </script></body></html>
