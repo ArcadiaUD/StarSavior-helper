@@ -65,7 +65,8 @@ function ensure(k) {
   }
   if (k === "s" && !viewS && window.SC_BOARD_DATA) {
     const d = window.SC_BOARD_DATA;
-    d.bases = { layers: "sc/layers/", frames: "sc/frames/", cards: "sc/cards/" };
+    /* 支援卡的素材在站点根下这几个目录（与编辑器页共用同一批） */
+    d.bases = { layers: "sc_layers/", frames: "sc_frames/", cards: "sc_cards/" };
     viewS = SCBoardView.create(document.getElementById("stageS"), d);
   }
   return k === "c" ? viewC : viewS;
