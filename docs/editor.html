@@ -1356,6 +1356,29 @@ var SC_COL = 425, SC_ROW = 435, SC_CARD = 325, SC_MARGIN = 45;
 
 function scClone(o) { return JSON.parse(JSON.stringify(o)); }
 var SC_LS = "scBoardEdits";             /* 改动存本地浏览器：刷新后自动恢复 */
+// 线上页会把它同目录下的这份存档当作默认（仓库里那份，由编辑器保存后自动生成）
+var SC_REMOTE = "sc_psb_slots.json";
+
+/* 本地没改动过时，去站点把线上那份存档拉下来当默认——线上页打开就能看到最新版面 */
+async function scPullRemote(){
+  let hasLocal = false;
+  try { hasLocal = !!localStorage.getItem(SC_LS); } catch(e) {}
+  if (hasLocal) return false;
+  try {
+    const r = await fetch(SC_REMOTE + "?t=" + Date.now(), {cache: "no-store"});
+    if (!r.ok) return false;
+    const d = await r.json();
+    if (!d || !d.slots || !d.items) return false;
+    d.cards = (window.SC_BOARD || {}).cards;
+    d.bases = (window.SC_BOARD || {}).bases;
+    scState.data = d;
+    if (scState.view) { scRender(); }
+    flash("已载入线上存档");
+    return true;
+  } catch(e) {
+    return false;                       /* 本地 file:// 打开时取不到，正常 */
+  }
+}
 
 function scArchive() {
   const d = scClone(scState.data);
@@ -1789,6 +1812,7 @@ function showPage(which) {
     document.getElementById("scTextBtn").classList.remove("on");
   }
   if (isSc) {
+    scPullRemote();                   /* 本地没改动时，把线上存档当作默认版面 */
     if (!scState.data) scState.data = scLoad();
     if (!scState.view && window.SCBoardView) {
       const v = SCBoardView.create(document.getElementById("scStage"), scState.data);
