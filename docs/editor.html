@@ -59,6 +59,11 @@
          background:#11131acc; padding:0 4px; border-radius:4px; display:none; white-space:nowrap; }
   body.tags .slot .tag { display:block; }
   body.tags .slot.pending .tag { color:#ff8b8b; }
+  /* 导出图片时，编辑态的那些标记（选中框、格位标签、拖拽影子、悬停虚线）都收掉 */
+  body.exporting .sel, body.exporting .hollow, body.exporting .bg:not(.wall):hover { outline:none !important; }
+  body.exporting .tag, body.exporting #ghost { display:none !important; }
+  #bar select { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
+                padding:5px 8px; font-size:12px; }
   #ghost { position:fixed; pointer-events:none; z-index:9999; opacity:.85;
            outline:2px solid #6ea8fe; border-radius:4px; overflow:hidden;
            box-shadow:0 6px 18px #000a; }
@@ -210,6 +215,12 @@
   <span class="hint sconly" id="scZoom"></span>
   <span class="hint sconly" id="scInfo">未选中格位</span>
   <input id="scFile" type="file" accept=".json" style="display:none">
+  <button id="bExp">导出图片</button>
+  <select id="expSize" title="导出尺寸">
+    <option value="0">原尺寸</option>
+    <option value="2400">宽 2400</option>
+    <option value="1600">宽 1600</option>
+  </select>
   <button id="bGh">连接 GitHub</button>
   <button id="bPush" disabled>存到仓库</button>
   <span class="hint" id="ghState">未连接仓库</span>
@@ -276,6 +287,7 @@
   <div class="r"><button id="iEmpty">取出头像（空出该洞）</button><button id="iRevert">还原该洞</button></div>
   <div class="r"><span class="sub" id="iCount"></span><button id="iClose">取消选中</button></div>
 </div>
+<script src="html2canvas.min.js"></script>
 <script src="sc_board.js"></script>
 <script src="sc_board_data.js"></script>
 <script>window.SC_BOARD = window.SC_BOARD_DATA;</script>
@@ -2005,5 +2017,55 @@ function setZoom() {
   render();
   scSyncZoom();          /* 两个页签共用同一个缩放，支援卡跟着一起变 */
 }
+/* ---------- 导出整版图片（攻略作者要发图用） ---------- */
+async function exportBoardImage(){
+  if (typeof html2canvas !== "function") { flash("截图库没加载出来，刷新页面再试"); return; }
+  const isSc = !document.getElementById("scPage").hidden;
+  const stageEl = document.getElementById(isSc ? "scStage" : "stage");
+  if (!stageEl) { flash("找不到画布"); return; }
+  const keepZ = z;
+  const wantW = parseInt(document.getElementById("expSize").value, 10) || 0;
+  const scale = wantW ? wantW / stageEl.offsetWidth : 1;
+  document.body.classList.add("exporting");      /* 收掉选中框、标签、拖拽影子 */
+  z = 1; setZoom();                              /* 按原尺寸渲染，出的图才够清晰 */
+  if (isSc && scState.view) { scState.view.zoom = 1; scState.view.applyZoom(); }
+  await new Promise(r => setTimeout(r, 120));
+  let canvas = null;
+  try {
+    canvas = await html2canvas(stageEl, {
+      backgroundColor: "#303030",
+      scale: scale,
+      width: stageEl.offsetWidth,
+      height: stageEl.offsetHeight,
+      windowWidth: stageEl.offsetWidth,
+      windowHeight: stageEl.offsetHeight,
+      scrollX: 0, scrollY: 0,
+      logging: false
+    });
+  } catch (err) {
+    flash(location.protocol === "file:"
+      ? "本地 file:// 打开时浏览器不允许导出图片，请到线上编辑页导出"
+      : "导出失败：" + (err && err.message ? err.message : err));
+  } finally {
+    document.body.classList.remove("exporting");
+    z = keepZ; setZoom();
+    if (isSc && scState.view) { scState.view.zoom = z; scState.view.applyZoom(); scSyncZoom(); }
+  }
+  if (!canvas) return;
+  const d = new Date(), p = n => String(n).padStart(2, "0");
+  const stamp = d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  canvas.toBlob(function (blob) {
+    if (!blob) { flash("导出失败：图片太大或浏览器拒绝了"); return; }
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.download = (isSc ? "支援卡强度榜" : "角色强度榜") + "_" + stamp + ".png";
+    a.href = url;
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(url), 20000);
+    flash("已导出图片 " + canvas.width + " × " + canvas.height);
+  }, "image/png");
+}
+document.getElementById("bExp").onclick = exportBoardImage;
+
 render();
 </script></body></html>
