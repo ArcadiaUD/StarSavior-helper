@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8">
+<title>角色攻略版面编辑器（本地实验台）</title>
+<style>
+  * { box-sizing:border-box; }
+  html,body { margin:0; height:100%; background:#15171c; color:#dfe3ec;
+              font:12px/1.5 "Microsoft YaHei","Segoe UI",sans-serif; }
+  #bar { display:flex; align-items:center; gap:10px; padding:8px 12px; background:#1b1e26;
+         border-bottom:1px solid #2e3342; position:sticky; top:0; z-index:20; }
+  #bar b { font-size:13px; }
+  #bar .hint { font-size:11px; color:#98a0b3; }
+  button { background:#222634; color:#dfe3ec; border:1px solid #2e3342; border-radius:7px;
+           padding:5px 11px; font-size:12px; cursor:pointer; }
+  button:hover { border-color:#6ea8fe; }
+  button.on { border-color:#6ea8fe; color:#8fb8f5; }
+  #main { display:flex; height:calc(100% - 45px); }
+  #left { flex:1; overflow:auto; padding:14px; }
+  #right { width:250px; border-left:1px solid #2e3342; background:#181b22; overflow:auto; padding:10px; }
+  #right .hd { font-size:12px; color:#6ea8fe; margin:4px 0 8px; display:flex; align-items:center; gap:6px; }
+  #right .hd select { flex:1; min-width:0; background:#222634; color:#dfe3ec; border:1px solid #2e3342;
+                      border-radius:7px; padding:4px 6px; font-size:12px; }
+  #right .hd span { color:#98a0b3; font-size:11px; white-space:nowrap; }
+  #lib { display:grid; grid-template-columns:repeat(4,1fr); gap:6px; }
+  #lib img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:6px;
+             border:1px solid #2e3342; background:#222634; cursor:grab; }
+  #lib img:hover { border-color:#6ea8fe; }
+  /* 版面：表格骨架，尺寸按在线文档量出来的像素；显示比例单独由 --vz 控制 */
+  #sheet { position:relative; width:max-content; zoom:var(--vz, 1); }
+  table.rs { border-collapse:collapse; table-layout:fixed; background:#191c23; }
+  table.rs td { border:1px solid #2b3040; padding:2px 5px; vertical-align:middle;
+                white-space:pre-wrap; word-break:break-word; outline:none; }
+  /* 放了图的格子：去掉内边距，图片按设定比例居中放，和表格之间不留缝 */
+  table.rs td.hasimg { padding:0; line-height:0; }
+  /* 图片撑满格子（你调好的那版行为） */
+  table.rs td .imgbox { display:flex; align-items:center; justify-content:center;
+                        width:100%; height:100%; }
+  table.rs td .imgbox img { display:block; width:100%; height:100%; object-fit:contain; }
+  body.nogrid table.rs td { border-color:transparent; }
+  table.rs td.empty { background:#14171d; }
+  table.rs td.sel { box-shadow:inset 0 0 0 2px #6ea8fe; }
+  table.rs td[contenteditable="true"] { background:#20283a; box-shadow:inset 0 0 0 2px #6ea8fe; }
+  table.rs td.drop { box-shadow:inset 0 0 0 2px #7ddc9a; }
+  table.rs td .pimg { display:block; max-width:100%; }
+  #toast { position:fixed; left:50%; top:60px; transform:translateX(-50%); z-index:40;
+           background:#2a3040; border:1px solid #3d4560; border-radius:8px; padding:8px 14px;
+           font-size:13px; opacity:0; transition:opacity .18s; pointer-events:none; }
+  #toast.on { opacity:1; }
+</style></head><body>
+<div id="bar">
+  <b>角色攻略版面（本地实验台）</b>
+  <select id="pageSel" title="切换角色（共 55 个，尺寸与图按克温那版规格）"></select>
+  <button id="bText" class="on">文字可编辑</button>
+  <button id="bCol">调列宽</button>
+  <button id="bRow">调行高</button>
+  <button id="bDelImg">删图</button>
+  <button id="bClear">清空本格</button>
+  <button id="bUndo">↶ 撤回</button>
+  <button id="bDelRow">删该行</button>
+  <button id="bDelCol">删该列</button>
+  <button id="bGrid">隐藏网格线</button>
+  <button id="bSelClear">清空选择</button>
+  <span class="hint" id="selInfo">未选格</span>
+  <select id="viewZoom" title="显示比例：只影响预览和面板显示，不动版面尺寸">
+    <option value="1">显示 100%</option>
+    <option value="0.9">显示 90%</option>
+    <option value="0.8">显示 80%</option>
+    <option value="0.7">显示 70%</option>
+    <option value="0.6">显示 60%</option>
+    <option value="0.5">显示 50%</option>
+  </select>
+  <input id="ghToken" type="password" placeholder="GitHub 令牌（保存用）" style="width:180px" title="只存在这台浏览器；用有本仓库写权限的令牌"><button id="bGhConn">连接仓库</button><button id="bExport">导出改动</button>
+  <button id="bImport">导入改动</button>
+  <button id="bReset">重置</button>
+  <span class="hint" id="saved">尚未同步</span>
+  <input id="file" type="file" accept=".json" style="display:none">
+</div>
+<div id="main">
+  <div id="left"><div id="sheet"></div></div>
+  <div id="right">
+    <div class="hd">
+      <select id="libCat">
+        <option value="face">头像库</option>
+        <option value="set">装备套组</option>
+        <option value="ring">戒指</option>
+        <option value="necklace">项链</option>
+        <option value="equip">其他装备</option>
+        <option value="witch">古代救援者（大魔女装备）</option>
+        <option value="card">支援卡卡面</option>
+      </select>
+      <span>拖进格子</span>
+    </div>
+    <div id="lib"></div>
+  </div>
+</div>
+<div id="toast"></div>
+<!-- 在线版不带本地模板数据（PAGES 已足够） -->
+<script src="role_icons_data.js"></script>
+<script src="role_pages.js"></script>
+<script>
+const S0 = window.ROLE_SHEET;
+const PAGES = window.ROLE_PAGES || {};           /* 全部角色分页 */
+let curPage = Object.keys(PAGES)[0] || "";
+/* 上次停在哪个角色：刷新后回到那一页，别让存档里别的页的文字/图塞进第一页 */
+try {
+  const _raw = JSON.parse(localStorage.getItem("role_edit_v1") || "null");
+  if (_raw && _raw.cur && PAGES[_raw.cur]) curPage = _raw.cur;
+} catch (e) {}
+const S = PAGES[curPage] ? PAGES[curPage] : S0;   /* 当前页 = 选中角色那版 */
+window.ZOOM = (typeof S.zoom === "number" && S.zoom > 0) ? S.zoom : 1;   /* 显示比例：只影响预览 */
+const R0 = S.r0, C0 = S.c0;
+let ROWS = S.grid.length, COLS = S.grid[0].length;
+let text = S.grid.map(r => r.slice());
+let colpx = Object.assign({}, S.colpx);
+let rowpx = Object.assign({}, S.rowpx);
+const merges = S.merges || [];
+let imgs = Object.assign({}, S.imgs || {});   /* 初始图（助手调好的版面会带上） */
+let sel = null;                      /* {r,c} 最后点的格 */
+let sels = new Set();                /* 选中的格子（可多选，再点取消） */
+let mode = "text";                   /* text | col | row */
+
+const spanOf = {}, covered = {};
+merges.forEach(m => {
+  const r1 = m[0] - R0, c1 = m[1] - C0, r2 = m[2] - R0, c2 = m[3] - C0;   /* 绝对坐标换算成网格坐标 */
+  if (r1 < 0 || c1 < 0 || r1 >= ROWS || c1 >= COLS) return;
+  spanOf[r1 + ":" + c1] = [r2 - r1 + 1, c2 - c1 + 1];
+  for (let r = r1; r <= r2; r++) for (let c = c1; c <= c2; c++)
+    if (!(r === r1 && c === c1)) covered[r + ":" + c] = r1 + ":" + c1;
+});
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+function flash(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("on");
+  clearTimeout(flash._t); flash._t = setTimeout(() => t.classList.remove("on"), 2200);
+}
+/* 本地存档：改动即存（浏览器本地 + 同时写到本地服务的文件，助手直接读得到） */
+const LS_KEY = "role_edit_v1";
+let saveTimer = null;
+function buildPayload(){
+  return JSON.stringify({
+    title: (S && S.title) || "", r0: R0, c0: C0,
+    cur: curPage,
+    ts: Date.now(),
+    zoom: window.ZOOM || 1,
+    pages: (capturePage(), PAGES),
+    text: text, colpx: colpx, rowpx: rowpx, imgs: imgs, merges: merges
+  });
+}
+/* ---------- 云端保存（与强度榜编辑器同一套做法）----------
+   令牌只存这台浏览器；能不能存不看页面，看仓库权限：写入被拒就是没权限。 */
+const GH = { owner: "ArcadiaUD", repo: "StarSavior-helper", branch: "main",
+             path: "docs/roles/role_pages.js", token: "", login: "", canPush: false, busy: false };
+const TOKEN_KEY = "roleGhToken";
+function ghState(t, cls){
+  const e = document.getElementById("saved");
+  if(e){ e.textContent = t; e.className = "hint" + (cls ? " " + cls : ""); }
+}
+function ghHeaders(extra){
+  return Object.assign({ "Authorization": "Bearer " + GH.token,
+                         "Accept": "application/vnd.github+json",
+                         "X-GitHub-Api-Version": "2022-11-28" }, extra || {});
+}
+function ghFetch(path, opt){
+  const o = Object.assign({}, opt || {});
+  o.headers = ghHeaders(o.headers);
+  return fetch("https://api.github.com" + path, o);
+}
+function b64utf8(s){
+  const bytes = new TextEncoder().encode(s);
+  let bin = "";
+  for (let i = 0; i < bytes.length; i++) bin += String.fromCharCode(bytes[i]);
+  return btoa(bin);
+}
+async function ghConnect(silent){
+  const el = document.getElementById("ghToken");
+  const token = ((el && el.value) || "").trim() || GH.token;
+  if(!token){ ghState("先贴令牌", "warn"); return; }
+  GH.token = token;
+  if(!silent) ghState("校验令牌…");
+  try {
+    const r = await ghFetch("/repos/" + GH.owner + "/" + GH.repo);
+    if(!r.ok) throw new Error("读仓库失败 " + r.status + (r.status === 401 ? "（令牌无效或过期）" : ""));
+    const repo = await r.json();
+    const me = await ghFetch("/user");
+    GH.login = me.ok ? (await me.json()).login : "";
+    GH.canPush = !!(repo.permissions && repo.permissions.push);
+    if(GH.canPush){ localStorage.setItem(TOKEN_KEY, token); ghState("已连接 " + (GH.login || "?") + " · 可保存", "ok"); }
+    else ghState("已连接 " + (GH.login || "?") + " · 只读", "warn");
+  } catch (e) {
+    GH.canPush = false;
+    ghState("连接失败：" + e.message, "warn");
+  }
+}
+async function pushToServer(){
+  const payload = buildPayload();                     // 与本地版同一份存档结构
+  try { localStorage.setItem(LS_KEY, payload); } catch (e) {}
+  if(!GH.canPush){ ghState("没有保存权限（先在右上角连上仓库）", "warn"); return; }
+  if(GH.busy) return;
+  GH.busy = true;
+  ghState("保存中…");
+  try {
+    const url = "/repos/" + GH.owner + "/" + GH.repo + "/contents/" + GH.path;
+    let sha = null;
+    const cur = await ghFetch(url + "?ref=" + GH.branch);
+    if(cur.ok) sha = (await cur.json()).sha;
+    const body = { message: "角色攻略版面更新（" + (curPage || "") + "）",
+                   content: b64utf8("window.ROLE_PAGES = " + JSON.stringify(PAGES) + ";\n"),
+                   branch: GH.branch };
+    if(sha) body.sha = sha;
+    const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
+    if(!r.ok){ const t = await r.text(); throw new Error(r.status + " " + t.slice(0, 120)); }
+    const d = await r.json();
+    ghState("已保存 " + ((d.commit && d.commit.sha) || "").slice(0, 7) + " · " + new Date().toLocaleTimeString(), "ok");
+  } catch (e) {
+    ghState("保存失败：" + e.message, "warn");
+  } finally {
+    GH.busy = false;
+  }
+}
+function save(){
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(pushToServer, 400);
+}
+function restore(){
+  try {
+    const s = localStorage.getItem(LS_KEY);
+    if (!s) return false;
+    /* 文件这边更新的（助手刚调过）就以文件为准，别用旧存档盖回去 */
+    const fileTs = (typeof S.savedAt === "number") ? S.savedAt : 0;
+    const raw = JSON.parse(s);
+    if (raw.cur && raw.cur !== curPage) return false;   /* 存档是别的角色的，别往这页塞 */
+    if (fileTs && !(raw.ts && raw.ts >= fileTs)) return false;
+    const d = JSON.parse(s);
+    if (d.text && d.text.length === ROWS) text = d.text;
+    if (d.colpx) colpx = d.colpx;
+    if (d.rowpx) rowpx = d.rowpx;
+    if (d.imgs) imgs = d.imgs;
+    if (typeof d.zoom === "number" && d.zoom > 0) window.ZOOM = d.zoom;
+    return true;
+  } catch (e) { return false; }
+}
+/* 撤回：每次改动前压一份状态，撤回就弹回来（相同状态不重复压） */
+const undoStack = [];
+function snap(){ return JSON.stringify({ text: text, colpx: colpx, rowpx: rowpx, imgs: imgs }); }
+function pushUndo(){
+  const s = snap();
+  if (!undoStack.length || undoStack[undoStack.length - 1] !== s) {
+    undoStack.push(s);
+    if (undoStack.length > 60) undoStack.shift();
+  }
+  syncUndo();
+}
+function undo(){
+  if (!undoStack.length){ flash("没有可撤回的操作"); return; }
+  const d = JSON.parse(undoStack.pop());
+  text = d.text; colpx = d.colpx; rowpx = d.rowpx; imgs = d.imgs;
+  render(); save(); syncUndo();
+  flash("已撤回" + (undoStack.length ? "（还能退 " + undoStack.length + " 步）" : ""));
+}
+function syncUndo(){
+  const b = document.getElementById("bUndo");
+  if (b) b.disabled = !undoStack.length;
+}
+function capturePage(){
+  if (curPage && PAGES[curPage]) {
+    PAGES[curPage].grid = text.map(r => r.slice());
+    PAGES[curPage].colpx = Object.assign({}, colpx);
+    PAGES[curPage].rowpx = Object.assign({}, rowpx);
+    PAGES[curPage].imgs = Object.assign({}, imgs);
+  }
+}
+function loadPage(name){
+  const pg = PAGES[name];
+  if (!pg) return;
+  curPage = name;
+  text = pg.grid.map(r => r.slice());
+  colpx = Object.assign({}, pg.colpx);
+  rowpx = Object.assign({}, pg.rowpx);
+  imgs = Object.assign({}, pg.imgs || {});
+  if (typeof pg.zoom === "number" && pg.zoom > 0) window.ZOOM = pg.zoom;
+  undoStack.length = 0;
+  const t = document.getElementById("t");
+  if (t) t.textContent = "角色攻略 · " + name;
+  applyZoom();
+  render();
+}
+function render(){
+  const el = document.getElementById("sheet");
+  let h = '<table class="rs"><colgroup>';
+  for (let c = 0; c < COLS; c++) h += '<col style="width:' + (colpx[C0 + c] || 135) + 'px">';
+  h += '</colgroup><tbody>';
+  for (let r = 0; r < ROWS; r++){
+    h += '<tr style="height:' + (rowpx[R0 + r] || 50) + 'px">';
+    for (let c = 0; c < COLS; c++){
+      const key = r + ":" + c;
+      if (covered[key]) continue;
+      const sp = spanOf[key] || [1, 1];
+      const R = R0 + r, C = C0 + c;
+      const txt = text[r][c] || "";
+      const im = imgs[R + ":" + C];
+      const cls = ((txt ? "" : "empty") + (im ? " hasimg" : "")).trim();
+      h += '<td data-r="' + R + '" data-c="' + C + '" data-k="' + key + '"' +
+           (cls ? ' class="' + cls + '"' : '') +
+           (sp[0] > 1 ? ' rowspan="' + sp[0] + '"' : '') +
+           (sp[1] > 1 ? ' colspan="' + sp[1] + '"' : '') + '>' +
+           (im ? '<div class="imgbox"><img src="' + esc(im.src) + '"' +
+                 (im.scale && im.scale !== 1 ? ' style="transform:scale(' + im.scale + ')"' : '') +
+                 '></div>' : "") +
+           esc(txt) + '</td>';
+    }
+    h += '</tr>';
+  }
+  el.innerHTML = h + '</tbody></table>';
+  bindCells();
+  document.querySelectorAll("table.rs td").forEach(td => {
+    if (sels.has(td.dataset.r + ":" + td.dataset.c)) td.classList.add("sel");
+  });
+  syncUndo();
+}
+function bindCells(){
+  document.querySelectorAll("table.rs td").forEach(td => {
+    td.onclick = () => selectCell(td);
+    td.ondblclick = () => startEdit(td);
+    td.ondragover = e => { e.preventDefault(); td.classList.add("drop"); };
+    td.ondragleave = () => td.classList.remove("drop");
+    td.ondrop = e => {
+      e.preventDefault(); td.classList.remove("drop");
+      const src = e.dataTransfer.getData("text/plain");
+      if (!src) return;
+      const r = td.dataset.r, c = td.dataset.c;
+      pushUndo();
+      imgs[r + ":" + c] = { src: src };
+      render(); save(); flash("已放入 " + r + " 行 " + c + " 列");
+    };
+  });
+}
+function selectCell(td){
+  const k = td.dataset.r + ":" + td.dataset.c;      /* 和图片用同一套坐标（绝对值） */
+  if (sels.has(k)) { sels.delete(k); td.classList.remove("sel"); }
+  else { sels.add(k); td.classList.add("sel"); }
+  const r = td.dataset.r, c = td.dataset.c;
+  sel = { r: r, c: c, key: k };
+  const tip = document.getElementById("selInfo");
+  if (tip) tip.textContent = sels.size ? ("已选 " + sels.size + " 格") : "未选格";
+}
+function startEdit(td){
+  selectCell(td);
+  pushUndo();
+  td.contentEditable = "true";
+  td.focus();
+  document.execCommand && document.execCommand("selectAll", false, null);
+  td.onblur = () => {
+    td.contentEditable = "false";
+    const r = td.dataset.r - R0, c = td.dataset.c - C0;
+    text[r][c] = td.innerText;
+    render(); save();
+  };
+  td.onkeydown = e => { if (e.key === "Escape") td.blur(); };
+}
+/* 调列宽/行高：拖动表格边框 */
+let drag = null;
+document.addEventListener("mousedown", e => {
+  const td = e.target.closest && e.target.closest("table.rs td");
+  if (!td) return;
+  const rect = td.getBoundingClientRect();
+  const nearRight = Math.abs(e.clientX - rect.right) < 5;
+  const nearBottom = Math.abs(e.clientY - rect.bottom) < 5;
+  if (mode === "col" && nearRight) {
+    pushUndo();
+    drag = { kind: "col", c: +td.dataset.c, x: e.clientX, w: colpx[td.dataset.c] || 135 };
+    e.preventDefault();
+  } else if (mode === "row" && nearBottom) {
+    pushUndo();
+    drag = { kind: "row", r: +td.dataset.r, y: e.clientY, h: rowpx[td.dataset.r] || 50 };
+    e.preventDefault();
+  }
+});
+document.addEventListener("mousemove", e => {
+  if (!drag) return;
+  if (drag.kind === "col") {
+    const w = Math.max(40, Math.round(drag.w + (e.clientX - drag.x)));
+    colpx[drag.c] = w;
+    render();
+  } else {
+    const h = Math.max(20, Math.round(drag.h + (e.clientY - drag.y)));
+    rowpx[drag.r] = h;
+    render();
+  }
+});
+document.addEventListener("mouseup", () => { if (drag){ drag = null; save(); flash("尺寸已改"); } });
+
+/* 素材库：头像库 + 装备套组 / 戒指 / 项链 / 其他装备 / 支援卡卡面 */
+const LIBS = {};
+function fillLib(){
+  const cat = document.getElementById("libCat").value;
+  const list = LIBS[cat] || [];
+  const lib = document.getElementById("lib");
+  lib.innerHTML = list.map(x =>
+    '<img draggable="true" src="' + encodeURI(x.file) + '" title="' + esc(x.name) + '">').join("");
+  lib.querySelectorAll("img").forEach(im => {
+    im.ondragstart = e => e.dataTransfer.setData("text/plain", im.src);
+  });
+}
+document.getElementById("libCat").onchange = fillLib;
+(async () => {
+  if (window.ROLE_ICONS) {              /* 清单已内联：file:// 直接打开也能用 */
+    Object.assign(LIBS, window.ROLE_ICONS);
+    fillLib();
+    return;
+  }
+  try {
+    const n = await (await fetch("faces_index.json")).json();
+    LIBS.face = n.map(x => ({ name: x.replace(/\.[^.]+$/, ""), file: "faces/" + x }));
+  } catch (e) { LIBS.face = []; }
+  try {
+    const g = await (await fetch("role_icons/index.json")).json();
+    Object.assign(LIBS, g);
+  } catch (e) {}
+  fillLib();
+})();
+
+document.getElementById("bText").onclick = () => { mode = "text"; syncBtns(); flash("文字模式：点一下选中、再点一下编辑"); };
+document.getElementById("bCol").onclick = () => { mode = "col"; syncBtns(); flash("调列宽：拖格子右边缘"); };
+document.getElementById("bRow").onclick = () => { mode = "row"; syncBtns(); flash("调行高：拖格子下边缘"); };
+function syncBtns(){
+  document.getElementById("bText").classList.toggle("on", mode === "text");
+  document.getElementById("bCol").classList.toggle("on", mode === "col");
+  document.getElementById("bRow").classList.toggle("on", mode === "row");
+}
+document.getElementById("bDelImg").onclick = () => {
+  if (!sel){ flash("先点一个格子"); return; }
+  if (!imgs[sel.r + ":" + sel.c]){ flash("这一格没有图"); return; }
+  pushUndo();
+  delete imgs[sel.r + ":" + sel.c];
+  render(); save(); flash("已删掉 " + sel.r + " 行 " + sel.c + " 列的图");
+};
+document.getElementById("bClear").onclick = () => {
+  if (!sel){ flash("先点一个格子"); return; }
+  pushUndo();
+  delete imgs[sel.r + ":" + sel.c];
+  text[sel.r - R0][sel.c - C0] = "";
+  render(); save(); flash("清空 " + sel.r + " 行 " + sel.c + " 列");
+};
+/* 图片比例：选中格子只改那一格；没选中就改全部（保持比例，用 transform 缩放，不动格子） */
+/* 图片比例：选中格子改这些格的图；勾了「连该行格子一起缩」时，那一格所在行的行高也跟着缩 */
+/* 只改图片比例（不动格子） */
+document.getElementById("bUndo").onclick = undo;
+document.getElementById("bGrid").onclick = e => {
+  const on = document.body.classList.toggle("nogrid");
+  e.target.classList.toggle("on", on);
+  flash(on ? "已隐藏网格线（只看版面）" : "网格线已显示");
+};
+/* 图片大小：图片一律撑满格子（有图的行高由行本身决定） */
+/* 显示比例：只缩放预览（CSS zoom），版面尺寸一个字都不动，随文件同步给面板 */
+function applyZoom(){
+  document.documentElement.style.setProperty("--vz", window.ZOOM || 1);
+  const sel = document.getElementById("viewZoom");
+  if (sel) sel.value = String(window.ZOOM || 1);
+}
+document.getElementById("viewZoom").onchange = e => {
+  window.ZOOM = parseFloat(e.target.value) || 1;
+  applyZoom(); save();
+  flash("显示比例 " + Math.round((window.ZOOM || 1) * 100) + "%（版面尺寸没变）");
+};
+applyZoom();
+document.addEventListener("keydown", e => {
+  if (!(e.ctrlKey || e.metaKey) || e.shiftKey) return;
+  const key = String(e.key).toLowerCase();
+  const a = document.activeElement, tag = a ? a.tagName : "";
+  const typing = a && (a.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA");
+  if (key === "s"){                       /* Ctrl+S：立刻存进文件 */
+    e.preventDefault();
+    clearTimeout(saveTimer);
+    pushToServer();
+    flash("已保存（同步到文件）");
+    return;
+  }
+  if (key === "z" && !typing){            /* Ctrl+Z：撤回 */
+    e.preventDefault();
+    undo();
+  }
+});
+document.getElementById("bExport").onclick = () => {
+  const out = {
+    title: S.title, sheet: S.sheet, range: S.range, r0: R0, c0: C0,
+    colpx: colpx, rowpx: rowpx, merges: merges, grid: text, zoom: window.ZOOM || 1,
+    images: Object.keys(imgs).map(k => {
+      const [r, c] = k.split(":").map(Number);
+      return { r: r, c: c, file: imgs[k].src, w: 75, h: 75, ox: 0, oy: 0 };
+    })
+  };
+  const blob = new Blob([JSON.stringify(out, null, 1)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "role_sheet.json";
+  a.click();
+  flash("已导出 role_sheet.json");
+};
+document.getElementById("bImport").onclick = () => document.getElementById("file").click();
+document.getElementById("file").onchange = e => {
+  const f = e.target.files[0];
+  if (!f) return;
+  const fr = new FileReader();
+  fr.onload = () => {
+    try {
+      const d = JSON.parse(fr.result);
+      pushUndo();
+      if (d.grid) text = d.grid.map(r => r.slice());
+      if (d.colpx) colpx = d.colpx;
+      if (d.rowpx) rowpx = d.rowpx;
+      imgs = {};
+      (d.images || []).forEach(im => { imgs[im.r + ":" + im.c] = { src: im.file }; });
+      render(); save(); flash("已导入改动");
+    } catch (err) { flash("导入失败：" + err.message); }
+  };
+  fr.readAsText(f);
+};
+/* 角色分页下拉：55 个角色，切到哪个就先存当前页、再载入那一页 */
+(function initPages(){
+  const sel = document.getElementById("pageSel");
+  if (!sel) return;
+  const names = Object.keys(PAGES);
+  if (!names.length){ sel.style.display = "none"; return; }
+  sel.innerHTML = names.map(n => '<option value="' + esc(n) + '">' + esc(n) + '</option>').join("");
+  sel.value = curPage;
+  sel.onchange = e => {
+    capturePage();
+    loadPage(e.target.value);
+    save();
+    flash("已切到「" + e.target.value + "」");
+  };
+})();
+
+const restored = restore();
+render();
+save();                       /* 打开就同步一次：助手那边立刻能看到你现在的版面 */
+if (restored) flash("已恢复上次的本地改动（点「重置」可回到初始版面）");
+/* 重置：点两次确认（不弹窗，弹窗会卡住自动化） */
+let resetArm = false;
+document.getElementById("bReset").onclick = () => {
+  if (!resetArm){
+    resetArm = true;
+    flash("再点一次「重置」确认清空本地改动");
+    setTimeout(() => { resetArm = false; }, 3000);
+    return;
+  }
+  try { localStorage.removeItem(LS_KEY); } catch (e) {}
+  location.reload();
+};
+/* 在线版：开场先拿浏览器里存过的令牌试连一次，之后 Ctrl+S 才有权限 */
+try { GH.token = localStorage.getItem(TOKEN_KEY) || ""; } catch(e){}
+if(GH.token) ghConnect(true);
+const _bc = document.getElementById("bGhConn");
+if(_bc) _bc.onclick = () => ghConnect(false);
+</script></body></html>
