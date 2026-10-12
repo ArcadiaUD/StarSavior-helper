@@ -199,6 +199,7 @@
   <button id="bIn">放大</button>
   <button id="bSave">导出改动</button>
   <button id="bLoad">导入改动</button>
+  <button id="bPullRemote">载入线上存档</button>
   <button id="bClear">清空改动</button>
   <b class="sconly">支援卡强度榜</b>
   <button id="scTextBtn" class="sconly">文字</button>
@@ -1148,6 +1149,77 @@ function exportLocal() {
 const GH = { owner: "ArcadiaUD", repo: "StarSavior-helper", branch: "main",
              path: "docs/psb_slots.json", token: "", login: "", canPush: false, busy: false };
 const TOKEN_KEY = "psbGhToken";
+
+/* ---------- 线上存档对齐（多人共用时的护栏） ----------
+   编辑器的底版是写死的原稿，改动记录只存在本机浏览器里，保存时是整份替换线上存档，
+   所以各改各的会互相覆盖。这里加两道：打开时看线上那份（本机没改动就直接用它当基线）；
+   保存前比对线上版本，被别人动过就停下来问一句，不闷头覆盖。 */
+const SLOTS_REMOTE = "psb_slots.json";
+const SLOTS_REMOTE_ABS = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/psb_slots.json";
+let ghBaseSha = null;                 /* 本次编辑开始时线上存档的版本号 */
+let ghScBaseSha = null;               /* 支援卡存档的版本号 */
+/* 本机是否留着「还没保存的改动」：只有真的有内容才算，空档不算（不然后面自动对齐就失效了） */
+const hasLocalEdits = () => {
+  try {
+    const s = localStorage.getItem("psbSlots");
+    if (!s) return false;
+    const o = JSON.parse(s);
+    if (!o) return false;
+    for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"])
+      if (o[k] && Object.keys(o[k]).length) return true;
+    for (const k of ["nt", "newSlots"]) if (o[k] && o[k].length) return true;
+    for (const k of ["down", "slotShift", "layerShift"]) if (o[k] && Object.keys(o[k]).length) return true;
+    return false;
+  } catch (e) { return false; }
+};
+
+async function ghReadSha(path) {
+  try {
+    const p = path || GH.path;
+    const r = await ghFetch(`/repos/${GH.owner}/${GH.repo}/contents/${p}?ref=${GH.branch}&t=${Date.now()}`);
+    return r.ok ? (await r.json()).sha : null;
+  } catch (e) { return null; }
+}
+
+/* 把一份存档换进编辑器（与「导入改动」同一套换算，区别是整体替换） */
+function applyArchive(d) {
+  for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"]) edit[k] = {};
+  edit.nt = []; edit.newSlots = []; edit.down = {}; edit.slotShift = {}; edit.layerShift = {};
+  if (d.pos) edit.pos = d.pos;
+  if (d.nt) edit.nt = d.nt;
+  edit.newSlots = d.newSlots || [];
+  edit.down = d.down || {};
+  edit.slotShift = d.slotShift || {};
+  edit.layerShift = d.layerShift || {};
+  for (const l of d.slots || []) {
+    if (l.content === null) edit.place[l.slot] = EMPTY;
+    else if (l.content !== undefined) edit.place[l.slot] = l.content;
+    if (l.art) edit.art[l.slot] = l.art;
+    if (l.char) edit.char[l.slot] = l.char + (l.form ? "|" + l.form : "");
+    if (l.textChanged) edit.slotText[l.slot] = l.text || "";
+  }
+  sel = null; hideInsp(); drag = null; dropTarget = null;
+  /* 载入的是线上基线，不写本机存档：这样下次打开还能自动对齐线上 */
+  render(); refreshCount(); tbFill();
+}
+
+async function readArchive() {
+  for (const u of [SLOTS_REMOTE, SLOTS_REMOTE_ABS]) {
+    try {
+      const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" });
+      if (r.ok) return await r.json();
+    } catch (e) {}
+  }
+  return null;
+}
+
+async function pullRemoteSlots(manual) {
+  if (manual && hasLocalEdits() && !confirm("用线上存档覆盖这台机器上的本地改动？")) return;
+  const d = await readArchive();
+  if (!d || !d.allSlots) { if (manual) flash("取不到线上存档"); return; }
+  applyArchive(d);
+  flash(manual ? "已载入线上存档" : "已按线上存档对齐");
+}
 const ghEl = id => document.getElementById(id);
 function ghState(text, cls) {
   const e = ghEl("ghState");
@@ -1236,8 +1308,7 @@ async function ghConnect(silent) {
     if (GH.canPush) {
       localStorage.setItem(TOKEN_KEY, token);
       ghState("已连接 " + (GH.login || "?") + " · 可保存", "ok");
-    } else {
-      ghState("已连接 " + (GH.login || "?") + " · 只读", "bad");
+    } else {      ghState("已连接 " + (GH.login || "?") + " · 只读", "bad");
     }
   } catch (e) {
     GH.canPush = false; ghSetConnected();
@@ -1303,18 +1374,22 @@ async function ghPush() {
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if (cur.ok) sha = (await cur.json()).sha;
     else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
+    /* 线上被别人动过就停下来问一句：不然这一保存会把对方那部分整份盖掉 */
+    if (sha && ghBaseSha && sha !== ghBaseSha &&
+        !confirm("线上的存档在你这次编辑之后被别人更新过。\n\n确定 = 仍用你这版覆盖线上（对方那部分改动会丢）\n取消 = 先不保存，点「载入线上存档」对齐后再改")) {
+      ghState("已取消保存", "bad");
+      return;
+    }
     const payload = JSON.stringify(data, null, 1);
     const body = { message: "编辑保存（" + (GH.login || "协作者") + "）",
                    content: b64utf8(payload), branch: GH.branch };
     if (sha) body.sha = sha;
-    const put = () => ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
-    let r = await put();
-    if (r.status === 409 || r.status === 422) {           /* 别人刚好也存过，取新版本再试一次 */
-      const c2 = await ghFetch(url + "?ref=" + GH.branch);
-      if (c2.ok) { body.sha = (await c2.json()).sha; r = await put(); }
-    }
+    const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
+    if (r.status === 409 || r.status === 422)
+      throw new Error("线上刚好被更新过，这次没写入。点「载入线上存档」对齐后再保存");
     if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 160));
     const out = await r.json();
+    ghBaseSha = (out.content && out.content.sha) || null;
     const short = out.commit.sha.slice(0, 7);
     flash("已存到仓库 " + short);
     await ghWaitEffect(payload, short);
@@ -1350,6 +1425,14 @@ addEventListener("keydown", e => {
 (function () {
   const t = localStorage.getItem(TOKEN_KEY);
   if (t) { GH.token = t; ghState("恢复连接…"); ghConnect(true); }
+})();
+/* 打开时对齐线上存档：本机没改动就直接用线上那份；有没保存的改动就先不动它，只提示 */
+document.getElementById("bPullRemote").onclick = () => pullRemoteSlots(true);
+(async function () {
+  ghBaseSha = await ghReadSha();
+  ghScBaseSha = await ghReadSha(SC_PATH);
+  if (!hasLocalEdits()) await pullRemoteSlots(false);
+  else if (ghBaseSha) flash("这台机器上有没保存的改动；要跟线上对齐，点「载入线上存档」");
 })();
 
 /* ---------- 分页：角色强度榜（本编辑器）↔ 支援卡强度榜 ----------
@@ -1743,18 +1826,21 @@ async function scPush() {
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if (cur.ok) sha = (await cur.json()).sha;
     else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
+    if (sha && ghScBaseSha && sha !== ghScBaseSha &&
+        !confirm("支援卡的存档在你这次编辑之后被别人更新过。\n\n确定 = 仍用你这版覆盖线上（对方那部分改动会丢）\n取消 = 先不保存，重开一下页面拉回线上最新的再改")) {
+      ghState("已取消保存", "bad");
+      return;
+    }
     const body = { message: "支援卡编辑存档（" + (GH.login || "协作者") + "）",
                    content: b64utf8(JSON.stringify(scArchive(), null, 1)),
                    branch: GH.branch };
     if (sha) body.sha = sha;
-    const put = () => ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
-    let r = await put();
-    if (r.status === 409 || r.status === 422) {
-      const c2 = await ghFetch(url + "?ref=" + GH.branch);
-      if (c2.ok) { body.sha = (await c2.json()).sha; r = await put(); }
-    }
+    const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
+    if (r.status === 409 || r.status === 422)
+      throw new Error("线上刚好被更新过，这次没写入。重开一下页面再保存");
     if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 160));
     const out = await r.json();
+    ghScBaseSha = (out.content && out.content.sha) || null;
     const short = out.commit.sha.slice(0, 7);
     ghState("支援卡存档已保存 " + short, "ok");
     flash("支援卡存档已保存 " + short);

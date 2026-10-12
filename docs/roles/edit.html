@@ -151,6 +151,13 @@ function buildPayload(){
 const GH = { owner: "ArcadiaUD", repo: "StarSavior-helper", branch: "main",
              path: "docs/roles/role_pages.js", token: "", login: "", canPush: false, busy: false };
 const TOKEN_KEY = "roleGhToken";
+let ghBaseSha = null;                 /* 打开时线上那份的版本号，保存前用它判断有没有被别人动过 */
+async function ghReadSha(){
+  try {
+    const r = await ghFetch(`/repos/${GH.owner}/${GH.repo}/contents/${GH.path}?ref=${GH.branch}&t=${Date.now()}`);
+    return r.ok ? (await r.json()).sha : null;
+  } catch(e){ return null; }
+}
 function ghState(t, cls){
   const e = document.getElementById("saved");
   if(e){ e.textContent = t; e.className = "hint" + (cls ? " " + cls : ""); }
@@ -203,13 +210,22 @@ async function pushToServer(){
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if(cur.ok) sha = (await cur.json()).sha;
+    /* 线上被别人动过就问一句：不然这一保存会把对方改过的整份盖掉 */
+    if(sha && ghBaseSha && sha !== ghBaseSha &&
+       !confirm("线上这份在你开始编辑之后被别人更新过。\n\n确定 = 仍用你这版覆盖线上（对方那部分改动会丢）\n取消 = 先不保存，刷新页面拉回线上最新再改")){
+      ghState("已取消保存", "warn");
+      return;
+    }
     const body = { message: "角色攻略版面更新（" + (curPage || "") + "）",
                    content: b64utf8("window.ROLE_PAGES = " + JSON.stringify(PAGES) + ";\n"),
                    branch: GH.branch };
     if(sha) body.sha = sha;
     const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
+    if(r.status === 409 || r.status === 422)
+      throw new Error("线上刚好被更新过，这次没写入。刷新页面拉回最新再保存");
     if(!r.ok){ const t = await r.text(); throw new Error(r.status + " " + t.slice(0, 120)); }
     const d = await r.json();
+    ghBaseSha = (d.content && d.content.sha) || null;
     ghState("已保存 " + ((d.commit && d.commit.sha) || "").slice(0, 7) + " · " + new Date().toLocaleTimeString(), "ok");
   } catch (e) {
     ghState("保存失败：" + e.message, "warn");
@@ -550,6 +566,8 @@ document.getElementById("bReset").onclick = () => {
 /* 在线版：开场先拿浏览器里存过的令牌试连一次，之后 Ctrl+S 才有权限 */
 try { GH.token = localStorage.getItem(TOKEN_KEY) || ""; } catch(e){}
 if(GH.token) ghConnect(true);
+/* 记下打开时线上那份的版本号：保存前拿它比一下，看有没有被别人先改过 */
+(async function () { ghBaseSha = await ghReadSha(); })();
 const _bc = document.getElementById("bGhConn");
 if(_bc) _bc.onclick = () => ghConnect(false);
 </script></body></html>
