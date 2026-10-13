@@ -99,6 +99,20 @@
 <script>
 const S0 = window.ROLE_SHEET;
 const PAGES = window.ROLE_PAGES || {};           /* 全部角色分页 */
+/* 素材地址一律清成相对路径：早先本地实验台把 http://127.0.0.1:8915/… 这种本机地址写进了数据，
+   拿到线上就全看不见（项链、戒指那两张每页都用的图就是这样丢的）。进页面先清一遍，
+   之后存回去的也就是干净的。 */
+(function stripLocalHost(){
+  const pat = /^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//;
+  for (const pg of Object.values(PAGES)){
+    const im = pg && pg.imgs;
+    if (!im) continue;
+    for (const k of Object.keys(im)){
+      const s = im[k] && im[k].src;
+      if (typeof s === "string" && pat.test(s)) im[k].src = s.replace(pat, "");
+    }
+  }
+})();
 let curPage = Object.keys(PAGES)[0] || "";
 /* 上次停在哪个角色：刷新后回到那一页，别让存档里别的页的文字/图塞进第一页 */
 try {
@@ -217,7 +231,7 @@ async function pushToServer(){
       return;
     }
     const body = { message: "角色攻略版面更新（" + (curPage || "") + "）",
-                   content: b64utf8("window.ROLE_PAGES = " + JSON.stringify(PAGES) + ";\n"),
+                   content: b64utf8("window.ROLE_PAGES = " + JSON.stringify(PAGES).replace(/https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//g, "") + ";\n"),
                    branch: GH.branch };
     if(sha) body.sha = sha;
     const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
