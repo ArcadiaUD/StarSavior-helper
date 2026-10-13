@@ -1150,6 +1150,61 @@ const GH = { owner: "ArcadiaUD", repo: "StarSavior-helper", branch: "main",
              path: "docs/psb_slots.json", token: "", login: "", canPush: false, busy: false };
 const TOKEN_KEY = "psbGhToken";
 
+/* ---------- 按格位合并 ----------
+   存档早先是整份覆盖：两个人各改各的、或谁的页面停了几小时，一保存就把别人的改动整份抹掉。
+   这里改成保存前先取线上那份，按格位合并：自己动过的覆盖线上同一条，别人动过的原样保留。 */
+const RAW_GH = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/";
+async function fetchRemoteJson(rel){
+  for (const u of [RAW_GH + rel, rel.split("/").pop()]){
+    try {
+      const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" });
+      if (r.ok) return await r.json();
+    } catch (e) {}
+  }
+  return null;
+}
+function keyedBy(arr, key){
+  const m = new Map();
+  for (const x of (arr || [])) if (x && x[key] !== undefined) m.set(x[key], x);
+  return m;
+}
+function latestBy(remoteArr, mineArr, key){          /* 我的覆盖线上的同键项，线上独有的留着 */
+  const m = keyedBy(remoteArr, key);
+  for (const [k, v] of keyedBy(mineArr, key)) m.set(k, v);
+  return [...m.values()];
+}
+/* 两边都动过的格位（提示用） */
+function clashAgainst(remote, mine, key, listKey){
+  const r = keyedBy(remote[listKey], key);
+  const out = [];
+  for (const [k, v] of keyedBy(mine[listKey], key)){
+    const o = r.get(k);
+    if (o && JSON.stringify(o) !== JSON.stringify(v)) out.push(v.name || v.group || String(k));
+  }
+  return out;
+}
+function mergeBoardArchive(remote, mine){
+  const out = Object.assign({}, remote, mine);        /* pos/down/slotShift/layerShift：我的覆盖 */
+  out.slots = latestBy(remote.slots, mine.slots, "slot");
+  out.newSlots = latestBy(remote.newSlots, mine.newSlots, "id");
+  out.nt = latestBy(remote.nt, mine.nt, "id");
+  /* allSlots 是全量快照：只覆盖我确实动过的格位，其余用线上的——
+     不然会拿我这边的旧位置把别人刚挪过的格位退回去 */
+  const moved = new Set((mine.slots || []).map(s => s && s.slot).filter(v => v !== undefined));
+  const all = keyedBy(remote.allSlots, "slot");
+  for (const [k, v] of keyedBy(mine.allSlots, "slot")) if (moved.has(k) || !all.has(k)) all.set(k, v);
+  out.allSlots = [...all.values()];
+  const rc = remote.canvas || [0, 0], mc = mine.canvas || [0, 0];
+  out.canvas = [Math.max(rc[0] || 0, mc[0] || 0), Math.max(rc[1] || 0, mc[1] || 0)];
+  return out;
+}
+function mergeScArchive(remote, mine){
+  const out = Object.assign({}, remote, mine);
+  out.slots = latestBy(remote.slots, mine.slots, "id");
+  out.items = latestBy(remote.items, mine.items, "seq");
+  return out;
+}
+
 /* ---------- 线上存档对齐（多人共用时的护栏） ----------
    编辑器的底版是写死的原稿，改动记录只存在本机浏览器里，保存时是整份替换线上存档，
    所以各改各的会互相覆盖。这里加两道：打开时看线上那份（本机没改动就直接用它当基线）；
@@ -1370,23 +1425,29 @@ async function ghPush() {
   ghState("保存中…");
   const url = `/repos/${GH.owner}/${GH.repo}/contents/${GH.path}`;
   try {
+    /* 先取线上那份，按格位合并：自己改过的覆盖线上同一条，别人改过的原样保留 */
+    const remote = await fetchRemoteJson(GH.path);
+    if (remote) {
+      const clash = clashAgainst(remote, data, "slot", "slots");
+      if (clash.length && !confirm("这些格位别人也刚改过：\n" + clash.slice(0, 12).join("、") +
+            (clash.length > 12 ? " 等 " + clash.length + " 处" : "") +
+            "\n\n确定 = 用你这版覆盖这几处（对方的改动会丢）\n取消 = 先不保存，点「载入线上存档」对齐后再改")) {
+        ghState("已取消保存", "bad");
+        return;
+      }
+      data = mergeBoardArchive(remote, data);
+    }
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if (cur.ok) sha = (await cur.json()).sha;
     else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
-    /* 线上被别人动过就停下来问一句：不然这一保存会把对方那部分整份盖掉 */
-    if (sha && ghBaseSha && sha !== ghBaseSha &&
-        !confirm("线上的存档在你这次编辑之后被别人更新过。\n\n确定 = 仍用你这版覆盖线上（对方那部分改动会丢）\n取消 = 先不保存，点「载入线上存档」对齐后再改")) {
-      ghState("已取消保存", "bad");
-      return;
-    }
     const payload = JSON.stringify(data, null, 1);
     const body = { message: "编辑保存（" + (GH.login || "协作者") + "）",
                    content: b64utf8(payload), branch: GH.branch };
     if (sha) body.sha = sha;
     const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
     if (r.status === 409 || r.status === 422)
-      throw new Error("线上刚好被更新过，这次没写入。点「载入线上存档」对齐后再保存");
+      throw new Error("线上刚好被更新过，这次没写入。稍后再保存一次");
     if (!r.ok) throw new Error(r.status + " " + (await r.text()).slice(0, 160));
     const out = await r.json();
     ghBaseSha = (out.content && out.content.sha) || null;
@@ -1822,17 +1883,25 @@ async function scPush() {
   ghState("支援卡存档保存中…");
   const url = "/repos/" + GH.owner + "/" + GH.repo + "/contents/" + SC_PATH;
   try {
+    let arch = scArchive();
+    /* 与强度榜同一套：取线上那份按卡位合并，只覆盖自己改过的 */
+    const remote = await fetchRemoteJson(SC_PATH);
+    if (remote) {
+      const clash = clashAgainst(remote, arch, "id", "slots");
+      if (clash.length && !confirm("这些卡位别人也刚改过：\n" + clash.slice(0, 12).join("、") +
+            (clash.length > 12 ? " 等 " + clash.length + " 处" : "") +
+            "\n\n确定 = 用你这版覆盖这几处（对方的改动会丢）\n取消 = 先不保存，重开一下页面再改")) {
+        ghState("已取消保存", "bad");
+        return;
+      }
+      arch = mergeScArchive(remote, arch);
+    }
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if (cur.ok) sha = (await cur.json()).sha;
     else if (cur.status !== 404) throw new Error("读取当前版本失败 " + cur.status);
-    if (sha && ghScBaseSha && sha !== ghScBaseSha &&
-        !confirm("支援卡的存档在你这次编辑之后被别人更新过。\n\n确定 = 仍用你这版覆盖线上（对方那部分改动会丢）\n取消 = 先不保存，重开一下页面拉回线上最新的再改")) {
-      ghState("已取消保存", "bad");
-      return;
-    }
     const body = { message: "支援卡编辑存档（" + (GH.login || "协作者") + "）",
-                   content: b64utf8(JSON.stringify(scArchive(), null, 1)),
+                   content: b64utf8(JSON.stringify(arch, null, 1)),
                    branch: GH.branch };
     if (sha) body.sha = sha;
     const r = await ghFetch(url, { method: "PUT", body: JSON.stringify(body) });
