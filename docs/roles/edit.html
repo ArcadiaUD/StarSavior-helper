@@ -166,7 +166,39 @@ function buildPayload(){
 const GH = { owner: "ArcadiaUD", repo: "StarSavior-helper", branch: "main",
              path: "docs/roles/role_pages.js", token: "", login: "", canPush: false, busy: false };
 const TOKEN_KEY = "roleGhToken";
-let ghBaseSha = null;                 /* 打开时线上那份的版本号，保存前用它判断有没有被别人动过 */
+let ghBaseSha = null;                 /* 打开时线上那份的版本号 */
+/* ---------- 逐页基线：保存时「只覆盖自己改过的页」----------
+   早先保存是整份 role_pages.js 覆盖：两个人各改各的、或者谁的页面停了几小时，
+   一存就把别人的改动整份抹掉。这里给每页记一个指纹当基线：
+   保存时只替换自己动过的页，其余页一律用线上最新的；别人的页原样保留。
+   代价是「两个人改同一页」仍然后存者赢——那就靠保存前的冲突提示拦住。 */
+const pagePrint = rec => JSON.stringify(rec);
+let basePrint = Object.create(null);
+function snapshotBase(){
+  basePrint = Object.create(null);
+  for (const k in PAGES) basePrint[k] = pagePrint(PAGES[k]);
+}
+function dirtyPages(){
+  const out = [];
+  for (const k in PAGES) if (basePrint[k] !== pagePrint(PAGES[k])) out.push(k);
+  return out;
+}
+/* 线上那份数据（raw 直连，带时间戳绕开缓存；取不到就退回同目录） */
+const RAW_ROLE = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/roles/role_pages.js";
+async function fetchRemotePages(){
+  for (const u of [RAW_ROLE, "role_pages.js"]){
+    try {
+      const r = await fetch(u + "?t=" + Date.now(), { cache: "no-store" });
+      if (!r.ok) continue;
+      const t = await r.text();
+      const i = t.indexOf("{"), j = t.lastIndexOf("}");
+      if (i < 0 || j <= i) continue;
+      const d = JSON.parse(t.slice(i, j + 1));
+      if (d && Object.keys(d).length) return d;
+    } catch (e) {}
+  }
+  return null;
+}
 async function ghReadSha(){
   try {
     const r = await ghFetch(`/repos/${GH.owner}/${GH.repo}/contents/${GH.path}?ref=${GH.branch}&t=${Date.now()}`);
@@ -221,16 +253,30 @@ async function pushToServer(){
   GH.busy = true;
   ghState("保存中…");
   try {
+    capturePage();
+    /* 先把线上最新拉回来，只把「自己动过的页」换上去，其余页用线上的：
+       两个人各改各的、页面停了几小时、或者我这边刚修完数据——都不会被整份抹掉 */
+    const remote = await fetchRemotePages();
+    const mine = dirtyPages();
+    if (remote){
+      const clash = mine.filter(k => remote[k] && pagePrint(remote[k]) !== basePrint[k]);
+      if (clash.length && !confirm("这些页别人也刚改过：\n" + clash.join("、") +
+          "\n\n确定 = 用你这版覆盖这几页（对方那部分改动会丢）\n取消 = 先不保存，刷新看看对方改成了什么样")){
+        ghState("已取消保存", "warn");
+        return;
+      }
+      const names = new Set([...Object.keys(remote), ...Object.keys(PAGES)]);
+      const merged = {};
+      for (const k of names) merged[k] = mine.indexOf(k) >= 0 ? PAGES[k] : (remote[k] || PAGES[k]);
+      for (const k of Object.keys(PAGES)) if (!(k in merged)) delete PAGES[k];
+      Object.assign(PAGES, merged);
+      if (mine.indexOf(curPage) < 0) loadPage(curPage);
+    }
+    snapshotBase();                    /* 基线跟到刚叠好的内容 */
     const url = "/repos/" + GH.owner + "/" + GH.repo + "/contents/" + GH.path;
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if(cur.ok) sha = (await cur.json()).sha;
-    /* 线上被别人动过就问一句：不然这一保存会把对方改过的整份盖掉 */
-    if(sha && ghBaseSha && sha !== ghBaseSha &&
-       !confirm("线上这份在你开始编辑之后被别人更新过。\n\n确定 = 仍用你这版覆盖线上（对方那部分改动会丢）\n取消 = 先不保存，刷新页面拉回线上最新再改")){
-      ghState("已取消保存", "warn");
-      return;
-    }
     const body = { message: "角色攻略版面更新（" + (curPage || "") + "）",
                    content: b64utf8("window.ROLE_PAGES = " + JSON.stringify(PAGES).replace(/https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//g, "") + ";\n"),
                    branch: GH.branch };
@@ -562,8 +608,10 @@ document.getElementById("file").onchange = e => {
   };
 })();
 
-const restored = restore();
-stripLocalImgs();             /* 浏览器里存的旧存档可能还带着本机地址，渲染前再清一遍 */
+stripLocalImgs();             /* 线上数据里可能残留本机地址，先清一遍 */
+snapshotBase();               /* 基线 = 载入时线上那份：之后保存只推自己动过的页 */
+const restored = restore();   /* 再让浏览器里的存档接手当前页（有未推的改动时，它才该算"我改的"） */
+stripLocalImgs();             /* 存档里可能也带着本机地址，再清一遍 */
 render();
 save();                       /* 打开就同步一次：助手那边立刻能看到你现在的版面 */
 if (restored) flash("已恢复上次的本地改动（点「重置」可回到初始版面）");
@@ -586,4 +634,45 @@ if(GH.token) ghConnect(true);
 (async function () { ghBaseSha = await ghReadSha(); })();
 const _bc = document.getElementById("bGhConn");
 if(_bc) _bc.onclick = () => ghConnect(false);
+
+/* ---------- 闲着的时候自动对齐线上 ----------
+   页面开久了手里的数据会落后（别人改的看不见）。这里在没人操作时悄悄把线上最新拉回来，
+   只更新「你没动过的页」，正在改的那页一律不碰。
+   不做整页刷新：role_pages.js 走 CDN 缓存（十分钟），刷新未必拿得到最新——
+   这样带时间戳直接取才真正绕得开。 */
+const IDLE_SYNC_MS = 3 * 60 * 1000;
+let lastAct = Date.now();
+for (const ev of ["mousemove", "mousedown", "keydown", "wheel", "touchstart", "input"])
+  addEventListener(ev, () => { lastAct = Date.now(); }, true);
+
+async function syncQuiet(){
+  if (GH.busy) return false;
+  const remote = await fetchRemotePages();
+  if (!remote) return false;
+  const mine = dirtyPages();
+  let changed = 0;
+  for (const k of Object.keys(remote)){
+    if (mine.indexOf(k) >= 0) continue;                 /* 正在改的页别动 */
+    if (pagePrint(remote[k]) === pagePrint(PAGES[k])) continue;
+    PAGES[k] = remote[k]; basePrint[k] = pagePrint(remote[k]); changed++;
+  }
+  let dropped = 0;
+  for (const k of Object.keys(PAGES)){
+    if (k in remote) continue;
+    if (mine.indexOf(k) >= 0) continue;
+    delete PAGES[k]; delete basePrint[k]; dropped++; changed++;
+  }
+  if (dropped && !(curPage in PAGES)) curPage = Object.keys(PAGES)[0] || "";
+  if (changed) {
+    if (mine.indexOf(curPage) < 0) loadPage(curPage);
+    flash("已同步线上最新版面（" + changed + " 页）");
+  }
+  return changed > 0;
+}
+
+setInterval(() => {
+  if (Date.now() - lastAct < IDLE_SYNC_MS) return;
+  lastAct = Date.now();          /* 同一段空闲里只跑一次 */
+  syncQuiet();
+}, 60 * 1000);
 </script></body></html>
