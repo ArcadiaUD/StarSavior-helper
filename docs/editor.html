@@ -2243,6 +2243,7 @@ async function selfFingerprint(){
   } catch (e) { return null; }
 }
 (async () => { selfFp = await selfFingerprint(); })();
+let lastSeenSha = null;          /* 上次看到的线上存档版本，用来提示"别人也改过" */
 setInterval(async () => {
   if (Date.now() - lastAct < IDLE_CHECK_MS) return;
   lastAct = Date.now();
@@ -2255,6 +2256,17 @@ setInterval(async () => {
       u.searchParams.set("r", Date.now());
       location.replace(u.toString());
     }, 900);
+    return;
+  }
+  /* 顺带看看线上数据有没有被别人改过。这里只提示、不自动覆盖你手上的编辑：
+     真去保存的时候本来就会先合并，这里只是让你知道"有新的了"。 */
+  if (!GH.canPush) return;                   /* 没连令牌就别去打扰接口 */
+  const sha = await ghReadSha();
+  if (!sha) return;
+  if (lastSeenSha === null) lastSeenSha = sha;
+  else if (sha !== lastSeenSha){
+    lastSeenSha = sha;
+    flash("线上榜单有更新（别人改过），点「载入线上存档」可看最新");
   }
 }, 60 * 1000);
 </script></body></html>
