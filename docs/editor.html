@@ -2223,4 +2223,38 @@ async function exportBoardImage(){
 document.getElementById("bExp").onclick = exportBoardImage;
 
 render();
+
+/* ---------- 闲着的时候：发现编辑器有新版本就自己重载 ----------
+   页面一旦打开，代码就在内存里跑，服务端改了文件不会影响它，只能靠重新加载。
+   这里在没人操作时对一下线上那份页面的指纹，变了就带时间戳重载一次，省得大家手动强刷。
+   走 raw 直连 + 时间戳，绕开 CDN 的十分钟缓存。 */
+const SELF_RAW = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/editor.html";
+const IDLE_CHECK_MS = 3 * 60 * 1000;
+let selfFp = null;
+let lastAct = Date.now();
+for (const ev of ["mousemove", "mousedown", "keydown", "wheel", "touchstart", "input"])
+  addEventListener(ev, () => { lastAct = Date.now(); }, true);
+const fpOf = s => { let h = 5381; for (let i = 0; i < s.length; i += 71) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0; return h + ":" + s.length; };
+async function selfFingerprint(){
+  try {
+    const r = await fetch(SELF_RAW + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return null;
+    return fpOf(await r.text());
+  } catch (e) { return null; }
+}
+(async () => { selfFp = await selfFingerprint(); })();
+setInterval(async () => {
+  if (Date.now() - lastAct < IDLE_CHECK_MS) return;
+  lastAct = Date.now();
+  if (GH.busy) return;                       /* 正在写仓库，别打断 */
+  const fp = await selfFingerprint();
+  if (fp && selfFp && fp !== selfFp){
+    flash("编辑器有新版本，正在重新载入…");
+    setTimeout(() => {
+      const u = new URL(location.href);
+      u.searchParams.set("r", Date.now());
+      location.replace(u.toString());
+    }, 900);
+  }
+}, 60 * 1000);
 </script></body></html>

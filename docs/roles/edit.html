@@ -645,6 +645,21 @@ let lastAct = Date.now();
 for (const ev of ["mousemove", "mousedown", "keydown", "wheel", "touchstart", "input"])
   addEventListener(ev, () => { lastAct = Date.now(); }, true);
 
+/* 空闲时顺便对一下「页面代码」有没有更新：我改过编辑器的话，大家手里还是旧页面，
+   得手动强刷才生效。这里在没人操作时比一比线上那份的指纹，变了就自己重载一次。
+   走 raw 直连并带时间戳，绕开 CDN 的十分钟缓存。 */
+const SELF_RAW = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/roles/edit.html";
+let selfFp = null;
+const fpOf = s => { let h = 5381; for (let i = 0; i < s.length; i += 71) h = ((h * 33) ^ s.charCodeAt(i)) >>> 0; return h + ":" + s.length; };
+async function selfFingerprint(){
+  try {
+    const r = await fetch(SELF_RAW + "?t=" + Date.now(), { cache: "no-store" });
+    if (!r.ok) return null;
+    return fpOf(await r.text());
+  } catch (e) { return null; }
+}
+(async () => { selfFp = await selfFingerprint(); })();
+
 async function syncQuiet(){
   if (GH.busy) return false;
   const remote = await fetchRemotePages();
@@ -670,9 +685,20 @@ async function syncQuiet(){
   return changed > 0;
 }
 
-setInterval(() => {
+setInterval(async () => {
   if (Date.now() - lastAct < IDLE_SYNC_MS) return;
   lastAct = Date.now();          /* 同一段空闲里只跑一次 */
+  if (GH.busy) return;           /* 正在写仓库，别打断 */
+  const fp = await selfFingerprint();
+  if (fp && selfFp && fp !== selfFp){
+    flash("编辑器有新版本，正在重新载入…");
+    setTimeout(() => {
+      const u = new URL(location.href);
+      u.searchParams.set("r", Date.now());   /* 带时间戳重载，绕开 CDN 缓存 */
+      location.replace(u.toString());
+    }, 900);
+    return;
+  }
   syncQuiet();
 }, 60 * 1000);
 </script></body></html>
