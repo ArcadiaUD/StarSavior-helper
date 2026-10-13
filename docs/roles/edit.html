@@ -100,19 +100,20 @@
 const S0 = window.ROLE_SHEET;
 const PAGES = window.ROLE_PAGES || {};           /* 全部角色分页 */
 /* 素材地址一律清成相对路径：早先本地实验台把 http://127.0.0.1:8915/… 这种本机地址写进了数据，
-   拿到线上就全看不见（项链、戒指那两张每页都用的图就是这样丢的）。进页面先清一遍，
-   之后存回去的也就是干净的。 */
-(function stripLocalHost(){
+   拿到线上就全看不见（项链、戒指那两张每页都用的图就是这么丢的）。
+   注意光在载入时清不够——restore() 会拿浏览器里的旧存档盖回来，所以恢复之后还得再清一次。 */
+function stripLocalImgs(){
   const pat = /^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//;
-  for (const pg of Object.values(PAGES)){
-    const im = pg && pg.imgs;
-    if (!im) continue;
-    for (const k of Object.keys(im)){
-      const s = im[k] && im[k].src;
-      if (typeof s === "string" && pat.test(s)) im[k].src = s.replace(pat, "");
+  const fix = obj => {
+    if (!obj) return;
+    for (const k of Object.keys(obj)){
+      const s = obj[k] && obj[k].src;
+      if (typeof s === "string" && pat.test(s)) obj[k].src = s.replace(pat, "");
     }
-  }
-})();
+  };
+  for (const pg of Object.values(PAGES)) fix(pg && pg.imgs);
+  fix(imgs);
+}
 let curPage = Object.keys(PAGES)[0] || "";
 /* 上次停在哪个角色：刷新后回到那一页，别让存档里别的页的文字/图塞进第一页 */
 try {
@@ -562,6 +563,7 @@ document.getElementById("file").onchange = e => {
 })();
 
 const restored = restore();
+stripLocalImgs();             /* 浏览器里存的旧存档可能还带着本机地址，渲染前再清一遍 */
 render();
 save();                       /* 打开就同步一次：助手那边立刻能看到你现在的版面 */
 if (restored) flash("已恢复上次的本地改动（点「重置」可回到初始版面）");
