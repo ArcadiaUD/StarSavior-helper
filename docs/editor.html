@@ -933,7 +933,7 @@ function changed() {
     out.push({ slot: s.id, group: s.group, name: s.name,
                content: empty ? null : cid,
                contentName: empty ? null : (findSlot(cid) || s).name,
-               art: a ? { src: a.src, char: a.char, form: a.form } : null,
+               art: a ? { src: relLocal(a.src), char: a.char, form: a.form } : null,
                char: ch ? c : null, form: f || null,
                textChanged: textChanged, text: textChanged ? st : null,
                textFrom: s.text ? s.text.from : null,
@@ -1163,6 +1163,9 @@ async function fetchRemoteJson(rel){
   }
   return null;
 }
+/* 素材地址一律清成本机与线上都能用的相对路径：
+   早先本地实验台把 http://127.0.0.1:8915/… 这类本机地址写进了数据，拿到线上就全看不见。 */
+const relLocal = s => String(s || "").replace(/^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//, "");
 function keyedBy(arr, key){
   const m = new Map();
   for (const x of (arr || [])) if (x && x[key] !== undefined) m.set(x[key], x);
@@ -1249,7 +1252,7 @@ function applyArchive(d) {
   for (const l of d.slots || []) {
     if (l.content === null) edit.place[l.slot] = EMPTY;
     else if (l.content !== undefined) edit.place[l.slot] = l.content;
-    if (l.art) edit.art[l.slot] = l.art;
+    if (l.art) edit.art[l.slot] = Object.assign({}, l.art, { src: relLocal(l.art.src) });
     if (l.char) edit.char[l.slot] = l.char + (l.form ? "|" + l.form : "");
     if (l.textChanged) edit.slotText[l.slot] = l.text || "";
   }
@@ -2092,7 +2095,7 @@ document.getElementById("file").onchange = e => {
       for (const l of data.slots || []) {
         if (l.content === null) edit.place[l.slot] = EMPTY;
         else if (l.content !== undefined) edit.place[l.slot] = l.content;
-        if (l.art) edit.art[l.slot] = l.art;
+        if (l.art) edit.art[l.slot] = Object.assign({}, l.art, { src: relLocal(l.art.src) });
         if (l.char) edit.char[l.slot] = l.char + (l.form ? "|" + l.form : "");
         else delete edit.char[l.slot];
         if (l.textChanged) edit.slotText[l.slot] = l.text || "";
@@ -2243,7 +2246,6 @@ async function selfFingerprint(){
   } catch (e) { return null; }
 }
 (async () => { selfFp = await selfFingerprint(); })();
-let lastSeenSha = null;          /* 上次看到的线上存档版本，用来提示"别人也改过" */
 setInterval(async () => {
   if (Date.now() - lastAct < IDLE_CHECK_MS) return;
   lastAct = Date.now();
@@ -2258,15 +2260,31 @@ setInterval(async () => {
     }, 900);
     return;
   }
-  /* 顺带看看线上数据有没有被别人改过。这里只提示、不自动覆盖你手上的编辑：
-     真去保存的时候本来就会先合并，这里只是让你知道"有新的了"。 */
+  /* 空闲时把线上别人的改动并进来：自己动过的格位一律不动，只补别人改过的。
+     用的就是保存时那套合并，方向反过来而已。 */
   if (!GH.canPush) return;                   /* 没连令牌就别去打扰接口 */
-  const sha = await ghReadSha();
-  if (!sha) return;
-  if (lastSeenSha === null) lastSeenSha = sha;
-  else if (sha !== lastSeenSha){
-    lastSeenSha = sha;
-    flash("线上榜单有更新（别人改过），点「载入线上存档」可看最新");
+  const remote = await fetchRemoteJson(GH.path);
+  if (remote){
+    const mine = exportData();
+    const merged = mergeBoardArchive(remote, mine);
+    if (JSON.stringify(merged) !== JSON.stringify(mine)){
+      applyArchive(merged);
+      flash("已同步线上最新榜单（别人改过的部分）");
+    }
+  }
+  if (typeof SC_PATH === "string" && scState.data){
+    const scRemote = await fetchRemoteJson(SC_PATH);
+    if (scRemote){
+      const mineSc = scArchive();
+      const mergedSc = mergeScArchive(scRemote, mineSc);
+      if (JSON.stringify(mergedSc) !== JSON.stringify(mineSc)){
+        scState.data = Object.assign({}, scState.data, mergedSc);
+        scState.data.cards = (window.SC_BOARD || {}).cards;
+        scState.data.bases = Object.assign({}, (window.SC_BOARD || {}).bases, mergedSc.bases || {});
+        if (scState.view) scRender();
+        flash("已同步线上最新支援卡存档");
+      }
+    }
   }
 }, 60 * 1000);
 </script></body></html>
