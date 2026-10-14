@@ -9,14 +9,14 @@
   "notes": ""
  },
  "data": {
-  "version": "2026-10-05.1",
-  "min_app_version": "2.0.0",
-  "released_at": "2026-10-05T19:41:44+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-05.1/data-2026-10-05.1.zip",
-  "package_size": 21753786,
-  "sha256": "bbd70e4c3e314fc8b51199fcbdc905fa072c6ddf9a2e05575fccb8bac926ccab",
-  "total_size": 34654497,
-  "file_count": 1166,
+  "version": "2026-10-15.1",
+  "min_app_version": "2.5.0",
+  "released_at": "2026-10-15T03:08:23+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-15.1/data-2026-10-15.1.zip",
+  "package_size": 33515444,
+  "sha256": "f147ca217ea16a48cf4224608b61aa7b4d57028a0bc8a06e40502341b4107aca",
+  "total_size": 49810027,
+  "file_count": 1454,
   "stats": {
    "characters": 47,
    "arcanas": 82,
@@ -35,7 +35,7 @@
    "assets_cards": 82,
    "assets_faces": 56,
    "assets_portraits": 57,
-   "codex_icons": 945,
+   "codex_icons": 999,
    "kb_events": 1262,
    "option_index": 432,
    "option_index_twn": 428
@@ -1625,17 +1625,33 @@
     "size": 38732,
     "sha256": "db74fd9928d41dc3c49e0dd52db89b0b32ae8f9aac682cc6d7efccf5c5387a47"
    },
+   "assets/codex/NKM_UNIT_S_BUNNY_KNIGHT_ILLUST_UI.webp": {
+    "size": 24728,
+    "sha256": "e3bd86e823743db3c473f609fea648f8b31fb4601e0528a27a4e832dc1735108"
+   },
    "assets/codex/NKM_UNIT_S_BUNNY_PRAY_ILLUST.webp": {
     "size": 39140,
     "sha256": "75c6bf5234ee27614a443cacb82aed78fb118add684b9ce1cf0b068696fd636e"
+   },
+   "assets/codex/NKM_UNIT_S_BUNNY_PRAY_ILLUST_UI.webp": {
+    "size": 14172,
+    "sha256": "f764bfedb836e7f194793c6e07dbc8ce59c43e337aee206ab83d3d42c5644591"
    },
    "assets/codex/NKM_UNIT_S_BUNNY_SCISSORS_ILLUST.webp": {
     "size": 42154,
     "sha256": "568b3613661d4737fc3409e6bbbdcaabc4c4e4527eec90254a7bd094d181d40b"
    },
+   "assets/codex/NKM_UNIT_S_BUNNY_SCISSORS_ILLUST_UI.webp": {
+    "size": 20776,
+    "sha256": "d36c9082b468837627a0c6c51e37afe0978f7350ded8174cd6b80696e7104d2d"
+   },
    "assets/codex/NKM_UNIT_S_BUNNY_SPEAR_ILLUST.webp": {
     "size": 48258,
     "sha256": "0b2c01f5d6c68a66fedd1a3cbab7549aeb5ee5edc758d22d94cffb9667406dc4"
+   },
+   "assets/codex/NKM_UNIT_S_BUNNY_SPEAR_ILLUST_UI.webp": {
+    "size": 24690,
+    "sha256": "75a2555e97423855c101febfee0da68f8cc80a36c8256bdd9e164402a5720dd6"
    },
    "assets/codex/NKM_UNIT_S_CONSTRUCT_BOMB_ILLUST.webp": {
     "size": 51580,
@@ -1720,6 +1736,10 @@
    "assets/codex/NKM_UNIT_S_DRESS_STRANIS_ILLUST.webp": {
     "size": 39434,
     "sha256": "874bb3490423519d93702681ed950ba4923de1f15c5beeff229203cecbdc7a5b"
+   },
+   "assets/codex/NKM_UNIT_S_DRESS_STRANIS_ILLUST_UI.webp": {
+    "size": 23636,
+    "sha256": "0985ab308759527973b88b181bde4de465250435067acaf05efb2751d9a14fdc"
    },
    "assets/codex/NKM_UNIT_S_EASTERN_OWL_ILLUST.webp": {
     "size": 50488,
@@ -1973,9 +1993,17 @@
     "size": 42036,
     "sha256": "ed82f418080c2dced90efc37725604313a15ec0f115e532c9b7794d4fb2282b4"
    },
+   "assets/codex/NKM_UNIT_S_SUMMER_ORACLE_ILLUST_UI.webp": {
+    "size": 24436,
+    "sha256": "3702b9713118de4a460d1d6701b10011d364cd3eaaa3f7bc1204dd17afae328f"
+   },
    "assets/codex/NKM_UNIT_S_SUMMER_SMILE_ILLUST.webp": {
     "size": 49606,
     "sha256": "465ac5f0810088296d15d8695e7ee0e9b7e558596b848ed9c120cfa108d7c440"
+   },
+   "assets/codex/NKM_UNIT_S_SUMMER_SMILE_ILLUST_UI.webp": {
+    "size": 24026,
+    "sha256": "828ba5fc0852b3a03411796ecae23f3fcc53186e078acffafa37321a0f5d14a2"
    },
    "assets/codex/NKM_UNIT_S_VOYAGER_GUNBLADE_ILLUST.webp": {
     "size": 49250,
@@ -2013,9 +2041,17 @@
     "size": 49994,
     "sha256": "ae789d836c6e212a5165575673eb20b3b6594bf0c0e301cb400a150bb481b5a3"
    },
+   "assets/codex/NKM_UNIT_S_WEDDING_DUALSWORD_ILLUST_UI.webp": {
+    "size": 24394,
+    "sha256": "62433d31b384a1085a44d52f8fc94bcf6bc530215729a057d1be5bdc5dd0ad9f"
+   },
    "assets/codex/NKM_UNIT_S_WEDDING_SHIELDER_ILLUST.webp": {
     "size": 69658,
     "sha256": "72fee6ae27b53bef8c235f1eaf3b9582e8f3559c94bb2df7faa8cdc008f7c8db"
+   },
+   "assets/codex/NKM_UNIT_S_WEDDING_SHIELDER_ILLUST_UI.webp": {
+    "size": 29832,
+    "sha256": "d61fec831d0999823d7e4f4d86999bc37d3887bade1af2cfb9ad028dbb5ab8af"
    },
    "assets/codex/NKM_UNIT_S_WEST_BEAMSWORD_ILLUST.webp": {
     "size": 44574,
@@ -2269,6 +2305,70 @@
     "size": 1818,
     "sha256": "8f95585e2f56357855083d12e718bb742113f7923ea296c22c94dc5b4da01277"
    },
+   "assets/codex/SKILL_BUNNY_KNIGHT_ATTACK.webp": {
+    "size": 2330,
+    "sha256": "138fee211a8ac5ef1fb6060b0195c4801e7fb3e86dea7cb922f23c2eb17e814b"
+   },
+   "assets/codex/SKILL_BUNNY_KNIGHT_HYPER.webp": {
+    "size": 2874,
+    "sha256": "282caed4a42b41d213a3beaab53a350bbcab8e07aafa6a70a4fa92336797335c"
+   },
+   "assets/codex/SKILL_BUNNY_KNIGHT_SPECIAL.webp": {
+    "size": 2276,
+    "sha256": "b9221aa0c95e0776c6c174c83a167dff693fc9ef9f78247b57fb40448102b276"
+   },
+   "assets/codex/SKILL_BUNNY_KNIGHT_UNIQUE_PASSIVE.webp": {
+    "size": 1464,
+    "sha256": "5d9934e5ac6c7cb261caff773e6704d4f283a54b1b2f39292799df013860fe8f"
+   },
+   "assets/codex/SKILL_BUNNY_PRAY_ATTACK.webp": {
+    "size": 2434,
+    "sha256": "2eaedcd88c8d4cce524594a9bcf60850875c3f00cb4c21c2a013342975e5ccc7"
+   },
+   "assets/codex/SKILL_BUNNY_PRAY_HYPER.webp": {
+    "size": 2900,
+    "sha256": "946d9baab3df966d1509d985856997ee39aa076f80d190268e60b7818ec8fa91"
+   },
+   "assets/codex/SKILL_BUNNY_PRAY_SPECIAL.webp": {
+    "size": 2734,
+    "sha256": "d6a06be2d5b3e16c7097f12dc466244ae08f9e27c49c89deb63e1376f0c7f53e"
+   },
+   "assets/codex/SKILL_BUNNY_PRAY_UNIQUE_PASSIVE.webp": {
+    "size": 1940,
+    "sha256": "f58d661317979997d53cd27b2c214decc0b98515ff8a6d0216f6f9a321e0dfe4"
+   },
+   "assets/codex/SKILL_BUNNY_SCISSORS_ATTACK.webp": {
+    "size": 1990,
+    "sha256": "e348be03dbadb6957eed3fe0b8566f2a53496f4c5c735593d3cc3dc276e51ec2"
+   },
+   "assets/codex/SKILL_BUNNY_SCISSORS_HYPER.webp": {
+    "size": 2724,
+    "sha256": "927cf6a0fdaf84dae76e33935c2412d30d6b507752b1bc46ca0f29259b3062c6"
+   },
+   "assets/codex/SKILL_BUNNY_SCISSORS_SPECIAL.webp": {
+    "size": 2666,
+    "sha256": "e5db9488c805101848199e05498b9f0dc711963a8c8002ecda589a535596700c"
+   },
+   "assets/codex/SKILL_BUNNY_SCISSORS_UNIQUE_PASSIVE.webp": {
+    "size": 1586,
+    "sha256": "920e8cc0f6a5746ce825f1d12bd236aaaa344baebeefc0c158b02c1379a0c9a1"
+   },
+   "assets/codex/SKILL_BUNNY_SPEAR_ATTACK.webp": {
+    "size": 2208,
+    "sha256": "11ca3b8df2b7898c6cdefe8330c25163e8ca96a297b905407753a1319ed5e429"
+   },
+   "assets/codex/SKILL_BUNNY_SPEAR_HYPER.webp": {
+    "size": 3172,
+    "sha256": "a658c06f9ecb79f3fafa1cb999ef1d58adecbd1c4ec512b5db4128b65a2ab894"
+   },
+   "assets/codex/SKILL_BUNNY_SPEAR_SPECIAL.webp": {
+    "size": 2798,
+    "sha256": "d8b42d82a8daf55284cf6da74a2974bc5a6b8d01db5eb50a41dc78d52049441b"
+   },
+   "assets/codex/SKILL_BUNNY_SPEAR_UNIQUE_PASSIVE.webp": {
+    "size": 1794,
+    "sha256": "091da572010758effb9ad1bdf4c6a69a0a12777831d650e35662c41583dc4397"
+   },
    "assets/codex/SKILL_COMMON_BEAM_ATTACK.webp": {
     "size": 2580,
     "sha256": "3329545c0d258473bb726520ff36fc2bfdb27f7f79fd918dbaad36b040d97f60"
@@ -2484,6 +2584,22 @@
    "assets/codex/SKILL_DETECTIVE_WATSON_UNIQUE_PASSIVE.webp": {
     "size": 1566,
     "sha256": "a22a0c07a823fdc46fcb3717791d0402fc32e1ad2cc100dac781dbfa5241d0c2"
+   },
+   "assets/codex/SKILL_DRESS_STRANIS_ATTACK.webp": {
+    "size": 2448,
+    "sha256": "ff96113b33f7b9385fcf10d35c3d64078fe6b1657291d7b2cb7ee4d624b124cc"
+   },
+   "assets/codex/SKILL_DRESS_STRANIS_HYPER.webp": {
+    "size": 2738,
+    "sha256": "e8a793696330ec01792b1a94579c4ddc41509e48dab3161b2a7733d68062b51a"
+   },
+   "assets/codex/SKILL_DRESS_STRANIS_SPECIAL.webp": {
+    "size": 2886,
+    "sha256": "bb858dbfb9b85ecc603253bf88a3a391a543f0e1be1ba6a7ebbeb933bc0ff3a7"
+   },
+   "assets/codex/SKILL_DRESS_STRANIS_UNIQUE_PASSIVE.webp": {
+    "size": 1816,
+    "sha256": "cff98361e22b7bba94365595129b04ff39c4ad11202c8bdf859b84cb5c201961"
    },
    "assets/codex/SKILL_EASTERN_OWL_ATTACK.webp": {
     "size": 2490,
@@ -2961,6 +3077,38 @@
     "size": 1506,
     "sha256": "4488425affd5546630cc24dbfff06618cdfc5e7da33dca01d19ea22edd17bb75"
    },
+   "assets/codex/SKILL_SUMMER_ORACLE_ATTACK.webp": {
+    "size": 2526,
+    "sha256": "d11cbe646a0d0ffb816940a0695b8858cb0509b3a447d55437dfc597c47396d9"
+   },
+   "assets/codex/SKILL_SUMMER_ORACLE_HYPER.webp": {
+    "size": 2762,
+    "sha256": "06f7690a8166a9a4773cca476e62698c05a2cd443948fa862c527e9e45cb3ad6"
+   },
+   "assets/codex/SKILL_SUMMER_ORACLE_SPECIAL.webp": {
+    "size": 2460,
+    "sha256": "182e059491986c47d19f0a48bcda398ecf3b03c72d14f46157c7be2fa5901222"
+   },
+   "assets/codex/SKILL_SUMMER_ORACLE_UNIQUE_PASSIVE.webp": {
+    "size": 1654,
+    "sha256": "a3811b359f5ece077851e84ff1adb2a4ac757cdbf5afe27f2622680aee7f1cc3"
+   },
+   "assets/codex/SKILL_SUMMER_SMILE_ATTACK.webp": {
+    "size": 2656,
+    "sha256": "0b076685bcdf792209468fde8e59f1e20f0afb27f4c1414478e1806321bad805"
+   },
+   "assets/codex/SKILL_SUMMER_SMILE_HYPER.webp": {
+    "size": 2854,
+    "sha256": "160e0a5d0908f0e404d1c79184232c2879fe59bee27aedd4eedb4c60f34e6d31"
+   },
+   "assets/codex/SKILL_SUMMER_SMILE_SPECIAL.webp": {
+    "size": 2422,
+    "sha256": "95d32d5ea031d01c76cf53917b53e7f63ac39ac5e0293d392339b247e50a9fc2"
+   },
+   "assets/codex/SKILL_SUMMER_SMILE_UNIQUE_PASSIVE.webp": {
+    "size": 1520,
+    "sha256": "c9359784bab320242e5c6ac100e7a790e3e21a4ac849a67780d1d3413036874f"
+   },
    "assets/codex/SKILL_VOIDREAPER_SCYTHE_ATTACK.webp": {
     "size": 2532,
     "sha256": "da0b2def0294511cd96904d963df0ed94b2a6ca69144a505d77d5bf2ff8ba78e"
@@ -3040,6 +3188,38 @@
    "assets/codex/SKILL_WEAPON_BLADE_ATTACK.webp": {
     "size": 2296,
     "sha256": "b727822503951ce14e2aa2409e9d8b873edc4a3f6ddd1b38c67e408d6a484dd5"
+   },
+   "assets/codex/SKILL_WEDDING_DUALSWORD_ATTACK.webp": {
+    "size": 2310,
+    "sha256": "037c26dc0621979511297528be0cbfc83fae5885400a0e14d6d42b80f19abfe0"
+   },
+   "assets/codex/SKILL_WEDDING_DUALSWORD_HYPER.webp": {
+    "size": 2686,
+    "sha256": "bf7cf8be6fdae9acf13e3bc9cbe1539327c90fcfbed5a34649ec34983b7a10c4"
+   },
+   "assets/codex/SKILL_WEDDING_DUALSWORD_SPECIAL.webp": {
+    "size": 2880,
+    "sha256": "11740cfc09997dc90f52eaa23eee268ef46003426bff40ab7fba41f451bd0fb2"
+   },
+   "assets/codex/SKILL_WEDDING_DUALSWORD_UNIQUE_PASSIVE.webp": {
+    "size": 1476,
+    "sha256": "d23a4e30d0f2a361304f32d3acb358cb32dc08581666f0e5b586fabf86e58843"
+   },
+   "assets/codex/SKILL_WEDDING_SHIELDER_ATTACK.webp": {
+    "size": 2280,
+    "sha256": "9c21904992e967cf9df501f9fe72108a2f6580e89ecb6d65b1e07ac2009ecd78"
+   },
+   "assets/codex/SKILL_WEDDING_SHIELDER_HYPER.webp": {
+    "size": 2702,
+    "sha256": "a5087f3ed758aa59d3da040e9987a6af35fdf15c54f596be7622ab66f8a896f9"
+   },
+   "assets/codex/SKILL_WEDDING_SHIELDER_SPECIAL.webp": {
+    "size": 2670,
+    "sha256": "327882711f10e608377a95ead59dd1a4da4d8b0c54d1141445c9f5635a90055d"
+   },
+   "assets/codex/SKILL_WEDDING_SHIELDER_UNIQUE_PASSIVE.webp": {
+    "size": 1798,
+    "sha256": "84ed12eb4d714219a9929459599d92933382a7007f7db9b3223b510d1e222966"
    },
    "assets/codex/SKILL_WEST_BEAMSWORD_ATTACK.webp": {
     "size": 2106,
@@ -3405,6 +3585,22 @@
     "size": 7592,
     "sha256": "d263d7009a359286e11eafce9152cb499653a28636ec78bcfcf13dec3258fd36"
    },
+   "assets/codex/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp": {
+    "size": 9456,
+    "sha256": "2f7ea01311a10d1a856344a97aebda03c937ddd41f92a09c9382bd8d335ca1ce"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_BUNNY_PRAY.webp": {
+    "size": 7400,
+    "sha256": "459d86ada9547a08ea91cc25bf7008c76126d9f70bb17138c81c37cf9f42311a"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp": {
+    "size": 7026,
+    "sha256": "690bad1c2828f1303c87736e75b5f4a820560e9a8a80bf58b43ecd44ce6cf240"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp": {
+    "size": 7498,
+    "sha256": "fa31a1705334f4fa777aa962c257ea80c9845b5a8ce4c12897adb8d55da16165"
+   },
    "assets/codex/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp": {
     "size": 7468,
     "sha256": "446c302f23543e73017ee8441416926c90bccbcbc3f24139aaaedc6f27545b55"
@@ -3440,6 +3636,10 @@
    "assets/codex/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp": {
     "size": 7956,
     "sha256": "84595c0b6c3c365228c633c79e1b95300751854b4d250c0bee3ba6b3cca03428"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_DRESS_STRANIS.webp": {
+    "size": 7968,
+    "sha256": "97ef97bec707065593258bce80ac6a5abe937f39d139aef8c6b3a30c68fb7396"
    },
    "assets/codex/UFS_NKM_UNIT_S_EASTERN_OWL.webp": {
     "size": 7530,
@@ -3573,6 +3773,14 @@
     "size": 9174,
     "sha256": "0e55efad5771acf2f9527b6905ead261e56e1eeaae224c3865e1c57f3d812f3a"
    },
+   "assets/codex/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp": {
+    "size": 5818,
+    "sha256": "0b54ee52a6637e6e2319dc5c3c20d3e00e2848fab6125b4da8c12070c0d9b5d5"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_SUMMER_SMILE.webp": {
+    "size": 6986,
+    "sha256": "3fb45467eaf59b75a0f266d78748ac9c5e405ddcbe22081fdeb5cf5d6a7cd185"
+   },
    "assets/codex/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp": {
     "size": 6036,
     "sha256": "99f838cb87113e727019a255b629b5393cc7c8d513d05cb23728e253c0660d66"
@@ -3584,6 +3792,14 @@
    "assets/codex/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp": {
     "size": 6726,
     "sha256": "b43b8fc94b9e76cab6a74564a6d38c7777b0d51523544f85722c162249a4826c"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp": {
+    "size": 10034,
+    "sha256": "b047c0030d3b48034e0fd1b43b38d6f48e5919a599a23caad9e2669a0007837c"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp": {
+    "size": 6600,
+    "sha256": "a41ca54c01eba9b4547629133d94a99b3a54cbc537ed6e6d999b73e1457b7eae"
    },
    "assets/codex/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp": {
     "size": 7024,
@@ -4154,8 +4370,8 @@
     "sha256": "598869f01e8a9fbec6d2c9bb3da1aece80617c6ff5f60d5a1b9324140a16d531"
    },
    "assets/codex_index.json": {
-    "size": 114429,
-    "sha256": "0e1b440dc24830516cdf8122d5568b4666cea3c1ba72fcd526739da370fbfe7a"
+    "size": 121197,
+    "sha256": "e72ea26ea7d9f8e812cdbbb6ccda8302e08b4e7d77f2596b16529fcc9bd8b08d"
    },
    "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7998,
@@ -4613,6 +4829,938 @@
     "size": 19318,
     "sha256": "b36c10bcb1a74532121c5d70968114ddd563800ad65c03a0c664969e75e7fa7b"
    },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
+    "size": 7998,
+    "sha256": "d3b0b9512d1a401b3715142f6ab65930d7059228e851a729c78d40284def1583"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp": {
+    "size": 9996,
+    "sha256": "36cd3850cae840794f9ca41eb360460dc88ed67cf698fd33d0cb749638e932da"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp": {
+    "size": 7914,
+    "sha256": "4264a392bc286181f8bd768d6bac293650a63e4fe3768c63a646feb15f7dc1af"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp": {
+    "size": 7438,
+    "sha256": "d90d9bb8e94c8a871bc52786c31fdf5a0a783fbd60dd3b4d7f9cf81549f6e037"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp": {
+    "size": 8096,
+    "sha256": "58fc75902e3218f272d1135c1efc3b70760afeed1f83fc93726c61b94abc311b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp": {
+    "size": 7940,
+    "sha256": "4db18fa35a29b47f0b82265df97cc70d1ef143fb30225d4058ef6af2c5ed1f63"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp": {
+    "size": 7940,
+    "sha256": "d07c6c11714332740deb4c1e13317533198a99817a4fcc8eebae546d8881ad31"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp": {
+    "size": 8290,
+    "sha256": "0d4c70c537f1679174e421847a26cfadd3a72f67e59a8a14dd68c9a2370b3d84"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp": {
+    "size": 8028,
+    "sha256": "62a08070f5ab4ccb94b63892e396bab986b574b4f3224345b902814444acb92f"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp": {
+    "size": 6366,
+    "sha256": "1c9aae93a30cbcd15b65276e59e713c41ae9d9a711a07da96ae36f10e86b5a40"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
+    "size": 6644,
+    "sha256": "b634c3bc2ffc107b669a14383944dbe6f4ec16581ff21024d31daeaae57ea5be"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
+    "size": 6124,
+    "sha256": "15cfc2544eeb70dea4f6a5a23f883cd2e72ce8b2f29b84364a2c2463d4d00465"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp": {
+    "size": 8488,
+    "sha256": "299cd19417309728ea759c9acb329dc438e1ccc7b9e2909a122b319781187219"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp": {
+    "size": 8460,
+    "sha256": "93319173126cd3e1d83d6e2dc6798ecc7b940394b20817e14a8650b7227eab4b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp": {
+    "size": 8436,
+    "sha256": "96d849e66a015147fe3623c1698d72690734217487c518b7154823c849e4418b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp": {
+    "size": 7968,
+    "sha256": "4ca2039c834c0d5ea62fb18c7c37c08a68e238156b243047bf71da84f3b26b9c"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp": {
+    "size": 8852,
+    "sha256": "8b8926ad79fa7dbce2f90a5856418afde1fb31758eaeefe9b6aee0bb256f9360"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
+    "size": 8324,
+    "sha256": "7a31401aef50b304a25d7fa50b793d59f4cf1154136b98331d0995d6b0eecfc2"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
+    "size": 9452,
+    "sha256": "754fbc9241ff60a21f49da6aeddf804770f64a94dea9ca3afd8172688f31a682"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp": {
+    "size": 7612,
+    "sha256": "14611c3d91a11caf1345006e9d69718257831864636bfb10a4b8e1a42d8d9183"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp": {
+    "size": 9770,
+    "sha256": "57329332c47f56acd1ca34209c3f714f6ba53191386011771e61b6a4919bb1ab"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp": {
+    "size": 7360,
+    "sha256": "0a4a51a0133fee9d24657541bccf9f5f1749ffdc19a7c9618c0273622eec71de"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp": {
+    "size": 8848,
+    "sha256": "9a8b790b7a29d1b02afc622054a23787ca5ae11f0a7d6e5073fe6f1e4bee9fd7"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp": {
+    "size": 8000,
+    "sha256": "5b11216e6eb1f65c4bd86650be22ad0ded5e3958eb243c15163c3320b28d045d"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp": {
+    "size": 7458,
+    "sha256": "e0e565e4351e9342bc46313ced8d0ed5166f06fc5a63819e6b82c55c38d9b3fc"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_LPU_POST.webp": {
+    "size": 7322,
+    "sha256": "118f95d9a0a391f576e2be8b4c7164cb5cc69312c853ad166dab3dbdeef0db39"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp": {
+    "size": 9404,
+    "sha256": "8eb32782a738e0729458d2805450cbe53699c467a1673d6b8f44bca0fb3957f2"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp": {
+    "size": 8884,
+    "sha256": "780181b7d60d5e024b5965578438e907b33bb2a55cea6d4fe8c073f8c7e0607a"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAID_BELL.webp": {
+    "size": 6546,
+    "sha256": "d765d960514078c7e3824fba56ef42669434b806e32d676cc2883eda69e1a9a2"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp": {
+    "size": 8306,
+    "sha256": "a294829bc209bd898921828c6546a96e2494c25ead2d64035404ca4e33d58b8b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp": {
+    "size": 7308,
+    "sha256": "b68469f7c1c90dfcaffc9d13be2455d1afabc478333c2d89c7726b05f6bb71cd"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp": {
+    "size": 8002,
+    "sha256": "24fb1bb0c92841b698b72f1bb2561d2c0916a302bfb10b804c429ff837e3edf8"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp": {
+    "size": 8008,
+    "sha256": "893cd4d7234b3c67908548af95bec52d6e8dea58a048dcbebf8433f59624e9c4"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp": {
+    "size": 9296,
+    "sha256": "01d4d8c583f521d9914067967dda1646db6911af2583efe2bf88f18e4c89bcfd"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp": {
+    "size": 8632,
+    "sha256": "3fc7863d172574dd73a5c51addf3548b7573a347ae3eea15ade2ce0f52103b38"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp": {
+    "size": 7976,
+    "sha256": "7204940bebce83442b26de827d89d805e897e7091a928144fb49072082799771"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp": {
+    "size": 7702,
+    "sha256": "f53c0e9d8c5964ddcb9c9e056b190d282d567ba703038ca7b6836aa5b72eda6a"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_RECON_AMULET.webp": {
+    "size": 8012,
+    "sha256": "65f67833c1db13b805e3fd0252c87b9b22fc5b6f557350a2d19bf41122f37e97"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp": {
+    "size": 7524,
+    "sha256": "d73034e5b4d3b52c03eee23e09a3de2cfb5c238fb8f1e60921887afe5501089c"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp": {
+    "size": 8644,
+    "sha256": "55803cca0ba98108b726e01df7c002c7f0bcc21d52e169db49e156be16f692ff"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp": {
+    "size": 7700,
+    "sha256": "5a0e8311a4f01e24150907a9a5d4220e688e5c300652427733341c32ead74809"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp": {
+    "size": 9054,
+    "sha256": "6b7e0450c25f80205ce0ecc0cf58b72e95b48763d8b3d424f6e94c3dbc3a2b18"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp": {
+    "size": 8112,
+    "sha256": "6de1e9faa94ddbc98d47c90562dca605005f6b848eeb4a034aa817fdd1724304"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp": {
+    "size": 9828,
+    "sha256": "09f0495d6b7ccd87c7dfb9b12f1ac9c07679f7f0a76f24bb9a237f7f0d0ded40"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp": {
+    "size": 6374,
+    "sha256": "5fb21af482b2adf75364e429c1ae8fc60c766b1ddbaebf36a664e211f2567f19"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp": {
+    "size": 7498,
+    "sha256": "4576e5c7791ae2bc8b63392fa22c9004ada941e335c56e913a0950c481264852"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp": {
+    "size": 6468,
+    "sha256": "970c5b13324bd6bfd06d53a45000ab02824608024adb3a5e23f94e2bb86feb4d"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp": {
+    "size": 7530,
+    "sha256": "3934495babc06152e15f0b24497c77458c86a634c221886f1f9b55e36d98bc2b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp": {
+    "size": 7166,
+    "sha256": "5a251fda86c391bc0a2a679364ac9718636c3bff2001ba7d009e56dddf8c8e1b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp": {
+    "size": 10508,
+    "sha256": "43fe19d77b3645549165454c1adf4529bb0789a66e480e51b908f5f4ae1880be"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp": {
+    "size": 7152,
+    "sha256": "47dc90482a98ee1d2b427e65f00e2e5161c784cd39b3a1dba3d27f728e2cce14"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp": {
+    "size": 7400,
+    "sha256": "4633f0150bcbe58e2fdd41a387647a820202825988198c7b1bae6423bfb9ff31"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_WEST_LANCER.webp": {
+    "size": 8934,
+    "sha256": "c817a9668d37f7f9ef52971e65700babc201980063c9a03c9f81cdd3b9d0734b"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_WEST_ROD.webp": {
+    "size": 7988,
+    "sha256": "ee13b064dce5804f9c96d489f6e079095a467bbe78048b0f54e5db2714f53063"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_WILD_HOG.webp": {
+    "size": 7900,
+    "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
+   },
+   "assets/role_sheet/role_icons/card/7100301.webp": {
+    "size": 23746,
+    "sha256": "b331e531cdce5ea55763f18615a0d8b8cb28e25b1c542a8647f63990f00b865a"
+   },
+   "assets/role_sheet/role_icons/card/7100501.webp": {
+    "size": 29788,
+    "sha256": "037b62d3f483165a49a7e0aa53e728a755bff693aa1c994af129209738b2e327"
+   },
+   "assets/role_sheet/role_icons/card/7100801.webp": {
+    "size": 21344,
+    "sha256": "490f3c4e0aead15140e55b108080248048d808f912b384531379d548a78c5c9a"
+   },
+   "assets/role_sheet/role_icons/card/7100901.webp": {
+    "size": 22532,
+    "sha256": "ee6f1046e4f42063dd7de5d8f99daa1f949d1223daad020cda014f4edb7b64dc"
+   },
+   "assets/role_sheet/role_icons/card/7101001.webp": {
+    "size": 19284,
+    "sha256": "a74d5501656cef87e27c0e95776c01101adde72e9d2fe79ab0e96bf1d604ccc4"
+   },
+   "assets/role_sheet/role_icons/card/7101301.webp": {
+    "size": 26796,
+    "sha256": "0029372a651b2cacd3668b1de1396555d0f9f547e0b03ed3a3d4226a520dffcf"
+   },
+   "assets/role_sheet/role_icons/card/7101601.webp": {
+    "size": 24222,
+    "sha256": "c6eb9d35590542b23437b0f8851e096957585c044579d01507ba434927b6fefe"
+   },
+   "assets/role_sheet/role_icons/card/7101602.webp": {
+    "size": 27266,
+    "sha256": "b982574c2ab88657a94a6d0dc397e4ae24671e6ec140796e6ef737b14b0584ea"
+   },
+   "assets/role_sheet/role_icons/card/7101701.webp": {
+    "size": 17548,
+    "sha256": "850f3871a366c5b7f71efa64c6453dd3d8d27351253f3c1eda83d3e1778b31c8"
+   },
+   "assets/role_sheet/role_icons/card/7102401.webp": {
+    "size": 18940,
+    "sha256": "c886b43225cb77bf7f76e6595a9780caad71631692882d8d3f40fbc398197430"
+   },
+   "assets/role_sheet/role_icons/card/7102501.webp": {
+    "size": 26172,
+    "sha256": "b929411995e6bbaaeefbd16cdf6c09e53423f05ec9e5d5e3e395ea24ec480c00"
+   },
+   "assets/role_sheet/role_icons/card/7103101.webp": {
+    "size": 22364,
+    "sha256": "43e73029dfa4b85e131b2d97153c1f9532bd7af296a42c1ac7d911fd45f258b2"
+   },
+   "assets/role_sheet/role_icons/card/7103302.webp": {
+    "size": 29156,
+    "sha256": "1d4a0ec902fc3900a135120e5aa9be45b13c47a756b8a6116bd0f3f176d99ff9"
+   },
+   "assets/role_sheet/role_icons/card/7103901.webp": {
+    "size": 20924,
+    "sha256": "f5997d01b5aa37c7e7a2aba3b5e0757683da42a7d6f268dbf233e3f54af4fa4e"
+   },
+   "assets/role_sheet/role_icons/card/7104001.webp": {
+    "size": 24670,
+    "sha256": "050e51158d29f48d0fed02c9dcf8b0639d2ea3f1c46b66c906ec57ddee066fba"
+   },
+   "assets/role_sheet/role_icons/card/7104101.webp": {
+    "size": 23556,
+    "sha256": "3f43f5f7f142fd49d4705b96b363c2c913b02fe61e2d9cb2e7cd6c01f333487c"
+   },
+   "assets/role_sheet/role_icons/card/7104201.webp": {
+    "size": 27070,
+    "sha256": "d8da8c6b1c2348d5f7fa4700911f4d12b9c7502ada2195142571e8d8aef0280b"
+   },
+   "assets/role_sheet/role_icons/card/7104401.webp": {
+    "size": 27294,
+    "sha256": "d09a325250e2dab03c08866e26e8ff65aaae1f73551054c82761f47b84439144"
+   },
+   "assets/role_sheet/role_icons/card/7104501.webp": {
+    "size": 24974,
+    "sha256": "33f6a03581659e2326d655ae84bcc5b2297e53fed9c25d053851f1ed362c71f3"
+   },
+   "assets/role_sheet/role_icons/card/7104601.webp": {
+    "size": 28752,
+    "sha256": "9e9be78927c23454396c776ab3f4a26ccf92476324a4794b3e0040f18b72ba36"
+   },
+   "assets/role_sheet/role_icons/card/7104901.webp": {
+    "size": 18206,
+    "sha256": "bfdd249ef1bfa92d0107cac33810e072b9e9460e11f9cbefc74bf02e5768b733"
+   },
+   "assets/role_sheet/role_icons/card/7105301.webp": {
+    "size": 23230,
+    "sha256": "25cc5c03e2a0af69985af2d741e7cabe8d4ca8e4cd811a603fc6dbe92ceecbca"
+   },
+   "assets/role_sheet/role_icons/card/7105401.webp": {
+    "size": 21844,
+    "sha256": "87e6c4fe6546e4761607f91203962d9a6559447655129c18a7e030da2f0918f2"
+   },
+   "assets/role_sheet/role_icons/card/7105501.webp": {
+    "size": 22614,
+    "sha256": "47c147fa0738964046e8943c2a16eb323d0c515475455437e3d980d21369abd1"
+   },
+   "assets/role_sheet/role_icons/card/7105701.webp": {
+    "size": 31510,
+    "sha256": "e1a33369041d65a9fcaaef038e8eb251a9ec23c49f192c0ea458d0d9bc23e168"
+   },
+   "assets/role_sheet/role_icons/card/7105801.webp": {
+    "size": 26192,
+    "sha256": "786abf69312238ab366d8eb91b85216900989a17870f8386d4df9e485a37d28f"
+   },
+   "assets/role_sheet/role_icons/card/7150101.webp": {
+    "size": 19732,
+    "sha256": "abeb3c7192e018f413e355bc9d5520bea187b823b9e43f8539ad0b6f2d6ac14c"
+   },
+   "assets/role_sheet/role_icons/card/7150201.webp": {
+    "size": 25476,
+    "sha256": "5708be9f935176b974d6e88584d2d61c58d557028c57483c55643474c188a18b"
+   },
+   "assets/role_sheet/role_icons/card/7150701.webp": {
+    "size": 20652,
+    "sha256": "2c280ff1fac41337afda8a3265138d244215a66edf5db23c57c50c7d22489342"
+   },
+   "assets/role_sheet/role_icons/card/7300101.webp": {
+    "size": 18938,
+    "sha256": "376edf7db51fe0903f6080e1656c3e75124fcda1207a4bc4341fa3d8ea887fa6"
+   },
+   "assets/role_sheet/role_icons/card/7300301.webp": {
+    "size": 20082,
+    "sha256": "535e0b7ca96e5428f2340bf9c5ce14d2881beb7396d2ef665a0d6194123527dd"
+   },
+   "assets/role_sheet/role_icons/necklace/EQUIP_COSMO_TIER_2_NECKLACE.webp": {
+    "size": 3526,
+    "sha256": "99458375107ca66699c8f89371cb9507232fd76d4c396ba556ca345b07a71361"
+   },
+   "assets/role_sheet/role_icons/ring/EQUIP_COSMO_TIER_2_RING.webp": {
+    "size": 4164,
+    "sha256": "ca234bc6c9568bbedf5a49ab51ff31d9f79ab14c942491d7aa914c036f1ce8e8"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_2P_ATK_RATE_EFFECT_EVADE.webp": {
+    "size": 2320,
+    "sha256": "7dba7705f2e540f6f34b3fc2178cf959bb049ae9860545db7a494d20d08c4738"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_2P_CRI_RATE.webp": {
+    "size": 1736,
+    "sha256": "a27bb624ab11b696bb08be5434080a10b3bfb0534b34c4671f6248088cb59187"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_2P_CRI_RATE_EFFECT_RATE.webp": {
+    "size": 2926,
+    "sha256": "82c5d21b27403a48ef9626d6ef2e214ae45c1c8689f74404ee82b2bc2d8ccc8c"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_2P_DEF_RATE.webp": {
+    "size": 1180,
+    "sha256": "00f6d472b28f5ecda3a306827d77b5ca4a61daaf26b6a7243258eea4b45a04cb"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_2P_EFFECT_EVADE.webp": {
+    "size": 2124,
+    "sha256": "f4347efbecf57870b59a3db138eaed168751b2b1ff862bc60abcb0ef990b5418"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_2P_EFFECT_RATE.webp": {
+    "size": 2628,
+    "sha256": "fe4da36998fb6f99997c94c0c1ae2bc2da25e504c7ccaf5a8a3ed888a6afae01"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_4P_ATK_RATE.webp": {
+    "size": 1476,
+    "sha256": "46b120e5a142fbeef16570c7edb593ff55bfd20b498f1f3ca1c6f2995fedf49b"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_4P_CRI_DMG.webp": {
+    "size": 1158,
+    "sha256": "53a6c4f94c76d2ca8a104ac343163d9fe54768a2a2cdce1577b2413895427050"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_4P_HP_RATE.webp": {
+    "size": 1170,
+    "sha256": "d3e382b023cf0679d84d199987e420d7e0d34a7b63549fdd4493c40659c5d9c1"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_4P_HP_RATE_EFFECT_EVADE.webp": {
+    "size": 2252,
+    "sha256": "8e21ff77eb450c839b3cab920cea7044133953d86e0b131fc293aa9561a08f74"
+   },
+   "assets/role_sheet/role_icons/set/ICON_SET_4P_TURN_SPD.webp": {
+    "size": 1644,
+    "sha256": "14d19ea65ca7dc4890f2c6bd74dec38e988e6fbdb5a5da3ccff0e7b54efef8ec"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_ARMOR.png": {
+    "size": 90482,
+    "sha256": "f14ea81f917aebc212a3fa26273ae6a66270ad315cf70d17e6b29c2426b209ff"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_CLOAK.png": {
+    "size": 72089,
+    "sha256": "bdf38c910197398b0e7c1ea08f35e697d8e6a8cc53ee7aad9306df196c0e87c1"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_GLASSES.png": {
+    "size": 58529,
+    "sha256": "dcd65745ed89500a8ff7a2f4e1b1f24c2fa73e5e83e277ab7e961c963a1596f5"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_GLOVE.png": {
+    "size": 83337,
+    "sha256": "84c19d830657ce89cfe3562e876c506a73f2be54932456ef3e83e9b89830887b"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_HAT.png": {
+    "size": 88208,
+    "sha256": "15292a59ff6f3df6eacc28556e0aa2f4f3f232f34e5a03506dbdc5348981e76f"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_PANTS.png": {
+    "size": 84884,
+    "sha256": "ebb57c815dd89d325d7d4bc8e04403ea23c9bb7d7fa2b1e03c14ca422096699f"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_SHOES.png": {
+    "size": 88434,
+    "sha256": "a8cfe0f4aa57b28babb07a333dea26c4dff7d96c4ce5eea40bd3f6b243aabcd2"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_ARMOR.png": {
+    "size": 96878,
+    "sha256": "abf82e67ff377b0cff595339bc7e9365d28459bea1ef3e2343fc13e2e94ae49e"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_CLOAK.png": {
+    "size": 97665,
+    "sha256": "d3a6732b75a52b262ef87772b806d887755b3af01a2f0134e2609f9e0f995890"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_GLASSES.png": {
+    "size": 60128,
+    "sha256": "d252876458e8160f0a62c1b5e8b4b382c927c132384282083d5d0b50b333f82f"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_GLOVE.png": {
+    "size": 81706,
+    "sha256": "7fc540528b0f965713c5f7ebfa0984e97a648325184ba687588d6cf378fa6981"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_HAT.png": {
+    "size": 79675,
+    "sha256": "c616f239745391f980672570c4aae844e854299fa07b79d9261b5ab5cc784054"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_PANTS.png": {
+    "size": 83015,
+    "sha256": "bb29477de021dea7d35acd579b7531bc8c59107b67843f91579dd39b9683d8e8"
+   },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_SHOES.png": {
+    "size": 77107,
+    "sha256": "28e3a101896d808335b69c2b7c61b2f0165d05c32bae2175741f8e9ee811049b"
+   },
+   "assets/tier/board/board.js": {
+    "size": 5890,
+    "sha256": "c2b02c78a9df02a93a3b616984ec6ff2c677a390c06f47937928ab57b13a0d69"
+   },
+   "assets/tier/board/board.json": {
+    "size": 40427,
+    "sha256": "36fed2a92c23b036d34358e65f33ad77fbf3a0b5205418af0ec0ef0f0dc75f0f"
+   },
+   "assets/tier/board/layers/DM_20260814174448_001.png": {
+    "size": 59580,
+    "sha256": "d42d0b3d4eeae581d31ae5835ac01faad63aec9cfc1ce4282cbc7084c8763d22"
+   },
+   "assets/tier/board/layers/UI_CHAT_EMO_CHAR_04.png": {
+    "size": 172112,
+    "sha256": "0339d6b4d72859205f25388661d8b36e1a65122e9bf4f2a21b930563d3deb120"
+   },
+   "assets/tier/board/layers/UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01.png": {
+    "size": 179993,
+    "sha256": "fe2f3b62f339a431afceb8889463a86a2f946683498c5dc2e76471ca2bbb86f6"
+   },
+   "assets/tier/board/layers/人物持立牌图片.png": {
+    "size": 247344,
+    "sha256": "cd0d82bb40ff230120a4c3bd09e9549cb3a5d7d270d7045da5c3a5b1ccad8809"
+   },
+   "assets/tier/board/layers/光系__光标.png": {
+    "size": 17320,
+    "sha256": "af53482980ce0488107de0d277776659f79dae9a2cbf70312082786d2ac3b1c4"
+   },
+   "assets/tier/board/layers/光系__矩形 1.png": {
+    "size": 15117,
+    "sha256": "8f5fc91553305dff086cb92f49f031322679edc81ec3b1f05fbce9ed3d0eeee3"
+   },
+   "assets/tier/board/layers/图层 1.png": {
+    "size": 351369,
+    "sha256": "8e18cd6f067ff35eff843437c2497db24931355c3c69eed45cc475adc8ef15b8"
+   },
+   "assets/tier/board/layers/底边.png": {
+    "size": 168758,
+    "sha256": "e1a712366ea8ce034767664cc45f6f9cf64ad4efa5b7f8c7d173dcabae321c80"
+   },
+   "assets/tier/board/layers/暗系__光标.png": {
+    "size": 17892,
+    "sha256": "4de06b27f8aefab81deef11fb9174383ba4337ab167de63339f38fcef4917207"
+   },
+   "assets/tier/board/layers/暗系__矩形 1.png": {
+    "size": 15118,
+    "sha256": "ef067a63a40d5880af35a1aa0fa3ee71ba64ce5dd9d5af9a4247b7a87e6c24bf"
+   },
+   "assets/tier/board/layers/水系__光标.png": {
+    "size": 18497,
+    "sha256": "76375d06dcfe6afe8a17bb966e2a9e45621c1c9cba62e6cf929a479bbcf7e2e0"
+   },
+   "assets/tier/board/layers/水系__矩形 1.png": {
+    "size": 15116,
+    "sha256": "1e8de6d5a98457fa731d29fcd645baab13c55754ca16ddb91e0c1d2e2a84711c"
+   },
+   "assets/tier/board/layers/火系__光标.png": {
+    "size": 17692,
+    "sha256": "53c4d436ed08f7ce6b90c11baafc5888c86f4fc7f9be096131fcf4356c6cae73"
+   },
+   "assets/tier/board/layers/火系__矩形 1.png": {
+    "size": 15112,
+    "sha256": "ef8f96736502921f7a88dee21a24084f17592fd6b7cf8be0bf7835cabc80b439"
+   },
+   "assets/tier/board/layers/特别感谢.png": {
+    "size": 24605,
+    "sha256": "a95854e196407d10c3a868d9a81ad613914cd9186a07028ad06d502accf57b2f"
+   },
+   "assets/tier/board/layers/背景.png": {
+    "size": 2054130,
+    "sha256": "b9793e879a4064156072458d7899ace90095ef9437bd6c51d3e895997e4df2d4"
+   },
+   "assets/tier/board/layers/草系__光标.png": {
+    "size": 19629,
+    "sha256": "51ad0a187982434752464d6b19c883f3630d6193e12c43c588c590ab9a71e803"
+   },
+   "assets/tier/board/layers/草系__矩形 1.png": {
+    "size": 15116,
+    "sha256": "e2c61ffc558306b214e2d13186cc686f87cb339d61496db0a58b798c4d91af75"
+   },
+   "assets/tier/sc/cards/7040101.webp": {
+    "size": 26158,
+    "sha256": "fe050baec5f4a34fc644621c16b61894fe389f018b119a071a65e8db186bbfa9"
+   },
+   "assets/tier/sc/cards/7100301.webp": {
+    "size": 23746,
+    "sha256": "b331e531cdce5ea55763f18615a0d8b8cb28e25b1c542a8647f63990f00b865a"
+   },
+   "assets/tier/sc/cards/7100501.webp": {
+    "size": 29788,
+    "sha256": "037b62d3f483165a49a7e0aa53e728a755bff693aa1c994af129209738b2e327"
+   },
+   "assets/tier/sc/cards/7100801.webp": {
+    "size": 21344,
+    "sha256": "490f3c4e0aead15140e55b108080248048d808f912b384531379d548a78c5c9a"
+   },
+   "assets/tier/sc/cards/7100901.webp": {
+    "size": 22532,
+    "sha256": "ee6f1046e4f42063dd7de5d8f99daa1f949d1223daad020cda014f4edb7b64dc"
+   },
+   "assets/tier/sc/cards/7101001.webp": {
+    "size": 19284,
+    "sha256": "a74d5501656cef87e27c0e95776c01101adde72e9d2fe79ab0e96bf1d604ccc4"
+   },
+   "assets/tier/sc/cards/7101101.webp": {
+    "size": 24522,
+    "sha256": "ec0eaa54ad5c14be557f4f693421014d944918c8098f66de169dec913ed1b729"
+   },
+   "assets/tier/sc/cards/7101301.webp": {
+    "size": 26796,
+    "sha256": "0029372a651b2cacd3668b1de1396555d0f9f547e0b03ed3a3d4226a520dffcf"
+   },
+   "assets/tier/sc/cards/7101601.webp": {
+    "size": 24222,
+    "sha256": "c6eb9d35590542b23437b0f8851e096957585c044579d01507ba434927b6fefe"
+   },
+   "assets/tier/sc/cards/7101602.webp": {
+    "size": 27266,
+    "sha256": "b982574c2ab88657a94a6d0dc397e4ae24671e6ec140796e6ef737b14b0584ea"
+   },
+   "assets/tier/sc/cards/7101701.webp": {
+    "size": 17548,
+    "sha256": "850f3871a366c5b7f71efa64c6453dd3d8d27351253f3c1eda83d3e1778b31c8"
+   },
+   "assets/tier/sc/cards/7102101.webp": {
+    "size": 30264,
+    "sha256": "5ac11cbea76a17dad78e09a8aad9056783fec9cd261dcac60533f7e18de33c86"
+   },
+   "assets/tier/sc/cards/7102301.webp": {
+    "size": 25138,
+    "sha256": "a967fc91de2ab9bd10c5e7202e21e8d46c3d555c0585985460c95c67d9aae7cc"
+   },
+   "assets/tier/sc/cards/7102401.webp": {
+    "size": 18940,
+    "sha256": "c886b43225cb77bf7f76e6595a9780caad71631692882d8d3f40fbc398197430"
+   },
+   "assets/tier/sc/cards/7102501.webp": {
+    "size": 26172,
+    "sha256": "b929411995e6bbaaeefbd16cdf6c09e53423f05ec9e5d5e3e395ea24ec480c00"
+   },
+   "assets/tier/sc/cards/7102601.webp": {
+    "size": 18114,
+    "sha256": "886abb049ce87f987578b698c325cfb9cf7e8e4a52bdab9ff56130b514e656ae"
+   },
+   "assets/tier/sc/cards/7102901.webp": {
+    "size": 21658,
+    "sha256": "ef5fefaf2ec6ff2a5f610afd347e77a76d732d3f0a2a4d154994dc166ff66c15"
+   },
+   "assets/tier/sc/cards/7103101.webp": {
+    "size": 22364,
+    "sha256": "43e73029dfa4b85e131b2d97153c1f9532bd7af296a42c1ac7d911fd45f258b2"
+   },
+   "assets/tier/sc/cards/7103201.webp": {
+    "size": 24944,
+    "sha256": "80605a738f2d4fa41f53fd3e2aac210ff6cd665cc523f3aa3757cc2aa226cfa0"
+   },
+   "assets/tier/sc/cards/7103301.webp": {
+    "size": 18250,
+    "sha256": "ad847499ceaaf9d24992e875ff80fc1b7a06d37fb29317436e4199481daafaca"
+   },
+   "assets/tier/sc/cards/7103302.webp": {
+    "size": 29156,
+    "sha256": "1d4a0ec902fc3900a135120e5aa9be45b13c47a756b8a6116bd0f3f176d99ff9"
+   },
+   "assets/tier/sc/cards/7103901.webp": {
+    "size": 20924,
+    "sha256": "f5997d01b5aa37c7e7a2aba3b5e0757683da42a7d6f268dbf233e3f54af4fa4e"
+   },
+   "assets/tier/sc/cards/7104001.webp": {
+    "size": 24670,
+    "sha256": "050e51158d29f48d0fed02c9dcf8b0639d2ea3f1c46b66c906ec57ddee066fba"
+   },
+   "assets/tier/sc/cards/7104101.webp": {
+    "size": 23556,
+    "sha256": "3f43f5f7f142fd49d4705b96b363c2c913b02fe61e2d9cb2e7cd6c01f333487c"
+   },
+   "assets/tier/sc/cards/7104201.webp": {
+    "size": 27070,
+    "sha256": "d8da8c6b1c2348d5f7fa4700911f4d12b9c7502ada2195142571e8d8aef0280b"
+   },
+   "assets/tier/sc/cards/7104301.webp": {
+    "size": 29984,
+    "sha256": "da0f11ede26844a7b2f0a3481dcdd05bfb11c619fc770f7008b5eae2e1416fe9"
+   },
+   "assets/tier/sc/cards/7104401.webp": {
+    "size": 27294,
+    "sha256": "d09a325250e2dab03c08866e26e8ff65aaae1f73551054c82761f47b84439144"
+   },
+   "assets/tier/sc/cards/7104501.webp": {
+    "size": 24974,
+    "sha256": "33f6a03581659e2326d655ae84bcc5b2297e53fed9c25d053851f1ed362c71f3"
+   },
+   "assets/tier/sc/cards/7104601.webp": {
+    "size": 28752,
+    "sha256": "9e9be78927c23454396c776ab3f4a26ccf92476324a4794b3e0040f18b72ba36"
+   },
+   "assets/tier/sc/cards/7104901.webp": {
+    "size": 18206,
+    "sha256": "bfdd249ef1bfa92d0107cac33810e072b9e9460e11f9cbefc74bf02e5768b733"
+   },
+   "assets/tier/sc/cards/7105101.webp": {
+    "size": 25952,
+    "sha256": "f714757002de9b7dcd65323308d90214897440d43513603891b2f9b063fe6156"
+   },
+   "assets/tier/sc/cards/7105201.webp": {
+    "size": 21498,
+    "sha256": "ca5085006b9c7e6ccc2c56cea05d3c1794708c6e512b6a8a5d946dee44045b81"
+   },
+   "assets/tier/sc/cards/7105301.webp": {
+    "size": 23230,
+    "sha256": "25cc5c03e2a0af69985af2d741e7cabe8d4ca8e4cd811a603fc6dbe92ceecbca"
+   },
+   "assets/tier/sc/cards/7105401.webp": {
+    "size": 21844,
+    "sha256": "87e6c4fe6546e4761607f91203962d9a6559447655129c18a7e030da2f0918f2"
+   },
+   "assets/tier/sc/cards/7105501.webp": {
+    "size": 22614,
+    "sha256": "47c147fa0738964046e8943c2a16eb323d0c515475455437e3d980d21369abd1"
+   },
+   "assets/tier/sc/cards/7105601.webp": {
+    "size": 27024,
+    "sha256": "2a4f2244442129595a7fd0942ca72bfc74550453cda371dfff2c68d43e15bd52"
+   },
+   "assets/tier/sc/cards/7105701.webp": {
+    "size": 31510,
+    "sha256": "e1a33369041d65a9fcaaef038e8eb251a9ec23c49f192c0ea458d0d9bc23e168"
+   },
+   "assets/tier/sc/cards/7105801.webp": {
+    "size": 26192,
+    "sha256": "786abf69312238ab366d8eb91b85216900989a17870f8386d4df9e485a37d28f"
+   },
+   "assets/tier/sc/cards/7150101.webp": {
+    "size": 19732,
+    "sha256": "abeb3c7192e018f413e355bc9d5520bea187b823b9e43f8539ad0b6f2d6ac14c"
+   },
+   "assets/tier/sc/cards/7150201.webp": {
+    "size": 25476,
+    "sha256": "5708be9f935176b974d6e88584d2d61c58d557028c57483c55643474c188a18b"
+   },
+   "assets/tier/sc/cards/7150701.webp": {
+    "size": 20652,
+    "sha256": "2c280ff1fac41337afda8a3265138d244215a66edf5db23c57c50c7d22489342"
+   },
+   "assets/tier/sc/cards/7150801.webp": {
+    "size": 25598,
+    "sha256": "196905c9fa2ab2763f0b9f0499761939016d06168e69334a9fac9b1c9b3184b6"
+   },
+   "assets/tier/sc/cards/7300101.webp": {
+    "size": 18938,
+    "sha256": "376edf7db51fe0903f6080e1656c3e75124fcda1207a4bc4341fa3d8ea887fa6"
+   },
+   "assets/tier/sc/cards/7300201.webp": {
+    "size": 25258,
+    "sha256": "5d4a19a36e0f08c8890f52edeb943dcde7b09f92bc54957d0a6fd28d4db9a6ac"
+   },
+   "assets/tier/sc/cards/7300301.webp": {
+    "size": 20082,
+    "sha256": "535e0b7ca96e5428f2340bf9c5ce14d2881beb7396d2ef665a0d6194123527dd"
+   },
+   "assets/tier/sc/frames/T1功能角色__190530_zk9ua.webp": {
+    "size": 3716,
+    "sha256": "ea53f2aad1b4f9f305ab3bc15295e0d43f06f44e30d488a1b099841038a85484"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_006.webp": {
+    "size": 4000,
+    "sha256": "c03b5ea5f016eaf085074e95708559b42c0d125ffb45e66260041e1641ef6689"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_009.webp": {
+    "size": 3778,
+    "sha256": "246911dc0cf47959b5301023ddb35e5eb4e357e272656ffcbe207802a7ac40be"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_011.webp": {
+    "size": 3544,
+    "sha256": "e442626bf8f8b2bd8d43d73542bf9081280a2b6a2b220cf8a68be8c30dcf3394"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_012.webp": {
+    "size": 3710,
+    "sha256": "936b768dda27eeb1452375e15fb6148508f0d3510a73865edeb0e8b98decfe32"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_016.webp": {
+    "size": 3416,
+    "sha256": "1e4dd4213f35ae3826059837cae227e77bde434d02a8e1e153c937432f45899e"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_021.webp": {
+    "size": 3350,
+    "sha256": "9e39f907fe9c7c54df82f07fe23f5edf824454bebdac7b28f67889754cb1eef2"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_022.webp": {
+    "size": 3862,
+    "sha256": "b58fefca6001ef32fd718ad03945634a341ea693f171984e70098d830df55ef7"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_024.webp": {
+    "size": 3864,
+    "sha256": "9b911e7d2a17773e7ee542ae363db4f01e2eb1aba4b6cee242adba9b49cd85a9"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_028.webp": {
+    "size": 3806,
+    "sha256": "02b5e5b79445110355a8ee274b20f3b057704a66b92746f0eaa0b30b2e674e2d"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_029.webp": {
+    "size": 3720,
+    "sha256": "d1641479d25c7f7c64747e31a4aa7b2c1350948e60f191218edb9a7e14121cfd"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_030.webp": {
+    "size": 3578,
+    "sha256": "d77fd1a80dcf464633bbf5a26e7d7690368a5b396e317b432dbf577221c5ce50"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_031.webp": {
+    "size": 3906,
+    "sha256": "f19c5b724b9e489ea4222bd0b93d10970d2d8cb8c2ac6a77561748e57eafe74a"
+   },
+   "assets/tier/sc/frames/T1功能角色__DM_20260804053508_033.webp": {
+    "size": 3848,
+    "sha256": "e756631b4061a49b4c7cf0fe512f48bff9828f140a7a9e5cc5704717bc6b5a0a"
+   },
+   "assets/tier/sc/frames/T1功能角色__泳装微笑卡.webp": {
+    "size": 3404,
+    "sha256": "8b6d44dd99e05dda1e36358af6211e045d9a67692b2e4a56affa334a0e51d4e7"
+   },
+   "assets/tier/sc/frames/T2功能角色__170800_jb9o5.webp": {
+    "size": 3302,
+    "sha256": "f7ee7aafcc92619d242484f474cee6dadc710b0b3c1b924599f7e57fa631d190"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_014.webp": {
+    "size": 3554,
+    "sha256": "baa44b472051eafe983729b18f163f48de05021265e654f6b78fa1fc8b7981b7"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_018.webp": {
+    "size": 3280,
+    "sha256": "f70348cd97a082bf243807039a0e1d7c320448dddc41e5c580a4a3028c611614"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_020.webp": {
+    "size": 3170,
+    "sha256": "8b18e0f4096713d24585b8340d2a5dd533d27970f3f2b2e1f080f584b8f92eae"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_025.webp": {
+    "size": 3676,
+    "sha256": "e319bf670020614d3cdb76ccab77b41e48ce3196be78d03de194b5eca0f42d77"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_026.webp": {
+    "size": 3470,
+    "sha256": "0488124b95253e6addb1b196c1a7ffde09b92b340046b477e1caf46ab22a2c61"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_032.webp": {
+    "size": 3504,
+    "sha256": "ab832620fb7e7870c854030d6858f99336baef3004e269582d739ed55526062c"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_034.webp": {
+    "size": 3732,
+    "sha256": "ad557b4a5e2410c0397362873f5d407238dcd8f4ebb049250d0d4525c5de313b"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_035.webp": {
+    "size": 3632,
+    "sha256": "adda36314bd1786ff3139124631132f1558fcd3d52122c1c0e164b27f8c68379"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_036.webp": {
+    "size": 3654,
+    "sha256": "a72214d3cb913f48c5d91b095a86d3890eea12e8163fd652e55bc65011243221"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_037.webp": {
+    "size": 4148,
+    "sha256": "8580f077e12f4fc777fd27a5bf6d3c32bd5567f1290ccc9915ae38d74b12fc2a"
+   },
+   "assets/tier/sc/frames/T2功能角色__DM_20260804053508_039.webp": {
+    "size": 3420,
+    "sha256": "2ea9abb39e1979a5ae6f82db7508b0ea7850ef2911f0e06a7ff46dc0fe8d1869"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__173117_4wct9.webp": {
+    "size": 3420,
+    "sha256": "b5e0348b1c7cdaafba381c341047fa631b2da1ee0758a032dc47c2771cd82ff7"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__194438_w92ck.webp": {
+    "size": 3398,
+    "sha256": "1b3771bff817b0e4258fcebdea8b1c30c51ee938bf77ef46b97d767e33d3e726"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_005.webp": {
+    "size": 3452,
+    "sha256": "c45a8063daae14902a655efcda6c69025d4eb1c387c674f7fcb747fbf80ca1b0"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_007.webp": {
+    "size": 2826,
+    "sha256": "b95bd83dbfb80ad3d52389bfa117e0df714422c00b2274e6ad636fe7dd959fa4"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_008.webp": {
+    "size": 3692,
+    "sha256": "70fc50a0e820dc089a2454b201bdda9a85ffd722e39ef1ac06e91074f466e2df"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_010.webp": {
+    "size": 3948,
+    "sha256": "0ae1ae5cbf669c69d8c7a8e62eb1976360d764fd59d814e720810eae649d5055"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_015.webp": {
+    "size": 3462,
+    "sha256": "9b3b0ff695d28a732d8f502125a14a1aab63f83fdff19296a905c14242a0a9d8"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_017.webp": {
+    "size": 3560,
+    "sha256": "d39c1c422611ef7552e89486834b934fe60f5ddee7b00fecd2bb5e36c01f2487"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_019.webp": {
+    "size": 3282,
+    "sha256": "eebd05524fa80b8335d3d85a18560f0913c9dc4899bfe0c894590ad310ce1064"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_023.webp": {
+    "size": 3878,
+    "sha256": "e38fc34b0b57d12596e8cc05e7114c38c927bfbd447dd41b26e1a135ffb3e39b"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__DM_20260804053508_027.webp": {
+    "size": 3446,
+    "sha256": "253b72b6f06361df549e060a550d9110697157b7ce4da09b79a92b68d6fe8083"
+   },
+   "assets/tier/sc/frames/全场景必练T0.5__克莉丝特.webp": {
+    "size": 3110,
+    "sha256": "6a4a7b0d9ab05ad75a1aaaafd59c30fab542582ba3f4009e3534c1102b012f5c"
+   },
+   "assets/tier/sc/frames/通用必练T0__DM_20260804053508_001.webp": {
+    "size": 3352,
+    "sha256": "0bec36182d30cf23285037e391e79d764a73c376730b784aa710be45610c7325"
+   },
+   "assets/tier/sc/frames/通用必练T0__DM_20260804053508_002.webp": {
+    "size": 3278,
+    "sha256": "012618ffe420a269966b96ce1eeaccf7918604b1cbfbf6654ff3de9e84b1d1da"
+   },
+   "assets/tier/sc/frames/通用必练T0__DM_20260804053508_003.webp": {
+    "size": 2660,
+    "sha256": "309d10f92a44533cb345f8072d09d9f6eeed513712bd1013c39f85c2cee39524"
+   },
+   "assets/tier/sc/frames/通用必练T0__DM_20260804053508_004.webp": {
+    "size": 3418,
+    "sha256": "3a2e99d64ff812bc4d19c19782975e023311c7663c4f1945d2f38b18d2b03547"
+   },
+   "assets/tier/sc/frames/通用必练T0__DM_20260804053508_013.webp": {
+    "size": 3620,
+    "sha256": "79995c90a6be5ebaefa40c5878dd089c7dfdc0f8d0a98ce541fdb7b2bb62abff"
+   },
+   "assets/tier/sc/layers/DM_20260814174448_001.png": {
+    "size": 59578,
+    "sha256": "b1e6a7b0121ab414d8fc79dff339f0875660d0553be0a7f2cdfdce38ebc0a66f"
+   },
+   "assets/tier/sc/layers/UI_CHAT_EMO_CHAR_04.png": {
+    "size": 172112,
+    "sha256": "d00fe3631b3c8518543140ba4bc10b0e3c50a77ee4ec0a36040b038f4e0daf5f"
+   },
+   "assets/tier/sc/layers/UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01.png": {
+    "size": 179992,
+    "sha256": "a5b038ac2f3876f50c2c4ce90d93ec82e7245d7e944ec610676698fb310b4e01"
+   },
+   "assets/tier/sc/layers/人物持立牌图片.png": {
+    "size": 247964,
+    "sha256": "87b8205b8a9d87933ee83f40f1377b8059aca2c87c2dddeb45e3c21f1409fa80"
+   },
+   "assets/tier/sc/layers/图层 1.png": {
+    "size": 351369,
+    "sha256": "21e4d780d0495e5a0d2d454c9dc354ddad2d744ee8ef34c1ae274da66db5eb7c"
+   },
+   "assets/tier/sc/layers/底边.png": {
+    "size": 168919,
+    "sha256": "31dabeb8ebc019d66429cd150d3eff197801a0eeab049bb9b9305a3ccc65ac0e"
+   },
+   "assets/tier/sc/layers/特别感谢.png": {
+    "size": 24605,
+    "sha256": "cb3d4ace4744791d1622622be845425fb5d6843ead1988999539e4129ca9ae31"
+   },
+   "assets/tier/sc/layers/背景.png": {
+    "size": 2054130,
+    "sha256": "bc26a80a15a9638bd4a557da484804055c1fc4a026befaf9df75cf37fd1436e2"
+   },
+   "assets/tier/sc/sc_board.js": {
+    "size": 6094,
+    "sha256": "b08e0c83dd431023b7d92fe3d0b53ab38d630be9e3b6fa426da7033d9bb196af"
+   },
+   "assets/tier/sc/sc_board.json": {
+    "size": 27754,
+    "sha256": "b8907214bb2a478089a12db669197d164aef5a618a26bc7d2765320dc6251029"
+   },
+   "assets/tier/tier_race.webp": {
+    "size": 1924458,
+    "sha256": "9b23732e442e09cb4462ba537738badf332d928030601ca9650bc29635b47c60"
+   },
    "assets/tier/tier_strength.png": {
     "size": 4071880,
     "sha256": "1f4cf3475978fcc54b31c8730b2cbb0a8d0d34dab0d524257c551fdc06b7e2e3"
@@ -4622,8 +5770,8 @@
     "sha256": "b6a8c5cbf2ff80cf7010ad0ccd69d5c88c996ff7c04c56275d90f65919687e48"
    },
    "out/codex.json": {
-    "size": 12738213,
-    "sha256": "3c40d282cef4bf463a1c6413c3a856aa6bbd42841ab9ea3d49624e5205b13d0d"
+    "size": 14997320,
+    "sha256": "ee8be620342bec7101a55e7af85f4229a94d2be9bd8f69cb894dbb73e3926b25"
    },
    "out/guide.json": {
     "size": 3902,
@@ -4699,11 +5847,15 @@
    },
    "out/journey_kb.json": {
     "size": 1710995,
-    "sha256": "144e48a99f1c376da2530fb54d71c1cec561ed42a6f7a7487ea75b97e52cbfa8"
+    "sha256": "82dec2e55715edd5e6d13c9a53c67d71f51b087790a39d69f189061f46d1ace7"
    },
    "out/portrait_index.json": {
     "size": 124641,
     "sha256": "d5ca5a4323e571096706f875f9703c4fa95da30b0d28cbda4916ef947625d0b9"
+   },
+   "out/role_sheets.json": {
+    "size": 253576,
+    "sha256": "9a10f441d2f11ab2b4d381b588b7c9118cc195fc1d7071eb3fa1d085873186a9"
    }
   }
  },
