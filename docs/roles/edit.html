@@ -514,6 +514,35 @@ document.getElementById("bClear").onclick = () => {
   text[sel.r - R0][sel.c - C0] = "";
   render(); save(); flash("清空 " + sel.r + " 行 " + sel.c + " 列");
 };
+/* 选格批量删除：选中多格后一次清空（图 + 文字），Delete / Backspace 同效 */
+function clearCells(keys){
+  const list = [...keys];
+  if (!list.length){ flash("先点格子选中（可多选）"); return; }
+  pushUndo();
+  let n = 0;
+  for (const k of list){
+    const [r, c] = k.split(":").map(Number);
+    let hit = false;
+    if (imgs[k]){ delete imgs[k]; hit = true; }
+    const row = text[r - R0];
+    if (row && row[c - C0]){ row[c - C0] = ""; hit = true; }
+    if (hit) n++;
+  }
+  sels.clear();
+  sel = null;
+  render(); save();
+  flash(n ? ("已清空 " + n + " 格") : "选中的格子本来就是空的");
+}
+document.getElementById("bSelClear").onclick = () => clearCells(sels);
+document.addEventListener("keydown", e => {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = e.target;
+  if (t && (t.isContentEditable || /^(INPUT|SELECT|TEXTAREA)$/.test(t.tagName))) return;
+  if (e.key !== "Delete" && e.key !== "Backspace") return;
+  if (!sels.size && !sel) return;
+  e.preventDefault();
+  clearCells(sels.size ? sels : new Set([sel.key]));
+});
 /* 图片比例：选中格子只改那一格；没选中就改全部（保持比例，用 transform 缩放，不动格子） */
 /* 图片比例：选中格子改这些格的图；勾了「连该行格子一起缩」时，那一格所在行的行高也跟着缩 */
 /* 只改图片比例（不动格子） */
