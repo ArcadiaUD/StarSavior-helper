@@ -1232,6 +1232,47 @@ function mergeBoardArchive(remote, mine){
   out.canvas = [Math.max(rc[0] || 0, mc[0] || 0), Math.max(rc[1] || 0, mc[1] || 0)];
   return out;
 }
+/* ---------- 保存时的三方合并 ----------
+   base = 我载入线上时那份；mine = 我现在的状态；remote = 推送前拉到的最新线上。
+   字典类字段（gone / tie / down / slotShift / layerShift / pos）逐键比：
+   我动过的键用我的，没动过的用线上的 —— 这样我删掉的格位不会被线上旧数据顶回来，
+   别人删掉的也不会被我的旧数据顶回来（两方合并时整份覆盖，正是反复互相盖的根源）。 */
+const DICT_KEYS = ["gone", "tie", "down", "slotShift", "layerShift", "pos"];
+const LIST_KEYS = [["slots", "slot"], ["newSlots", "id"], ["nt", "id"], ["allSlots", "slot"]];
+
+function mergeDict3(base, mine, remote){
+  const out = Object.assign({}, mine || {});
+  for (const k of Object.keys(base || {}))
+    if (!mine || !(k in mine)) delete out[k];              /* 我删掉的键：跟着删掉 */
+  for (const k of Object.keys(remote || {})){
+    const b = base ? base[k] : undefined, m = mine ? mine[k] : undefined;
+    if (JSON.stringify(m) === JSON.stringify(b)) out[k] = remote[k];   /* 我没动过：用线上的 */
+  }
+  return out;
+}
+function mergeList3(base, mine, remote, key){
+  const b = keyedBy(base || [], key), m = keyedBy(mine || [], key), r = keyedBy(remote || [], key);
+  const out = new Map(r);
+  for (const [k, v] of m)
+    if (JSON.stringify(v) !== JSON.stringify(b.get(k))) out.set(k, v);  /* 我动过的条目：用我的 */
+  for (const k of b.keys()) if (!m.has(k)) out.delete(k);               /* 我删过的条目：跟着删 */
+  return [...out.values()];
+}
+function mergeTriple(base, mine, remote){
+  /* 没有基线（本机从没对齐过线上）就按空基线走：结果取两边并集，
+     比"整份用我这边的"安全——不会把别人刚删掉的东西又推回去 */
+  const B = base || {};
+  const out = Object.assign({}, remote, mine);
+  for (const k of DICT_KEYS)
+    if (B[k] || mine[k] || remote[k]) out[k] = mergeDict3(B[k], mine[k], remote[k]);
+  for (const [k, id] of LIST_KEYS){
+    if (!B[k] && !mine[k] && !remote[k]) continue;
+    out[k] = mergeList3(B[k], mine[k], remote[k], id);
+  }
+  const rc = remote.canvas || [0, 0], mc = mine.canvas || [0, 0];
+  out.canvas = [Math.max(rc[0] || 0, mc[0] || 0), Math.max(rc[1] || 0, mc[1] || 0)];
+  return out;
+}
 function mergeScArchive(remote, mine){
   const out = Object.assign({}, remote, mine);
   out.slots = latestBy(remote.slots, mine.slots, "id");
@@ -1246,6 +1287,7 @@ function mergeScArchive(remote, mine){
 const SLOTS_REMOTE = "psb_slots.json";
 const SLOTS_REMOTE_ABS = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/psb_slots.json";
 let ghBaseSha = null;                 /* 本次编辑开始时线上存档的版本号 */
+let ghBaseData = null;                /* 本次编辑开始时线上存档的内容（保存时做三方合并的基线） */
 let ghScBaseSha = null;               /* 支援卡存档的版本号 */
 /* 本机是否留着「还没保存的改动」：只有真的有内容才算，空档不算（不然后面自动对齐就失效了） */
 const hasLocalEdits = () => {
@@ -1311,6 +1353,7 @@ async function pullRemoteSlots(manual) {
   /* 载入线上后把本机那份存档一起作废：否则本机里的旧记录一直让 hasLocalEdits 为真，
      刷新后又退回旧版面，线上的改动永远看不到 */
   try { localStorage.removeItem("psbSlots"); } catch (e) {}
+  ghBaseData = JSON.parse(JSON.stringify(d));      /* 留一份基线，保存时做三方合并 */
   ghBaseSha = await ghReadSha();
   flash(manual ? "已载入线上存档" : "已按线上存档对齐");
 }
@@ -1467,8 +1510,9 @@ async function ghPush() {
     /* 先取线上那份，按格位合并：自己改过的覆盖线上同一条，别人改过的原样保留 */
     const remote = await fetchRemoteJson(GH.path);
     if (remote) {
-      /* Ctrl+S = 强制保存：自己动过的格位用本地这版盖上去，别人改过的原样保留 */
-      data = mergeBoardArchive(remote, data);
+      /* 三方合并：以「我载入线上时那份」为基线，只把我真正改过的条目盖上去，
+         线上别人改动的原样保留（含「别人删掉的格位、我这边的旧数据里还留着」这种情况） */
+      data = mergeTriple(ghBaseData, data, remote);
     }
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
