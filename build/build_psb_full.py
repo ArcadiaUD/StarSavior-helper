@@ -170,6 +170,11 @@ def main() -> None:
     slots_path = WEB / "psb_slots.json"
     if slots_path.exists():
         ed = json.loads(slots_path.read_text(encoding="utf-8"))
+        if isinstance(ed.get("slots"), list) and isinstance(ed.get("others"), list):
+            # 2026-10-16 起存档就是一份完整版面（不再是「改动记录」），没有 gone/down 这些字段。
+            # 榜单数据由 export_from_editor.py 直接抓编辑器渲染结果覆盖，这一步只负责出素材，
+            # 所以这里按「没有改动」处理即可，不能拿新字段去套旧逻辑（会 KeyError）。
+            ed = {}
         rows = ed.get("allSlots") or ed.get("slots") or []
         detail = {int(r["slot"]): r for r in ed.get("slots", [])}
         mapping = {int(r["slot"]): r for r in rows}

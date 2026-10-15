@@ -283,12 +283,21 @@
 document.write('<script src="sc_board_data.js?v=' + Date.now() + '"><\/script>');</script>
 <script>window.SC_BOARD = window.SC_BOARD_DATA;</script>
 <script>
-const SLOTS = [{"id": 13, "name": "fl", "group": "T2功能角色", "file": "T2功能角色__fl.png", "box": [45, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#aab9b6", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "text": {"text": "水奶下位", "color": "#ffffff", "box": [96, 2870, 202, 49], "lines": 1, "from": 20}}, {"id": 14, "name": "qila", "group": "T2功能角色", "file": "T2功能角色__qila.png", "box": [456, 2523, 321, 320], "attr": false, "ring": 12, "bg": "#3b3c49", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "text": {"text": "隐身", "color": "#ffffff", "box": [568, 2859, 98, 50], "lines": 1, "from": 26}}, {"id": 15, "name": "slf", "group": "T2功能角色", "file": "T2功能角色__slf.png", "box": [867, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#ccc9b4", "char": "瑟乐芬", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "text": {"text": "免疫单次伤害/奶妈", "color": "#ffffff", "box": [811, 2861, 429, 54], "lines": 1, "from": 25}}, {"id": 16, "name": "zbeila", "group": "T2功能角色", "file": "T2功能角色__zbeila.png", "box": [1276, 2523, 320, 320], "attr": false, "ring": 8, "bg": "#a9999b", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "text": {"text": "跑得快奶妈", "color": "#ffffff", "box": [1309, 2859, 253, 50], "lines": 1, "from": 21}}, {"id": 17, "name": "lsf", "group": "T2功能角色", "file": "T2功能角色__lsf.png", "box": [1685, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#414750", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "text": {"text": "嘲讽/护盾", "color": "#ffffff", "box": [1736, 2861, 221, 54], "lines": 1, "from": 22}}, {"id": 18, "name": "凌", "group": "T2功能角色", "file": "T2功能角色__凌.png", "box": [2096, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#d9d1c9", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "text": {"text": "草叠层/增伤", "color": "#ffffff", "box": [2120, 2862, 272, 54], "lines": 1, "from": 23}}, {"id": 19, "name": "ptla", "group": "T2功能角色", "file": "T2功能角色__ptla.png", "box": [2496, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#e7cc8e", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "text": {"text": "高破韧/挂减防", "color": "#ffffff", "box": [2494, 2861, 325, 54], "lines": 1, "from": 24}}, {"id": 28, "name": "sla", "group": "T1功能角色", "file": "T1功能角色__sla.png", "box": [45, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#c6b3ad", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "text": {"text": "增伤/拉条/减速", "color": "#ffffff", "box": [32, 2281, 347, 54], "lines": 1, "from": 37}}, {"id": 29, "name": "zanna", "group": "T1功能角色", "file": "T1功能角色__zanna.png", "box": [1686, 1945, 321, 320], "attr": false, "ring": 8, "bg": "#d3b9d4", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "text": {"text": "加防御/挂减攻", "color": "#ffffff", "box": [1678, 2281, 328, 54], "lines": 1, "from": 43}}, {"id": 30, "name": "wikiSS克莉丝特头像", "group": "T1功能角色", "file": "T1功能角色__wikiSS克莉丝特头像.png", "box": [866, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#4b576c", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "text": {"text": "挂燃烧/自拉条", "color": "#ffffff", "box": [863, 2281, 326, 54], "lines": 1, "from": 38}}, {"id": 31, "name": "luge", "group": "T1功能角色", "file": "T1功能角色__luge.png", "box": [1276, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#454f6e", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "text": {"text": "挂冻结/挂减防", "color": "#ffffff", "box": [1272, 2281, 326, 54], "lines": 1, "from": 42}}, {"id": 32, "name": "hali", "group": "T1功能角色", "file": "T1功能角色__hali.png", "box": [449, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#625055", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "text": {"text": "推条/加防御", "color": "#ffffff", "box": [472, 2281, 274, 54], "lines": 1, "from": 44}}, {"id": 33, "name": "泳装露娜", "group": "T1功能角色", "file": "T1功能角色__泳装露娜.png", "box": [2096, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e5cbd3", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp", "text": {"text": "队友挨打暴击反击\n挂减攻", "color": "#ffffff", "box": [2046, 2281, 405, 110], "lines": 2, "from": 45}}, {"id": 34, "name": "miulier", "group": "T1功能角色", "file": "T1功能角色__miulier.png", "box": [2496, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#848798", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "text": {"text": "挂减攻/挂燃烧", "color": "#ffffff", "box": [2493, 2283, 326, 54], "lines": 1, "from": 41}}, {"id": 35, "name": "laixi", "group": "T1功能角色", "file": "T1功能角色__laixi.png", "box": [2903, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e9aebb", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "text": {"text": "挂减攻/挨打回血", "color": "#ffffff", "box": [2874, 2281, 378, 54], "lines": 1, "from": 40}}, {"id": 36, "name": "cuisita", "group": "T1功能角色", "file": "T1功能角色__cuisita.png", "box": [3301, 1945, 320, 320], "attr": false, "ring": 8, "bg": "#a7c4fd", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "text": {"text": "AOE对策", "color": "#ffffff", "box": [3356, 2280, 210, 49], "lines": 1, "from": 39}}, {"id": 47, "name": "gn", "group": "光系", "file": "光系__gn.png", "box": [149, 3574, 213, 213], "attr": true, "ring": 6, "bg": "#c58f20", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 48, "name": "阿莫拉", "group": "光系", "file": "光系__阿莫拉.png", "box": [381, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b7939d", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 52, "name": "nna", "group": "光系", "file": "光系__nna.png", "box": [149, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#dead95", "char": "露娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"}, {"id": 53, "name": "sla", "group": "光系", "file": "光系__sla.png", "box": [381, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#f3d5eb", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"}, {"id": 61, "name": "tnji", "group": "草系", "file": "草系__tnji.png", "box": [3001, 5696, 213, 213], "attr": true, "ring": 8, "bg": "#c9c9cd", "char": "塔妮娅", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp"}, {"id": 62, "name": "amj", "group": "草系", "file": "草系__amj.png", "box": [3233, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#647abd", "char": "奥米嘉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp"}, {"id": 63, "name": "dna", "group": "草系", "file": "草系__dna.png", "box": [3001, 5926, 213, 213], "attr": true, "ring": 11, "bg": "#b5aa94", "char": "达娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp"}, {"id": 64, "name": "lmn", "group": "草系", "file": "草系__lmn.png", "box": [3001, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#332425", "char": "刘米娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp"}, {"id": 65, "name": "wx", "group": "草系", "file": "草系__wx.png", "box": [3233, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#8a92a2", "char": "微笑", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp"}, {"id": 66, "name": "best", "group": "草系", "file": "草系__best.png", "box": [3233, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#2b2f3f", "char": "贝尔·莉丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp"}, {"id": 67, "name": "crs", "group": "草系", "file": "草系__crs.png", "box": [3001, 5338, 213, 213], "attr": true, "ring": 7, "bg": "#5d6863", "char": "崔瑞丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp"}, {"id": 68, "name": "fl", "group": "草系", "file": "草系__fl.png", "box": [3233, 5926, 213, 213], "attr": true, "ring": 8, "bg": "#8e9e8a", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp"}, {"id": 69, "name": "cuisita", "group": "草系", "file": "草系__cuisita.png", "box": [3233, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#819bd9", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp"}, {"id": 70, "name": "lbt", "group": "草系", "file": "草系__lbt.png", "box": [3001, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#7159af", "char": "萝贝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp"}, {"id": 71, "name": "nalu", "group": "草系", "file": "草系__nalu.png", "box": [3001, 4162, 213, 213], "attr": true, "ring": 5, "bg": "#4b362f", "char": "娜鲁", "form": null, "face": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp"}, {"id": 72, "name": "格温", "group": "草系", "file": "草系__格温.png", "box": [3233, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#4b4b69", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp"}, {"id": 73, "name": "klls", "group": "草系", "file": "草系__klls.png", "box": [3001, 3804, 213, 213], "attr": true, "ring": 5, "bg": "#849279", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 74, "name": "凌", "group": "草系", "file": "草系__凌.png", "box": [3001, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#c9baaa", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp"}, {"id": 75, "name": "泳装微笑", "group": "草系", "file": "草系__泳装微笑.png", "box": [3001, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#9d959f", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 76, "name": "mudun", "group": "草系", "file": "草系__mudun.png", "box": [3233, 3574, 213, 213], "attr": true, "ring": 7, "bg": "#a39455", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 84, "name": "zbeila", "group": "水系", "file": "水系__zbeila.png", "box": [2281, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#b1a2b3", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp"}, {"id": 85, "name": "yasela", "group": "水系", "file": "水系__yasela.png", "box": [2281, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#f1e2d8", "char": "亚瑟菈", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp"}, {"id": 86, "name": "lili", "group": "水系", "file": "水系__lili.png", "box": [2513, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#e6c7c2", "char": "莉莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp"}, {"id": 87, "name": "tfl", "group": "水系", "file": "水系__tfl.png", "box": [2281, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#81c5af", "char": "芙蕾", "form": "贵族公主", "face": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp"}, {"id": 88, "name": "laidai", "group": "水系", "file": "水系__laidai.png", "box": [2513, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#f5e9da", "char": "艾芬黛尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp"}, {"id": 89, "name": "霏", "group": "水系", "file": "水系__霏.png", "box": [2281, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b3afd3", "char": "霏", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp"}, {"id": 91, "name": "kler", "group": "水系", "file": "水系__kler.png", "box": [2281, 4392, 213, 213], "attr": true, "ring": 8, "bg": "#bd9e97", "char": "克莱儿", "form": "无瑕蓝玫瑰", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp"}, {"id": 92, "name": "zkelaier", "group": "水系", "file": "水系__zkelaier.png", "box": [2513, 4392, 213, 213], "attr": true, "ring": 5, "bg": "#55629a", "char": "克莱儿", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp"}, {"id": 93, "name": "luge", "group": "水系", "file": "水系__luge.png", "box": [2281, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#475372", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp"}, {"id": 94, "name": "aimili", "group": "水系", "file": "水系__aimili.png", "box": [2513, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#9097a5", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 95, "name": "瑟莱丝", "group": "水系", "file": "水系__瑟莱丝.png", "box": [2281, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#cec8cc", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 96, "name": "hka", "group": "水系", "file": "水系__hka.png", "box": [2513, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#7580ae", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 97, "name": "M教授", "group": "水系", "file": "水系__M教授.png", "box": [2281, 4034, 213, 213], "attr": true, "ring": 8, "bg": "#c9c8ce", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 99, "name": "tuxia", "group": "火系", "file": "火系__tuxia.png", "box": [1575, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#ad5770", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 100, "name": "hdj", "group": "火系", "file": "火系__hdj.png", "box": [1807, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#5c4a93", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 101, "name": "wikiSS克莉丝特头像", "group": "火系", "file": "火系__wikiSS克莉丝特头像.png", "box": [1575, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#40475f", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp"}, {"id": 102, "name": "zmaerxi", "group": "火系", "file": "火系__zmaerxi.png", "box": [1807, 3932, 213, 213], "attr": true, "ring": 5, "bg": "#907c5c", "char": "玛尔希", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp"}, {"id": 103, "name": "hf", "group": "火系", "file": "火系__hf.png", "box": [1575, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#dcdee2", "char": "艾芬黛尔", "form": "花绽祝福", "face": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp"}, {"id": 109, "name": "skl", "group": "火系", "file": "火系__skl.png", "box": [1575, 5338, 213, 213], "attr": true, "ring": 9, "bg": "#b43d55", "char": "丝卡蕾", "form": "小暴君", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp"}, {"id": 110, "name": "ptla", "group": "火系", "file": "火系__ptla.png", "box": [1807, 5338, 213, 213], "attr": true, "ring": 13, "bg": "#e0c788", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp"}, {"id": 111, "name": "lsf", "group": "火系", "file": "火系__lsf.png", "box": [1575, 5568, 213, 213], "attr": true, "ring": 8, "bg": "#e2d5d3", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp"}, {"id": 112, "name": "zanna", "group": "火系", "file": "火系__zanna.png", "box": [1807, 5568, 213, 213], "attr": true, "ring": 5, "bg": "#e8d5ea", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp"}, {"id": 113, "name": "qila", "group": "火系", "file": "火系__qila.png", "box": [1575, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#895a6c", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp"}, {"id": 114, "name": "zsikalei", "group": "火系", "file": "火系__zsikalei.png", "box": [1807, 4520, 213, 213], "attr": true, "ring": 5, "bg": "#c24551", "char": "丝卡蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp"}, {"id": 115, "name": "xe", "group": "火系", "file": "火系__xe.png", "box": [1575, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e19da7", "char": "夏尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp"}, {"id": 116, "name": "miulier", "group": "火系", "file": "火系__miulier.png", "box": [1807, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e598a6", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp"}, {"id": 117, "name": "泳装露娜", "group": "火系", "file": "火系__泳装露娜.png", "box": [1575, 4980, 213, 213], "attr": true, "ring": 9, "bg": "#f9cbd6", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp"}, {"id": 118, "name": "hali", "group": "火系", "file": "火系__hali.png", "box": [1807, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#7e7f92", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp"}, {"id": 120, "name": "卡", "group": "暗系", "file": "暗系__卡.png", "box": [857, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#8d8fb6", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 127, "name": "ailisha", "group": "暗系", "file": "暗系__ailisha.png", "box": [857, 5006, 213, 213], "attr": true, "ring": 8, "bg": "#4c4b6d", "char": "艾莉莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp"}, {"id": 129, "name": "laixi", "group": "暗系", "file": "暗系__laixi.png", "box": [857, 4290, 213, 213], "attr": true, "ring": 9, "bg": "#a88bbd", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp"}, {"id": 130, "name": "ldy", "group": "暗系", "file": "暗系__ldy.png", "box": [1089, 4290, 213, 213], "attr": true, "ring": 8, "bg": "#aa979b", "char": "莉迪亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp"}, {"id": 131, "name": "yiz", "group": "暗系", "file": "暗系__yiz.png", "box": [857, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#594b56", "char": "罗莎莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"}, {"id": 133, "name": "tuxia", "group": "全场景必练T0.5", "file": "全场景必练T0.5__tuxia.png", "box": [45, 1352, 321, 320], "attr": false, "ring": 11, "bg": "#d0a3b6", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 134, "name": "hdj", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hdj.png", "box": [456, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#50397e", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 135, "name": "hka", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hka.png", "box": [866, 1351, 320, 320], "attr": false, "ring": 11, "bg": "#c7cfd0", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 136, "name": "aimili", "group": "全场景必练T0.5", "file": "全场景必练T0.5__aimili.png", "box": [1276, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#8d9aab", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 137, "name": "卡", "group": "全场景必练T0.5", "file": "全场景必练T0.5__卡.png", "box": [1686, 1352, 321, 320], "attr": false, "ring": 12, "bg": "#626598", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 138, "name": "格温", "group": "全场景必练T0.5", "file": "全场景必练T0.5__格温.png", "box": [2096, 1351, 320, 319], "attr": false, "ring": 11, "bg": "#49475f", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "text": {"text": "隐身上位", "color": "#ffffff", "box": [2122, 1675, 270, 63], "lines": 1, "from": 139}}, {"id": 141, "name": "泳装微笑", "group": "全场景必练T0", "file": "全场景必练T0__泳装微笑.png", "box": [45, 773, 321, 320], "attr": false, "ring": 11, "bg": "#e0d1cd", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 142, "name": "克拉丽莎", "group": "全场景必练T0", "file": "全场景必练T0__克拉丽莎.png", "box": [456, 773, 320, 320], "attr": false, "ring": 8, "bg": "#917090", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 143, "name": "瑟莱丝", "group": "全场景必练T0", "file": "全场景必练T0__瑟莱丝.png", "box": [866, 773, 320, 321], "attr": false, "ring": 11, "bg": "#efa7b5", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 144, "name": "gn", "group": "全场景必练T0", "file": "全场景必练T0__gn.png", "box": [1276, 773, 319, 321], "attr": false, "ring": 8, "bg": "#ecc476", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 145, "name": "mudun", "group": "全场景必练T0", "file": "全场景必练T0__mudun.png", "box": [1685, 773, 321, 321], "attr": false, "ring": 10, "bg": "#d6bd88", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 146, "name": "阿莫拉", "group": "全场景必练T0", "file": "全场景必练T0__阿莫拉.png", "box": [2096, 774, 321, 320], "attr": false, "ring": 11, "bg": "#26365b", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 147, "name": "M教授", "group": "全场景必练T0", "file": "全场景必练T0__M教授.png", "box": [2507, 773, 320, 320], "attr": false, "ring": 11, "bg": "#9f9fa8", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 7001, "name": "T3空位", "group": "光系", "file": "", "box": [149, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7002, "name": "T4空位", "group": "光系", "file": "", "box": [149, 5006, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7003, "name": "T3空位", "group": "暗系", "file": "", "box": [857, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7004, "name": "T2空位", "group": "光系", "file": "", "box": [149, 4290, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}];
-const OTHERS = [{"t": "img", "seq": 1, "name": "背景", "group": null, "box": [-5, -13, 3634, 7268], "file": "背景.png", "big": true, "grow": false, "bg": true}, {"t": "img", "seq": 2, "name": "UI_CHAT_EMO_CHAR_04", "group": null, "box": [3232, 175, 385, 354], "file": "UI_CHAT_EMO_CHAR_04.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 3, "name": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01", "group": null, "box": [-23, 191, 348, 349], "file": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 4, "name": "图层 1", "group": null, "box": [1, 517, 3626, 6598], "file": "图层 1.png", "big": true, "grow": true, "bg": true}, {"t": "img", "seq": 5, "name": "底边", "group": null, "box": [1, 6684, 3620, 76], "file": "底边.png", "big": true, "grow": false, "bg": true}, {"t": "text", "seq": 6, "name": "强度排行榜推荐", "group": null, "box": [1843, 197, 1099, 143], "text": "强度排行榜推荐", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 7, "name": "DM_20260814174448_001", "group": null, "box": [664, 169, 1137, 253], "file": "DM_20260814174448_001.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8, "name": "图片版本:M教授 格温 更新时间10月2号", "group": null, "box": [1810, 367, 1096, 56], "text": "图片版本:M教授 格温 更新时间10月2号", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 9, "name": "人物持立牌图片", "group": null, "box": [3082, 6335, 443, 426], "file": "人物持立牌图片.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 10, "name": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836 叠甲:尽量客观全", "group": null, "box": [751, 529, 2112, 116], "text": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836\n叠甲:尽量客观全面,有何疑问可加群询问或直接跟老顾等人讨论,不喜勿喷,谢谢配合", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 11, "name": "全属性梯度排行榜 排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "group": null, "box": [43, 3041, 2282, 146], "text": "全属性梯度排行榜\n排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 12, "name": "T2功能角色", "group": "T2功能角色", "box": [44, 2415, 409, 74], "text": "T2功能角色", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 27, "name": "T1功能角色（包含副C/叠层/挂db手）", "group": "T1功能角色", "box": [44, 1822, 1302, 80], "text": "T1功能角色（包含副C/叠层/挂db手）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 46, "name": "矩形 1", "group": "光系", "box": [32, 3321, 687, 2989], "file": "光系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 49, "name": "光标", "group": "光系", "box": [259, 3206, 233, 233], "file": "光系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 50, "name": "T0", "group": "光系", "box": [324, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 51, "name": "T1", "group": "光系", "box": [326, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 54, "name": "矩形 1", "group": "草系", "box": [2875, 3321, 687, 2989], "file": "草系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 55, "name": "光标", "group": "草系", "box": [3102, 3206, 233, 233], "file": "草系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 56, "name": "T0 拷贝 4", "group": "草系", "box": [3176, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 57, "name": "T1", "group": "草系", "box": [3178, 4060, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 58, "name": "T2", "group": "草系", "box": [3177, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 59, "name": "T3", "group": "草系", "box": [3177, 5005, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 60, "name": "T4", "group": "草系", "box": [3176, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 77, "name": "矩形 1", "group": "水系", "box": [2162, 3321, 687, 2989], "file": "水系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 78, "name": "光标", "group": "水系", "box": [2389, 3206, 233, 233], "file": "水系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 79, "name": "T0 拷贝 3", "group": "水系", "box": [2456, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 80, "name": "T1", "group": "水系", "box": [2458, 4290, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 81, "name": "T2", "group": "水系", "box": [2457, 4878, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 82, "name": "T3", "group": "水系", "box": [2457, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 83, "name": "T4", "group": "水系", "box": [2456, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 90, "name": "闪避成功T0 闪避失败 T10086", "group": "水系", "box": [2510, 3593, 271, 186], "text": "闪避成功T0\n闪避失败\nT10086", "lines": 3, "color": "#ffffff"}, {"t": "img", "seq": 98, "name": "矩形 1", "group": "火系", "box": [1449, 3321, 687, 2989], "file": "火系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 104, "name": "光标", "group": "火系", "box": [1676, 3206, 233, 233], "file": "火系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 105, "name": "T0 拷贝 2", "group": "火系", "box": [1750, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 106, "name": "T1", "group": "火系", "box": [1752, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 107, "name": "T2", "group": "火系", "box": [1751, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 108, "name": "T3", "group": "火系", "box": [1751, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 119, "name": "矩形 1", "group": "暗系", "box": [735, 3321, 689, 2989], "file": "暗系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 121, "name": "光标", "group": "暗系", "box": [963, 3206, 233, 233], "file": "暗系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 122, "name": "T0 拷贝", "group": "暗系", "box": [1032, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 123, "name": "T1", "group": "暗系", "box": [1034, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 124, "name": "T2", "group": "暗系", "box": [1033, 4188, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 125, "name": "T3", "group": "暗系", "box": [1033, 4545, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 126, "name": "T4", "group": "暗系", "box": [1032, 4904, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 132, "name": "全场景必练T0.5", "group": "全场景必练T0.5", "box": [45, 1244, 565, 74], "text": "全场景必练T0.5", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 140, "name": "全场景必练T0（含推图+宇宙门）", "group": "全场景必练T0", "box": [45, 689, 1120, 75], "text": "全场景必练T0（含推图+宇宙门）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 148, "name": "特别感谢", "group": null, "box": [3131, 517, 472, 293], "file": "特别感谢.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8601, "name": "T3", "group": "光系", "text": "T3", "lines": 1, "color": "#ffffff", "box": [326, 4546, 92, 58]}, {"t": "text", "seq": 8602, "name": "T4", "group": "光系", "text": "T4", "lines": 1, "color": "#ffffff", "box": [326, 4904, 92, 58]}, {"t": "text", "seq": 8604, "name": "T2", "group": "光系", "text": "T2", "lines": 1, "color": "#ffffff", "box": [326, 4188, 92, 58]}];
+const SLOTS_ORIG = [{"id": 13, "name": "fl", "group": "T2功能角色", "file": "T2功能角色__fl.png", "box": [45, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#aab9b6", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "text": {"text": "水奶下位", "color": "#ffffff", "box": [96, 2870, 202, 49], "lines": 1, "from": 20}}, {"id": 14, "name": "qila", "group": "T2功能角色", "file": "T2功能角色__qila.png", "box": [456, 2523, 321, 320], "attr": false, "ring": 12, "bg": "#3b3c49", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "text": {"text": "隐身", "color": "#ffffff", "box": [568, 2859, 98, 50], "lines": 1, "from": 26}}, {"id": 15, "name": "slf", "group": "T2功能角色", "file": "T2功能角色__slf.png", "box": [867, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#ccc9b4", "char": "瑟乐芬", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "text": {"text": "免疫单次伤害/奶妈", "color": "#ffffff", "box": [811, 2861, 429, 54], "lines": 1, "from": 25}}, {"id": 16, "name": "zbeila", "group": "T2功能角色", "file": "T2功能角色__zbeila.png", "box": [1276, 2523, 320, 320], "attr": false, "ring": 8, "bg": "#a9999b", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "text": {"text": "跑得快奶妈", "color": "#ffffff", "box": [1309, 2859, 253, 50], "lines": 1, "from": 21}}, {"id": 17, "name": "lsf", "group": "T2功能角色", "file": "T2功能角色__lsf.png", "box": [1685, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#414750", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "text": {"text": "嘲讽/护盾", "color": "#ffffff", "box": [1736, 2861, 221, 54], "lines": 1, "from": 22}}, {"id": 18, "name": "凌", "group": "T2功能角色", "file": "T2功能角色__凌.png", "box": [2096, 2523, 321, 320], "attr": false, "ring": 11, "bg": "#d9d1c9", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "text": {"text": "草叠层/增伤", "color": "#ffffff", "box": [2120, 2862, 272, 54], "lines": 1, "from": 23}}, {"id": 19, "name": "ptla", "group": "T2功能角色", "file": "T2功能角色__ptla.png", "box": [2496, 2523, 320, 320], "attr": false, "ring": 11, "bg": "#e7cc8e", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "text": {"text": "高破韧/挂减防", "color": "#ffffff", "box": [2494, 2861, 325, 54], "lines": 1, "from": 24}}, {"id": 28, "name": "sla", "group": "T1功能角色", "file": "T1功能角色__sla.png", "box": [45, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#c6b3ad", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "text": {"text": "增伤/拉条/减速", "color": "#ffffff", "box": [32, 2281, 347, 54], "lines": 1, "from": 37}}, {"id": 29, "name": "zanna", "group": "T1功能角色", "file": "T1功能角色__zanna.png", "box": [1686, 1945, 321, 320], "attr": false, "ring": 8, "bg": "#d3b9d4", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "text": {"text": "加防御/挂减攻", "color": "#ffffff", "box": [1678, 2281, 328, 54], "lines": 1, "from": 43}}, {"id": 30, "name": "wikiSS克莉丝特头像", "group": "T1功能角色", "file": "T1功能角色__wikiSS克莉丝特头像.png", "box": [866, 1945, 321, 320], "attr": false, "ring": 11, "bg": "#4b576c", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "text": {"text": "挂燃烧/自拉条", "color": "#ffffff", "box": [863, 2281, 326, 54], "lines": 1, "from": 38}}, {"id": 31, "name": "luge", "group": "T1功能角色", "file": "T1功能角色__luge.png", "box": [1276, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#454f6e", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "text": {"text": "挂冻结/挂减防", "color": "#ffffff", "box": [1272, 2281, 326, 54], "lines": 1, "from": 42}}, {"id": 32, "name": "hali", "group": "T1功能角色", "file": "T1功能角色__hali.png", "box": [449, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#625055", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "text": {"text": "推条/加防御", "color": "#ffffff", "box": [472, 2281, 274, 54], "lines": 1, "from": 44}}, {"id": 33, "name": "泳装露娜", "group": "T1功能角色", "file": "T1功能角色__泳装露娜.png", "box": [2096, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e5cbd3", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp", "text": {"text": "队友挨打暴击反击\n挂减攻", "color": "#ffffff", "box": [2046, 2281, 405, 110], "lines": 2, "from": 45}}, {"id": 34, "name": "miulier", "group": "T1功能角色", "file": "T1功能角色__miulier.png", "box": [2496, 1945, 320, 320], "attr": false, "ring": 11, "bg": "#848798", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "text": {"text": "挂减攻/挂燃烧", "color": "#ffffff", "box": [2493, 2283, 326, 54], "lines": 1, "from": 41}}, {"id": 35, "name": "laixi", "group": "T1功能角色", "file": "T1功能角色__laixi.png", "box": [2903, 1945, 320, 320], "attr": false, "ring": 12, "bg": "#e9aebb", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "text": {"text": "挂减攻/挨打回血", "color": "#ffffff", "box": [2874, 2281, 378, 54], "lines": 1, "from": 40}}, {"id": 36, "name": "cuisita", "group": "T1功能角色", "file": "T1功能角色__cuisita.png", "box": [3301, 1945, 320, 320], "attr": false, "ring": 8, "bg": "#a7c4fd", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "text": {"text": "AOE对策", "color": "#ffffff", "box": [3356, 2280, 210, 49], "lines": 1, "from": 39}}, {"id": 47, "name": "gn", "group": "光系", "file": "光系__gn.png", "box": [149, 3574, 213, 213], "attr": true, "ring": 6, "bg": "#c58f20", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 48, "name": "阿莫拉", "group": "光系", "file": "光系__阿莫拉.png", "box": [381, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b7939d", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 52, "name": "nna", "group": "光系", "file": "光系__nna.png", "box": [149, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#dead95", "char": "露娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"}, {"id": 53, "name": "sla", "group": "光系", "file": "光系__sla.png", "box": [381, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#f3d5eb", "char": "赛拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"}, {"id": 61, "name": "tnji", "group": "草系", "file": "草系__tnji.png", "box": [3001, 5696, 213, 213], "attr": true, "ring": 8, "bg": "#c9c9cd", "char": "塔妮娅", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp"}, {"id": 62, "name": "amj", "group": "草系", "file": "草系__amj.png", "box": [3233, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#647abd", "char": "奥米嘉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp"}, {"id": 63, "name": "dna", "group": "草系", "file": "草系__dna.png", "box": [3001, 5926, 213, 213], "attr": true, "ring": 11, "bg": "#b5aa94", "char": "达娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp"}, {"id": 64, "name": "lmn", "group": "草系", "file": "草系__lmn.png", "box": [3001, 5108, 213, 213], "attr": true, "ring": 7, "bg": "#332425", "char": "刘米娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp"}, {"id": 65, "name": "wx", "group": "草系", "file": "草系__wx.png", "box": [3233, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#8a92a2", "char": "微笑", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp"}, {"id": 66, "name": "best", "group": "草系", "file": "草系__best.png", "box": [3233, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#2b2f3f", "char": "贝尔·莉丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp"}, {"id": 67, "name": "crs", "group": "草系", "file": "草系__crs.png", "box": [3001, 5338, 213, 213], "attr": true, "ring": 7, "bg": "#5d6863", "char": "崔瑞丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp"}, {"id": 68, "name": "fl", "group": "草系", "file": "草系__fl.png", "box": [3233, 5926, 213, 213], "attr": true, "ring": 8, "bg": "#8e9e8a", "char": "芙蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp"}, {"id": 69, "name": "cuisita", "group": "草系", "file": "草系__cuisita.png", "box": [3233, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#819bd9", "char": "薇丝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp"}, {"id": 70, "name": "lbt", "group": "草系", "file": "草系__lbt.png", "box": [3001, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#7159af", "char": "萝贝塔", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp"}, {"id": 71, "name": "nalu", "group": "草系", "file": "草系__nalu.png", "box": [3001, 4162, 213, 213], "attr": true, "ring": 5, "bg": "#4b362f", "char": "娜鲁", "form": null, "face": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp"}, {"id": 72, "name": "格温", "group": "草系", "file": "草系__格温.png", "box": [3233, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#4b4b69", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp"}, {"id": 73, "name": "klls", "group": "草系", "file": "草系__klls.png", "box": [3001, 3804, 213, 213], "attr": true, "ring": 5, "bg": "#849279", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 74, "name": "凌", "group": "草系", "file": "草系__凌.png", "box": [3001, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#c9baaa", "char": "凌", "form": null, "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp"}, {"id": 75, "name": "泳装微笑", "group": "草系", "file": "草系__泳装微笑.png", "box": [3001, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#9d959f", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 76, "name": "mudun", "group": "草系", "file": "草系__mudun.png", "box": [3233, 3574, 213, 213], "attr": true, "ring": 7, "bg": "#a39455", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 84, "name": "zbeila", "group": "水系", "file": "水系__zbeila.png", "box": [2281, 5696, 213, 213], "attr": true, "ring": 5, "bg": "#b1a2b3", "char": "贝拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp"}, {"id": 85, "name": "yasela", "group": "水系", "file": "水系__yasela.png", "box": [2281, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#f1e2d8", "char": "亚瑟菈", "form": null, "face": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp"}, {"id": 86, "name": "lili", "group": "水系", "file": "水系__lili.png", "box": [2513, 5338, 213, 213], "attr": true, "ring": 8, "bg": "#e6c7c2", "char": "莉莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp"}, {"id": 87, "name": "tfl", "group": "水系", "file": "水系__tfl.png", "box": [2281, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#81c5af", "char": "芙蕾", "form": "贵族公主", "face": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp"}, {"id": 88, "name": "laidai", "group": "水系", "file": "水系__laidai.png", "box": [2513, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#f5e9da", "char": "艾芬黛尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp"}, {"id": 89, "name": "霏", "group": "水系", "file": "水系__霏.png", "box": [2281, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#b3afd3", "char": "霏", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp"}, {"id": 91, "name": "kler", "group": "水系", "file": "水系__kler.png", "box": [2281, 4392, 213, 213], "attr": true, "ring": 8, "bg": "#bd9e97", "char": "克莱儿", "form": "无瑕蓝玫瑰", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp"}, {"id": 92, "name": "zkelaier", "group": "水系", "file": "水系__zkelaier.png", "box": [2513, 4392, 213, 213], "attr": true, "ring": 5, "bg": "#55629a", "char": "克莱儿", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp"}, {"id": 93, "name": "luge", "group": "水系", "file": "水系__luge.png", "box": [2281, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#475372", "char": "卢格", "form": null, "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp"}, {"id": 94, "name": "aimili", "group": "水系", "file": "水系__aimili.png", "box": [2513, 4622, 213, 213], "attr": true, "ring": 8, "bg": "#9097a5", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 95, "name": "瑟莱丝", "group": "水系", "file": "水系__瑟莱丝.png", "box": [2281, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#cec8cc", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 96, "name": "hka", "group": "水系", "file": "水系__hka.png", "box": [2513, 3804, 213, 213], "attr": true, "ring": 8, "bg": "#7580ae", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 97, "name": "M教授", "group": "水系", "file": "水系__M教授.png", "box": [2281, 4034, 213, 213], "attr": true, "ring": 8, "bg": "#c9c8ce", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 99, "name": "tuxia", "group": "火系", "file": "火系__tuxia.png", "box": [1575, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#ad5770", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 100, "name": "hdj", "group": "火系", "file": "火系__hdj.png", "box": [1807, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#5c4a93", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 101, "name": "wikiSS克莉丝特头像", "group": "火系", "file": "火系__wikiSS克莉丝特头像.png", "box": [1575, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#40475f", "char": "克莉丝特", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp"}, {"id": 102, "name": "zmaerxi", "group": "火系", "file": "火系__zmaerxi.png", "box": [1807, 3932, 213, 213], "attr": true, "ring": 5, "bg": "#907c5c", "char": "玛尔希", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp"}, {"id": 103, "name": "hf", "group": "火系", "file": "火系__hf.png", "box": [1575, 4162, 213, 213], "attr": true, "ring": 8, "bg": "#dcdee2", "char": "艾芬黛尔", "form": "花绽祝福", "face": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp"}, {"id": 109, "name": "skl", "group": "火系", "file": "火系__skl.png", "box": [1575, 5338, 213, 213], "attr": true, "ring": 9, "bg": "#b43d55", "char": "丝卡蕾", "form": "小暴君", "face": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp"}, {"id": 110, "name": "ptla", "group": "火系", "file": "火系__ptla.png", "box": [1807, 5338, 213, 213], "attr": true, "ring": 13, "bg": "#e0c788", "char": "佩特拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp"}, {"id": 111, "name": "lsf", "group": "火系", "file": "火系__lsf.png", "box": [1575, 5568, 213, 213], "attr": true, "ring": 8, "bg": "#e2d5d3", "char": "希尔德", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp"}, {"id": 112, "name": "zanna", "group": "火系", "file": "火系__zanna.png", "box": [1807, 5568, 213, 213], "attr": true, "ring": 5, "bg": "#e8d5ea", "char": "安娜", "form": null, "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp"}, {"id": 113, "name": "qila", "group": "火系", "file": "火系__qila.png", "box": [1575, 4520, 213, 213], "attr": true, "ring": 8, "bg": "#895a6c", "char": "绮拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp"}, {"id": 114, "name": "zsikalei", "group": "火系", "file": "火系__zsikalei.png", "box": [1807, 4520, 213, 213], "attr": true, "ring": 5, "bg": "#c24551", "char": "丝卡蕾", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp"}, {"id": 115, "name": "xe", "group": "火系", "file": "火系__xe.png", "box": [1575, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e19da7", "char": "夏尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp"}, {"id": 116, "name": "miulier", "group": "火系", "file": "火系__miulier.png", "box": [1807, 4750, 213, 213], "attr": true, "ring": 8, "bg": "#e598a6", "char": "缪莉尔", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp"}, {"id": 117, "name": "泳装露娜", "group": "火系", "file": "火系__泳装露娜.png", "box": [1575, 4980, 213, 213], "attr": true, "ring": 9, "bg": "#f9cbd6", "char": "露娜", "form": "白珍珠", "face": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp"}, {"id": 118, "name": "hali", "group": "火系", "file": "火系__hali.png", "box": [1807, 4980, 213, 213], "attr": true, "ring": 8, "bg": "#7e7f92", "char": "哈莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp"}, {"id": 120, "name": "卡", "group": "暗系", "file": "暗系__卡.png", "box": [857, 3574, 213, 213], "attr": true, "ring": 8, "bg": "#8d8fb6", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 127, "name": "ailisha", "group": "暗系", "file": "暗系__ailisha.png", "box": [857, 5006, 213, 213], "attr": true, "ring": 8, "bg": "#4c4b6d", "char": "艾莉莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp"}, {"id": 129, "name": "laixi", "group": "暗系", "file": "暗系__laixi.png", "box": [857, 4290, 213, 213], "attr": true, "ring": 9, "bg": "#a88bbd", "char": "莱希", "form": null, "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp"}, {"id": 130, "name": "ldy", "group": "暗系", "file": "暗系__ldy.png", "box": [1089, 4290, 213, 213], "attr": true, "ring": 8, "bg": "#aa979b", "char": "莉迪亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp"}, {"id": 131, "name": "yiz", "group": "暗系", "file": "暗系__yiz.png", "box": [857, 3932, 213, 213], "attr": true, "ring": 8, "bg": "#594b56", "char": "罗莎莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"}, {"id": 133, "name": "tuxia", "group": "全场景必练T0.5", "file": "全场景必练T0.5__tuxia.png", "box": [45, 1352, 321, 320], "attr": false, "ring": 11, "bg": "#d0a3b6", "char": "夏尔", "form": "莫纳斯提尔之心", "face": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"id": 134, "name": "hdj", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hdj.png", "box": [456, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#50397e", "char": "缇莉雅", "form": null, "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"id": 135, "name": "hka", "group": "全场景必练T0.5", "file": "全场景必练T0.5__hka.png", "box": [866, 1351, 320, 320], "attr": false, "ring": 11, "bg": "#c7cfd0", "char": "卡蜜", "form": "永恒誓约", "face": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"id": 136, "name": "aimili", "group": "全场景必练T0.5", "file": "全场景必练T0.5__aimili.png", "box": [1276, 1351, 320, 321], "attr": false, "ring": 11, "bg": "#8d9aab", "char": "埃米莉", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"id": 137, "name": "卡", "group": "全场景必练T0.5", "file": "全场景必练T0.5__卡.png", "box": [1686, 1352, 321, 320], "attr": false, "ring": 12, "bg": "#626598", "char": "卡奈莉亚", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"id": 138, "name": "格温", "group": "全场景必练T0.5", "file": "全场景必练T0.5__格温.png", "box": [2096, 1351, 320, 319], "attr": false, "ring": 11, "bg": "#49475f", "char": "克温", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "text": {"text": "隐身上位", "color": "#ffffff", "box": [2122, 1675, 270, 63], "lines": 1, "from": 139}}, {"id": 141, "name": "泳装微笑", "group": "全场景必练T0", "file": "全场景必练T0__泳装微笑.png", "box": [45, 773, 321, 320], "attr": false, "ring": 11, "bg": "#e0d1cd", "char": "微笑", "form": "阳光猫娘", "face": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"id": 142, "name": "克拉丽莎", "group": "全场景必练T0", "file": "全场景必练T0__克拉丽莎.png", "box": [456, 773, 320, 320], "attr": false, "ring": 8, "bg": "#917090", "char": "克拉丽莎", "form": null, "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"id": 143, "name": "瑟莱丝", "group": "全场景必练T0", "file": "全场景必练T0__瑟莱丝.png", "box": [866, 773, 320, 321], "attr": false, "ring": 11, "bg": "#efa7b5", "char": "瑟莱丝", "form": null, "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"id": 144, "name": "gn", "group": "全场景必练T0", "file": "全场景必练T0__gn.png", "box": [1276, 773, 319, 321], "attr": false, "ring": 8, "bg": "#ecc476", "char": "亚瑟菈", "form": "星光华尔兹", "face": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"id": 145, "name": "mudun", "group": "全场景必练T0", "file": "全场景必练T0__mudun.png", "box": [1685, 773, 321, 321], "attr": false, "ring": 10, "bg": "#d6bd88", "char": "艾黛", "form": null, "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"id": 146, "name": "阿莫拉", "group": "全场景必练T0", "file": "全场景必练T0__阿莫拉.png", "box": [2096, 774, 321, 320], "attr": false, "ring": 11, "bg": "#26365b", "char": "阿莫拉", "form": null, "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"id": 147, "name": "M教授", "group": "全场景必练T0", "file": "全场景必练T0__M教授.png", "box": [2507, 773, 320, 320], "attr": false, "ring": 11, "bg": "#9f9fa8", "char": "M教授", "form": null, "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"id": 7001, "name": "T3空位", "group": "光系", "file": "", "box": [149, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7002, "name": "T4空位", "group": "光系", "file": "", "box": [149, 5006, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7003, "name": "T3空位", "group": "暗系", "file": "", "box": [857, 4648, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}, {"id": 7004, "name": "T2空位", "group": "光系", "file": "", "box": [149, 4290, 213, 213], "attr": true, "ph": true, "ring": 0, "bg": "transparent", "char": null, "form": null, "face": null}];
+const OTHERS_ORIG = [{"t": "img", "seq": 1, "name": "背景", "group": null, "box": [-5, -13, 3634, 7268], "file": "背景.png", "big": true, "grow": false, "bg": true}, {"t": "img", "seq": 2, "name": "UI_CHAT_EMO_CHAR_04", "group": null, "box": [3232, 175, 385, 354], "file": "UI_CHAT_EMO_CHAR_04.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 3, "name": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01", "group": null, "box": [-23, 191, 348, 349], "file": "UI_CHAT_EMO_SUMMER_ORACLE_EXCITED_01.png", "big": false, "grow": false, "bg": false}, {"t": "img", "seq": 4, "name": "图层 1", "group": null, "box": [1, 517, 3626, 6598], "file": "图层 1.png", "big": true, "grow": true, "bg": true}, {"t": "img", "seq": 5, "name": "底边", "group": null, "box": [1, 6684, 3620, 76], "file": "底边.png", "big": true, "grow": false, "bg": true}, {"t": "text", "seq": 6, "name": "强度排行榜推荐", "group": null, "box": [1843, 197, 1099, 143], "text": "强度排行榜推荐", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 7, "name": "DM_20260814174448_001", "group": null, "box": [664, 169, 1137, 253], "file": "DM_20260814174448_001.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8, "name": "图片版本:M教授 格温 更新时间10月2号", "group": null, "box": [1810, 367, 1096, 56], "text": "图片版本:M教授 格温 更新时间10月2号", "lines": 1, "color": "#303030"}, {"t": "img", "seq": 9, "name": "人物持立牌图片", "group": null, "box": [3082, 6335, 443, 426], "file": "人物持立牌图片.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 10, "name": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836 叠甲:尽量客观全", "group": null, "box": [751, 529, 2112, 116], "text": "作者:老顾不烦  校对：月光双蝶/神奈真白 交流①群:1091915990  交流②群:1093860836\n叠甲:尽量客观全面,有何疑问可加群询问或直接跟老顾等人讨论,不喜勿喷,谢谢配合", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 11, "name": "全属性梯度排行榜 排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "group": null, "box": [43, 3041, 2282, 146], "text": "全属性梯度排行榜\n排名规则：依据出场率，输出能力，机制进行排序，由专业高手校对，放心参考即可。", "lines": 2, "color": "#ffffff"}, {"t": "text", "seq": 12, "name": "T2功能角色", "group": "T2功能角色", "box": [44, 2415, 409, 74], "text": "T2功能角色", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 27, "name": "T1功能角色（包含副C/叠层/挂db手）", "group": "T1功能角色", "box": [44, 1822, 1302, 80], "text": "T1功能角色（包含副C/叠层/挂db手）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 46, "name": "矩形 1", "group": "光系", "box": [32, 3321, 687, 2989], "file": "光系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 49, "name": "光标", "group": "光系", "box": [259, 3206, 233, 233], "file": "光系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 50, "name": "T0", "group": "光系", "box": [324, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 51, "name": "T1", "group": "光系", "box": [326, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 54, "name": "矩形 1", "group": "草系", "box": [2875, 3321, 687, 2989], "file": "草系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 55, "name": "光标", "group": "草系", "box": [3102, 3206, 233, 233], "file": "草系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 56, "name": "T0 拷贝 4", "group": "草系", "box": [3176, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 57, "name": "T1", "group": "草系", "box": [3178, 4060, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 58, "name": "T2", "group": "草系", "box": [3177, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 59, "name": "T3", "group": "草系", "box": [3177, 5005, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 60, "name": "T4", "group": "草系", "box": [3176, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 77, "name": "矩形 1", "group": "水系", "box": [2162, 3321, 687, 2989], "file": "水系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 78, "name": "光标", "group": "水系", "box": [2389, 3206, 233, 233], "file": "水系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 79, "name": "T0 拷贝 3", "group": "水系", "box": [2456, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 80, "name": "T1", "group": "水系", "box": [2458, 4290, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 81, "name": "T2", "group": "水系", "box": [2457, 4878, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 82, "name": "T3", "group": "水系", "box": [2457, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 83, "name": "T4", "group": "水系", "box": [2456, 5594, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 90, "name": "闪避成功T0 闪避失败 T10086", "group": "水系", "box": [2510, 3593, 271, 186], "text": "闪避成功T0\n闪避失败\nT10086", "lines": 3, "color": "#ffffff"}, {"t": "img", "seq": 98, "name": "矩形 1", "group": "火系", "box": [1449, 3321, 687, 2989], "file": "火系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 104, "name": "光标", "group": "火系", "box": [1676, 3206, 233, 233], "file": "火系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 105, "name": "T0 拷贝 2", "group": "火系", "box": [1750, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 106, "name": "T1", "group": "火系", "box": [1752, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 107, "name": "T2", "group": "火系", "box": [1751, 4418, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 108, "name": "T3", "group": "火系", "box": [1751, 5235, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 119, "name": "矩形 1", "group": "暗系", "box": [735, 3321, 689, 2989], "file": "暗系__矩形 1.png", "big": false, "grow": false, "bg": true}, {"t": "img", "seq": 121, "name": "光标", "group": "暗系", "box": [963, 3206, 233, 233], "file": "暗系__光标.png", "big": false, "grow": false, "bg": true}, {"t": "text", "seq": 122, "name": "T0 拷贝", "group": "暗系", "box": [1032, 3471, 94, 59], "text": "T0", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 123, "name": "T1", "group": "暗系", "box": [1034, 3830, 92, 58], "text": "T1", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 124, "name": "T2", "group": "暗系", "box": [1033, 4188, 93, 58], "text": "T2", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 125, "name": "T3", "group": "暗系", "box": [1033, 4545, 93, 59], "text": "T3", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 126, "name": "T4", "group": "暗系", "box": [1032, 4904, 95, 58], "text": "T4", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 132, "name": "全场景必练T0.5", "group": "全场景必练T0.5", "box": [45, 1244, 565, 74], "text": "全场景必练T0.5", "lines": 1, "color": "#ffffff"}, {"t": "text", "seq": 140, "name": "全场景必练T0（含推图+宇宙门）", "group": "全场景必练T0", "box": [45, 689, 1120, 75], "text": "全场景必练T0（含推图+宇宙门）", "lines": 1, "color": "#ffffff"}, {"t": "img", "seq": 148, "name": "特别感谢", "group": null, "box": [3131, 517, 472, 293], "file": "特别感谢.png", "big": false, "grow": false, "bg": false}, {"t": "text", "seq": 8601, "name": "T3", "group": "光系", "text": "T3", "lines": 1, "color": "#ffffff", "box": [326, 4546, 92, 58]}, {"t": "text", "seq": 8602, "name": "T4", "group": "光系", "text": "T4", "lines": 1, "color": "#ffffff", "box": [326, 4904, 92, 58]}, {"t": "text", "seq": 8604, "name": "T2", "group": "光系", "text": "T2", "lines": 1, "color": "#ffffff", "box": [326, 4188, 92, 58]}];
 const ROSTER = [{"n": "니엘", "f": ["航行者救援团"]}, {"n": "亚瑟菈", "f": ["航行者救援团", "星光华尔兹"]}, {"n": "微笑", "f": ["航行者救援团", "阳光猫娘"]}, {"n": "露娜", "f": ["航行者救援团", "白珍珠"]}, {"n": "卡奈莉亚", "f": ["流浪者"]}, {"n": "贝尔·莉丝", "f": ["烛光广场"]}, {"n": "埃米莉", "f": ["烛光广场"]}, {"n": "夏尔", "f": ["莫纳斯提尔骑士团", "莫纳斯提尔之心"]}, {"n": "卡蜜", "f": ["莫纳斯提尔骑士团", "永恒誓约"]}, {"n": "芙蕾", "f": ["莫纳斯提尔骑士团", "贵族公主"]}, {"n": "赛拉", "f": ["梦魇"]}, {"n": "崔瑞丝", "f": ["阿塞卢斯协会"]}, {"n": "凌", "f": ["风月堂"]}, {"n": "克莉丝特", "f": ["莫雷尔海运商会"]}, {"n": "艾黛", "f": ["莫雷尔海运商会"]}, {"n": "瑟乐芬", "f": ["风月堂"]}, {"n": "达娜", "f": ["卡诺普斯警备队"]}, {"n": "缪莉尔", "f": ["莫诺利斯教团"]}, {"n": "艾莉莎", "f": ["莫诺利斯教团"]}, {"n": "缇莉雅", "f": ["执行者"]}, {"n": "萝贝塔", "f": ["轨道搜索队"]}, {"n": "卢格", "f": ["轨道搜索队"]}, {"n": "霏", "f": ["流浪者"]}, {"n": "艾芬黛尔", "f": ["奥尔兰家族", "花绽祝福"]}, {"n": "奥米嘉", "f": ["航行者救援团"]}, {"n": "瑟莱丝", "f": ["西部收复部队"]}, {"n": "莉迪亚", "f": ["西部收复部队"]}, {"n": "M教授", "f": ["兰帕迪斯"]}, {"n": "克温", "f": ["兰帕迪斯"]}, {"n": "哈莉", "f": ["地狱救援者"]}, {"n": "佩特拉", "f": ["佩特拉联合"]}, {"n": "莱希", "f": ["流浪者"]}, {"n": "塔妮娅", "f": ["佩特拉联合"]}, {"n": "莉莉", "f": ["兰帕迪斯"]}, {"n": "绮拉", "f": ["绮拉根本没有朋友"]}, {"n": "阿莫拉", "f": ["斯特拉尼斯伯爵家"]}, {"n": "薇丝塔", "f": ["西部收复部队"]}, {"n": "安娜", "f": ["NOA城镇守卫"]}, {"n": "玛尔希", "f": ["佩特拉联合"]}, {"n": "贝拉", "f": ["送货员协会"]}, {"n": "娜鲁", "f": ["轨道搜索队"]}, {"n": "克莱儿", "f": ["无瑕蓝玫瑰", "烛光广场"]}, {"n": "丝卡蕾", "f": ["小暴君", "烛光广场"]}, {"n": "克拉丽莎", "f": ["卡诺普斯警备队"]}, {"n": "希尔德", "f": ["芬里尔小队"]}, {"n": "刘米娜", "f": ["芬里尔小队"]}, {"n": "罗莎莉亚", "f": ["堕落之鹰"]}];
 const LIB = [{"c": "M教授", "f": "兰帕迪斯", "s": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"}, {"c": "丝卡蕾", "f": "小暴君", "s": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp"}, {"c": "丝卡蕾", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp"}, {"c": "亚瑟菈", "f": "星光华尔兹", "s": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp"}, {"c": "亚瑟菈", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp"}, {"c": "佩特拉", "f": "佩特拉联合", "s": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp"}, {"c": "克拉丽莎", "f": "卡诺普斯警备队", "s": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"}, {"c": "克温", "f": "兰帕迪斯", "s": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp"}, {"c": "克莉丝特", "f": "莫雷尔海运商会", "s": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp"}, {"c": "克莱儿", "f": "无瑕蓝玫瑰", "s": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp"}, {"c": "克莱儿", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp"}, {"c": "凌", "f": "风月堂", "s": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp"}, {"c": "刘米娜", "f": "芬里尔小队", "s": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp"}, {"c": "卡奈莉亚", "f": "流浪者", "s": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"}, {"c": "卡蜜", "f": "永恒誓约", "s": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp"}, {"c": "卡蜜", "f": "莫纳斯提尔骑士团", "s": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp"}, {"c": "卢格", "f": "轨道搜索队", "s": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp"}, {"c": "哈莉", "f": "地狱救援者", "s": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp"}, {"c": "埃米莉", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"}, {"c": "塔妮娅", "f": "佩特拉联合", "s": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp"}, {"c": "夏尔", "f": "莫纳斯提尔之心", "s": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp"}, {"c": "夏尔", "f": "莫纳斯提尔骑士团", "s": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp"}, {"c": "奥米嘉", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp"}, {"c": "娜鲁", "f": "轨道搜索队", "s": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp"}, {"c": "安娜", "f": "NOA城镇守卫", "s": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp"}, {"c": "崔瑞丝", "f": "阿塞卢斯协会", "s": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp"}, {"c": "希尔德", "f": "芬里尔小队", "s": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp"}, {"c": "微笑", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp"}, {"c": "微笑", "f": "阳光猫娘", "s": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp"}, {"c": "玛尔希", "f": "佩特拉联合", "s": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp"}, {"c": "瑟乐芬", "f": "风月堂", "s": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp"}, {"c": "瑟莱丝", "f": "西部收复部队", "s": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"}, {"c": "瑟莱丝", "f": "锐利甜心", "s": "faces/UFS_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.webp"}, {"c": "绮拉", "f": "绮拉根本没有朋友", "s": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp"}, {"c": "缇莉雅", "f": "执行者", "s": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"}, {"c": "缪莉尔", "f": "莫诺利斯教团", "s": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp"}, {"c": "罗莎莉亚", "f": "堕落之鹰", "s": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"}, {"c": "艾芬黛尔", "f": "奥尔兰家族", "s": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp"}, {"c": "艾芬黛尔", "f": "花绽祝福", "s": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp"}, {"c": "艾莉莎", "f": "莫诺利斯教团", "s": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp"}, {"c": "艾黛", "f": "莫雷尔海运商会", "s": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"}, {"c": "芙蕾", "f": "莫纳斯提尔骑士团", "s": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp"}, {"c": "芙蕾", "f": "贵族公主", "s": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp"}, {"c": "莉莉", "f": "兰帕迪斯", "s": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp"}, {"c": "莉迪亚", "f": "乖巧萌犬", "s": "faces/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp"}, {"c": "莉迪亚", "f": "西部收复部队", "s": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp"}, {"c": "莱希", "f": "流浪者", "s": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp"}, {"c": "萝贝塔", "f": "轨道搜索队", "s": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp"}, {"c": "薇丝塔", "f": "西部收复部队", "s": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp"}, {"c": "贝尔·莉丝", "f": "烛光广场", "s": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp"}, {"c": "贝拉", "f": "送货员协会", "s": "faces/UFS_NKM_UNIT_S_LPU_POST.webp"}, {"c": "赛拉", "f": "梦魇", "s": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"}, {"c": "达娜", "f": "卡诺普斯警备队", "s": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp"}, {"c": "阿莫拉", "f": "斯特拉尼斯伯爵家", "s": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"}, {"c": "霏", "f": "流浪者", "s": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp"}, {"c": "露娜", "f": "白珍珠", "s": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp"}, {"c": "露娜", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"}, {"c": "니엘", "f": "航行者救援团", "s": "faces/UFS_NKM_UNIT_S_NIEL.webp"}];
+/* 当前基线：正常来自存档里的完整版面（启动时注入），首次启动或「还原原稿」时就是下面这份原稿。
+   2026-10-16 起存档改存完整版面——保存写出去的永远是整版，不再有「改动被清空 → 线上被写空」这条路。 */
+let SLOTS = SLOTS_ORIG;
+let OTHERS = OTHERS_ORIG;
+let lastVisual = { o: {} };   /* 上一次渲染出的图层最终位置，保存时展开成完整版面用 */
+let baseLoaded = false;       /* 基线是否已从线上存档载入（false = 还在用内联原稿兜底） */
 const FACES = {"니엘|": "faces/UFS_NKM_UNIT_S_NIEL.webp", "니엘|航行者救援团": "faces/UFS_NKM_UNIT_S_NIEL.webp", "니엘": "faces/UFS_NKM_UNIT_S_NIEL.webp", "亚瑟菈|": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp", "亚瑟菈|航行者救援团": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp", "亚瑟菈|星光华尔兹": "faces/UFS_NKM_UNIT_S_DRESS_STRANIS.webp", "亚瑟菈": "faces/UFS_NKM_UNIT_S_VOYAGER_STRANIS.webp", "微笑|": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp", "微笑|航行者救援团": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp", "微笑|阳光猫娘": "faces/UFS_NKM_UNIT_S_SUMMER_SMILE.webp", "微笑": "faces/UFS_NKM_UNIT_S_VOYAGER_SMILE.webp", "露娜|": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp", "露娜|航行者救援团": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp", "露娜|白珍珠": "faces/UFS_NKM_UNIT_S_SUMMER_ORACLE.webp", "露娜": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp", "卡奈莉亚|": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp", "卡奈莉亚|流浪者": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp", "卡奈莉亚": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp", "贝尔·莉丝|": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp", "贝尔·莉丝|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp", "贝尔·莉丝": "faces/UFS_NKM_UNIT_S_MAID_BELL.webp", "埃米莉|": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp", "埃米莉|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp", "埃米莉": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp", "夏尔|": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp", "夏尔|莫纳斯提尔骑士团": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp", "夏尔|莫纳斯提尔之心": "faces/UFS_NKM_UNIT_S_BUNNY_KNIGHT.webp", "夏尔": "faces/UFS_NKM_UNIT_S_KINGDOM_KNIGHT.webp", "卡蜜|": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp", "卡蜜|莫纳斯提尔骑士团": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp", "卡蜜|永恒誓约": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp", "卡蜜": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp", "芙蕾|": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "芙蕾|莫纳斯提尔骑士团": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "芙蕾|贵族公主": "faces/UFS_NKM_UNIT_S_BUNNY_PRAY.webp", "芙蕾": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp", "赛拉|": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "赛拉|梦魇": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "赛拉": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp", "崔瑞丝|": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp", "崔瑞丝|阿塞卢斯协会": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp", "崔瑞丝": "faces/UFS_NKM_UNIT_S_STELLAR_THIEF.webp", "凌|": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "凌|风月堂": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "凌": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp", "克莉丝特|": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "克莉丝特|莫雷尔海运商会": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "克莉丝特": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp", "艾黛|": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp", "艾黛|莫雷尔海运商会": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp", "艾黛": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp", "瑟乐芬|": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "瑟乐芬|风月堂": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "瑟乐芬": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp", "达娜|": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp", "达娜|卡诺普斯警备队": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp", "达娜": "faces/UFS_NKM_UNIT_S_MAGICIAN_DRUID.webp", "缪莉尔|": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "缪莉尔|莫诺利斯教团": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "缪莉尔": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp", "艾莉莎|": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp", "艾莉莎|莫诺利斯教团": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp", "艾莉莎": "faces/UFS_NKM_UNIT_S_SAINTESS_ELF.webp", "缇莉雅|": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp", "缇莉雅|执行者": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp", "缇莉雅": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp", "萝贝塔|": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp", "萝贝塔|轨道搜索队": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp", "萝贝塔": "faces/UFS_NKM_UNIT_S_RECON_KNUCKLE.webp", "卢格|": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "卢格|轨道搜索队": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "卢格": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp", "霏|": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp", "霏|流浪者": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp", "霏": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp", "艾芬黛尔|": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp", "艾芬黛尔|奥尔兰家族": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp", "艾芬黛尔|花绽祝福": "faces/UFS_NKM_UNIT_S_WEDDING_DUALSWORD.webp", "艾芬黛尔": "faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp", "奥米嘉|": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp", "奥米嘉|航行者救援团": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp", "奥米嘉": "faces/UFS_NKM_UNIT_S_STARPIERCER_OMEGA.webp", "瑟莱丝|": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp", "瑟莱丝|西部收复部队": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp", "瑟莱丝": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp", "莉迪亚|": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp", "莉迪亚|西部收复部队": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp", "莉迪亚": "faces/UFS_NKM_UNIT_S_WEST_ROD.webp", "M教授|": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp", "M教授|兰帕迪斯": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp", "M教授": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp", "克温|": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "克温|兰帕迪斯": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "克温": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp", "哈莉|": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "哈莉|地狱救援者": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "哈莉": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp", "佩特拉|": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "佩特拉|佩特拉联合": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "佩特拉": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp", "莱希|": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "莱希|流浪者": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "莱希": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp", "塔妮娅|": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp", "塔妮娅|佩特拉联合": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp", "塔妮娅": "faces/UFS_NKM_UNIT_S_CONSTRUCT_GADGET.webp", "莉莉|": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp", "莉莉|兰帕迪斯": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp", "莉莉": "faces/UFS_NKM_UNIT_S_DETECTIVE_WATSON.webp", "绮拉|": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "绮拉|绮拉根本没有朋友": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "绮拉": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp", "阿莫拉|": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp", "阿莫拉|斯特拉尼斯伯爵家": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp", "阿莫拉": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp", "薇丝塔|": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "薇丝塔|西部收复部队": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "薇丝塔": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp", "安娜|": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "安娜|NOA城镇守卫": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "安娜": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp", "玛尔希|": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp", "玛尔希|佩特拉联合": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp", "玛尔希": "faces/UFS_NKM_UNIT_S_CONSTRUCT_WRENCH.webp", "贝拉|": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "贝拉|送货员协会": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "贝拉": "faces/UFS_NKM_UNIT_S_LPU_POST.webp", "娜鲁|": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp", "娜鲁|轨道搜索队": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp", "娜鲁": "faces/UFS_NKM_UNIT_S_NOA_OBSERVER.webp", "克莱儿|": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp", "克莱儿|无瑕蓝玫瑰": "faces/UFS_NKM_UNIT_S_BUNNY_SPEAR.webp", "克莱儿|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp", "克莱儿": "faces/UFS_NKM_UNIT_S_MAID_SPEAR.webp", "丝卡蕾|": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp", "丝卡蕾|小暴君": "faces/UFS_NKM_UNIT_S_BUNNY_SCISSORS.webp", "丝卡蕾|烛光广场": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp", "丝卡蕾": "faces/UFS_NKM_UNIT_S_MAID_SCISSORS.webp", "克拉丽莎|": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp", "克拉丽莎|卡诺普斯警备队": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp", "克拉丽莎": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp", "希尔德|": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "希尔德|芬里尔小队": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "希尔德": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp", "刘米娜|": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp", "刘米娜|芬里尔小队": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp", "刘米娜": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_MINA.webp", "罗莎莉亚|": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp", "罗莎莉亚|堕落之鹰": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp", "罗莎莉亚": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp"};                         /* 角色名 / 角色名|形态名 → 面板头像 */
-const PANEL_BOX = {"光系": [32, 3321, 687, 2989], "草系": [2875, 3321, 687, 2989], "水系": [2162, 3321, 687, 2989], "火系": [1449, 3321, 687, 2989], "暗系": [735, 3321, 689, 2989]};                     /* 每个属性栏的背板矩形，加格不得越出 */
+const PANEL_BOX_ORIG = {"光系": [32, 3321, 687, 2989], "草系": [2875, 3321, 687, 2989], "水系": [2162, 3321, 687, 2989], "火系": [1449, 3321, 687, 2989], "暗系": [735, 3321, 689, 2989]};                     /* 每个属性栏的背板矩形，加格不得越出 */
+let PANEL_BOX = PANEL_BOX_ORIG;   /* 当前属性栏矩形：换基线时从图层里重新认（认不出就用原稿这份） */
+let BASE_H = 6761;                /* 当前基线的画布高：原稿是 6761，换成存档基线后取存档里的 h */
+const ATTR_BOARD_NAME = "矩形 1";  /* 属性栏背板图层的名字，换基线时靠它认回每栏的范围 */
 const GRADES = {"니엘": "SSR", "니엘|航行者救援团": "SSR", "亚瑟菈": "SSR", "亚瑟菈|航行者救援团": "SSR", "亚瑟菈|星光华尔兹": "SSR", "微笑": "SSR", "微笑|航行者救援团": "SSR", "微笑|阳光猫娘": "SSR", "露娜": "SSR", "露娜|航行者救援团": "SSR", "露娜|白珍珠": "SSR", "卡奈莉亚": "SSR", "卡奈莉亚|流浪者": "SSR", "贝尔·莉丝": "SSR", "贝尔·莉丝|烛光广场": "SSR", "埃米莉": "SSR", "埃米莉|烛光广场": "SSR", "夏尔": "SSR", "夏尔|莫纳斯提尔骑士团": "SSR", "夏尔|莫纳斯提尔之心": "SSR", "卡蜜": "SSR", "卡蜜|莫纳斯提尔骑士团": "SSR", "卡蜜|永恒誓约": "SSR", "芙蕾": "SSR", "芙蕾|莫纳斯提尔骑士团": "SSR", "芙蕾|贵族公主": "SSR", "赛拉": "SSR", "赛拉|梦魇": "SSR", "崔瑞丝": "SSR", "崔瑞丝|阿塞卢斯协会": "SSR", "凌": "SSR", "凌|风月堂": "SSR", "克莉丝特": "SSR", "克莉丝特|莫雷尔海运商会": "SSR", "艾黛": "SSR", "艾黛|莫雷尔海运商会": "SSR", "瑟乐芬": "SSR", "瑟乐芬|风月堂": "SSR", "达娜": "SSR", "达娜|卡诺普斯警备队": "SSR", "缪莉尔": "SSR", "缪莉尔|莫诺利斯教团": "SSR", "艾莉莎": "SSR", "艾莉莎|莫诺利斯教团": "SSR", "缇莉雅": "SSR", "缇莉雅|执行者": "SSR", "萝贝塔": "SSR", "萝贝塔|轨道搜索队": "SSR", "卢格": "SSR", "卢格|轨道搜索队": "SSR", "霏": "SSR", "霏|流浪者": "SSR", "艾芬黛尔": "SSR", "艾芬黛尔|奥尔兰家族": "SSR", "艾芬黛尔|花绽祝福": "SSR", "奥米嘉": "SSR", "奥米嘉|航行者救援团": "SSR", "瑟莱丝": "SSR", "瑟莱丝|西部收复部队": "SSR", "莉迪亚": "SSR", "莉迪亚|西部收复部队": "SSR", "M教授": "SSR", "M教授|兰帕迪斯": "SSR", "克温": "SSR", "克温|兰帕迪斯": "SSR", "哈莉": "SSR", "哈莉|地狱救援者": "SSR", "佩特拉": "SSR", "佩特拉|佩特拉联合": "SSR", "莱希": "SSR", "莱希|流浪者": "SSR", "塔妮娅": "SSR", "塔妮娅|佩特拉联合": "SSR", "莉莉": "SSR", "莉莉|兰帕迪斯": "SSR", "绮拉": "SSR", "绮拉|绮拉根本没有朋友": "SSR", "阿莫拉": "SSR", "阿莫拉|斯特拉尼斯伯爵家": "SSR", "薇丝塔": "SR", "薇丝塔|西部收复部队": "SR", "安娜": "SR", "安娜|NOA城镇守卫": "SR", "玛尔希": "SR", "玛尔希|佩特拉联合": "SR", "贝拉": "SR", "贝拉|送货员协会": "SR", "娜鲁": "SR", "娜鲁|轨道搜索队": "SR", "克莱儿": "SR", "克莱儿|无瑕蓝玫瑰": "SSR", "克莱儿|烛光广场": "SR", "丝卡蕾": "SR", "丝卡蕾|小暴君": "SSR", "丝卡蕾|烛光广场": "SR", "克拉丽莎": "SR", "克拉丽莎|卡诺普斯警备队": "SR", "希尔德": "SSR", "希尔德|芬里尔小队": "SSR", "刘米娜": "SSR", "刘米娜|芬里尔小队": "SSR", "罗莎莉亚": "SSR", "罗莎莉亚|堕落之鹰": "SSR"};                       /* 角色名 / 角色名|形态名 → SSR / SR */
 const RARITY_COLOR = { SSR: "#fedd62", SR: "#a874e8", "": "#8b93a8" };
 const stage = document.getElementById("stage");
@@ -401,15 +410,20 @@ const shiftOf = id => (edit.slotShift || {})[id] || 0;
 const lshiftOf = seq => (edit.layerShift || {})[seq] || 0;
 const boxOf = s => [s.box[0], s.box[1] + shiftOf(s.id) + downOf(s.group, s.name),
                     s.box[2], s.box[3]];
-/* 头像来源：头像库拖入的素材优先，其次是该身份在面板里的头像；两样都没有就是空位。
-   原稿那张格位图（金框 + 浅底 + 立绘）不再使用。 */
+/* 头像来源：头像库拖入的素材优先；身份是这次改的就按身份重查面板头像；
+   身份没动则用数据里定下的那张（存档改成完整版面后，face 就是权威，不能再被查表覆盖）。 */
 const faceOf = s => {
   if (isSlotEmpty(s.id)) return null;            /* 空出的洞不挂头像 */
   const a = artOf(s.id);
   if (a) return a.src;
+  if (edit.char[s.id] !== undefined) {
+    const c = edit.char[s.id];
+    if (!c) return null;
+    return FACES[c] || FACES[String(c).split("|")[0]] || s.face || null;
+  }
+  if (s.face) return s.face;
   const c = charOf(s);
-  if (!c) return null;
-  return FACES[c] || FACES[c.split("|")[0]] || null;
+  return c ? (FACES[c] || FACES[String(c).split("|")[0]] || null) : null;
 };
 function barFits(sid, l, t, w, h) {
   const area = w * h;
@@ -482,11 +496,111 @@ function canvasHeight() {
   const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
   const panelBottom = Math.max(...ATTR_G.map(g => PANEL_BOX[g] ? PANEL_BOX[g][1] + PANEL_BOX[g][3] : 0));
   const attrGrow = attrGrowValue();
-  return Math.max(6761 + totalDown, panelBottom + cumDown("__attr__") + attrGrow
-                  + (panelBottom ? Math.max(40, 6761 - panelBottom) : 40));
+  return Math.max(BASE_H + totalDown, panelBottom + cumDown("__attr__") + attrGrow
+                  + (panelBottom ? Math.max(40, BASE_H - panelBottom) : 40));
+}
+/* ---------- 基线可替换：存档存完整版面（2026-10-16 起） ----------
+   原来存档只记「改动」、编辑器以写死的原稿为底：改动一旦被清空（点过「清空改动」或
+   「载入线上存档」），保存就把线上一起写空。现在存档就是一份完整版面，启动时用它当基线，
+   保存时把当前状态展开回去写——任何状态下保存都只会写出整版，最坏退回上次保存的样子。 */
+function clearEdit() {
+  for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"]) edit[k] = {};
+  edit.nt = []; edit.newSlots = []; edit.down = {}; edit.slotShift = {};
+  edit.layerShift = {}; edit.gone = {}; edit.tie = {};
+}
+/* 属性栏背板矩形：换基线后从图层里按名字 + 属性栏分组重新认回来 */
+function derivePanelBox(others) {
+  const m = {};
+  for (const o of others || [])
+    if (o.t === "img" && o.name === ATTR_BOARD_NAME && ATTR_G.indexOf(o.group) >= 0)
+      m[o.group] = o.box.slice();
+  return Object.keys(m).length ? m : PANEL_BOX_ORIG;
+}
+const isFullBoard = d => !!(d && Array.isArray(d.slots) && Array.isArray(d.others));
+/* 以完整版面为基线：此后的编辑与渲染都长在它上面 */
+function adoptBoard(board) {
+  if (!isFullBoard(board)) return false;
+  SLOTS = board.slots;
+  OTHERS = board.others;
+  BASE_H = board.h || BASE_H;
+  PANEL_BOX = derivePanelBox(board.others);
+  clearEdit();
+  /* 档位标签的绑定（标签 → 本档首格）是版面的一部分，跟着基线一起搬过来 */
+  if (board.tie) edit.tie = JSON.parse(JSON.stringify(board.tie));
+  sel = null; drag = null; dropTarget = null;
+  baseLoaded = true;
+  undoBase = snap();
+  return true;
+}
+/* 把「当前基线 + 本次改动」展开成完整版面（存档存的就是它）。
+   位置取自这一轮渲染的记录，不另算一遍，保证与屏幕上看到的一致。 */
+function flattenBoard() {
+  const slots = [];
+  for (const s of slotsAll()) {
+    if (edit.gone[s.id]) continue;
+    const b = boxOf(s), face = faceOf(s), who = charOf(s);
+    const it = { id: s.id, name: s.name, group: s.group, attr: !!s.attr,
+                 box: [b[0], b[1], b[2], b[3]], ring: s.ring || 6, bg: s.bg || "" };
+    if (s.ph) it.ph = true;
+    if (who) { const w = String(who).split("|"); it.char = w[0]; if (w[1]) it.form = w[1]; }
+    if (face) it.face = face;
+    if (!s.attr && !tstyleOf("s" + s.id).hide) {
+      const R = barRectOf(s), ts = textStyleOf(s);
+      it.text = { text: textOf(s), color: ts.color, box: [R.left, R.top, R.width, R.height],
+                  lines: (s.text && s.text.lines) || 1 };
+    }
+    slots.push(it);
+  }
+  const others = [];
+  for (const o of OTHERS) {
+    const v = lastVisual.o[o.seq];
+    if (!v) continue;                       /* 这轮没渲染的（被隐藏）：展开也不带 */
+    const ost = tstyleOf("o" + o.seq);
+    if (o.t === "img") {
+      const it = { t: "img", seq: o.seq, name: o.name, group: o.group, box: v.slice(), file: o.file };
+      if (o.big) it.big = true;
+      if (o.grow) it.grow = true;
+      if (o.bg) it.bg = true;
+      others.push(it);
+      continue;
+    }
+    /* 文字层：位置用渲染值；宽度渲染时留过 40px 余量、高度可能是 auto，都得回退成数据值，
+       否则灌回去再渲染会越拉越宽 */
+    const it = { t: "text", seq: o.seq, name: o.name, group: o.group,
+                 box: [v[0], v[1], o.box[2], o.box[3]],
+                 text: edit.text[o.seq] !== undefined ? edit.text[o.seq] : o.text,
+                 lines: o.lines || 1,
+                 color: ost.color || o.color };
+    if (ost.fs) it.fs = ost.fs;
+    if (ost.lh) it.lh = ost.lh;
+    if (ost.bold) it.bold = true;
+    others.push(it);
+  }
+  /* 自定义文本（PS 式新建文字层）：转成普通文字图层，seq 用 900000+ 排在最上层；
+     原先绑在档位首格上的，把绑定关系一并搬过去（位置由 tie 实时算，格位一动它就跟着走） */
+  const tieOut = {};
+  for (const k of Object.keys(edit.tie || {})) if (k[0] !== "n") tieOut[k] = edit.tie[k];
+  for (const nt of (edit.nt || [])) {
+    if (nt.hide) continue;
+    const seq = 900000 + nt.id, k = "n" + nt.id;
+    const p = posOf(k, nt.x, nt.y);
+    const tieId = (edit.tie || {})[k];
+    const tieSlot = tieId !== undefined ? findSlot(tieId) : null;
+    const it = { t: "text", seq: seq, name: nt.txt || "自定义文本", group: null,
+                 box: [p[0], tieSlot ? boxOf(tieSlot)[1] - LABEL_UP : p[1],
+                       Math.max(80, Math.round(nt.fs * 1.5)), Math.round(nt.fs * 1.25)],
+                 text: nt.txt || "", lines: 1, color: nt.color };
+    if (nt.fs) it.fs = nt.fs;
+    if (nt.bold) it.bold = true;
+    others.push(it);
+    if (tieId !== undefined) tieOut["l" + seq] = tieId;
+  }
+  return { ver: "full-1", w: 3621, h: canvasHeight(), slots: slots, others: others,
+           tie: tieOut, saved_at: new Date().toISOString() };
 }
 function render() {
   rseq += 1;
+  lastVisual = { o: {} };
   stage.innerHTML = "";
   /* 版面因加格变高后，画布与滚动区都要跟着长 */
   const canvasH = canvasHeight();
@@ -523,6 +637,9 @@ function render() {
       /* 黑底那张标了 grow 的跟着画布走；属性栏背板随加格延长；其余按原尺寸 */
       el.style.height = (o.grow ? (canvasH - (p[1] + dy0))
                                 : o.box[3] + (IS_PANEL(o) ? attrGrowValue() : 0)) + "px";
+      /* 记下最终位置：保存时展开成完整版面直接用这份，不再重算一遍（算式只留一处） */
+      lastVisual.o[o.seq] = [p[0], parseFloat(el.style.top) || 0,
+                             parseFloat(el.style.width) || 0, parseFloat(el.style.height) || 0];
       if (o.t === "text") {
         const lh = Math.round(o.box[3] / (o.lines || 1));
         const fs = ost.fs || Math.round(lh * 0.78);
@@ -1154,21 +1271,10 @@ function charText() {
   tbEl("bText").classList.toggle("on", p.classList.contains("on"));
   if (p.classList.contains("on")) tbFill();
 }
-function exportData() {
-  return { canvas: [3621, canvasHeight()], slots: changed(),
-           pos: edit.pos || {}, nt: edit.nt || [],
-           newSlots: edit.newSlots || [], down: edit.down || {},
-           slotShift: edit.slotShift || {}, layerShift: edit.layerShift || {},
-           gone: edit.gone || {}, tie: edit.tie || {},
-           allSlots: slotsAll().filter(s => !edit.gone[s.id])
-                     .map(s => ({ slot: s.id, group: s.group, name: s.name,
-                                  attr: !!s.attr, box: boxOf(s),
-                                  ring: s.ring || 6, bg: s.bg || "",
-                                  content: isSlotEmpty(s.id) ? null : contentOf(s.id) })) };
-}
 /* ---------- 导出到本地文件（没有仓库写权限时的退路） ---------- */
 function exportLocal() {
-  const data = exportData();
+  /* 导出的是完整版面（与仓库里那份同构），拿到别处也能直接当备份用 */
+  const data = flattenBoard();
   const blob = new Blob([JSON.stringify(data, null, 1)], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob); a.download = "psb_slots.json"; a.click();
@@ -1207,62 +1313,12 @@ function latestBy(remoteArr, mineArr, key){          /* 我的覆盖线上的同
   for (const [k, v] of keyedBy(mineArr, key)) m.set(k, v);
   return [...m.values()];
 }
-function mergeBoardArchive(remote, mine){
-  const out = Object.assign({}, remote, mine);        /* pos/down/slotShift/layerShift：我的覆盖 */
-  out.slots = latestBy(remote.slots, mine.slots, "slot");
-  out.newSlots = latestBy(remote.newSlots, mine.newSlots, "id");
-  out.nt = latestBy(remote.nt, mine.nt, "id");
-  /* allSlots 是全量快照：只覆盖我确实动过的格位，其余用线上的——
-     不然会拿我这边的旧位置把别人刚挪过的格位退回去 */
-  const moved = new Set((mine.slots || []).map(s => s && s.slot).filter(v => v !== undefined));
-  const all = keyedBy(remote.allSlots, "slot");
-  for (const [k, v] of keyedBy(mine.allSlots, "slot")) if (moved.has(k) || !all.has(k)) all.set(k, v);
-  out.allSlots = [...all.values()];
-  const rc = remote.canvas || [0, 0], mc = mine.canvas || [0, 0];
-  out.canvas = [Math.max(rc[0] || 0, mc[0] || 0), Math.max(rc[1] || 0, mc[1] || 0)];
-  return out;
-}
 /* ---------- 保存时的三方合并 ----------
    base = 我载入线上时那份；mine = 我现在的状态；remote = 推送前拉到的最新线上。
    字典类字段（gone / tie / down / slotShift / layerShift / pos）逐键比：
    我动过的键用我的，没动过的用线上的 —— 这样我删掉的格位不会被线上旧数据顶回来，
    别人删掉的也不会被我的旧数据顶回来（两方合并时整份覆盖，正是反复互相盖的根源）。 */
-const DICT_KEYS = ["gone", "tie", "down", "slotShift", "layerShift", "pos"];
-const LIST_KEYS = [["slots", "slot"], ["newSlots", "id"], ["nt", "id"], ["allSlots", "slot"]];
 
-function mergeDict3(base, mine, remote){
-  const out = Object.assign({}, mine || {});
-  for (const k of Object.keys(base || {}))
-    if (!mine || !(k in mine)) delete out[k];              /* 我删掉的键：跟着删掉 */
-  for (const k of Object.keys(remote || {})){
-    const b = base ? base[k] : undefined, m = mine ? mine[k] : undefined;
-    if (JSON.stringify(m) === JSON.stringify(b)) out[k] = remote[k];   /* 我没动过：用线上的 */
-  }
-  return out;
-}
-function mergeList3(base, mine, remote, key){
-  const b = keyedBy(base || [], key), m = keyedBy(mine || [], key), r = keyedBy(remote || [], key);
-  const out = new Map(r);
-  for (const [k, v] of m)
-    if (JSON.stringify(v) !== JSON.stringify(b.get(k))) out.set(k, v);  /* 我动过的条目：用我的 */
-  for (const k of b.keys()) if (!m.has(k)) out.delete(k);               /* 我删过的条目：跟着删 */
-  return [...out.values()];
-}
-function mergeTriple(base, mine, remote){
-  /* 没有基线（本机从没对齐过线上）就按空基线走：结果取两边并集，
-     比"整份用我这边的"安全——不会把别人刚删掉的东西又推回去 */
-  const B = base || {};
-  const out = Object.assign({}, remote, mine);
-  for (const k of DICT_KEYS)
-    if (B[k] || mine[k] || remote[k]) out[k] = mergeDict3(B[k], mine[k], remote[k]);
-  for (const [k, id] of LIST_KEYS){
-    if (!B[k] && !mine[k] && !remote[k]) continue;
-    out[k] = mergeList3(B[k], mine[k], remote[k], id);
-  }
-  const rc = remote.canvas || [0, 0], mc = mine.canvas || [0, 0];
-  out.canvas = [Math.max(rc[0] || 0, mc[0] || 0), Math.max(rc[1] || 0, mc[1] || 0)];
-  return out;
-}
 function mergeScArchive(remote, mine){
   const out = Object.assign({}, remote, mine);
   out.slots = latestBy(remote.slots, mine.slots, "id");
@@ -1277,7 +1333,6 @@ function mergeScArchive(remote, mine){
 const SLOTS_REMOTE = "psb_slots.json";
 const SLOTS_REMOTE_ABS = "https://raw.githubusercontent.com/ArcadiaUD/StarSavior-helper/main/docs/psb_slots.json";
 let ghBaseSha = null;                 /* 本次编辑开始时线上存档的版本号 */
-let ghBaseData = null;                /* 本次编辑开始时线上存档的内容（保存时做三方合并的基线） */
 let ghScBaseSha = null;               /* 支援卡存档的版本号 */
 /* 本机是否留着「还没保存的改动」：只有真的有内容才算，空档不算（不然后面自动对齐就失效了） */
 const hasLocalEdits = () => {
@@ -1336,16 +1391,23 @@ async function readArchive() {
 }
 
 async function pullRemoteSlots(manual) {
-  if (manual && hasLocalEdits() && !confirm("用线上存档覆盖这台机器上的本地改动？")) return;
+  if (manual && hasLocalEdits() && !confirm("用线上版面覆盖这台机器上没保存的改动？")) return;
   const d = await readArchive();
-  if (!d || !d.allSlots) { if (manual) flash("取不到线上存档"); return; }
-  applyArchive(d);
-  /* 载入线上后把本机那份存档一起作废：否则本机里的旧记录一直让 hasLocalEdits 为真，
-     刷新后又退回旧版面，线上的改动永远看不到 */
+  if (!d) { if (manual) flash("取不到线上存档"); return; }
+  let migrated = false;
+  if (isFullBoard(d)) {
+    adoptBoard(d);
+  } else {
+    applyArchive(d);                       /* 旧格式：内联原稿 + 改动记录 */
+    adoptBoard(flattenBoard());             /* 展开成完整版面，从此以它为准 */
+    migrated = true;
+  }
+  render(); refreshCount(); tbFill(); undoState();
+  /* 本机那份记录作废：新模型下基线就是线上版面，留着它只会让 hasLocalEdits 一直为真 */
   try { localStorage.removeItem("psbSlots"); } catch (e) {}
-  ghBaseData = JSON.parse(JSON.stringify(d));      /* 留一份基线，保存时做三方合并 */
   ghBaseSha = await ghReadSha();
-  flash(manual ? "已载入线上存档" : "已按线上存档对齐");
+  flash(migrated ? "存档已迁移为完整版面：点一次「存到仓库」写回仓库"
+                 : (manual ? "已载入线上版面" : "已按线上版面对齐"));
 }
 const ghEl = id => document.getElementById(id);
 function ghState(text, cls) {
@@ -1370,50 +1432,6 @@ function b64utf8(s) {
   return btoa(bin);
 }
 /* 写入前校验：坏数据写进仓库会直接打穿面板，这里一律拦下 */
-function validatePayload(data) {
-  if (!Array.isArray(data.canvas) || data.canvas.length !== 2 ||
-      !data.canvas.every(n => typeof n === "number" && isFinite(n) && n > 0))
-    return "画布尺寸不合法";
-  const [W, H] = data.canvas;
-  const all = data.allSlots;
-  if (!Array.isArray(all) || !all.length) return "格位列表为空";
-  const sid = v => (typeof v === "string" || typeof v === "number") ? String(v) : "";
-  const seen = new Set();
-  for (const s of all) {
-    if (!s) return "格位列表里有空项";
-    const id = sid(s.slot);
-    if (!id) return "有格位缺编号";
-    if (seen.has(id)) return "格位编号重复：" + id;
-    seen.add(id);
-    if (!Array.isArray(s.box) || s.box.length !== 4 ||
-        !s.box.every(n => typeof n === "number" && isFinite(n)))
-      return "格位坐标不合法：" + id;
-    const [x, y, w, h] = s.box;
-    if (x < -2 || y < -2 || x + w > W + 2 || y + h > H + 2)
-      return "格位越出画布：" + id;
-  }
-  // 位移是按「可拖动项」（文字条、图层名）建键的，不是格位编号，所以只校验数值形状
-  for (const k of Object.keys(data.pos || {})) {
-    const v = data.pos[k];
-    if (!Array.isArray(v) || v.length !== 2 ||
-        !v.every(n => typeof n === "number" && isFinite(n)))
-      return "位移数值不合法：" + k;
-  }
-  for (const l of (data.slots || [])) {
-    if (!l) return "改动记录里有空项";
-    const id = sid(l.slot);
-    if (!seen.has(id)) return "改动记录指向了不存在的格位：" + id;
-    if (l.content !== null && l.content !== undefined && !sid(l.content))
-      return "内容引用不合法：" + id;
-    if (l.char) {
-      const k = l.char + (l.form ? "|" + l.form : "");
-      if (!(FACES[k] || FACES[l.char])) return "头像身份查不到：" + k + "（" + id + "）";
-    }
-    if (l.art && !/^(layers|faces)\//.test(l.art.src || ""))
-      return "素材引用不合法：" + id + " → " + (l.art && l.art.src);
-  }
-  return null;
-}
 function ghSetConnected() {
   ghEl("bPush").disabled = !GH.canPush;
   ghEl("ghbox").classList.remove("on");
@@ -1489,45 +1507,79 @@ async function ghWaitEffect(payload, shortSha) {
 /* 存档里「有多少条改动」：保存前用它判断这次会不会把线上改动写没了。
    2026-10-16 出过这事：编辑器停在原稿版面时点保存，把线上的 30 处改动一次写空，
    线上和面板一起退回原稿，查了半天才发现。 */
-function editVolume(d) {
-  if (!d) return 0;
-  const n = x => Array.isArray(x) ? x.length : (x && typeof x === "object" ? Object.keys(x).length : 0);
-  return n(d.newSlots) + n(d.nt) + n(d.gone) + n(d.tie) + n(d.down)
-       + n(d.slotShift) + n(d.layerShift) + n(d.pos) + n(d.slots);
-}
 
 /* 这次写入会不会把线上的改动写没了：骤减超过四成就当成误操作，保存前问一句。
    线上本来就没几条改动时不拦（那种情况没什么可丢的）。 */
 const SHRINK_GUARD = 0.6;
 const wouldShrink = (before, after) => before > 3 && after < before * SHRINK_GUARD;
 
+/* 完整版面的合并：按 id / seq 取并集 —— 线上有、我这边没有的保留，我这边有的以我为准 */
+function mergeFullBoards(remote, mine) {
+  const key = x => x.id !== undefined ? "s" + x.id : "o" + x.seq;
+  const m = new Map();
+  for (const x of (remote.slots || []).concat(remote.others || [])) m.set(key(x), x);
+  for (const x of (mine.slots || []).concat(mine.others || [])) m.set(key(x), x);
+  const all = [...m.values()].sort((a, b) =>
+    (a.id !== undefined ? a.id : a.seq) - (b.id !== undefined ? b.id : b.seq));
+  return { ver: "full-1", w: mine.w || remote.w, h: Math.max(remote.h || 0, mine.h || 0),
+           slots: all.filter(x => x.id !== undefined),
+           others: all.filter(x => x.seq !== undefined),
+           tie: Object.assign({}, remote.tie || {}, mine.tie || {}),
+           saved_at: new Date().toISOString() };
+}
+
+/* 写入前校验：坏数据写进仓库会直接打穿面板，这里一律拦下 */
+function validateBoard(d) {
+  if (!isFullBoard(d)) return "数据不是完整版面";
+  if (!(d.w > 0) || !(d.h > 0)) return "画布尺寸不合法";
+  const seen = {};
+  for (const s of d.slots) {
+    if (s.id === undefined || seen["s" + s.id]) return "格位编号重复或缺失：" + s.id;
+    seen["s" + s.id] = 1;
+    if (!Array.isArray(s.box) || s.box.length !== 4 || !s.box.every(n => typeof n === "number" && isFinite(n)))
+      return "格位坐标不合法：" + s.id;
+    if (!s.group) return "格位缺分组：" + s.id;
+    if (s.box[1] + s.box[3] > d.h + 2) return "格位越出画布：" + s.id + "（画布高 " + d.h + "）";
+  }
+  for (const o of d.others) {
+    if (o.seq === undefined || seen["o" + o.seq]) return "图层编号重复或缺失：" + o.seq;
+    seen["o" + o.seq] = 1;
+    if (!Array.isArray(o.box) || o.box.length !== 4 || !o.box.every(n => typeof n === "number" && isFinite(n)))
+      return "图层坐标不合法：" + (o.name || o.seq);
+    if (o.t === "img" && !o.file) return "图片图层缺素材：" + (o.name || o.seq);
+  }
+  return null;
+}
+
 async function ghPush() {
   if (GH.busy) return;
   if (!GH.canPush) { flash("没连上仓库或没有写权限，保存被拒"); return; }
   let data;
-  try { data = exportData(); } catch (e) { flash("导出失败：" + e.message); return; }
-  const bad = validatePayload(data);
+  try { data = flattenBoard(); } catch (e) { flash("导出失败：" + e.message); return; }
+  const bad = validateBoard(data);
   if (bad) { flash("校验未过，已拒绝写入：" + bad); return; }
+  if (!baseLoaded && !confirm("这个页面还没载入线上版面（现在显示的是原稿兜底版）。\n\n"
+                             + "这种状态下保存会把原稿版面写进仓库。确定要写吗？")) {
+    flash("已取消保存：先点「载入线上存档」把线上版面取回来再改");
+    return;
+  }
   GH.busy = true;
   ghState("保存中…");
   const url = `/repos/${GH.owner}/${GH.repo}/contents/${GH.path}`;
   try {
     /* 先取线上那份，按格位合并：自己改过的覆盖线上同一条，别人改过的原样保留 */
     const remote = await fetchRemoteJson(GH.path);
-    if (remote) {
-      /* 三方合并：以「我载入线上时那份」为基线，只把我真正改过的条目盖上去，
-         线上别人改动的原样保留（含「别人删掉的格位、我这边的旧数据里还留着」这种情况） */
-      data = mergeTriple(ghBaseData, data, remote);
-    }
-    /* 写之前先看一眼：线上原有 X 条改动、这次只写 Y 条 —— 骤减几乎都是误操作
-       （停在原稿版面上保存、点过「清空改动」或「载入线上存档」），问一句再写。 */
-    const volBefore = editVolume(remote), volAfter = editVolume(data);
+    if (isFullBoard(remote)) data = mergeFullBoards(remote, data);
+    /* 写之前先看一眼：这次写入的格位比线上少得多，多半是误操作，问一句再写 */
+    const volBefore = (remote && remote.slots) ? remote.slots.length : 0;
+    const volAfter = data.slots.length;
     if (wouldShrink(volBefore, volAfter)) {
-      if (!confirm("这次保存会把线上的改动从 " + volBefore + " 条减到 " + volAfter + " 条。\n\n"
-                 + "如果你现在看到的是原稿版面，或者刚点过「清空改动」「载入线上存档」，"
+      if (!confirm("这次保存写出去的格位比线上少 " + (volBefore - volAfter) + " 个"
+                 + "（" + volBefore + " → " + volAfter + "）。\n\n"
+                 + "如果你现在看到的是原稿版面，或者刚点过「还原原稿」，先确认一下再写，"
                  + "这一下就会把线上已有的改动清掉。\n\n确定要写进仓库吗？")) {
         ghState("已取消保存");
-        flash("已取消保存（改动会从 " + volBefore + " 条掉到 " + volAfter + " 条）");
+        flash("已取消保存（格位会从 " + volBefore + " 个掉到 " + volAfter + " 个）");
         return;
       }
     }
@@ -1546,7 +1598,11 @@ async function ghPush() {
     const out = await r.json();
     ghBaseSha = (out.content && out.content.sha) || null;
     const short = out.commit.sha.slice(0, 7);
-    flash("已存到仓库 " + short + "（改动 " + volAfter + " 条）");
+    /* 写出去的这份就是新基线：之后的编辑长在它上面，未保存的改动记录清掉 */
+    adoptBoard(data);
+    render(); refreshCount(); tbFill(); undoState();
+    try { localStorage.removeItem("psbSlots"); } catch (e) {}
+    flash("已存到仓库 " + short + "（整版 " + volAfter + " 格）");
     await ghWaitEffect(payload, short);
   } catch (e) {
     ghState("保存失败", "bad");
@@ -1580,13 +1636,26 @@ addEventListener("keydown", e => {
   const t = localStorage.getItem(TOKEN_KEY);
   if (t) { GH.token = t; ghState("恢复连接…"); ghConnect(true); }
 })();
-/* 打开时对齐线上存档：本机没改动就直接用线上那份；有没保存的改动就先不动它，只提示
-   （「载入线上存档」按钮的绑定在后文 onBoth 段） */
+/* 打开时对齐线上：存档现在是完整版面，直接拿它当基线；若还是旧的「改动记录」格式，
+   就先展开成完整版面（等于自动迁移），此后一律以完整版面为准。
+   取不到线上（离线）就按原稿版面打开，页面照样能用。 */
 (async function () {
   ghBaseSha = await ghReadSha();
   ghScBaseSha = await ghReadSha(SC_PATH);
-  if (!hasLocalEdits()) await pullRemoteSlots(false);
-  else if (ghBaseSha) flash("这台机器上有没保存的改动；要跟线上对齐，点「载入线上存档」");
+  const remote = await readArchive();
+  if (!remote) { flash("取不到线上存档，先按原稿版面打开"); return; }
+  let migrated = false;
+  if (isFullBoard(remote)) {
+    adoptBoard(remote);
+  } else {
+    applyArchive(remote);                  /* 旧格式：内联原稿 + 改动记录 */
+    adoptBoard(flattenBoard());             /* 展开成完整版面，从此以它为准 */
+    migrated = true;
+  }
+  render(); refreshCount(); tbFill(); undoState();
+  try { localStorage.removeItem("psbSlots"); } catch (e) {}
+  flash(migrated ? "存档已迁移为完整版面：点一次「存到仓库」写回仓库"
+                 : "已按线上版面打开");
 })();
 
 /* ---------- 分页：角色强度榜（本编辑器）↔ 支援卡强度榜 ----------
@@ -2195,6 +2264,12 @@ document.getElementById("file").onchange = e => {
   rd.onload = () => {
     try {
       const data = JSON.parse(rd.result);
+      if (isFullBoard(data)) {                  /* 完整版面：直接当基线换上去 */
+        adoptBoard(data);
+        render(); refreshCount(); tbFill(); undoState();
+        flash("已导入完整版面：" + data.slots.length + " 格、" + data.others.length + " 个图层");
+        return;
+      }
       if (data.pos) edit.pos = data.pos;
       if (data.nt) edit.nt = data.nt;
       edit.newSlots = data.newSlots || [];
@@ -2215,11 +2290,9 @@ document.getElementById("file").onchange = e => {
   rd.readAsText(f);
 };
 function charClearAll() {
-  if (!confirm("清空全部改动，回到作者原稿？")) return;
-  for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = {};
-  edit.nt = []; edit.newSlots = []; edit.down = {};
-  edit.slotShift = {}; edit.layerShift = {}; edit.gone = {}; edit.tie = {};
-  save(); sel = null; hideInsp(); render(); tbFill();
+  if (!confirm("清空这台机器上没保存的改动，回到线上版面？")) return;
+  clearEdit();
+  save(); sel = null; hideInsp(); render(); refreshCount(); tbFill(); undoState();
 }
 /* 清空该格：格子留着，只把里面挂的东西（头像/素材/身份/文字）清掉 */
 function charEmptySlot() {
@@ -2453,16 +2526,22 @@ setInterval(async () => {
     }, 900);
     return;
   }
-  /* 空闲时把线上别人的改动并进来：自己动过的格位一律不动，只补别人改过的。
-     用的就是保存时那套合并，方向反过来而已。 */
+  /* 空闲时看看线上版面有没有被别人改过：本机没有未保存改动就直接换成线上那份，
+     有改动就只提示一句（避免把人家正在编的东西冲掉）。 */
   if (!GH.canPush) return;                   /* 没连令牌就别去打扰接口 */
   const remote = await fetchRemoteJson(GH.path);
-  if (remote){
-    const mine = exportData();
-    const merged = mergeBoardArchive(remote, mine);
-    if (JSON.stringify(merged) !== JSON.stringify(mine)){
-      applyArchive(merged);
-      flash("已同步线上最新榜单（别人改过的部分）");
+  if (remote && isFullBoard(remote)){
+    const cur = flattenBoard();
+    const changedOnLine = JSON.stringify(remote.slots) !== JSON.stringify(cur.slots)
+                       || JSON.stringify(remote.others) !== JSON.stringify(cur.others);
+    if (changedOnLine){
+      if (hasLocalEdits()){
+        flash("线上版面有更新；本机还有没保存的改动，保存后再点「载入线上存档」");
+      } else {
+        adoptBoard(remote);
+        render(); refreshCount(); tbFill(); undoState();
+        flash("已同步线上最新版面");
+      }
     }
   }
   if (typeof SC_PATH === "string" && scState.data){
