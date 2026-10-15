@@ -122,25 +122,31 @@ try {
 } catch (e) {}
 const S = PAGES[curPage] ? PAGES[curPage] : S0;   /* 当前页 = 选中角色那版 */
 window.ZOOM = (typeof S.zoom === "number" && S.zoom > 0) ? S.zoom : 1;   /* 显示比例：只影响预览 */
-const R0 = S.r0, C0 = S.c0;
+let R0 = S.r0, C0 = S.c0;
 let ROWS = S.grid.length, COLS = S.grid[0].length;
 let text = S.grid.map(r => r.slice());
 let colpx = Object.assign({}, S.colpx);
 let rowpx = Object.assign({}, S.rowpx);
-const merges = S.merges || [];
+let merges = S.merges || [];
 let imgs = Object.assign({}, S.imgs || {});   /* 初始图（助手调好的版面会带上） */
 let sel = null;                      /* {r,c} 最后点的格 */
 let sels = new Set();                /* 选中的格子（可多选，再点取消） */
 let mode = "text";                   /* text | col | row */
 
-const spanOf = {}, covered = {};
-merges.forEach(m => {
-  const r1 = m[0] - R0, c1 = m[1] - C0, r2 = m[2] - R0, c2 = m[3] - C0;   /* 绝对坐标换算成网格坐标 */
-  if (r1 < 0 || c1 < 0 || r1 >= ROWS || c1 >= COLS) return;
-  spanOf[r1 + ":" + c1] = [r2 - r1 + 1, c2 - c1 + 1];
-  for (let r = r1; r <= r2; r++) for (let c = c1; c <= c2; c++)
-    if (!(r === r1 && c === c1)) covered[r + ":" + c] = r1 + ":" + c1;
-});
+let spanOf = {}, covered = {};
+/* 尺寸与合并每页都可能不同（莉迪亚那页卡组多一组、整页 21 行），切页时必须按新页重算。
+   写死用第一页的话，切到行数不同的页会越界 → render 抛错 → 页面卡住不动。 */
+function rebuildSpans(){
+  spanOf = {}; covered = {};
+  merges.forEach(m => {
+    const r1 = m[0] - R0, c1 = m[1] - C0, r2 = m[2] - R0, c2 = m[3] - C0;   /* 绝对坐标换算成网格坐标 */
+    if (r1 < 0 || c1 < 0 || r1 >= ROWS || c1 >= COLS) return;
+    spanOf[r1 + ":" + c1] = [r2 - r1 + 1, c2 - c1 + 1];
+    for (let r = r1; r <= r2; r++) for (let c = c1; c <= c2; c++)
+      if (!(r === r1 && c === c1)) covered[r + ":" + c] = r1 + ":" + c1;
+  });
+}
+rebuildSpans();
 const esc = s => String(s == null ? "" : s)
   .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 function flash(msg){
@@ -346,6 +352,10 @@ function loadPage(name){
   const pg = PAGES[name];
   if (!pg) return;
   curPage = name;
+  R0 = pg.r0; C0 = pg.c0;
+  ROWS = pg.grid.length; COLS = pg.grid[0].length;
+  merges = pg.merges || [];
+  rebuildSpans();
   text = pg.grid.map(r => r.slice());
   colpx = Object.assign({}, pg.colpx);
   rowpx = Object.assign({}, pg.rowpx);
@@ -369,7 +379,8 @@ function render(){
       if (covered[key]) continue;
       const sp = spanOf[key] || [1, 1];
       const R = R0 + r, C = C0 + c;
-      const txt = text[r][c] || "";
+      const row = text[r] || [];
+      const txt = row[c] || "";
       const im = imgs[R + ":" + C];
       const cls = ((txt ? "" : "empty") + (im ? " hasimg" : "")).trim();
       h += '<td data-r="' + R + '" data-c="' + C + '" data-k="' + key + '"' +
