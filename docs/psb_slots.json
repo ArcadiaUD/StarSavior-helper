@@ -422,11 +422,7 @@
    "name": "新格6",
    "content": 1012,
    "contentName": "新格6",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp",
-    "char": "卡蜜",
-    "form": "莫纳斯提尔骑士团"
-   },
+   "art": null,
    "char": null,
    "form": null,
    "textChanged": false,
@@ -464,11 +460,7 @@
    "name": "新格7",
    "content": 1015,
    "contentName": "新格7",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp",
-    "char": "卡蜜",
-    "form": "永恒誓约"
-   },
+   "art": null,
    "char": null,
    "form": null,
    "textChanged": false,
@@ -527,11 +519,7 @@
    "name": "新格7",
    "content": 1016,
    "contentName": "新格7",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp",
-    "char": "卡蜜",
-    "form": "永恒誓约"
-   },
+   "art": null,
    "char": null,
    "form": null,
    "textChanged": false,
