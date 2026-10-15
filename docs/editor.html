@@ -527,7 +527,9 @@ function render() {
       const tieId = edit.tie["l" + o.seq];
       const tieSlot = tieId !== undefined ? findSlot(tieId) : null;
       el.style.left = p[0] + "px";
-      el.style.top = (tieSlot ? boxOf(tieSlot)[1] - LABEL_UP : p[1] + dy0) + "px";
+      /* 版脚各自贴到画布最下端：原来按「两个版脚里最高的那个」统一位移，底边就贴不到底 */
+      el.style.top = (tieSlot ? boxOf(tieSlot)[1] - LABEL_UP
+                              : (TAIL_G.indexOf(o.name) >= 0 ? canvasH - o.box[3] : p[1] + dy0)) + "px";
       el.style.width = (o.t === "text" ? o.box[2] + 40 : o.box[2]) + "px";
       /* 黑底那张标了 grow 的跟着画布走；属性栏背板随加格延长；其余按原尺寸 */
       el.style.height = (o.grow ? (canvasH - (p[1] + dy0))
