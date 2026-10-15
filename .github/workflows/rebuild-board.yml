@@ -47,6 +47,8 @@ jobs:
           PSB_PANEL: ${{ github.workspace }}/build/panel
         run: python build_psb_full.py
 
+
+
       - name: 校验产物齐全
         run: |
           for f in index.html board.json board_data.js board.js; do
@@ -70,6 +72,19 @@ jobs:
           cp -f build/psb_web/board.json build/psb_web/board_data.js build/psb_web/board.js docs/
           rm -rf docs/layers docs/faces
           cp -r build/psb_web/layers build/psb_web/faces docs/
+
+      # 位置上以编辑器为准：构建是从 PSB 原稿重算的，而编辑器用的是内联基线 + 存档位移，
+      # 两套算法只要差一点版面就错位（漏层、漏删除记录、重复下移都踩过）。
+      # 这一步用编辑器的渲染结果，把站点数据里每个格位/图层的最终坐标覆盖一遍。
+      - name: 装浏览器（位置对齐要用）
+        id: setup-chrome
+        uses: browser-actions/setup-chrome@v1
+
+      - name: 用编辑器渲染结果对齐位置
+        working-directory: build
+        env:
+          CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
+        run: python patch_positions.py --write
 
       - name: 写构建标记
         run: |
