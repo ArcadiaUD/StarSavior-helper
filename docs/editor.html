@@ -1486,6 +1486,21 @@ async function ghWaitEffect(payload, shortSha) {
   }, 3000);
 }
 
+/* 存档里「有多少条改动」：保存前用它判断这次会不会把线上改动写没了。
+   2026-10-16 出过这事：编辑器停在原稿版面时点保存，把线上的 30 处改动一次写空，
+   线上和面板一起退回原稿，查了半天才发现。 */
+function editVolume(d) {
+  if (!d) return 0;
+  const n = x => Array.isArray(x) ? x.length : (x && typeof x === "object" ? Object.keys(x).length : 0);
+  return n(d.newSlots) + n(d.nt) + n(d.gone) + n(d.tie) + n(d.down)
+       + n(d.slotShift) + n(d.layerShift) + n(d.pos) + n(d.slots);
+}
+
+/* 这次写入会不会把线上的改动写没了：骤减超过四成就当成误操作，保存前问一句。
+   线上本来就没几条改动时不拦（那种情况没什么可丢的）。 */
+const SHRINK_GUARD = 0.6;
+const wouldShrink = (before, after) => before > 3 && after < before * SHRINK_GUARD;
+
 async function ghPush() {
   if (GH.busy) return;
   if (!GH.canPush) { flash("没连上仓库或没有写权限，保存被拒"); return; }
@@ -1504,6 +1519,18 @@ async function ghPush() {
          线上别人改动的原样保留（含「别人删掉的格位、我这边的旧数据里还留着」这种情况） */
       data = mergeTriple(ghBaseData, data, remote);
     }
+    /* 写之前先看一眼：线上原有 X 条改动、这次只写 Y 条 —— 骤减几乎都是误操作
+       （停在原稿版面上保存、点过「清空改动」或「载入线上存档」），问一句再写。 */
+    const volBefore = editVolume(remote), volAfter = editVolume(data);
+    if (wouldShrink(volBefore, volAfter)) {
+      if (!confirm("这次保存会把线上的改动从 " + volBefore + " 条减到 " + volAfter + " 条。\n\n"
+                 + "如果你现在看到的是原稿版面，或者刚点过「清空改动」「载入线上存档」，"
+                 + "这一下就会把线上已有的改动清掉。\n\n确定要写进仓库吗？")) {
+        ghState("已取消保存");
+        flash("已取消保存（改动会从 " + volBefore + " 条掉到 " + volAfter + " 条）");
+        return;
+      }
+    }
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
     if (cur.ok) sha = (await cur.json()).sha;
@@ -1519,7 +1546,7 @@ async function ghPush() {
     const out = await r.json();
     ghBaseSha = (out.content && out.content.sha) || null;
     const short = out.commit.sha.slice(0, 7);
-    flash("已存到仓库 " + short);
+    flash("已存到仓库 " + short + "（改动 " + volAfter + " 条）");
     await ghWaitEffect(payload, short);
   } catch (e) {
     ghState("保存失败", "bad");
@@ -1948,6 +1975,11 @@ function scValidate(d) {
   }
   return null;
 }
+/* 支援卡存档是完整快照，「改动量」看格位数 + 挂了卡的格数 */
+function scVolume(d) {
+  const s = (d && d.slots) || [];
+  return s.length + s.filter(x => x["卡"] && !x["空"]).length;
+}
 async function scPush() {
   if (!GH.canPush) { flash("先在顶部「连接 GitHub」拿到写权限"); return; }
   const full = scClone(scState.data);           /* 校验要连卡库一起看 */
@@ -1962,6 +1994,18 @@ async function scPush() {
     if (remote) {
       /* 与强度榜同一套：自己改过的卡位强制覆盖，别人改过的保留 */
       arch = mergeScArchive(remote, arch);
+    }
+    /* 与强度榜同一套：这次写入比线上少得明显就拦一下，免得把线上的挂卡一次写没 */
+    const volBefore = scVolume(remote), volAfter = scVolume(arch);
+    if (wouldShrink(volBefore, volAfter)) {
+      if (!confirm("这次保存会让线上少掉 " + (volBefore - volAfter) + " 项"
+                 + "（格位与挂卡合计 " + volBefore + " → " + volAfter + "）。\n\n"
+                 + "如果你现在看到的是空榜，或者刚点过「清空改动」「回到原稿」，"
+                 + "这一下就会把线上的内容清掉。\n\n确定要写进仓库吗？")) {
+        ghState("已取消保存");
+        flash("已取消保存（会少掉 " + (volBefore - volAfter) + " 项）");
+        return;
+      }
     }
     let sha = null;
     const cur = await ghFetch(url + "?ref=" + GH.branch);
@@ -1979,7 +2023,7 @@ async function scPush() {
     ghScBaseSha = (out.content && out.content.sha) || null;
     const short = out.commit.sha.slice(0, 7);
     ghState("支援卡存档已保存 " + short, "ok");
-    flash("支援卡存档已保存 " + short);
+    flash("支援卡存档已保存 " + short + "（格位与挂卡合计 " + volAfter + " 项）");
   } catch (e) {
     ghState("支援卡存档保存失败", "bad");
     flash("保存失败：" + e.message);
