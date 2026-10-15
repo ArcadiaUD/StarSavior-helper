@@ -194,6 +194,7 @@
   <button id="bPick" class="on">素材可拖</button>
   <button id="bUndo" disabled>↶ 撤回</button>
   <button id="bAdd">＋ 格</button>
+  <button id="bDel">删掉该格</button>
   <button id="bText">文字</button>
   <button id="bOut">缩小</button>
   <button id="bIn">放大</button>
@@ -2140,6 +2141,32 @@ document.getElementById("bUndo").onclick = undo;
 document.getElementById("bAdd").onclick = () => {
   if (sel === null) { flash("先在画布上点选一个格位，新格会加在它后面"); return; }
   addSlot(sel);
+};
+/* ---- 删格：网页上新增的格位真删掉，同排右边的往左补一格；原稿里的格位不能真删
+   （那是作者版面的一部分），改成「空出」——头像清掉、格子留着，详情里还能「还原」。 */
+function delSlot(id){
+  const s = findSlot(id);
+  if (!s) return;
+  const ns = edit.newSlots || [];
+  const i = ns.findIndex(t => t.id === id);
+  if (i >= 0){
+    ns.splice(i, 1);
+    /* 同一排、在它右边的新格整体左移一格 */
+    for (const k of ns){
+      if (k.group === s.group && Math.abs(k.box[1] - s.box[1]) <= 30 && k.box[0] > s.box[0]) {
+        k.box[0] -= STEP_X;
+      }
+    }
+    flash("已删掉该格");
+  } else {
+    edit.place[id] = EMPTY; delete edit.art[id]; delete edit.char[id];
+    flash("原稿格位不能真删，已把这一格空出（详情里可「还原」）");
+  }
+  save(); sel = null; hideInsp(); render();
+}
+document.getElementById("bDel").onclick = () => {
+  if (sel === null) { flash("先在画布上点选要删掉的格位"); return; }
+  delSlot(sel);
 };
 document.addEventListener("keydown", e => {
   if (!(e.ctrlKey || e.metaKey) || e.shiftKey || String(e.key).toLowerCase() !== "z") return;
