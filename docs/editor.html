@@ -507,6 +507,7 @@ function render() {
       .map(o => o.box[1] + o.box[3] + downOf(o.group, o.name) + lshiftOf(o.seq)));
   const tailDrop = Math.max(0, canvasH - tailBottom);
   stage.style.height = canvasH + "px";
+  stage.dataset.canvasH = canvasH;      /* 导出榜单数据时直接读这个，别靠推算 */
   document.getElementById("fit").style.height = "calc(" + canvasH + "px * var(--z))";
   const all = [
     ...OTHERS.map(o => ({ seq:o.seq, kind:"other", o })),

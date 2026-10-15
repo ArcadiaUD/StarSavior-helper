@@ -63,6 +63,7 @@ class Probe(HTMLParser):
     def __init__(self):
         super().__init__()
         self.stage = None
+        self.stage_w = None      # 画布宽（CSS 里的，stage 只带 height）
         self.items = []
         self.depth = []          # 元素栈
 
@@ -80,9 +81,10 @@ class Probe(HTMLParser):
         cls = (d.get("class") or "").split()
 
         if d.get("id") == "stage":
-            w, h = px(st, "width"), px(st, "height")
-            if w and h:
-                self.stage = (round(w), round(h))
+            # 编辑器只往 stage 上写 height（宽度在 CSS 里），画布高优先取它算好的 data
+            h = px(st, "height") or (float(d["data-canvas-h"]) if d.get("data-canvas-h") else None)
+            if h and self.stage_w:
+                self.stage = (self.stage_w, round(h))
             self.depth.append(("stage", None))
             return
 
@@ -193,15 +195,20 @@ def main():
     dom = os.path.join(tmp, "dom.html")
     try:
         with io.open(dom, "w", encoding="utf-8", errors="replace") as f:
+            # 固定缩放与窗口尺寸：CI 上的 DPI/视口和本机不同，会让编辑器算出的画布尺寸有偏差
             subprocess.run([find_chrome(), "--headless=new", "--disable-gpu", "--no-sandbox",
+                            "--force-device-scale-factor=1",
+                            "--window-size=2000,1200",
                             "--user-data-dir=" + os.path.join(tmp, "prof"),
-                            "--virtual-time-budget=25000", "--dump-dom",
+                            "--virtual-time-budget=30000", "--dump-dom",
                             "http://127.0.0.1:%d/editor.html" % port],
                            stdout=f, stderr=subprocess.DEVNULL, timeout=240)
     finally:
         server.kill()
 
+    old = json.loads(BOARD.read_text(encoding="utf-8")) if BOARD.is_file() else {}
     probe = Probe()
+    probe.stage_w = old.get("w") or 3621      # 画布宽是固定的，从上一版数据继承
     probe.feed(io.open(dom, encoding="utf-8", errors="replace").read())
     items = build_items(probe)
     cells = [i for i in items if i.get("cell")]
@@ -215,8 +222,6 @@ def main():
     else:
         w = max(i["box"][0] + i["box"][2] for i in items)
         h = max(i["box"][1] + i["box"][3] for i in items)
-
-    old = json.loads(BOARD.read_text(encoding="utf-8")) if BOARD.is_file() else {}
 
     # 身份信息（角色/形态/分组/名字）不靠 DOM：按 id 从上一版数据里对齐过来，
     # 渲染器要靠它决定稀有度边框色与格子的名字。新格在数据里的 seq 是 900000+id。
