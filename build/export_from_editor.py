@@ -31,6 +31,28 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 BOARD = DOCS / "board.json"
 BOARD_DATA = DOCS / "board_data.js"
+PANEL_TIER = ROOT / "未打包" / "V1.0" / "assets" / "tier"
+
+
+def write_panel(board: dict) -> None:
+    """顺手把面板随包那份也刷了。
+
+    面板对使用者来说是「读随包」为主（国内直连 GitHub 多半不通），程序包与数据包又都是从
+    这个目录打包的——只刷 docs 不刷它，就会出现「线上是对的、别人装完看到的是旧的」。
+    未打包目录只在本机存在（仓库里被 gitignore），云上跑会自动跳过。
+    """
+    d = PANEL_TIER / "board"
+    if not d.is_dir():
+        print("（本机没有 %s，跳过随包同步）" % d)
+        return
+    dump = json.dumps(board, ensure_ascii=False, separators=(",", ":"))
+    (d / "board.json").write_text(dump, encoding="utf-8", newline="\n")
+    (d / "board_data.js").write_text("window.BOARD_DATA = " + dump + ";\n",
+                                     encoding="utf-8", newline="\n")
+    js = ROOT / "build" / "board.js"          # 渲染实现只有一份，源在这里
+    if js.is_file():
+        shutil.copy2(js, d / "board.js")
+    print("已同步面板随包：%s" % d)
 
 
 def find_chrome():
@@ -262,10 +284,12 @@ def main():
     if not write:
         print("（试算，未写文件；加 --write 落盘）")
         return
-    BOARD.write_text(json.dumps(board, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    BOARD.write_text(json.dumps(board, ensure_ascii=False, separators=(",", ":")),
+                     encoding="utf-8", newline="\n")
     BOARD_DATA.write_text("window.BOARD_DATA = " + json.dumps(board, ensure_ascii=False,
-                          separators=(",", ":")) + ";\n", encoding="utf-8")
+                          separators=(",", ":")) + ";\n", encoding="utf-8", newline="\n")
     print("已写回 docs/board.json 与 docs/board_data.js")
+    write_panel(board)
 
 
 if __name__ == "__main__":

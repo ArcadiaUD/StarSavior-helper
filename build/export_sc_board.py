@@ -24,6 +24,7 @@ docs/sc/sc_board.json —— 只覆盖 box / 挂的卡 / 文字这些字段，�
 from __future__ import annotations
 
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -33,6 +34,25 @@ ARCHIVE = DOCS / "sc_psb_slots.json"
 EDITOR_JS = DOCS / "sc_board_data.js"
 SITE = DOCS / "sc" / "sc_board.json"
 SITE_JS = DOCS / "sc" / "sc_board_data.js"
+PANEL_TIER = ROOT / "未打包" / "V1.0" / "assets" / "tier"
+
+
+def write_panel(site: dict, dump: str) -> None:
+    """顺手把面板随包那份也刷了。
+
+    面板对使用者来说是「读随包」为主（国内直连 GitHub 多半不通），程序包与数据包又都是从
+    这个目录打包的——只刷 docs 不刷它，就会出现「线上是对的、别人装完看到的是空的」。
+    未打包目录只在本机存在（仓库里被 gitignore），云上跑会自动跳过。
+    """
+    d = PANEL_TIER / "sc"
+    if not d.is_dir():
+        print("（本机没有 %s，跳过随包同步）" % d)
+        return
+    (d / "sc_board.json").write_text(dump, encoding="utf-8", newline="\n")
+    js = DOCS / "sc_board.js"                 # 渲染实现只有一份，源在 docs 下
+    if js.is_file():
+        shutil.copy2(js, d / "sc_board.js")
+    print("已同步面板随包：%s" % d)
 
 EDITOR_BASES = {"layers": "sc_layers/", "cards": "sc_cards/", "frames": "sc_frames/"}
 SITE_BASES = {"layers": "layers/", "cards": "cards/", "frames": "frames/"}
@@ -112,9 +132,11 @@ def main() -> int:
 
     write_js(EDITOR_JS, editor)
     SITE.parent.mkdir(parents=True, exist_ok=True)
-    SITE.write_text(json.dumps(site, ensure_ascii=False), encoding="utf-8", newline="\n")
+    dump = json.dumps(site, ensure_ascii=False)
+    SITE.write_text(dump, encoding="utf-8", newline="\n")
     write_js(SITE_JS, site)
     print(f"已写 {EDITOR_JS.name}、{SITE.parent.name}/{SITE.name}、{SITE.parent.name}/{SITE_JS.name}")
+    write_panel(site, dump)
     return 0
 
 
