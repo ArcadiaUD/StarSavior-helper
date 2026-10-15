@@ -81,6 +81,12 @@ def build_face_index():
         dst = out_dir / f"{stem}.webp"
         if not dst.exists():
             shutil.copy2(src, dst)
+    # 面板脸库里 roster 之外的脸也一并拷过去：CI 重建会整份清掉 docs/faces 再拷回，
+    # 只按 roster 挑的话，没登记进 roster 的形态（新上的活动形态等）每次重建都会被删掉
+    for src in sorted((PANEL / "assets" / "faces").glob("*.webp")):
+        dst = out_dir / src.name
+        if not dst.exists():
+            shutil.copy2(src, dst)
     return idx
 
 
