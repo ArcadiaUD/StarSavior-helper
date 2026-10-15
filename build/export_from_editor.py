@@ -31,6 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DOCS = ROOT / "docs"
 BOARD = DOCS / "board.json"
 BOARD_DATA = DOCS / "board_data.js"
+SAVE = DOCS / "psb_slots.json"
 PANEL_TIER = ROOT / "未打包" / "V1.0" / "assets" / "tier"
 
 
@@ -262,18 +263,33 @@ def main():
 
     # 身份信息（角色/形态/分组/名字）不靠 DOM：按 id 从上一版数据里对齐过来，
     # 渲染器要靠它决定稀有度边框色与格子的名字。新格在数据里的 seq 是 900000+id。
-    old_by = {}
-    for o in old.get("items") or []:
-        for k in (o.get("seq"), (o.get("seq") or 0) - 900000):
-            if k is not None:
-                old_by.setdefault(k, o)
-    for it in items:
-        o = old_by.get(it.get("seq"))
-        if not o:
-            continue
-        for k in ("name", "group", "char", "form"):
-            if o.get(k):
-                it[k] = o[k]
+    # 身份信息（角色/形态/分组/名字）不靠 DOM：优先按 id 从存档对齐 ——
+    # 新格式存档自带完整版面，字段最全；没有新版存档时退回上一版 board.json。
+    save = json.loads(SAVE.read_text(encoding="utf-8")) if SAVE.is_file() else {}
+    by_id = {}
+    if isinstance(save.get("slots"), list):
+        by_id = {x.get("id"): x for x in save["slots"]}
+    if by_id:
+        for it in items:
+            s = by_id.get(it.get("seq"))
+            if not s:
+                continue
+            for k in ("name", "group", "char", "form", "attr", "ring", "bg"):
+                if s.get(k) is not None:
+                    it[k] = s[k]
+    else:
+        old_by = {}
+        for o in old.get("items") or []:
+            for k in (o.get("seq"), (o.get("seq") or 0) - 900000):
+                if k is not None:
+                    old_by.setdefault(k, o)
+        for it in items:
+            o = old_by.get(it.get("seq"))
+            if not o:
+                continue
+            for k in ("name", "group", "char", "form"):
+                if o.get(k):
+                    it[k] = o[k]
 
     board = {
         "w": old.get("w") or w, "h": h,

@@ -545,9 +545,12 @@ function flattenBoard() {
     if (who) { const w = String(who).split("|"); it.char = w[0]; if (w[1]) it.form = w[1]; }
     if (face) it.face = face;
     if (!s.attr && !tstyleOf("s" + s.id).hide) {
-      const R = barRectOf(s), ts = textStyleOf(s);
-      it.text = { text: textOf(s), color: ts.color, box: [R.left, R.top, R.width, R.height],
-                  lines: (s.text && s.text.lines) || 1 };
+      const t = textOf(s);
+      if (t !== "") {                 /* 空说明栏（只有提示位）不写进存档，与作者原稿一致 */
+        const R = barRectOf(s), ts = textStyleOf(s);
+        it.text = { text: t, color: ts.color, box: [R.left, R.top, R.width, R.height],
+                    lines: (s.text && s.text.lines) || 1 };
+      }
     }
     slots.push(it);
   }
