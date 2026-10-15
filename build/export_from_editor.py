@@ -75,6 +75,13 @@ class Probe(HTMLParser):
             "bold": "bold" in (style or "") or "font-weight: 7" in (style or ""),
         }
 
+    def owner(self):
+        """往上找最近的条目（格位/图层）：img、i 这些子元素的宿主不是紧邻的栈顶。"""
+        for _, v in reversed(self.depth):
+            if isinstance(v, dict):
+                return v
+        return None
+
     def handle_starttag(self, tag, attrs):
         d = dict(attrs)
         st = d.get("style") or ""
@@ -128,14 +135,21 @@ class Probe(HTMLParser):
             self.depth.append((item["t"], item))
             return
 
-        # 子元素：头像图 / 稀有度环
-        if tag == "img" and self.depth and isinstance(self.depth[-1][1], dict):
-            it = self.depth[-1][1]
-            if it.get("file") is None:
+        # 子元素：头像图 / 稀有度环（宿主是往上最近的条目，不是紧邻的栈顶）
+        if tag == "img":
+            it = self.owner()
+            if it is not None and it.get("file") is None:
                 it["file"] = d.get("src")
-        elif tag == "i" and self.depth and isinstance(self.depth[-1][1], dict):
-            it = self.depth[-1][1]
-            if "ring" in cls and it.get("cell"):
+                alt = d.get("alt") or ""          # 头像的身份名（编辑器写的 charOf 或格名）
+                if alt:
+                    if "|" in alt:
+                        nm, _, fm = alt.partition("|")
+                        it["char"], it["form"] = nm, fm
+                    else:
+                        it["char"] = alt
+        elif tag == "i":
+            it = self.owner()
+            if it is not None and "ring" in cls and it.get("cell"):
                 it["ring"] = {"w": px(st, "border-width"), "color": color_of(st)}
         self.depth.append((tag, None))
 
@@ -144,10 +158,9 @@ class Probe(HTMLParser):
             self.depth.pop()
 
     def handle_data(self, data):
-        if self.depth and isinstance(self.depth[-1][1], dict):
-            it = self.depth[-1][1]
-            if it.get("t") == "text" and not it.get("cell"):
-                it["text"] += data
+        it = self.owner()
+        if it is not None and it.get("t") == "text" and not it.get("cell"):
+            it["text"] += data
 
 
 def build_items(probe):
@@ -164,6 +177,8 @@ def build_items(probe):
             it["grow"] = False
             rg = it.get("ring") or {}
             it["ring"] = round(rg.get("w") or 6)
+            if rg.get("color"):                 # 环的颜色（金=SSR／紫=SR）直接照搬渲染结果
+                it["ringColor"] = rg["color"]
             it["bg"] = it.get("bg") or "#2b3038"
             it.pop("blank", None)
             it.pop("ph", None)

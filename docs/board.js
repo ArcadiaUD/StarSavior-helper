@@ -92,7 +92,9 @@
         var ring = document.createElement("i");      /* 稀有度边框：SSR 金 / SR 紫 */
         ring.className = "ring";
         ring.style.borderWidth = Math.max(it.ring || 6, 2) + "px";
-        ring.style.borderColor = RARITY_COLOR[self.rank(it.char, it.form)] || RARITY_COLOR[""];
+        /* 颜色优先用导出时照搬的渲染结果（编辑器的环色），查不到才按身份推算 */
+        ring.style.borderColor = it.ringColor
+            || RARITY_COLOR[self.rank(it.char, it.form)] || RARITY_COLOR[""];
         d.appendChild(ring);
       }
       if (it.cell) {
@@ -100,6 +102,15 @@
         tag.className = "tag";
         tag.textContent = it.name + (it.char ? " → " + it.char + (it.form ? "·" + it.form : "") : "（未指定）");
         d.appendChild(tag);
+        /* 面板里点格位跳到该角色的攻略页；网页侧没有 pywebview 接口，点了不响应 */
+        if (it.name && global.pywebview && global.pywebview.api
+            && global.pywebview.api.open_role_sheet) {
+          d.style.cursor = "pointer";
+          d.title = (it.char || it.name) + " · 点击看攻略";
+          d.addEventListener("click", function () {
+            try { global.pywebview.api.open_role_sheet(it.char || it.name); } catch (e) {}
+          });
+        }
       }
       stage.appendChild(d);
     }
