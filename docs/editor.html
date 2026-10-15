@@ -430,7 +430,7 @@ function barFits(sid, l, t, w, h) {
   };
   for (const o of OTHERS) {
     if (o.bg) continue;                        /* 背景、底边、栏位背板、光标：不算拦路 */
-    if (hit([o.box[0], o.box[1] + downOf(o.group, o.name), o.box[2], o.box[3]])) return false;
+    if (hit([o.box[0], o.box[1] + downOf(o.group, o.name) + lshiftOf(o.seq), o.box[2], o.box[3]])) return false;
   }
   for (const o of slotsAll()) {
     if (o.id === sid) continue;
@@ -476,24 +476,29 @@ const IS_PANEL = o => o.t === "img" && o.name === "矩形 1" && ATTR_G.indexOf(o
 const ATTR_PAD = 297;   /* 原稿里背板底到最下格底的余量，延长时按同样的余量留 */
 
 let rseq = 0;                    /* 渲染代号：重建 DOM 后旧元素的 blur 处理器据此认出自己已被替换 */
+/* 画布高度：内容多高、画布就多高。
+   渲染与「导出/校验」必须用同一个算法——两处各算各的，导出那份漏了背板延长，
+   一加格就报「格位越出画布」。 */
+function canvasHeight() {
+  const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
+  const panelBottom = Math.max(...ATTR_G.map(g => PANEL_BOX[g] ? PANEL_BOX[g][1] + PANEL_BOX[g][3] : 0));
+  const attrGrow = Math.max(0, ...ATTR_G.map(g => {
+    const p = PANEL_BOX[g], mine = slotsAll().filter(s => s.group === g && !edit.gone[s.id]);
+    if (!p || !mine.length) return 0;
+    return Math.max(...mine.map(s => boxOf(s)[1] + s.box[3]))
+           + ATTR_PAD - (p[1] + p[3]);
+  }));
+  return Math.max(6761 + totalDown, panelBottom + cumDown("__attr__") + attrGrow
+                  + (panelBottom ? Math.max(40, 6761 - panelBottom) : 40));
+}
 function render() {
   rseq += 1;
   stage.innerHTML = "";
   /* 版面因加格变高后，画布与滚动区都要跟着长 */
-  const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
-  /* 属性栏背板随格位加长：取五栏里最靠下的格底、加上原稿的底部余量，五栏一起延长同样的量 */
-  const panelBottom = Math.max(...ATTR_G.map(g => PANEL_BOX[g] ? PANEL_BOX[g][1] + PANEL_BOX[g][3] : 0));
-  const attrGrow = Math.max(0, ...ATTR_G.map(g => {
-    const p = PANEL_BOX[g], mine = slotsAll().filter(s => s.group === g);
-    if (!p || !mine.length) return 0;
-    return Math.max(...mine.map(s => s.box[1] + shiftOf(s.id) + s.box[3]))
-           + ATTR_PAD - (p[1] + p[3]);
-  }));
-  const canvasH = Math.max(6761 + totalDown, panelBottom + cumDown("__attr__") + attrGrow
-                           + (panelBottom ? Math.max(40, 6761 - panelBottom) : 40));
+  const canvasH = canvasHeight();
   /* 版脚（底边、人物持立牌）贴着黑底最下端：黑底跟着画布走，版脚再跟着黑底走 */
   const tailBottom = Math.max(0, ...OTHERS.filter(o => TAIL_G.indexOf(o.name) >= 0)
-      .map(o => o.box[1] + o.box[3] + downOf(o.group, o.name)));
+      .map(o => o.box[1] + o.box[3] + downOf(o.group, o.name) + lshiftOf(o.seq)));
   const tailDrop = Math.max(0, canvasH - tailBottom);
   stage.style.height = canvasH + "px";
   document.getElementById("fit").style.height = "calc(" + canvasH + "px * var(--z))";
@@ -1136,8 +1141,7 @@ tbEl("bText").onclick = e => {
   if (p.classList.contains("on")) tbFill();
 };
 function exportData() {
-  const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
-  return { canvas: [3621, 6761 + totalDown], slots: changed(),
+  return { canvas: [3621, canvasHeight()], slots: changed(),
            pos: edit.pos || {}, nt: edit.nt || [],
            newSlots: edit.newSlots || [], down: edit.down || {},
            slotShift: edit.slotShift || {}, layerShift: edit.layerShift || {},
