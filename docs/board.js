@@ -85,6 +85,18 @@
         img.src = face;
         img.alt = it.name;
         d.appendChild(img);
+      } else if (it.text !== undefined) {
+        /* 文字层：原稿是烧进裁片图里的，编辑器改成了真文字（说明栏、自定义文字层），
+           渲染器这边要跟着画出来，否则改过的文字在榜单上不显示 */
+        var tx = document.createElement("span");
+        tx.textContent = it.text;
+        tx.style.display = "block";
+        tx.style.whiteSpace = "pre-wrap";
+        tx.style.fontSize = (it.fs || 40) + "px";
+        tx.style.lineHeight = (it.lh || 50) + "px";
+        tx.style.color = it.color || "#ffffff";
+        if (it.bold) tx.style.fontWeight = "700";
+        d.appendChild(tx);
       } else if (it.cell) {
         d.classList.add("blank");
       }
