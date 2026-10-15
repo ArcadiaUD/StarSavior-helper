@@ -384,7 +384,7 @@ const textBoxOf = s => {
 /* ---- 格位表：作者原稿的格位 + 网页上行尾新增的格位 ---- */
 const ATTR_G = ["光系", "暗系", "火系", "水系", "草系"];
 const TAIL_G = ["底边", "人物持立牌图片"];
-const ORD_G = ["全场景必练T0", "全场景必练T0.5", "T1功能角色", "T2功能角色", "__attr__", "__tail__"];
+const ORD_G = ["全场景必练T0", "全场景必练T0.5", "全场景必练T1", "T1功能角色", "T2功能角色", "__attr__", "__tail__"];
 const STEP_X = 410, STEP_Y = 410, ATTR_STEP = 230, GAP_X = 45;
 const slotsAll = () => SLOTS.concat(edit.newSlots || []);
 const findSlot = id => slotsAll().find(s => s.id === id) || null;
