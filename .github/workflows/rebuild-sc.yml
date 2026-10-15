@@ -8,7 +8,7 @@ on:
   push:
     paths:
       - "docs/sc_psb_slots.json"
-      - "build/sc_apply_archive.py"
+      - "build/export_sc_board.py"
       - "docs/sc/sc_board.json"
       - ".github/workflows/rebuild-sc.yml"
   workflow_dispatch:
@@ -27,9 +27,9 @@ jobs:
         with:
           python-version: "3.12"
 
-      # 纯标准库：只做数据合并，不装任何依赖
-      - name: 并入存档
-        run: python build/sc_apply_archive.py
+      # 纯标准库：只搬数据，不装任何依赖
+      - name: 以编辑器存档生成数据
+        run: python build/export_sc_board.py
 
       - name: 校验产物
         run: |
@@ -46,24 +46,11 @@ jobs:
                 f"{sum(1 for s in slots if s.get('卡') and not s.get('空'))} 个）／图层 {len(items)} 个")
           PY
 
-      - name: 顺便写一份给首页用的数据包装
-        run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          d = json.loads(Path("docs/sc/sc_board.json").read_text(encoding="utf-8"))
-          d["bases"] = {"layers": "layers/", "frames": "frames/", "cards": "cards/"}
-          Path("docs/sc/sc_board_data.js").write_text(
-              "window.SC_BOARD_DATA = " + json.dumps(d, ensure_ascii=False) + ";\n",
-              encoding="utf-8", newline="\n")
-          print("已写 docs/sc/sc_board_data.js")
-          PY
-
       - name: 提交回仓库
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/sc/sc_board.json docs/sc/sc_board_data.js
+          git add docs/sc_board_data.js docs/sc/sc_board.json docs/sc/sc_board_data.js
           if git diff --cached --quiet; then
             echo "榜单数据没有变化，不提交"
           else
