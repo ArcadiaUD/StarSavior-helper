@@ -178,10 +178,10 @@
    "slot": 141,
    "group": "全场景必练T0",
    "name": "泳装微笑",
-   "content": 147,
-   "contentName": "M教授",
+   "content": 145,
+   "contentName": "mudun",
    "art": null,
-   "char": "M教授",
+   "char": "艾黛",
    "form": null,
    "textChanged": false,
    "text": null,
@@ -195,10 +195,10 @@
    "slot": 142,
    "group": "全场景必练T0",
    "name": "克拉丽莎",
-   "content": 145,
-   "contentName": "mudun",
+   "content": 147,
+   "contentName": "M教授",
    "art": null,
-   "char": "艾黛",
+   "char": "M教授",
    "form": null,
    "textChanged": false,
    "text": null,
@@ -331,6 +331,48 @@
    "textColor": "#e8ebf2",
    "textFs": 40,
    "textLh": 50
+  },
+  {
+   "slot": 1006,
+   "group": "火系",
+   "name": "新格1",
+   "content": 1006,
+   "contentName": "新格1",
+   "art": {
+    "src": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp",
+    "char": "瑟乐芬",
+    "form": "风月堂"
+   },
+   "char": null,
+   "form": null,
+   "textChanged": false,
+   "text": null,
+   "textFrom": null,
+   "textBox": null,
+   "textColor": null,
+   "textFs": null,
+   "textLh": null
+  },
+  {
+   "slot": 1007,
+   "group": "水系",
+   "name": "新格1",
+   "content": 1007,
+   "contentName": "新格1",
+   "art": {
+    "src": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp",
+    "char": "卡蜜",
+    "form": "莫纳斯提尔骑士团"
+   },
+   "char": null,
+   "form": null,
+   "textChanged": false,
+   "text": null,
+   "textFrom": null,
+   "textBox": null,
+   "textColor": null,
+   "textFs": null,
+   "textLh": null
   }
  ],
  "pos": {
@@ -440,12 +482,44 @@
    ],
    "ring": 11,
    "bg": "#2b3038"
+  },
+  {
+   "id": 1006,
+   "new": true,
+   "group": "火系",
+   "name": "新格1",
+   "attr": true,
+   "box": [
+    1575,
+    5798,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#e8d5ea"
+  },
+  {
+   "id": 1007,
+   "new": true,
+   "group": "水系",
+   "name": "新格1",
+   "attr": true,
+   "box": [
+    2513,
+    5696,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#b1a2b3"
   }
  ],
  "down": {
   "全场景必练T0.5": 594
  },
- "slotShift": {},
+ "slotShift": {
+  "1006": 0
+ },
  "layerShift": {},
  "allSlots": [
   {
@@ -1586,7 +1660,7 @@
    ],
    "ring": 11,
    "bg": "#e0d1cd",
-   "content": 147
+   "content": 145
   },
   {
    "slot": 142,
@@ -1601,7 +1675,7 @@
    ],
    "ring": 8,
    "bg": "#917090",
-   "content": 145
+   "content": 147
   },
   {
    "slot": 143,
@@ -1827,6 +1901,44 @@
    "ring": 11,
    "bg": "#2b3038",
    "content": 138
+  },
+  {
+   "slot": 1006,
+   "group": "火系",
+   "name": "新格1",
+   "attr": true,
+   "box": [
+    1575,
+    6392,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#e8d5ea",
+   "content": 1006
+  },
+  {
+   "slot": 1007,
+   "group": "水系",
+   "name": "新格1",
+   "attr": true,
+   "box": [
+    2513,
+    6290,
+    213,
+    213
+   ],
+   "ring": 5,
+   "bg": "#b1a2b3",
+   "content": 1007
   }
- ]
+ ],
+ "gone": {
+  "138": 1,
+  "143": 1,
+  "144": 1,
+  "145": 1,
+  "146": 1,
+  "147": 1
+ }
 }
