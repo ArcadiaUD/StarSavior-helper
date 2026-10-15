@@ -9,36 +9,36 @@
   "notes": ""
  },
  "data": {
-  "version": "2026-10-15.1",
+  "version": "2026-10-15.2",
   "min_app_version": "2.5.0",
-  "released_at": "2026-10-15T03:08:23+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-15.1/data-2026-10-15.1.zip",
-  "package_size": 33515444,
-  "sha256": "f147ca217ea16a48cf4224608b61aa7b4d57028a0bc8a06e40502341b4107aca",
-  "total_size": 49810027,
-  "file_count": 1454,
+  "released_at": "2026-10-15T12:36:05+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-15.2/data-2026-10-15.2.zip",
+  "package_size": 33902644,
+  "sha256": "d4b79c49c47639a4720a802608e255656fd3798213ad0f54552598fa0c0aea15",
+  "total_size": 50507397,
+  "file_count": 1489,
   "stats": {
    "characters": 47,
-   "arcanas": 82,
+   "arcanas": 83,
    "roster": 47,
-   "potentials": 229,
+   "potentials": 230,
    "unreleased": 7,
    "operations": 75,
    "corridors": 4,
    "hunts": 3,
    "equipment": 64,
    "break_skills": 8,
-   "status_effects": 303,
-   "titles": 107,
-   "events": 21,
+   "status_effects": 316,
+   "titles": 110,
+   "events": 22,
    "bosses": 629,
-   "assets_cards": 82,
-   "assets_faces": 56,
-   "assets_portraits": 57,
-   "codex_icons": 999,
-   "kb_events": 1262,
-   "option_index": 432,
-   "option_index_twn": 428
+   "assets_cards": 83,
+   "assets_faces": 58,
+   "assets_portraits": 58,
+   "codex_icons": 1030,
+   "kb_events": 1265,
+   "option_index": 434,
+   "option_index_twn": 430
   },
   "files": {
    "assets/app.ico": {
@@ -345,6 +345,10 @@
     "size": 10968,
     "sha256": "1407a09451432ef0e97b5ad44b6259d939764d9f341da0c9d6baab630ae614ee"
    },
+   "assets/cards/7106001.webp": {
+    "size": 10620,
+    "sha256": "24cc54e0c0dd4eee6cd673098f3564792bd0b8fa2676cdb0783d690a9b13acde"
+   },
    "assets/cards/7150101.webp": {
     "size": 11394,
     "sha256": "8a6688525482f2f226d5444bcd8286b05d97bf67c9a411642e2abf4d3fe10036"
@@ -465,6 +469,10 @@
     "size": 2290,
     "sha256": "966ccc2afe494b23f77799acc1852a758a9ae9ab3ce1d572b011606ebd914cc5"
    },
+   "assets/codex/BUFF_COLLECT_VITALITY.webp": {
+    "size": 2072,
+    "sha256": "816138766ce8d7826048bcd7c2e69389ffeab2d730a65b65a06a39ae9bf63245"
+   },
    "assets/codex/BUFF_CONDITION_BEST.webp": {
     "size": 1586,
     "sha256": "407d9d4b2d4190f06d605317db9bfd38094469827d472ab32f7b2799293af9c8"
@@ -557,6 +565,10 @@
     "size": 748,
     "sha256": "a7638023ac788549866d66eefe986614ef93241409e0ee5b4248f732b875b697"
    },
+   "assets/codex/BUFF_DUST_SPOT.webp": {
+    "size": 1750,
+    "sha256": "fc5b394d85ba993d710e7fc4fb1421674528dc4f191270868afa6dce4aaecc73"
+   },
    "assets/codex/BUFF_EASTERN_SWORDMASTERD_1.webp": {
     "size": 1576,
     "sha256": "41ab44982795fc39163f01eac493285b742c37a86f1e3d4591bf3bf66a9702e4"
@@ -585,6 +597,10 @@
     "size": 2034,
     "sha256": "34012e64c95d440a067e63eb7659d96c11977008723732d14374a1a4ebad2c67"
    },
+   "assets/codex/BUFF_ERODE_WILL.webp": {
+    "size": 1966,
+    "sha256": "c5391387b809f49a30ca429e0ecdeadae1d051e936ba1964db51020da5cdd4cc"
+   },
    "assets/codex/BUFF_EVADE_INCREASE.webp": {
     "size": 1384,
     "sha256": "1e4602217b5fa8d338e26cb5ba6859bc4aa1aada3ed4c4fa24f9aefe9c8123f7"
@@ -604,6 +620,10 @@
    "assets/codex/BUFF_FIAME.webp": {
     "size": 1436,
     "sha256": "8e5560eee6a299b5193de12e660e5c69c81bbffe927f07c0c74c2bce1dcf1204"
+   },
+   "assets/codex/BUFF_FINISH_QUICK.webp": {
+    "size": 1980,
+    "sha256": "7057ccab94b95595c324e09dc86a76aa125ae52ca1cc583907345780073d7219"
    },
    "assets/codex/BUFF_FISSURED_LIGHT.webp": {
     "size": 2304,
@@ -641,6 +661,10 @@
     "size": 1356,
     "sha256": "3844ec6e1266e6b61881f6cbe2b61f6878420f692aefd1ebe8095879418aa067"
    },
+   "assets/codex/BUFF_HIDE_ROOT.webp": {
+    "size": 2070,
+    "sha256": "ca4faf8b3393e859b3a3b16c5a1a1d9c05d6e0edc0b7ebc209908c23353ed811"
+   },
    "assets/codex/BUFF_HIGH_ROLLER.webp": {
     "size": 2168,
     "sha256": "bb54c0126ba23b7bfc192a99feda4a7328085c0cddf055066c0edf35cdfbf27f"
@@ -648,6 +672,10 @@
    "assets/codex/BUFF_HOLY_BLESS.webp": {
     "size": 1792,
     "sha256": "c26a4b46e406f3ca342decc13fe9d367a8171bfb6f20a7aae5c6f1389aefecfc"
+   },
+   "assets/codex/BUFF_HURRY_UP.webp": {
+    "size": 1962,
+    "sha256": "480d5db31683d9fe8800998d01197b17a228883502fe40a11f47387fa255d097"
    },
    "assets/codex/BUFF_HYPOCRITES_MASK.webp": {
     "size": 1802,
@@ -704,6 +732,10 @@
    "assets/codex/BUFF_JOURNEY_SNIPEAIM.webp": {
     "size": 1748,
     "sha256": "ed3f744c366baabc78f2cfac9be7c55b2262f674d9ac5a7cbaace707211c972a"
+   },
+   "assets/codex/BUFF_LIFE_SEED.webp": {
+    "size": 1804,
+    "sha256": "4d9e8ee18814fb63ce7e47f917f2700415ed216e5691ba4a2ca139110255f7d8"
    },
    "assets/codex/BUFF_LUCID_DREAM_LIGHT.webp": {
     "size": 1364,
@@ -801,6 +833,10 @@
     "size": 1272,
     "sha256": "c5e0151534c92a08dd4987ac548794497ca48943b13b47931d0e7788922e0c08"
    },
+   "assets/codex/BUFF_PILING_UP_SHAME.webp": {
+    "size": 1934,
+    "sha256": "fd9c2e704d0eb55bdc62963d3ad3d862cc43d36ff5e89f2dce0952c09b7abbdc"
+   },
    "assets/codex/BUFF_PLEDGE_OF_LOVE.webp": {
     "size": 1924,
     "sha256": "9c7aab02cf2be3c54c918e74a63db25ef96272cc7fa6cef5ce102a493f26a623"
@@ -828,6 +864,10 @@
    "assets/codex/BUFF_RATE_DAMAGE_UP.webp": {
     "size": 1460,
     "sha256": "bb353b411ceda04307ab9d4e3dbba0de571e3badbd8659935b47ace21e48ae05"
+   },
+   "assets/codex/BUFF_REFRESH.webp": {
+    "size": 1776,
+    "sha256": "6acfbfbb8d94ffc0535cbcdd20812b0e01d4ceb4d2b62c71f4ec7f9df7d2ac71"
    },
    "assets/codex/BUFF_REIGN.webp": {
     "size": 1352,
@@ -1181,6 +1221,10 @@
     "size": 1322,
     "sha256": "5f1bab91950b503ffff36f01b21b03bb487a7de5b5c2eb5e2aba09aa01314b9a"
    },
+   "assets/codex/DEBUFF_NUTRITION_EXCESS.webp": {
+    "size": 1166,
+    "sha256": "9df35c5118ac4d70ecbffbec36c6f85554de51c1fabb833c5d85eee62db150a5"
+   },
    "assets/codex/DEBUFF_OVER_HEAT.webp": {
     "size": 1408,
     "sha256": "a67b0792e78ff0320e275759d89b3f6acfc235d1b7c1b3ead98e476b0e80296f"
@@ -1197,9 +1241,17 @@
     "size": 1468,
     "sha256": "2176a7935480ba4a265ac89ac71e5058ff6a7f27a5d348faabf697c79952a71b"
    },
+   "assets/codex/DEBUFF_REMNANT_THORN.webp": {
+    "size": 1262,
+    "sha256": "b7a06aee19c7627a5dbb646f7d1c0e6e175e3b7a67a8b18f75947475e2517df8"
+   },
    "assets/codex/DEBUFF_REPRESS_WILDNESS.webp": {
     "size": 1536,
     "sha256": "eb721928f3be19c2edd118c862081c7f6ba2a62d500cc2092591b89b1fd345cf"
+   },
+   "assets/codex/DEBUFF_ROT_WILL.webp": {
+    "size": 1552,
+    "sha256": "4925d13365d0d175a810486eda69509c795988433024ec62e9f8e1ab0ade9d07"
    },
    "assets/codex/DEBUFF_SHADOW_CURSE.webp": {
     "size": 1528,
@@ -1764,6 +1816,22 @@
    "assets/codex/NKM_UNIT_S_GRACE_DUALSWORD_ILLUST_UI.webp": {
     "size": 18462,
     "sha256": "1b1c2264e461ed4d585f7d13bf2d7ec97a7d2ddf9d8f45f0be8f9543f35f1b63"
+   },
+   "assets/codex/NKM_UNIT_S_HALLOWEEN_BEAMSWORD_ILLUST.webp": {
+    "size": 47658,
+    "sha256": "b666a779cfea46f84577250949bb18a774835e1c71e91b5128a96fa7c2af0786"
+   },
+   "assets/codex/NKM_UNIT_S_HALLOWEEN_BEAMSWORD_ILLUST_UI.webp": {
+    "size": 24428,
+    "sha256": "96033e4b8b38acdecb25ef82bb06e35f750ff4dd1d4f62736edf94c24a6f475b"
+   },
+   "assets/codex/NKM_UNIT_S_HALLOWEEN_ROD_ILLUST.webp": {
+    "size": 43764,
+    "sha256": "36b7502257debb36d12ce57f12d9f2422457ab4b23cd28da92bd04fb63e2ba17"
+   },
+   "assets/codex/NKM_UNIT_S_HALLOWEEN_ROD_ILLUST_UI.webp": {
+    "size": 23924,
+    "sha256": "13ddd24e0c7f3441945221dee1da59a67fdee60c1c663c9fbfab0d5afaee0a71"
    },
    "assets/codex/NKM_UNIT_S_INCOGNITA_FLOWER_ILLUST.webp": {
     "size": 42322,
@@ -2653,6 +2721,38 @@
     "size": 1568,
     "sha256": "d2f7e1db60aa7bf8785aa06ae2281bfabf91106ffb60d8e9b44b66895fafbaa1"
    },
+   "assets/codex/SKILL_HALLOWEEN_BEAMSWORD_ATTACK.webp": {
+    "size": 2274,
+    "sha256": "f7870e0318eac1773e8ee82e4300c11da9049ffdb4035b365758dbd83df2c059"
+   },
+   "assets/codex/SKILL_HALLOWEEN_BEAMSWORD_HYPER.webp": {
+    "size": 2592,
+    "sha256": "cb854133c01c67ae208fe4decf18296eb109a9dc578f38e30bbf48969623263c"
+   },
+   "assets/codex/SKILL_HALLOWEEN_BEAMSWORD_SPECIAL.webp": {
+    "size": 2842,
+    "sha256": "aea3e54aa8d56d66248fe6d3a57f9519d70720611fdfd284c2443218a024e902"
+   },
+   "assets/codex/SKILL_HALLOWEEN_BEAMSWORD_UNIQUE_PASSIVE.webp": {
+    "size": 1628,
+    "sha256": "b467de2bb62e770a290fe6ba5c4d61b81686c64471d8a9ee90148fbde0a6c5ac"
+   },
+   "assets/codex/SKILL_HALLOWEEN_ROD_ATTACK.webp": {
+    "size": 2490,
+    "sha256": "16db83479bc4399043e88c126121911122743ea1655a1d2d6b629112dad8f1af"
+   },
+   "assets/codex/SKILL_HALLOWEEN_ROD_HYPER.webp": {
+    "size": 2188,
+    "sha256": "ae430a1e67f61b312ccd35d40ebb26c10d4ece2d3cc917b9d91150a63cc41555"
+   },
+   "assets/codex/SKILL_HALLOWEEN_ROD_SPECIAL.webp": {
+    "size": 2678,
+    "sha256": "c5f47ef5f40cba0edfc138a77d444c29e7961099374e7e7ac79fe5add7d4bad6"
+   },
+   "assets/codex/SKILL_HALLOWEEN_ROD_UNIQUE_PASSIVE.webp": {
+    "size": 1544,
+    "sha256": "f927d53fcb4de66861c27b209d26b196e27e6a0833f0013d6187f7217e5837c1"
+   },
    "assets/codex/SKILL_INCOGNITA_FLOWER_ATTACK.webp": {
     "size": 2768,
     "sha256": "1711924304b0f50ec61ed9f9cc72082e54246db831184d20681704e7c0e71399"
@@ -3397,6 +3497,10 @@
     "size": 6050,
     "sha256": "d7c8b09d7c8fb4a20f8a76a0ee80737099fd47a83f159c6aad4f50cea4686b6d"
    },
+   "assets/codex/TAB_EVENT_WESTERN.webp": {
+    "size": 8488,
+    "sha256": "c672d7568434639a5cbcdf984828baf96de966f21b22483700fbfed8969302c0"
+   },
    "assets/codex/TAB_EVENT_WINTER.webp": {
     "size": 7544,
     "sha256": "1733250ca1f69bb38cf09e3a6950c88703da37113718c6d5772d445f1cf71144"
@@ -3653,6 +3757,14 @@
     "size": 7896,
     "sha256": "b527be83db1b1fa11012614a60e3eb70891c7b69bec7979f33c1a8cf2cffe045"
    },
+   "assets/codex/UFS_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.webp": {
+    "size": 8058,
+    "sha256": "88a956bfc3087dbe4d98eb70b3ab732d0213bb317598453ded0438aaed9ed5ef"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp": {
+    "size": 7228,
+    "sha256": "6f7f720a10cc2aefec91e7ee8c70b6f0d229717e1e7968a04974eafd9071ed1d"
+   },
    "assets/codex/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
     "size": 8938,
     "sha256": "54c14f79915db83ed074b938b5a12f957e95c2ffd6a61ede1a4cff760fb79c93"
@@ -3888,6 +4000,14 @@
    "assets/codex/UF_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
     "size": 30480,
     "sha256": "29d54dc22204c8ceb509b619fc24987871d84c6f3ab4dc1a0cdc794966584fc4"
+   },
+   "assets/codex/UF_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.webp": {
+    "size": 33538,
+    "sha256": "84906e50070ab3822831d716b4d0266ef86d98a1a59f80b3ca6bb77387e45a8e"
+   },
+   "assets/codex/UF_NKM_UNIT_S_HALLOWEEN_ROD.webp": {
+    "size": 35850,
+    "sha256": "818715f56695489f4c8fd3efdcf44c505caf3fbc7a37797cc078c1cc052bdc62"
    },
    "assets/codex/UF_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
     "size": 32560,
@@ -4149,6 +4269,14 @@
     "size": 3514,
     "sha256": "2802cab9d889735c22ae0ddc420ed6ad720d6e8290a58c0c296a327f4f8b1362"
    },
+   "assets/codex/UI_PROFILE_TITLE_BG_HALLOWEEN_BEAMSWORD.webp": {
+    "size": 3404,
+    "sha256": "181ebdc98ae18e1a488872fd58326636191ceb7128f4eaf429e2091cc8156925"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_HALLOWEEN_ROD.webp": {
+    "size": 3160,
+    "sha256": "9df7e451ad2582dab36c979c991c2346da7032485fcc535567b8c4d1c0b90257"
+   },
    "assets/codex/UI_PROFILE_TITLE_BG_INCOGNITA_FLOWER.webp": {
     "size": 3222,
     "sha256": "e5e422a9d44184e83e6b6caf7cd4132a5c729895ca5563ecfdddf34bfac8ec4c"
@@ -4370,8 +4498,8 @@
     "sha256": "598869f01e8a9fbec6d2c9bb3da1aece80617c6ff5f60d5a1b9324140a16d531"
    },
    "assets/codex_index.json": {
-    "size": 121197,
-    "sha256": "e72ea26ea7d9f8e812cdbbb6ccda8302e08b4e7d77f2596b16529fcc9bd8b08d"
+    "size": 124772,
+    "sha256": "f56c7bead66f6d114e66d1b0bf752fae166307e750cf08dcd7c7dda8423cb292"
    },
    "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7998,
@@ -4444,6 +4572,14 @@
    "assets/faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
     "size": 8324,
     "sha256": "7a31401aef50b304a25d7fa50b793d59f4cf1154136b98331d0995d6b0eecfc2"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.webp": {
+    "size": 8588,
+    "sha256": "f7d0d2ecb126adc9e6fece9429b5f2e1c414d4c9e111a4984cf5674f323bd07c"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp": {
+    "size": 7736,
+    "sha256": "e4a9735500de83014caa0e55fabd3f27754edecb6263d71b71334a888eef6e5c"
    },
    "assets/faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
     "size": 9452,
@@ -4598,8 +4734,8 @@
     "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
    },
    "assets/index.json": {
-    "size": 12702,
-    "sha256": "4f51689b736791cbeaa4ababff2526de36db3502eeef16e580a8edaa7653d003"
+    "size": 13000,
+    "sha256": "ee258e566df758d4126d123d2fa86752e8d44cd7d97c9d38b5a9d9c2fcbaa4a9"
    },
    "assets/portraits/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 21198,
@@ -4672,6 +4808,10 @@
    "assets/portraits/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
     "size": 21372,
     "sha256": "a4facded0e2909bf9c1218945b3b02bdc9938a7200ad3de86d72e369f335df7a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp": {
+    "size": 20726,
+    "sha256": "2cf5e71c5809a2a9a6d58fe14f126f6b724c88261f74c5ab57a751df2add4ae3"
    },
    "assets/portraits/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
     "size": 24268,
@@ -5770,8 +5910,8 @@
     "sha256": "b6a8c5cbf2ff80cf7010ad0ccd69d5c88c996ff7c04c56275d90f65919687e48"
    },
    "out/codex.json": {
-    "size": 14997320,
-    "sha256": "ee8be620342bec7101a55e7af85f4229a94d2be9bd8f69cb894dbb73e3926b25"
+    "size": 15355105,
+    "sha256": "78fbe2dc6f438210c7a7bb2ab0b80cc93c76325d0ebaffdcc472593bc45fa43e"
    },
    "out/guide.json": {
     "size": 3902,
@@ -5846,12 +5986,12 @@
     "sha256": "369cb0978c261addbe3425607e27f5de81d9fec9522cfd1b360da00ee2b5dc79"
    },
    "out/journey_kb.json": {
-    "size": 1710995,
-    "sha256": "82dec2e55715edd5e6d13c9a53c67d71f51b087790a39d69f189061f46d1ace7"
+    "size": 1717460,
+    "sha256": "882d1e017ecb9c30e9ba4662d2c58f2c1f24b1526b1f01b6676a385f035d928d"
    },
    "out/portrait_index.json": {
-    "size": 124641,
-    "sha256": "d5ca5a4323e571096706f875f9703c4fa95da30b0d28cbda4916ef947625d0b9"
+    "size": 127188,
+    "sha256": "0080642560a9ffe66ceb7e12d3dc74145f5e27dad2cf5a449619e0a3ce4e51ea"
    },
    "out/role_sheets.json": {
     "size": 253576,
