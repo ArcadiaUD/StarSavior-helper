@@ -828,7 +828,9 @@ function addSlot(seedId) {
     for (const t of (edit.nt || [])) {
       if (t.y > insert.top + 1) t.y += ATTR_STEP;
     }
-    edit.slotShift[id] = shiftOf(insert.anchor.id);
+    /* 新格的 box 存的就是目标位置的基线，位移必须归零；
+       沿用锚点的位移会多加一份（T1 锚点 128、T1.5 358），越往后越偏。 */
+    edit.slotShift[id] = 0;
   }
   save(); render(); tbFill();
   const el = stage.querySelector('[data-slot="' + id + '"]');
