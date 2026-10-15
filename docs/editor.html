@@ -479,15 +479,19 @@ let rseq = 0;                    /* 渲染代号：重建 DOM 后旧元素的 bl
 /* 画布高度：内容多高、画布就多高。
    渲染与「导出/校验」必须用同一个算法——两处各算各的，导出那份漏了背板延长，
    一加格就报「格位越出画布」。 */
+/* 属性栏背板要跟着格位加长：取五栏里最靠下的格底 + 原稿底部余量，五栏延长同一个量。
+   render 要在设背板高度时用它，canvasHeight 也要用它，所以单独提出来，别各自算一遍。 */
+function attrGrowValue() {
+  return Math.max(0, ...ATTR_G.map(g => {
+    const p = PANEL_BOX[g], mine = slotsAll().filter(s => s.group === g && !edit.gone[s.id]);
+    if (!p || !mine.length) return 0;
+    return Math.max(...mine.map(s => boxOf(s)[1] + s.box[3])) + ATTR_PAD - (p[1] + p[3]);
+  }));
+}
 function canvasHeight() {
   const totalDown = ORD_G.reduce((n, g) => n + ((edit.down || {})[g] || 0), 0);
   const panelBottom = Math.max(...ATTR_G.map(g => PANEL_BOX[g] ? PANEL_BOX[g][1] + PANEL_BOX[g][3] : 0));
-  const attrGrow = Math.max(0, ...ATTR_G.map(g => {
-    const p = PANEL_BOX[g], mine = slotsAll().filter(s => s.group === g && !edit.gone[s.id]);
-    if (!p || !mine.length) return 0;
-    return Math.max(...mine.map(s => boxOf(s)[1] + s.box[3]))
-           + ATTR_PAD - (p[1] + p[3]);
-  }));
+  const attrGrow = attrGrowValue();
   return Math.max(6761 + totalDown, panelBottom + cumDown("__attr__") + attrGrow
                   + (panelBottom ? Math.max(40, 6761 - panelBottom) : 40));
 }
@@ -521,7 +525,7 @@ function render() {
       el.style.width = (o.t === "text" ? o.box[2] + 40 : o.box[2]) + "px";
       /* 黑底那张标了 grow 的跟着画布走；属性栏背板随加格延长；其余按原尺寸 */
       el.style.height = (o.grow ? (canvasH - (p[1] + dy0))
-                                : o.box[3] + (IS_PANEL(o) ? attrGrow : 0)) + "px";
+                                : o.box[3] + (IS_PANEL(o) ? attrGrowValue() : 0)) + "px";
       if (o.t === "text") {
         const lh = Math.round(o.box[3] / (o.lines || 1));
         const fs = ost.fs || Math.round(lh * 0.78);
