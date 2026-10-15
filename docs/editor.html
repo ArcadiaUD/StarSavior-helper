@@ -1308,6 +1308,10 @@ async function pullRemoteSlots(manual) {
   const d = await readArchive();
   if (!d || !d.allSlots) { if (manual) flash("取不到线上存档"); return; }
   applyArchive(d);
+  /* 载入线上后把本机那份存档一起作废：否则本机里的旧记录一直让 hasLocalEdits 为真，
+     刷新后又退回旧版面，线上的改动永远看不到 */
+  try { localStorage.removeItem("psbSlots"); } catch (e) {}
+  ghBaseSha = await ghReadSha();
   flash(manual ? "已载入线上存档" : "已按线上存档对齐");
 }
 const ghEl = id => document.getElementById(id);
