@@ -177,6 +177,9 @@ def main() -> None:
         down = ed.get("down") or {}
         slot_shift = {int(k): v for k, v in (ed.get("slotShift") or {}).items()}
         layer_shift = {int(k): v for k, v in (ed.get("layerShift") or {}).items()}
+        # 编辑器里删掉的格位：整格不输出。
+        # （这里原来漏了 gone —— 删掉的格照样进榜单，面板与网页上都表现为多出空框/位置错位）
+        gone = {int(k) for k in (ed.get("gone") or {})}
 
         # 加格造成的整体下移：按层顺序累积（五属性栏算同一层，横排互不影响）
         base, cum = {}, 0
@@ -201,6 +204,8 @@ def main() -> None:
 
         # 网页上新加的格位：位置与描边来自格位表，头像同样从换过的形象取
         for ns in news:
+            if int(ns["id"]) in gone:            # 删掉的新格也不输出
+                continue
             gy = (ns["box"][1] + slot_shift.get(int(ns["id"]), 0)
                   + drop_of(ns.get("group"), ns.get("name")))
             items.append({"t": "img", "name": ns.get("name") or "新格", "group": ns.get("group"),
@@ -208,6 +213,11 @@ def main() -> None:
                           "seq": 900000 + int(ns["id"]), "file": None, "cell": True, "big": False,
                           "char": None, "form": None, "face": None,
                           "ring": ns.get("ring") or 8, "bg": ns.get("bg") or ""})
+
+        if gone:                                 # 原稿格：被删的整格从输出里拿掉
+            items = [it for it in items
+                     if not (it.get("cell") and (it.get("seq") in gone
+                             or ((it.get("seq") or 0) - 900000) in gone))]
 
         cells = [it for it in items if it.get("cell")]
         src_of = {it["seq"]: dict(it) for it in cells}    # 原稿快照，免得改写时读到已换过的值
