@@ -929,6 +929,7 @@ function hideInsp() { document.getElementById("insp").style.display = "none"; }
 function changed() {
   const out = [];
   for (const s of slotsAll()) {
+    if (edit.gone[s.id]) continue;          /* 已删掉的格位不算改动（删除本身记在 gone 里） */
     const cid = contentOf(s.id), empty = cid === EMPTY, a = artOf(s.id);
     const ch = edit.char[s.id];
     const st = s.attr ? undefined : edit.slotText[s.id];   /* 属性栏格位没有说明栏 */
