@@ -190,11 +190,12 @@
 <div id="head">
 <div id="bar">
   <span id="tabs"><button id="tabChar" class="tab on">角色强度榜</button><button id="tabSc" class="tab">支援卡强度榜</button></span>
-  <b>强度榜格位编辑器</b>
+  <b id="barTitle">强度榜格位编辑器</b>
   <button id="bPick" class="on">素材可拖</button>
   <button id="bUndo" disabled>↶ 撤回</button>
   <button id="bAdd">＋ 格</button>
   <button id="bDel">删掉该格</button>
+  <button id="bEmpty">清空该格</button>
   <button id="bText">文字</button>
   <button id="bOut">缩小</button>
   <button id="bIn">放大</button>
@@ -202,19 +203,6 @@
   <button id="bLoad">导入改动</button>
   <button id="bPullRemote">载入线上存档</button>
   <button id="bClear">清空改动</button>
-  <b class="sconly">支援卡强度榜</b>
-  <button id="scTextBtn" class="sconly">文字</button>
-  <button id="scAdd" class="sconly">＋ 格</button>
-  <button id="scDel" class="sconly">删掉该格</button>
-  <button id="scEmpty" class="sconly">清空该格</button>
-  <button id="scUndo" class="sconly">撤回</button>
-  <button id="scExport" class="sconly">导出改动</button>
-  <button id="scImport" class="sconly">导入改动</button>
-  <button id="scReset" class="sconly">回到原稿</button>
-  <button id="scPush" class="sconly">存到仓库</button>
-  <button id="scOut" class="sconly">缩小</button>
-  <button id="scIn" class="sconly">放大</button>
-  <span class="hint sconly" id="scZoom"></span>
   <span class="hint sconly" id="scInfo">未选中格位</span>
   <input id="scFile" type="file" accept=".json" style="display:none">
   <button id="bExp">导出图片</button>
@@ -1159,12 +1147,13 @@ function tbClose() {
   tbEl("bText").classList.remove("on");
 }
 tbEl("tbClose").onclick = tbClose;
-tbEl("bText").onclick = e => {
+/* 角色榜的「文字」：开合下面的文字栏（两榜共用同一颗按钮，按页签分发到这里） */
+function charText() {
   const p = tbEl("textbar");
   p.classList.toggle("on");
-  e.target.classList.toggle("on", p.classList.contains("on"));
+  tbEl("bText").classList.toggle("on", p.classList.contains("on"));
   if (p.classList.contains("on")) tbFill();
-};
+}
 function exportData() {
   return { canvas: [3621, canvasHeight()], slots: changed(),
            pos: edit.pos || {}, nt: edit.nt || [],
@@ -1551,8 +1540,7 @@ ghEl("ghForget").onclick = () => {
   localStorage.removeItem(TOKEN_KEY);
   ghEl("ghToken").value = ""; ghSetConnected(); ghState("未连接仓库");
 };
-ghEl("bPush").onclick = ghPush;
-document.getElementById("bSave").onclick = () => { if (GH.canPush) ghPush(); else exportLocal(); };
+/* 「存到仓库」「导出改动」的绑定在后文 onBoth 段统一处理（按页签分发） */
 addEventListener("keydown", e => {
   if ((e.ctrlKey || e.metaKey) && (e.key === "s" || e.key === "S")) {
     e.preventDefault();
@@ -1565,8 +1553,8 @@ addEventListener("keydown", e => {
   const t = localStorage.getItem(TOKEN_KEY);
   if (t) { GH.token = t; ghState("恢复连接…"); ghConnect(true); }
 })();
-/* 打开时对齐线上存档：本机没改动就直接用线上那份；有没保存的改动就先不动它，只提示 */
-document.getElementById("bPullRemote").onclick = () => pullRemoteSlots(true);
+/* 打开时对齐线上存档：本机没改动就直接用线上那份；有没保存的改动就先不动它，只提示
+   （「载入线上存档」按钮的绑定在后文 onBoth 段） */
 (async function () {
   ghBaseSha = await ghReadSha();
   ghScBaseSha = await ghReadSha(SC_PATH);
@@ -1650,7 +1638,9 @@ function scLayout() {
   st.style.height = v.board.h + "px";
   document.getElementById("scFit").style.width = Math.round(v.board.w * k) + "px";
   document.getElementById("scFit").style.height = Math.round(v.board.h * k) + "px";
-  document.getElementById("scZoom").textContent = "缩放 " + Math.round(k * 100) + "%";
+  /* 缩放提示两榜共用同一个 #ztext（原来支援卡还有个 scZoom，合并时删掉了） */
+  const zt = document.getElementById("ztext");
+  if (zt) zt.textContent = "缩放 " + Math.round(k * 100) + "%";
 }
 function scSyncZoom() {
   const v = scState.view;
@@ -1865,12 +1855,13 @@ function stApply(fn) {
   scRender();
   stSync();
 }
-document.getElementById("scTextBtn").onclick = e => {
+function scText(ev) {
   const bar = document.getElementById("scTextbar");
+  const btn = document.getElementById("bText");
   bar.classList.toggle("on");
-  e.target.classList.toggle("on", bar.classList.contains("on"));
+  if (btn) btn.classList.toggle("on", bar.classList.contains("on"));
   if (bar.classList.contains("on")) stFill();
-};
+}
 document.getElementById("stPick").onchange = stSync;
 document.getElementById("stText").oninput = e =>
   stApply(it => { it.text = e.target.value; });
@@ -2036,6 +2027,7 @@ function showPage(which) {
   document.getElementById("scLibBtn").hidden = !isSc;
   document.getElementById("insp").hidden = isSc;
   document.getElementById("textbar").classList.remove("on");
+  document.getElementById("bText").classList.remove("on");   /* 两榜共用「文字」，切页时要跟着灭 */
   document.getElementById("scPage").hidden = !isSc;
   document.querySelectorAll("#bar .charonly").forEach(el => { el.hidden = isSc; });
   document.querySelectorAll("#bar .sconly").forEach(el => { el.hidden = !isSc; });
@@ -2046,7 +2038,8 @@ function showPage(which) {
     document.body.classList.remove("sclibopen");
     document.getElementById("scLibBtn").classList.remove("on");
     document.getElementById("scTextbar").classList.remove("on");
-    document.getElementById("scTextBtn").classList.remove("on");
+    const bt = document.getElementById("bText");
+    if (bt) bt.classList.remove("on");
   }
   if (isSc) {
     scPullRemote();                   /* 本地没改动时，把线上存档当作默认版面 */
@@ -2065,11 +2058,9 @@ function showPage(which) {
 }
 document.getElementById("tabChar").onclick = () => showPage("char");
 document.getElementById("tabSc").onclick = () => showPage("sc");
-document.getElementById("scOut").onclick = () => { z = Math.max(0.1, z - 0.06); setZoom(); };
-document.getElementById("scIn").onclick = () => { z = Math.min(1.2, z + 0.06); setZoom(); };
-document.getElementById("scAdd").onclick = scAddSlot;
+
 /* 删格：删掉选中格，本档同一行里它右边的格整体左移一列（画布不动，少了就少着） */
-document.getElementById("scDel").onclick = () => {
+function scDelSlot() {
   if (!scState.sel) { flash("先点选要删的格位"); return; }
   const cur = scSlot(scState.sel);
   if (!cur) return;
@@ -2086,25 +2077,23 @@ document.getElementById("scDel").onclick = () => {
   scState.sel = null;
   scRender();
   flash("已删掉该格：" + cur.name);
-};
-document.getElementById("scEmpty").onclick = () => {
+}
+function scEmptySlot() {
   if (!scState.sel) { flash("先点选一个格位"); return; }
   const s = scSlot(scState.sel);
   scSnapshot(); s["卡"] = null; s["空"] = true;
   scRender();
   flash("已清空：" + s.name);
-};
-document.getElementById("scUndo").onclick = scUndo;
-document.getElementById("scReset").onclick = () => {
+}
+function scResetAll() {
   scSnapshot();
   try { localStorage.removeItem(SC_LS); } catch (e) {}
   scState.data = scClone(window.SC_BOARD);
   scState.sel = null;
   scRender();
   flash("已回到原稿（本地存档也清了）");
-};
-document.getElementById("scExport").onclick = scExport;
-document.getElementById("scImport").onclick = () => document.getElementById("scFile").click();
+}
+
 document.getElementById("scFile").onchange = e => {
   const f = e.target.files[0];
   if (!f) return;
@@ -2116,7 +2105,7 @@ document.getElementById("scFile").onchange = e => {
   rd.readAsText(f);
   e.target.value = "";
 };
-document.getElementById("scPush").onclick = scPush;
+
 document.getElementById("scLibBtn").onclick = e => {
   const lib = document.getElementById("scLib");
   lib.classList.toggle("open");
@@ -2141,11 +2130,13 @@ addEventListener("keydown", e => {          /* 支援卡页签下 Ctrl+Z 撤回 
 addEventListener("resize", () => {
   if (scState.view && !document.getElementById("scPage").hidden) scLayout();
 });
-/* 角色榜专属的工具栏按钮统一标出来：切到支援卡时一起藏掉，免得误以为能编辑；
-   「连接 GitHub」与状态文字是两榜共用的，留在原地；支援卡那套自己标了 sconly */
+/* 角色榜专属的工具栏按钮统一标出来：切到支援卡时一起藏掉，免得误以为能编辑。
+   现在两榜共用同一排 b* 按钮（按页签分发），所以留在 keep 里的都是共用的；
+   角色榜真正独有的只剩「素材可拖」（支援卡的卡从右侧库拖，用不上它）。 */
 (function () {
-  /* 导出图片两榜共用：支援卡也得能出图，别跟着角色榜一起藏掉 */
-  const keep = { tabs: 1, file: 1, scFile: 1, bGh: 1, ghState: 1, bExp: 1, expSize: 1 };
+  const keep = { tabs: 1, barTitle: 1, file: 1, scFile: 1, bGh: 1, ghState: 1, bExp: 1, expSize: 1,
+                 bUndo: 1, bAdd: 1, bDel: 1, bEmpty: 1, bText: 1, bOut: 1, bIn: 1,
+                 bSave: 1, bLoad: 1, bPullRemote: 1, bClear: 1, bPush: 1, ztext: 1 };
   for (const el of [...document.getElementById("bar").children]) {
     if (keep[el.id] || el.classList.contains("sconly")) continue;
     el.classList.add("charonly");
@@ -2153,7 +2144,7 @@ addEventListener("resize", () => {
   /* 初始停在角色榜：先把支援卡那套收起来 */
   document.querySelectorAll("#bar .sconly").forEach(el => { el.hidden = true; });
 })();
-document.getElementById("bLoad").onclick = () => document.getElementById("file").click();
+/* 导入改动：读本地文件（两榜共用，按页签分发在 onBoth 段） */
 document.getElementById("file").onchange = e => {
   const f = e.target.files[0]; if (!f) return;
   const rd = new FileReader();
@@ -2179,13 +2170,21 @@ document.getElementById("file").onchange = e => {
   };
   rd.readAsText(f);
 };
-document.getElementById("bClear").onclick = () => {
+function charClearAll() {
   if (!confirm("清空全部改动，回到作者原稿？")) return;
   for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = {};
   edit.nt = []; edit.newSlots = []; edit.down = {};
   edit.slotShift = {}; edit.layerShift = {}; edit.gone = {}; edit.tie = {};
   save(); sel = null; hideInsp(); render(); tbFill();
-};
+}
+/* 清空该格：格子留着，只把里面挂的东西（头像/素材/身份/文字）清掉 */
+function charEmptySlot() {
+  if (sel === null) { flash("先在画布上点选要清空的格位"); return; }
+  edit.place[sel] = EMPTY; delete edit.art[sel]; delete edit.char[sel];
+  delete edit.slotText[sel];
+  save(); sel = null; hideInsp(); render(); tbFill();
+  flash("已清空该格（格子留着）");
+}
 
 function renderLib() {
   const q = document.getElementById("libQ").value.trim();
@@ -2231,11 +2230,10 @@ document.getElementById("bPick").onclick = e => {
 };
 document.getElementById("bOut").onclick = () => { z = Math.max(0.1, z - 0.06); setZoom(); };
 document.getElementById("bIn").onclick = () => { z = Math.min(1.2, z + 0.06); setZoom(); };
-document.getElementById("bUndo").onclick = undo;
-document.getElementById("bAdd").onclick = () => {
+function charAddSlot() {
   if (sel === null) { flash("先在画布上点选一个格位，新格会加在它后面"); return; }
   addSlot(sel);
-};
+}
 /* ---- 删格：网页上新增的格位真删掉，同排右边的往左补一格；原稿里的格位不能真删
    （那是作者版面的一部分），改成「空出」——头像清掉、格子留着，详情里还能「还原」。 */
 function delSlot(id){
@@ -2288,12 +2286,33 @@ function delSlot(id){
   }
   save(); sel = null; hideInsp(); render();
 }
-document.getElementById("bDel").onclick = () => {
+function charDelSlot() {
   if (sel === null) { flash("先在画布上点选要删掉的格位"); return; }
   delSlot(sel);
-};
+}
+
+/* ---------- 工具栏：两个榜共用同一排按钮，按当前页签分发 ----------
+   原来两榜各有一套按钮（bAdd 与 scAdd…），改一边容易忘另一边。
+   现在只认这套 b*，点下去按页签走对应榜的处理。 */
+const isScPage = () => !document.getElementById("scPage").hidden;
+function onBoth(id, fnChar, fnSc) {
+  const el = document.getElementById(id);
+  if (el) el.onclick = () => (isScPage() ? fnSc() : fnChar());
+}
+onBoth("bUndo", undo, scUndo);
+onBoth("bAdd", charAddSlot, scAddSlot);
+onBoth("bDel", charDelSlot, scDelSlot);
+onBoth("bEmpty", charEmptySlot, scEmptySlot);
+onBoth("bText", charText, scText);
+onBoth("bSave", () => { if (GH.canPush) ghPush(); else exportLocal(); }, scExport);
+onBoth("bLoad", () => document.getElementById("file").click(),
+       () => document.getElementById("scFile").click());
+onBoth("bPullRemote", () => pullRemoteSlots(true), scPullRemote);
+onBoth("bClear", charClearAll, scResetAll);
+onBoth("bPush", ghPush, scPush);
 document.addEventListener("keydown", e => {
   if (!(e.ctrlKey || e.metaKey) || e.shiftKey || String(e.key).toLowerCase() !== "z") return;
+  if (!document.getElementById("scPage").hidden) return;   /* 支援卡页有自己的撤回，别两边都跑 */
   const a = document.activeElement, tag = a ? a.tagName : "";
   if (a && (a.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA")) return;
   e.preventDefault(); undo();
