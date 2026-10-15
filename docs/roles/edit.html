@@ -259,12 +259,8 @@ async function pushToServer(){
     const remote = await fetchRemotePages();
     const mine = dirtyPages();
     if (remote){
-      const clash = mine.filter(k => remote[k] && pagePrint(remote[k]) !== basePrint[k]);
-      if (clash.length && !confirm("这些页别人也刚改过：\n" + clash.join("、") +
-          "\n\n确定 = 用你这版覆盖这几页（对方那部分改动会丢）\n取消 = 先不保存，刷新看看对方改成了什么样")){
-        ghState("已取消保存", "warn");
-        return;
-      }
+      /* Ctrl+S = 强制保存：不再问「别人是不是也改过」，自己动过的页一律用本地这版盖上去；
+         没动过的页仍取线上最新的，免得把别的页整份抹掉。 */
       const names = new Set([...Object.keys(remote), ...Object.keys(PAGES)]);
       const merged = {};
       for (const k of names) merged[k] = mine.indexOf(k) >= 0 ? PAGES[k] : (remote[k] || PAGES[k]);
