@@ -1176,16 +1176,6 @@ function latestBy(remoteArr, mineArr, key){          /* 我的覆盖线上的同
   for (const [k, v] of keyedBy(mineArr, key)) m.set(k, v);
   return [...m.values()];
 }
-/* 两边都动过的格位（提示用） */
-function clashAgainst(remote, mine, key, listKey){
-  const r = keyedBy(remote[listKey], key);
-  const out = [];
-  for (const [k, v] of keyedBy(mine[listKey], key)){
-    const o = r.get(k);
-    if (o && JSON.stringify(o) !== JSON.stringify(v)) out.push(v.name || v.group || String(k));
-  }
-  return out;
-}
 function mergeBoardArchive(remote, mine){
   const out = Object.assign({}, remote, mine);        /* pos/down/slotShift/layerShift：我的覆盖 */
   out.slots = latestBy(remote.slots, mine.slots, "slot");
@@ -1431,13 +1421,7 @@ async function ghPush() {
     /* 先取线上那份，按格位合并：自己改过的覆盖线上同一条，别人改过的原样保留 */
     const remote = await fetchRemoteJson(GH.path);
     if (remote) {
-      const clash = clashAgainst(remote, data, "slot", "slots");
-      if (clash.length && !confirm("这些格位别人也刚改过：\n" + clash.slice(0, 12).join("、") +
-            (clash.length > 12 ? " 等 " + clash.length + " 处" : "") +
-            "\n\n确定 = 用你这版覆盖这几处（对方的改动会丢）\n取消 = 先不保存，点「载入线上存档」对齐后再改")) {
-        ghState("已取消保存", "bad");
-        return;
-      }
+      /* Ctrl+S = 强制保存：自己动过的格位用本地这版盖上去，别人改过的原样保留 */
       data = mergeBoardArchive(remote, data);
     }
     let sha = null;
@@ -1890,13 +1874,7 @@ async function scPush() {
     /* 与强度榜同一套：取线上那份按卡位合并，只覆盖自己改过的 */
     const remote = await fetchRemoteJson(SC_PATH);
     if (remote) {
-      const clash = clashAgainst(remote, arch, "id", "slots");
-      if (clash.length && !confirm("这些卡位别人也刚改过：\n" + clash.slice(0, 12).join("、") +
-            (clash.length > 12 ? " 等 " + clash.length + " 处" : "") +
-            "\n\n确定 = 用你这版覆盖这几处（对方的改动会丢）\n取消 = 先不保存，重开一下页面再改")) {
-        ghState("已取消保存", "bad");
-        return;
-      }
+      /* 与强度榜同一套：自己改过的卡位强制覆盖，别人改过的保留 */
       arch = mergeScArchive(remote, arch);
     }
     let sha = null;
