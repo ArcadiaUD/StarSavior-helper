@@ -5,74 +5,6 @@
  ],
  "slots": [
   {
-   "slot": 144,
-   "group": "全场景必练T0",
-   "name": "gn",
-   "content": 1003,
-   "contentName": "新格4",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 145,
-   "group": "全场景必练T0",
-   "name": "mudun",
-   "content": 1001,
-   "contentName": "新格2",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 146,
-   "group": "全场景必练T0",
-   "name": "阿莫拉",
-   "content": 1005,
-   "contentName": "新格6",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 147,
-   "group": "全场景必练T0",
-   "name": "M教授",
-   "content": 1000,
-   "contentName": "新格1",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
    "slot": 133,
    "group": "全场景必练T0.5",
    "name": "tuxia",
@@ -158,23 +90,6 @@
    "textLh": null
   },
   {
-   "slot": 138,
-   "group": "全场景必练T0.5",
-   "name": "格温",
-   "content": 1004,
-   "contentName": "新格5",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": 139,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
    "slot": 141,
    "group": "全场景必练T0",
    "name": "泳装微笑",
@@ -199,23 +114,6 @@
    "contentName": "M教授",
    "art": null,
    "char": "M教授",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 143,
-   "group": "全场景必练T0",
-   "name": "瑟莱丝",
-   "content": 1002,
-   "contentName": "新格3",
-   "art": null,
-   "char": null,
    "form": null,
    "textChanged": false,
    "text": null,
@@ -417,57 +315,6 @@
    "textLh": null
   },
   {
-   "slot": 1012,
-   "group": "水系",
-   "name": "新格6",
-   "content": 1012,
-   "contentName": "新格6",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1014,
-   "group": "水系",
-   "name": "新格6",
-   "content": 1014,
-   "contentName": "新格6",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1015,
-   "group": "水系",
-   "name": "新格7",
-   "content": 1015,
-   "contentName": "新格7",
-   "art": null,
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
    "slot": 1009,
    "group": "水系",
    "name": "新格",
@@ -499,23 +346,6 @@
     "char": "瑟莱丝",
     "form": "西部收复部队"
    },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1016,
-   "group": "水系",
-   "name": "新格7",
-   "content": 1016,
-   "contentName": "新格7",
-   "art": null,
    "char": null,
    "form": null,
    "textChanged": false,
@@ -1593,51 +1423,6 @@
    "content": 94
   },
   {
-   "slot": 95,
-   "group": "水系",
-   "name": "瑟莱丝",
-   "attr": true,
-   "box": [
-    2281,
-    3804,
-    213,
-    213
-   ],
-   "ring": 8,
-   "bg": "#cec8cc",
-   "content": 95
-  },
-  {
-   "slot": 96,
-   "group": "水系",
-   "name": "hka",
-   "attr": true,
-   "box": [
-    2513,
-    3804,
-    213,
-    213
-   ],
-   "ring": 8,
-   "bg": "#7580ae",
-   "content": 96
-  },
-  {
-   "slot": 97,
-   "group": "水系",
-   "name": "M教授",
-   "attr": true,
-   "box": [
-    2281,
-    4034,
-    213,
-    213
-   ],
-   "ring": 8,
-   "bg": "#c9c8ce",
-   "content": 97
-  },
-  {
    "slot": 99,
    "group": "火系",
    "name": "tuxia",
@@ -2013,21 +1798,6 @@
    "content": 146
   },
   {
-   "slot": 138,
-   "group": "全场景必练T0.5",
-   "name": "格温",
-   "attr": false,
-   "box": [
-    2096,
-    1351,
-    320,
-    319
-   ],
-   "ring": 11,
-   "bg": "#49475f",
-   "content": 1004
-  },
-  {
    "slot": 141,
    "group": "全场景必练T0",
    "name": "泳装微笑",
@@ -2056,81 +1826,6 @@
    "ring": 8,
    "bg": "#917090",
    "content": 147
-  },
-  {
-   "slot": 143,
-   "group": "全场景必练T0",
-   "name": "瑟莱丝",
-   "attr": false,
-   "box": [
-    866,
-    773,
-    320,
-    321
-   ],
-   "ring": 11,
-   "bg": "#efa7b5",
-   "content": 1002
-  },
-  {
-   "slot": 144,
-   "group": "全场景必练T0",
-   "name": "gn",
-   "attr": false,
-   "box": [
-    1276,
-    773,
-    319,
-    321
-   ],
-   "ring": 8,
-   "bg": "#ecc476",
-   "content": 1003
-  },
-  {
-   "slot": 145,
-   "group": "全场景必练T0",
-   "name": "mudun",
-   "attr": false,
-   "box": [
-    1685,
-    773,
-    321,
-    321
-   ],
-   "ring": 10,
-   "bg": "#d6bd88",
-   "content": 1001
-  },
-  {
-   "slot": 146,
-   "group": "全场景必练T0",
-   "name": "阿莫拉",
-   "attr": false,
-   "box": [
-    2096,
-    774,
-    321,
-    320
-   ],
-   "ring": 11,
-   "bg": "#26365b",
-   "content": 1005
-  },
-  {
-   "slot": 147,
-   "group": "全场景必练T0",
-   "name": "M教授",
-   "attr": false,
-   "box": [
-    2507,
-    773,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#9f9fa8",
-   "content": 1000
   },
   {
    "slot": 7001,
@@ -2298,21 +1993,6 @@
    "content": 1006
   },
   {
-   "slot": 1007,
-   "group": "水系",
-   "name": "T1.5新格",
-   "attr": true,
-   "box": [
-    2513,
-    5932,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1007
-  },
-  {
    "slot": 1008,
    "group": "火系",
    "name": "新格",
@@ -2358,36 +2038,6 @@
    "content": 1010
   },
   {
-   "slot": 1011,
-   "group": "水系",
-   "name": "T0.5新格",
-   "attr": true,
-   "box": [
-    2513,
-    4986,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1011
-  },
-  {
-   "slot": 1012,
-   "group": "水系",
-   "name": "新格6",
-   "attr": true,
-   "box": [
-    2513,
-    7006,
-    213,
-    213
-   ],
-   "ring": 5,
-   "bg": "#b1a2b3",
-   "content": 1012
-  },
-  {
    "slot": 1013,
    "group": "水系",
    "name": "新格5",
@@ -2401,51 +2051,6 @@
    "ring": 6,
    "bg": "transparent",
    "content": 1013
-  },
-  {
-   "slot": 1014,
-   "group": "水系",
-   "name": "新格6",
-   "attr": true,
-   "box": [
-    2281,
-    5574,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1014
-  },
-  {
-   "slot": 1015,
-   "group": "水系",
-   "name": "新格7",
-   "attr": true,
-   "box": [
-    2513,
-    5574,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1015
-  },
-  {
-   "slot": 1016,
-   "group": "水系",
-   "name": "新格7",
-   "attr": true,
-   "box": [
-    2513,
-    4168,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1016
   },
   {
    "slot": 1017,
