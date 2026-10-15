@@ -320,11 +320,12 @@ let z = 0.26, sel = null, drag = null, dropTarget = null;
    slotShift[格位] / layerShift[图层] = 属性栏里「就地插行」造成的个人位移：在哪个格位
    后面插了一行，那个格位以下（含档位标签 T几）就整体下移一行高 */
 const edit = { place:{}, art:{}, text:{}, slotText:{}, char:{}, tstyle:{}, pos:{}, nt:[],
-               newSlots:[], down:{}, slotShift:{}, layerShift:{}, gone:{} };
+               newSlots:[], down:{}, slotShift:{}, layerShift:{}, gone:{}, tie:{} };
 try {
   const s = JSON.parse(localStorage.getItem("psbSlots") || "null");
   if (s) for (const k of ["place","art","text","slotText","char","tstyle","pos"]) if (s[k]) edit[k] = s[k];
   if (s && s.gone) edit.gone = s.gone;
+  if (s && s.tie) edit.tie = s.tie;
   if (s && s.nt) edit.nt = s.nt;
   if (s && s.newSlots) edit.newSlots = s.newSlots;
   if (s && s.down) edit.down = s.down;
@@ -356,7 +357,7 @@ function applyEdit(s) {
   for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = o[k] || {};
   edit.nt = o.nt || []; edit.newSlots = o.newSlots || []; edit.down = o.down || {};
   edit.slotShift = o.slotShift || {}; edit.layerShift = o.layerShift || {};
-  edit.gone = o.gone || {};
+  edit.gone = o.gone || {}; edit.tie = o.tie || {};
 }
 function undo() {
   if (!undoStack.length) return;
@@ -389,6 +390,7 @@ const ATTR_G = ["光系", "暗系", "火系", "水系", "草系"];
 const TAIL_G = ["底边", "人物持立牌图片"];
 const ORD_G = ["全场景必练T0", "全场景必练T0.5", "全场景必练T1", "T1功能角色", "T2功能角色", "__attr__", "__tail__"];
 const STEP_X = 410, STEP_Y = 410, ATTR_STEP = 230, GAP_X = 45;
+const LABEL_UP = 102;            /* 档位标签底边到本档首排的距离：标签高 58 + 间隔 44 */
 const slotsAll = () => SLOTS.concat(edit.newSlots || []);
 const findSlot = id => slotsAll().find(s => s.id === id) || null;
 /* 分组层级：上半部四档各占一层（上下排列），五属性栏共享一层（横排，互不影响），版脚在最后。
@@ -521,7 +523,11 @@ function render() {
       /* 属性栏档位标签跟着插行让位；版脚再额外贴到黑底最下端 */
       const dy0 = downOf(o.group, o.name) + lshiftOf(o.seq)
                   + (TAIL_G.indexOf(o.name) >= 0 ? tailDrop : 0);
-      el.style.left = p[0] + "px"; el.style.top = (p[1] + dy0) + "px";
+      /* 属性栏档位标签绑定到「该档第一格」：位置实时跟着那一格，不再单独维护位移 */
+      const tieId = edit.tie["l" + o.seq];
+      const tieSlot = tieId !== undefined ? findSlot(tieId) : null;
+      el.style.left = p[0] + "px";
+      el.style.top = (tieSlot ? boxOf(tieSlot)[1] - LABEL_UP : p[1] + dy0) + "px";
       el.style.width = (o.t === "text" ? o.box[2] + 40 : o.box[2]) + "px";
       /* 黑底那张标了 grow 的跟着画布走；属性栏背板随加格延长；其余按原尺寸 */
       el.style.height = (o.grow ? (canvasH - (p[1] + dy0))
@@ -643,8 +649,11 @@ function render() {
     if (nt.hide) continue;
     const el = document.createElement("div");
     el.className = "nt";
+    const ntTie = edit.tie["n" + nt.id];
+    const ntSlot = ntTie !== undefined ? findSlot(ntTie) : null;
     const p = posOf("n" + nt.id, nt.x, nt.y);
-    el.style.left = p[0] + "px"; el.style.top = p[1] + "px";
+    el.style.left = p[0] + "px";
+    el.style.top = (ntSlot ? boxOf(ntSlot)[1] - LABEL_UP : p[1]) + "px";
     el.style.fontSize = nt.fs + "px";
     el.style.lineHeight = Math.round(nt.fs * 1.25) + "px";
     el.style.color = nt.color;
@@ -1156,7 +1165,7 @@ function exportData() {
            pos: edit.pos || {}, nt: edit.nt || [],
            newSlots: edit.newSlots || [], down: edit.down || {},
            slotShift: edit.slotShift || {}, layerShift: edit.layerShift || {},
-           gone: edit.gone || {},
+           gone: edit.gone || {}, tie: edit.tie || {},
            allSlots: slotsAll().filter(s => !edit.gone[s.id])
                      .map(s => ({ slot: s.id, group: s.group, name: s.name,
                                   attr: !!s.attr, box: boxOf(s),
@@ -1244,7 +1253,7 @@ const hasLocalEdits = () => {
     for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"])
       if (o[k] && Object.keys(o[k]).length) return true;
     for (const k of ["nt", "newSlots"]) if (o[k] && o[k].length) return true;
-    for (const k of ["down", "slotShift", "layerShift", "gone"]) if (o[k] && Object.keys(o[k]).length) return true;
+    for (const k of ["down", "slotShift", "layerShift", "gone", "tie"]) if (o[k] && Object.keys(o[k]).length) return true;
     return false;
   } catch (e) { return false; }
 };
@@ -1260,14 +1269,14 @@ async function ghReadSha(path) {
 /* 把一份存档换进编辑器（与「导入改动」同一套换算，区别是整体替换） */
 function applyArchive(d) {
   for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"]) edit[k] = {};
-  edit.nt = []; edit.newSlots = []; edit.down = {}; edit.slotShift = {}; edit.layerShift = {}; edit.gone = {};
+  edit.nt = []; edit.newSlots = []; edit.down = {}; edit.slotShift = {}; edit.layerShift = {}; edit.gone = {}; edit.tie = {};
   if (d.pos) edit.pos = d.pos;
   if (d.nt) edit.nt = d.nt;
   edit.newSlots = d.newSlots || [];
   edit.down = d.down || {};
   edit.slotShift = d.slotShift || {};
   edit.layerShift = d.layerShift || {};
-  edit.gone = d.gone || {};
+  edit.gone = d.gone || {}; edit.tie = d.tie || {};
   for (const l of d.slots || []) {
     if (l.content === null) edit.place[l.slot] = EMPTY;
     else if (l.content !== undefined) edit.place[l.slot] = l.content;
@@ -2116,7 +2125,7 @@ document.getElementById("bClear").onclick = () => {
   if (!confirm("清空全部改动，回到作者原稿？")) return;
   for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = {};
   edit.nt = []; edit.newSlots = []; edit.down = {};
-  edit.slotShift = {}; edit.layerShift = {}; edit.gone = {};
+  edit.slotShift = {}; edit.layerShift = {}; edit.gone = {}; edit.tie = {};
   save(); sel = null; hideInsp(); render(); tbFill();
 };
 
@@ -2174,6 +2183,12 @@ document.getElementById("bAdd").onclick = () => {
 function delSlot(id){
   const s = findSlot(id);
   if (!s) return;
+  /* 档位标签绑定的「首格」：只允许清内容，不许把格子删掉——标签得有个落脚的地方 */
+  if (Object.values(edit.tie || {}).some(v => String(v) === String(id))) {
+    edit.place[id] = EMPTY; delete edit.art[id]; delete edit.char[id];
+    flash("这一格是档位首格（标签跟着它走），只能清内容、不能删格");
+    save(); sel = null; hideInsp(); render(); return;
+  }
   const grp = s.group, step = s.attr ? ATTR_STEP : STEP_Y;
   const top = boxOf(s)[1];
   const ns = edit.newSlots || [];
