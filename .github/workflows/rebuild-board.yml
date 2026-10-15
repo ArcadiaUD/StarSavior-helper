@@ -73,18 +73,19 @@ jobs:
           rm -rf docs/layers docs/faces
           cp -r build/psb_web/layers build/psb_web/faces docs/
 
-      # 位置上以编辑器为准：构建是从 PSB 原稿重算的，而编辑器用的是内联基线 + 存档位移，
-      # 两套算法只要差一点版面就错位（漏层、漏删除记录、重复下移都踩过）。
-      # 这一步用编辑器的渲染结果，把站点数据里每个格位/图层的最终坐标覆盖一遍。
-      - name: 装浏览器（位置对齐要用）
+      # 榜单数据以编辑器为准：build_psb_full.py 是从 PSB 原稿重算版面的，而编辑器用的是
+      # 内联基线 + 存档改动，两套来源必然对不上（文字还是原稿那版、图层集合也不一样，
+      # 位置更是踩过漏层/漏删除/重复下移）。这一步打开编辑器抓渲染后的 DOM，
+      # 把位置/尺寸/图片/文字/字号/颜色整体覆盖一遍 —— 上面那份构建产物只负责出素材。
+      - name: 装浏览器（导出榜单数据要用）
         id: setup-chrome
         uses: browser-actions/setup-chrome@v1
 
-      - name: 用编辑器渲染结果对齐位置
+      - name: 用编辑器的渲染结果生成榜单数据
         working-directory: build
         env:
           CHROME_BIN: ${{ steps.setup-chrome.outputs.chrome-path }}
-        run: python patch_positions.py --write
+        run: python export_from_editor.py --write
 
       - name: 写构建标记
         run: |
