@@ -11,10 +11,10 @@
 状态效果 新增 13 项：捕捉灰尘（无法解除）、清爽心情（无法解除）、累积的羞耻心（无法解除）、催促下班（无法解除）、责任转嫁（无法解除）、生灭之种（无法解除）、凝聚的生气（无法解除）、营养过剩、残灭棘刺、被侵蚀的意志（无法解除）（301132）、腐朽之意志（无法解除）、潜伏之根（无法解除） 等 13 项
 称号 新增 3 项：50000002、瑟莱丝的特别客人、莉迪亚的主人
 活动档案 新增：战士之心！奉献之心！
-卡面 新增：7106001
-头像 新增 2 项：UFS_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.png、UFS_NKM_UNIT_S_HALLOWEEN_ROD.png
-立绘 新增：UFS_NKM_UNIT_S_HALLOWEEN_ROD.png
-资料库图标 新增 31 项：BUFF_COLLECT_VITALITY.png、BUFF_DUST_SPOT.png、BUFF_ERODE_WILL.png、BUFF_FINISH_QUICK.png、BUFF_HIDE_ROOT.png、BUFF_HURRY_UP.png、BUFF_LIFE_SEED.png、BUFF_PILING_UP_SHAME.png、BUFF_REFRESH.png、DEBUFF_NUTRITION_EXCESS.png、DEBUFF_REMNANT_THORN.png、DEBUFF_ROT_WILL.png 等 31 项
+卡面 新增：莉迪亚·这也算衣服吗？
+头像 新增 2 项：瑟莱丝、莉迪亚
+立绘 新增：莉迪亚
+资料库图标 新增 31 项：凝聚的生气（无法解除）、捕捉灰尘（无法解除）、被侵蚀的意志（无法解除）、责任转嫁（无法解除）、潜伏之根（无法解除）、催促下班（无法解除）、生灭之种（无法解除）、累积的羞耻心（无法解除）、清爽心情（无法解除）、营养过剩、残灭棘刺、腐朽之意志（无法解除） 等 20 项
 识别用事件表 新增 3 项：同类的气味、妄想的资格、女仆装带来的从容
 识别用选项索引 新增 2 项：这样就够了，到此为止吧。、答应了就是答应了…再坚持一下吧。
 识别用选项索引（繁） 新增 2 项：這樣就夠了，到此為止吧。、答應了就是答應了…再堅持一下吧。
