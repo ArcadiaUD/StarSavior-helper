@@ -753,20 +753,24 @@ function addSlot(seedId) {
   const s = findSlot(seedId);
   if (!s) { flash("先在画布上点选一个格位，新格会加在它后面"); return; }
   const grp = s.group, attr = !!s.attr, W = s.box[2], Hh = s.box[3];
-  const kin = slotsAll().filter(x => x.group === grp);
-  const rows = cluster(kin.map(k => k.box[1]), 30);
+  const kin = slotsAll().filter(x => x.group === grp && !edit.gone[x.id]);
+  /* 分行 / 分排一律看「实际位置」：box 是原稿基线，档位之间是靠 down / slotShift 错开的，
+     只看 box 会让被错开的格跟别档撞在同一坐标上，加格就会串排。新格的 box 仍存基线。 */
+  const ay = k => boxOf(k)[1];
+  const base = v => v - downOf(grp, "");
+  const rows = cluster(kin.map(ay), 30);
   const lastY = rows[rows.length - 1][0];
-  const rowAt = (yy, list) => list.filter(k => Math.abs(k.box[1] - yy) <= 30)
+  const rowAt = (yy, list) => list.filter(k => Math.abs(ay(k) - yy) <= 30)
                                   .sort((a, b) => a.box[0] - b.box[0]);
-  const mine = rowAt((rows.find(r => r.some(v => Math.abs(v - s.box[1]) <= 30)) || [s.box[1]])[0], kin);
-  let x, y = mine[0].box[1], grown = 0, insert = null;
+  const mine = rowAt((rows.find(r => r.some(v => Math.abs(v - ay(s)) <= 30)) || [ay(s)])[0], kin);
+  let x, y = base(ay(mine[0])), grown = 0, insert = null;
   if (attr) {
     const cols = cluster(kin.map(k => k.box[0]), 30).map(modeOf);
     if (mine.length < cols.length) x = cols[mine.length];      /* 这一排后面还空着，补上去 */
     else {              /* 这一排满了：就在它下面就地插一行，后面的档位与 T 几 标签整体让开 */
       const a = mine[0];
-      x = cols[0]; y = a.box[1] + ATTR_STEP;
-      insert = { anchor: a, top: boxOf(a)[1] };
+      x = cols[0]; y = base(ay(a) + ATTR_STEP);
+      insert = { anchor: a, top: ay(a) };
     }
     const p = PANEL_BOX[grp];
     /* 纵向不再设上限：新起的排会把背板一起往下延长，五栏同长 */
@@ -778,7 +782,7 @@ function addSlot(seedId) {
     x = tail.box[0] + STEP_X;                                  /* 接在选中那一排的队尾 */
     if (x + W > 3621 - GAP_X) {                               /* 这一排顶到右边缘：在最下面一行下面新起一排 */
       const lrow = rowAt(lastY, kin);
-      x = lrow[0].box[0]; y = lastY + STEP_Y; grown = STEP_Y;
+      x = lrow[0].box[0]; y = base(lastY + STEP_Y); grown = STEP_Y;
     }
   }
   const id = (edit.newSlots || []).reduce((m, t) => Math.max(m, t.id), 999) + 1;
