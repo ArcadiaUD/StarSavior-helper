@@ -802,15 +802,22 @@ function addSlot(seedId) {
   edit.newSlots = (edit.newSlots || []).concat(ns);
   if (grown) edit.down[grp] = (edit.down[grp] || 0) + grown;   /* 后面所有层整体往下让 */
   if (insert) {
-    /* 插入点以下（不含锚点那一排）的格位与档位标签各让一行；新行沿用锚点的位移 */
+    /* 插入点以下的格位、档位标签、新建文字各让一行；新行沿用锚点的位移。
+       属性栏的档位标签没有 group，按「横向落在本栏里」判定——光看 group 会漏掉它们。 */
     for (const k of kin) if (boxOf(k)[1] > insert.top + 1) {
       edit.slotShift[k.id] = (edit.slotShift[k.id] || 0) + ATTR_STEP;
     }
+    const pb = PANEL_BOX[grp];
+    const inCol = o => !pb || (o.box[0] < pb[0] + pb[2] + 1 && o.box[0] + o.box[2] > pb[0] - 1);
     for (const o of OTHERS) {
-      if (o.group !== grp || IS_PANEL(o)) continue;
+      if (IS_PANEL(o) || !inCol(o)) continue;
       if (o.box[1] + lshiftOf(o.seq) + downOf(o.group, o.name) > insert.top + 1) {
         edit.layerShift[o.seq] = (edit.layerShift[o.seq] || 0) + ATTR_STEP;
       }
+    }
+    /* 新建文字（档位标签等）也要跟着让位——它们的 y 存的是实际坐标 */
+    for (const t of (edit.nt || [])) {
+      if (t.y > insert.top + 1) t.y += ATTR_STEP;
     }
     edit.slotShift[id] = shiftOf(insert.anchor.id);
   }
@@ -2167,13 +2174,15 @@ document.getElementById("bAdd").onclick = () => {
 function delSlot(id){
   const s = findSlot(id);
   if (!s) return;
+  const grp = s.group, step = s.attr ? ATTR_STEP : STEP_Y;
+  const top = boxOf(s)[1];
   const ns = edit.newSlots || [];
   const i = ns.findIndex(t => t.id === id);
   if (i >= 0){
     ns.splice(i, 1);
     /* 同一排、在它右边的新格整体左移一格 */
     for (const k of ns){
-      if (k.group === s.group && Math.abs(k.box[1] - s.box[1]) <= 30 && k.box[0] > s.box[0]) {
+      if (k.group === grp && Math.abs(boxOf(k)[1] - top) <= 30 && k.box[0] > s.box[0]) {
         k.box[0] -= STEP_X;
       }
     }
@@ -2181,6 +2190,28 @@ function delSlot(id){
   } else {
     edit.gone[id] = 1; delete edit.place[id]; delete edit.art[id]; delete edit.char[id];
     flash("已删掉这一格（原稿格位，可在详情里「还原」）");
+  }
+  /* 这一排如果空了，就把整排撤掉：同组下方（含下面的属性榜）整体上移一层——
+     与「加格往下推」对称。放在没这一条，删完会留一条空行，下面的东西不动。 */
+  const rest = slotsAll().filter(k => k.group === grp && !edit.gone[k.id] && k.id !== id);
+  if (!rest.some(k => Math.abs(boxOf(k)[1] - top) <= 30)){
+    const pm = PANEL_BOX[grp];
+    const inCol = o => !pm || (o.box[0] < pm[0] + pm[2] + 1 && o.box[0] + o.box[2] > pm[0] - 1);
+    for (const k of rest){
+      if (boxOf(k)[1] > top + 1) edit.slotShift[k.id] = (edit.slotShift[k.id] || 0) - step;
+    }
+    for (const o of OTHERS){
+      if (IS_PANEL(o) || !inCol(o)) continue;
+      if (o.box[1] + lshiftOf(o.seq) + downOf(o.group, o.name) > top + 1) {
+        edit.layerShift[o.seq] = (edit.layerShift[o.seq] || 0) - step;
+      }
+    }
+    for (const t of (edit.nt || [])) if (t.y > top + 1) t.y -= step;
+    /* 撤掉的是这组最后一排 → 这一组变矮，后面的组（属性榜、版脚）跟着往上收 */
+    const low = Math.max(0, ...rest.map(k => boxOf(k)[1]));
+    if (top >= low - 1 && edit.down[grp]) {
+      edit.down[grp] = Math.max(0, edit.down[grp] - step);
+    }
   }
   save(); sel = null; hideInsp(); render();
 }
