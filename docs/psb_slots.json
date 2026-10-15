@@ -3,734 +3,13 @@
   3621,
   8791
  ],
- "slots": [
-  {
-   "slot": 133,
-   "group": "全场景必练T0.5",
-   "name": "tuxia",
-   "content": 141,
-   "contentName": "泳装微笑",
-   "art": null,
-   "char": "微笑",
-   "form": "阳光猫娘",
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 134,
-   "group": "全场景必练T0.5",
-   "name": "hdj",
-   "content": 142,
-   "contentName": "克拉丽莎",
-   "art": null,
-   "char": "克拉丽莎",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 135,
-   "group": "全场景必练T0.5",
-   "name": "hka",
-   "content": 143,
-   "contentName": "瑟莱丝",
-   "art": null,
-   "char": "瑟莱丝",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 136,
-   "group": "全场景必练T0.5",
-   "name": "aimili",
-   "content": 144,
-   "contentName": "gn",
-   "art": null,
-   "char": "亚瑟菈",
-   "form": "星光华尔兹",
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 137,
-   "group": "全场景必练T0.5",
-   "name": "卡",
-   "content": 146,
-   "contentName": "阿莫拉",
-   "art": null,
-   "char": "阿莫拉",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 141,
-   "group": "全场景必练T0",
-   "name": "泳装微笑",
-   "content": 145,
-   "contentName": "mudun",
-   "art": null,
-   "char": "艾黛",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 142,
-   "group": "全场景必练T0",
-   "name": "克拉丽莎",
-   "content": 147,
-   "contentName": "M教授",
-   "art": null,
-   "char": "M教授",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1000,
-   "group": "全场景必练T1",
-   "name": "新格1",
-   "content": 133,
-   "contentName": "tuxia",
-   "art": null,
-   "char": "夏尔",
-   "form": "莫纳斯提尔之心",
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1001,
-   "group": "全场景必练T1",
-   "name": "新格2",
-   "content": 134,
-   "contentName": "hdj",
-   "art": null,
-   "char": "缇莉雅",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1002,
-   "group": "全场景必练T1",
-   "name": "新格3",
-   "content": 135,
-   "contentName": "hka",
-   "art": null,
-   "char": "卡蜜",
-   "form": "永恒誓约",
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1003,
-   "group": "全场景必练T1",
-   "name": "新格4",
-   "content": 136,
-   "contentName": "aimili",
-   "art": null,
-   "char": "埃米莉",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1004,
-   "group": "全场景必练T1",
-   "name": "新格5",
-   "content": 137,
-   "contentName": "卡",
-   "art": null,
-   "char": "卡奈莉亚",
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1005,
-   "group": "全场景必练T1",
-   "name": "新格6",
-   "content": 138,
-   "contentName": "格温",
-   "art": null,
-   "char": "克温",
-   "form": null,
-   "textChanged": true,
-   "text": "隐身上位",
-   "textFrom": null,
-   "textBox": [
-    2096,
-    2268,
-    320,
-    50
-   ],
-   "textColor": "#e8ebf2",
-   "textFs": 40,
-   "textLh": 50
-  },
-  {
-   "slot": 89,
-   "group": "水系",
-   "name": "霏",
-   "content": 89,
-   "contentName": "霏",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp",
-    "char": "M教授",
-    "form": "兰帕迪斯"
-   },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1006,
-   "group": "水系",
-   "name": "T1.5新格",
-   "content": 1006,
-   "contentName": "T1.5新格",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp",
-    "char": "莉迪亚",
-    "form": "乖巧萌犬"
-   },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1008,
-   "group": "火系",
-   "name": "新格",
-   "content": 1008,
-   "contentName": "新格",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp",
-    "char": "瑟乐芬",
-    "form": "风月堂"
-   },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1010,
-   "group": "水系",
-   "name": "T0.5新格",
-   "content": 1010,
-   "contentName": "T0.5新格",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_INDEPENDENT_VAGABOND.webp",
-    "char": "霏",
-    "form": "流浪者"
-   },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1009,
-   "group": "水系",
-   "name": "新格",
-   "content": 1012,
-   "contentName": "新格6",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_KINGDOM_SHIELDER.webp",
-    "char": "卡蜜",
-    "form": "莫纳斯提尔骑士团"
-   },
-   "char": "卡蜜",
-   "form": "莫纳斯提尔骑士团",
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1013,
-   "group": "水系",
-   "name": "新格5",
-   "content": 1013,
-   "contentName": "新格5",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp",
-    "char": "瑟莱丝",
-    "form": "西部收复部队"
-   },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  },
-  {
-   "slot": 1017,
-   "group": "水系",
-   "name": "新格10",
-   "content": 1017,
-   "contentName": "新格10",
-   "art": {
-    "src": "faces/UFS_NKM_UNIT_S_WEDDING_SHIELDER.webp",
-    "char": "卡蜜",
-    "form": "永恒誓约"
-   },
-   "char": null,
-   "form": null,
-   "textChanged": false,
-   "text": null,
-   "textFrom": null,
-   "textBox": null,
-   "textColor": null,
-   "textFs": null,
-   "textLh": null
-  }
- ],
- "pos": {
-  "o8": [
-   1845,
-   359
-  ],
-  "o90": [
-   2514,
-   3939
-  ],
-  "o5": [
-   21,
-   7653
-  ]
- },
- "nt": [
-  {
-   "id": 1,
-   "x": 45,
-   "y": 1821,
-   "txt": "全场景必练T1",
-   "fs": 58,
-   "color": "#ffffff",
-   "bold": true
-  },
-  {
-   "id": 2,
-   "x": 2456,
-   "y": 5600,
-   "txt": "T1.5",
-   "fs": 48,
-   "color": "#ffffff",
-   "bold": false
-  },
-  {
-   "id": 3,
-   "x": 2456,
-   "y": 4424,
-   "txt": "T0.5",
-   "fs": 48,
-   "color": "#ffffff",
-   "bold": false
-  }
- ],
- "newSlots": [
-  {
-   "id": 1000,
-   "new": true,
-   "group": "全场景必练T1",
-   "name": "新格1",
-   "attr": false,
-   "box": [
-    45,
-    1351,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038"
-  },
-  {
-   "id": 1001,
-   "new": true,
-   "group": "全场景必练T1",
-   "name": "新格2",
-   "attr": false,
-   "box": [
-    456,
-    1351,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038"
-  },
-  {
-   "id": 1002,
-   "new": true,
-   "group": "全场景必练T1",
-   "name": "新格3",
-   "attr": false,
-   "box": [
-    866,
-    1351,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038"
-  },
-  {
-   "id": 1003,
-   "new": true,
-   "group": "全场景必练T1",
-   "name": "新格4",
-   "attr": false,
-   "box": [
-    1276,
-    1351,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038"
-  },
-  {
-   "id": 1004,
-   "new": true,
-   "group": "全场景必练T1",
-   "name": "新格5",
-   "attr": false,
-   "box": [
-    1686,
-    1351,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038"
-  },
-  {
-   "id": 1005,
-   "new": true,
-   "group": "全场景必练T1",
-   "name": "新格6",
-   "attr": false,
-   "box": [
-    2096,
-    1351,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038"
-  },
-  {
-   "id": 1006,
-   "new": true,
-   "group": "水系",
-   "name": "T1.5新格",
-   "attr": true,
-   "box": [
-    2281,
-    4980,
-    213,
-    213
-   ],
-   "ring": 0,
-   "bg": "transparent",
-   "ph": true
-  },
-  {
-   "id": 1007,
-   "new": true,
-   "group": "水系",
-   "name": "T1.5新格",
-   "attr": true,
-   "box": [
-    2513,
-    4980,
-    213,
-    213
-   ],
-   "ring": 0,
-   "bg": "transparent",
-   "ph": true
-  },
-  {
-   "id": 1008,
-   "new": true,
-   "group": "火系",
-   "name": "新格",
-   "attr": true,
-   "box": [
-    1575,
-    5798,
-    213,
-    213
-   ],
-   "ring": 0,
-   "bg": "transparent",
-   "ph": true
-  },
-  {
-   "id": 1009,
-   "new": true,
-   "group": "水系",
-   "name": "新格",
-   "attr": true,
-   "box": [
-    2513,
-    5696,
-    213,
-    213
-   ],
-   "ring": 0,
-   "bg": "transparent",
-   "ph": true
-  },
-  {
-   "id": 1010,
-   "new": true,
-   "group": "水系",
-   "name": "T0.5新格",
-   "attr": true,
-   "box": [
-    2281,
-    4392,
-    213,
-    213
-   ],
-   "ring": 0,
-   "bg": "transparent",
-   "ph": true
-  },
-  {
-   "id": 1011,
-   "new": true,
-   "group": "水系",
-   "name": "T0.5新格",
-   "attr": true,
-   "box": [
-    2513,
-    4392,
-    213,
-    213
-   ],
-   "ring": 0,
-   "bg": "transparent",
-   "ph": true
-  },
-  {
-   "id": 1012,
-   "new": true,
-   "group": "水系",
-   "name": "新格6",
-   "attr": true,
-   "box": [
-    2281,
-    6412,
-    213,
-    213
-   ],
-   "ring": 5,
-   "bg": "#b1a2b3"
-  },
-  {
-   "id": 1013,
-   "new": true,
-   "group": "水系",
-   "name": "新格5",
-   "attr": true,
-   "box": [
-    2281,
-    4392,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent"
-  },
-  {
-   "id": 1014,
-   "new": true,
-   "group": "水系",
-   "name": "新格6",
-   "attr": true,
-   "box": [
-    2281,
-    4622,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent"
-  },
-  {
-   "id": 1015,
-   "new": true,
-   "group": "水系",
-   "name": "新格7",
-   "attr": true,
-   "box": [
-    2513,
-    4622,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent"
-  },
-  {
-   "id": 1016,
-   "new": true,
-   "group": "水系",
-   "name": "新格7",
-   "attr": true,
-   "box": [
-    2513,
-    3574,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent"
-  },
-  {
-   "id": 1017,
-   "new": true,
-   "group": "水系",
-   "name": "新格10",
-   "attr": true,
-   "box": [
-    2513,
-    4162,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent"
-  }
- ],
- "down": {
-  "全场景必练T0.5": 594
- },
- "slotShift": {
-  "84": 486,
-  "85": 486,
-  "86": 486,
-  "87": 486,
-  "88": 486,
-  "89": 0,
-  "91": 128,
-  "92": 128,
-  "93": 128,
-  "94": 128,
-  "1006": 128,
-  "1007": 128,
-  "1009": 486,
-  "1010": -460,
-  "1011": -460,
-  "1012": 0,
-  "1013": -230,
-  "1014": 358,
-  "1015": 358
- },
- "layerShift": {
-  "5": -460,
-  "79": 1,
-  "80": 128,
-  "81": 486,
-  "82": 487,
-  "83": 486
- },
+ "slots": [],
+ "pos": {},
+ "nt": [],
+ "newSlots": [],
+ "down": {},
+ "slotShift": {},
+ "layerShift": {},
  "allSlots": [
   {
    "slot": 13,
@@ -739,7 +18,7 @@
    "attr": false,
    "box": [
     45,
-    3117,
+    2523,
     320,
     320
    ],
@@ -754,7 +33,7 @@
    "attr": false,
    "box": [
     456,
-    3117,
+    2523,
     321,
     320
    ],
@@ -769,7 +48,7 @@
    "attr": false,
    "box": [
     867,
-    3117,
+    2523,
     320,
     320
    ],
@@ -784,7 +63,7 @@
    "attr": false,
    "box": [
     1276,
-    3117,
+    2523,
     320,
     320
    ],
@@ -799,7 +78,7 @@
    "attr": false,
    "box": [
     1685,
-    3117,
+    2523,
     321,
     320
    ],
@@ -814,7 +93,7 @@
    "attr": false,
    "box": [
     2096,
-    3117,
+    2523,
     321,
     320
    ],
@@ -829,7 +108,7 @@
    "attr": false,
    "box": [
     2496,
-    3117,
+    2523,
     320,
     320
    ],
@@ -844,7 +123,7 @@
    "attr": false,
    "box": [
     45,
-    2539,
+    1945,
     321,
     320
    ],
@@ -859,7 +138,7 @@
    "attr": false,
    "box": [
     1686,
-    2539,
+    1945,
     321,
     320
    ],
@@ -874,7 +153,7 @@
    "attr": false,
    "box": [
     866,
-    2539,
+    1945,
     321,
     320
    ],
@@ -889,7 +168,7 @@
    "attr": false,
    "box": [
     1276,
-    2539,
+    1945,
     320,
     320
    ],
@@ -904,7 +183,7 @@
    "attr": false,
    "box": [
     449,
-    2539,
+    1945,
     320,
     320
    ],
@@ -919,7 +198,7 @@
    "attr": false,
    "box": [
     2096,
-    2539,
+    1945,
     320,
     320
    ],
@@ -934,7 +213,7 @@
    "attr": false,
    "box": [
     2496,
-    2539,
+    1945,
     320,
     320
    ],
@@ -949,7 +228,7 @@
    "attr": false,
    "box": [
     2903,
-    2539,
+    1945,
     320,
     320
    ],
@@ -964,7 +243,7 @@
    "attr": false,
    "box": [
     3301,
-    2539,
+    1945,
     320,
     320
    ],
@@ -979,7 +258,7 @@
    "attr": true,
    "box": [
     149,
-    4168,
+    3574,
     213,
     213
    ],
@@ -994,7 +273,7 @@
    "attr": true,
    "box": [
     381,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1009,7 +288,7 @@
    "attr": true,
    "box": [
     149,
-    4526,
+    3932,
     213,
     213
    ],
@@ -1024,7 +303,7 @@
    "attr": true,
    "box": [
     381,
-    4526,
+    3932,
     213,
     213
    ],
@@ -1039,7 +318,7 @@
    "attr": true,
    "box": [
     3001,
-    6290,
+    5696,
     213,
     213
    ],
@@ -1054,7 +333,7 @@
    "attr": true,
    "box": [
     3233,
-    5702,
+    5108,
     213,
     213
    ],
@@ -1069,7 +348,7 @@
    "attr": true,
    "box": [
     3001,
-    6520,
+    5926,
     213,
     213
    ],
@@ -1084,7 +363,7 @@
    "attr": true,
    "box": [
     3001,
-    5702,
+    5108,
     213,
     213
    ],
@@ -1099,7 +378,7 @@
    "attr": true,
    "box": [
     3233,
-    5344,
+    4750,
     213,
     213
    ],
@@ -1114,7 +393,7 @@
    "attr": true,
    "box": [
     3233,
-    5114,
+    4520,
     213,
     213
    ],
@@ -1129,7 +408,7 @@
    "attr": true,
    "box": [
     3001,
-    5932,
+    5338,
     213,
     213
    ],
@@ -1144,7 +423,7 @@
    "attr": true,
    "box": [
     3233,
-    6520,
+    5926,
     213,
     213
    ],
@@ -1159,7 +438,7 @@
    "attr": true,
    "box": [
     3233,
-    6290,
+    5696,
     213,
     213
    ],
@@ -1174,7 +453,7 @@
    "attr": true,
    "box": [
     3001,
-    5114,
+    4520,
     213,
     213
    ],
@@ -1189,7 +468,7 @@
    "attr": true,
    "box": [
     3001,
-    4756,
+    4162,
     213,
     213
    ],
@@ -1204,7 +483,7 @@
    "attr": true,
    "box": [
     3233,
-    4756,
+    4162,
     213,
     213
    ],
@@ -1219,7 +498,7 @@
    "attr": true,
    "box": [
     3001,
-    4398,
+    3804,
     213,
     213
    ],
@@ -1234,7 +513,7 @@
    "attr": true,
    "box": [
     3001,
-    5344,
+    4750,
     213,
     213
    ],
@@ -1249,7 +528,7 @@
    "attr": true,
    "box": [
     3001,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1264,7 +543,7 @@
    "attr": true,
    "box": [
     3233,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1279,7 +558,7 @@
    "attr": true,
    "box": [
     2281,
-    6776,
+    5696,
     213,
     213
    ],
@@ -1294,7 +573,7 @@
    "attr": true,
    "box": [
     2281,
-    6418,
+    5338,
     213,
     213
    ],
@@ -1309,7 +588,7 @@
    "attr": true,
    "box": [
     2513,
-    6418,
+    5338,
     213,
     213
    ],
@@ -1324,7 +603,7 @@
    "attr": true,
    "box": [
     2281,
-    6060,
+    4980,
     213,
     213
    ],
@@ -1339,7 +618,7 @@
    "attr": true,
    "box": [
     2513,
-    6060,
+    4980,
     213,
     213
    ],
@@ -1354,7 +633,7 @@
    "attr": true,
    "box": [
     2281,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1369,7 +648,7 @@
    "attr": true,
    "box": [
     2281,
-    5114,
+    4392,
     213,
     213
    ],
@@ -1384,7 +663,7 @@
    "attr": true,
    "box": [
     2513,
-    5114,
+    4392,
     213,
     213
    ],
@@ -1399,7 +678,7 @@
    "attr": true,
    "box": [
     2281,
-    5344,
+    4622,
     213,
     213
    ],
@@ -1414,7 +693,7 @@
    "attr": true,
    "box": [
     2513,
-    5344,
+    4622,
     213,
     213
    ],
@@ -1429,7 +708,7 @@
    "attr": true,
    "box": [
     1575,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1444,7 +723,7 @@
    "attr": true,
    "box": [
     1807,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1459,7 +738,7 @@
    "attr": true,
    "box": [
     1575,
-    4526,
+    3932,
     213,
     213
    ],
@@ -1474,7 +753,7 @@
    "attr": true,
    "box": [
     1807,
-    4526,
+    3932,
     213,
     213
    ],
@@ -1489,7 +768,7 @@
    "attr": true,
    "box": [
     1575,
-    4756,
+    4162,
     213,
     213
    ],
@@ -1504,7 +783,7 @@
    "attr": true,
    "box": [
     1575,
-    5932,
+    5338,
     213,
     213
    ],
@@ -1519,7 +798,7 @@
    "attr": true,
    "box": [
     1807,
-    5932,
+    5338,
     213,
     213
    ],
@@ -1534,7 +813,7 @@
    "attr": true,
    "box": [
     1575,
-    6162,
+    5568,
     213,
     213
    ],
@@ -1549,7 +828,7 @@
    "attr": true,
    "box": [
     1807,
-    6162,
+    5568,
     213,
     213
    ],
@@ -1564,7 +843,7 @@
    "attr": true,
    "box": [
     1575,
-    5114,
+    4520,
     213,
     213
    ],
@@ -1579,7 +858,7 @@
    "attr": true,
    "box": [
     1807,
-    5114,
+    4520,
     213,
     213
    ],
@@ -1594,7 +873,7 @@
    "attr": true,
    "box": [
     1575,
-    5344,
+    4750,
     213,
     213
    ],
@@ -1609,7 +888,7 @@
    "attr": true,
    "box": [
     1807,
-    5344,
+    4750,
     213,
     213
    ],
@@ -1624,7 +903,7 @@
    "attr": true,
    "box": [
     1575,
-    5574,
+    4980,
     213,
     213
    ],
@@ -1639,7 +918,7 @@
    "attr": true,
    "box": [
     1807,
-    5574,
+    4980,
     213,
     213
    ],
@@ -1654,7 +933,7 @@
    "attr": true,
    "box": [
     857,
-    4168,
+    3574,
     213,
     213
    ],
@@ -1669,7 +948,7 @@
    "attr": true,
    "box": [
     857,
-    5600,
+    5006,
     213,
     213
    ],
@@ -1684,7 +963,7 @@
    "attr": true,
    "box": [
     857,
-    4884,
+    4290,
     213,
     213
    ],
@@ -1699,7 +978,7 @@
    "attr": true,
    "box": [
     1089,
-    4884,
+    4290,
     213,
     213
    ],
@@ -1714,7 +993,7 @@
    "attr": true,
    "box": [
     857,
-    4526,
+    3932,
     213,
     213
    ],
@@ -1735,7 +1014,7 @@
    ],
    "ring": 11,
    "bg": "#d0a3b6",
-   "content": 141
+   "content": 133
   },
   {
    "slot": 134,
@@ -1750,7 +1029,7 @@
    ],
    "ring": 11,
    "bg": "#50397e",
-   "content": 142
+   "content": 134
   },
   {
    "slot": 135,
@@ -1765,7 +1044,7 @@
    ],
    "ring": 11,
    "bg": "#c7cfd0",
-   "content": 143
+   "content": 135
   },
   {
    "slot": 136,
@@ -1780,7 +1059,7 @@
    ],
    "ring": 11,
    "bg": "#8d9aab",
-   "content": 144
+   "content": 136
   },
   {
    "slot": 137,
@@ -1795,7 +1074,7 @@
    ],
    "ring": 12,
    "bg": "#626598",
-   "content": 146
+   "content": 137
   },
   {
    "slot": 141,
@@ -1810,7 +1089,7 @@
    ],
    "ring": 11,
    "bg": "#e0d1cd",
-   "content": 145
+   "content": 141
   },
   {
    "slot": 142,
@@ -1825,7 +1104,7 @@
    ],
    "ring": 8,
    "bg": "#917090",
-   "content": 147
+   "content": 142
   },
   {
    "slot": 7001,
@@ -1834,7 +1113,7 @@
    "attr": true,
    "box": [
     149,
-    5242,
+    4648,
     213,
     213
    ],
@@ -1849,7 +1128,7 @@
    "attr": true,
    "box": [
     149,
-    5600,
+    5006,
     213,
     213
    ],
@@ -1864,7 +1143,7 @@
    "attr": true,
    "box": [
     857,
-    5242,
+    4648,
     213,
     213
    ],
@@ -1879,7 +1158,7 @@
    "attr": true,
    "box": [
     149,
-    4884,
+    4290,
     213,
     213
    ],
@@ -1888,229 +1167,141 @@
    "content": 7004
   },
   {
-   "slot": 1000,
-   "group": "全场景必练T1",
-   "name": "新格1",
-   "attr": false,
+   "slot": 95,
+   "group": "水系",
+   "name": "瑟莱丝",
+   "attr": true,
    "box": [
-    45,
-    1945,
-    320,
-    320
+    2281,
+    3804,
+    213,
+    213
    ],
-   "ring": 11,
-   "bg": "#2b3038",
-   "content": 133
+   "ring": 8,
+   "bg": "#cec8cc",
+   "content": 95
   },
   {
-   "slot": 1001,
-   "group": "全场景必练T1",
-   "name": "新格2",
-   "attr": false,
+   "slot": 96,
+   "group": "水系",
+   "name": "hka",
+   "attr": true,
    "box": [
-    456,
-    1945,
-    320,
-    320
+    2513,
+    3804,
+    213,
+    213
    ],
-   "ring": 11,
-   "bg": "#2b3038",
-   "content": 134
+   "ring": 8,
+   "bg": "#7580ae",
+   "content": 96
   },
   {
-   "slot": 1002,
-   "group": "全场景必练T1",
-   "name": "新格3",
-   "attr": false,
+   "slot": 97,
+   "group": "水系",
+   "name": "M教授",
+   "attr": true,
    "box": [
-    866,
-    1945,
-    320,
-    320
+    2281,
+    4034,
+    213,
+    213
    ],
-   "ring": 11,
-   "bg": "#2b3038",
-   "content": 135
+   "ring": 8,
+   "bg": "#c9c8ce",
+   "content": 97
   },
   {
-   "slot": 1003,
-   "group": "全场景必练T1",
-   "name": "新格4",
-   "attr": false,
-   "box": [
-    1276,
-    1945,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038",
-   "content": 136
-  },
-  {
-   "slot": 1004,
-   "group": "全场景必练T1",
-   "name": "新格5",
-   "attr": false,
-   "box": [
-    1686,
-    1945,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038",
-   "content": 137
-  },
-  {
-   "slot": 1005,
-   "group": "全场景必练T1",
-   "name": "新格6",
+   "slot": 138,
+   "group": "全场景必练T0.5",
+   "name": "格温",
    "attr": false,
    "box": [
     2096,
-    1945,
+    1351,
+    320,
+    319
+   ],
+   "ring": 11,
+   "bg": "#49475f",
+   "content": 138
+  },
+  {
+   "slot": 143,
+   "group": "全场景必练T0",
+   "name": "瑟莱丝",
+   "attr": false,
+   "box": [
+    866,
+    773,
+    320,
+    321
+   ],
+   "ring": 11,
+   "bg": "#efa7b5",
+   "content": 143
+  },
+  {
+   "slot": 144,
+   "group": "全场景必练T0",
+   "name": "gn",
+   "attr": false,
+   "box": [
+    1276,
+    773,
+    319,
+    321
+   ],
+   "ring": 8,
+   "bg": "#ecc476",
+   "content": 144
+  },
+  {
+   "slot": 145,
+   "group": "全场景必练T0",
+   "name": "mudun",
+   "attr": false,
+   "box": [
+    1685,
+    773,
+    321,
+    321
+   ],
+   "ring": 10,
+   "bg": "#d6bd88",
+   "content": 145
+  },
+  {
+   "slot": 146,
+   "group": "全场景必练T0",
+   "name": "阿莫拉",
+   "attr": false,
+   "box": [
+    2096,
+    774,
+    321,
+    320
+   ],
+   "ring": 11,
+   "bg": "#26365b",
+   "content": 146
+  },
+  {
+   "slot": 147,
+   "group": "全场景必练T0",
+   "name": "M教授",
+   "attr": false,
+   "box": [
+    2507,
+    773,
     320,
     320
    ],
    "ring": 11,
-   "bg": "#2b3038",
-   "content": 138
-  },
-  {
-   "slot": 1006,
-   "group": "水系",
-   "name": "T1.5新格",
-   "attr": true,
-   "box": [
-    2281,
-    5702,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1006
-  },
-  {
-   "slot": 1008,
-   "group": "火系",
-   "name": "新格",
-   "attr": true,
-   "box": [
-    1575,
-    6392,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1008
-  },
-  {
-   "slot": 1009,
-   "group": "水系",
-   "name": "新格",
-   "attr": true,
-   "box": [
-    2513,
-    6776,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1012
-  },
-  {
-   "slot": 1010,
-   "group": "水系",
-   "name": "T0.5新格",
-   "attr": true,
-   "box": [
-    2281,
-    4526,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1010
-  },
-  {
-   "slot": 1013,
-   "group": "水系",
-   "name": "新格5",
-   "attr": true,
-   "box": [
-    2281,
-    4756,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1013
-  },
-  {
-   "slot": 1017,
-   "group": "水系",
-   "name": "新格10",
-   "attr": true,
-   "box": [
-    2513,
-    4756,
-    213,
-    213
-   ],
-   "ring": 6,
-   "bg": "transparent",
-   "content": 1017
+   "bg": "#9f9fa8",
+   "content": 147
   }
  ],
- "gone": {
-  "95": 1,
-  "96": 1,
-  "97": 1,
-  "138": 1,
-  "143": 1,
-  "144": 1,
-  "145": 1,
-  "146": 1,
-  "147": 1,
-  "1007": 1,
-  "1011": 1,
-  "1012": 1,
-  "1014": 1,
-  "1015": 1,
-  "1016": 1
- },
- "tie": {
-  "l79": 89,
-  "n3": 1010,
-  "l80": 91,
-  "n2": 1006,
-  "l81": 87,
-  "l82": 85,
-  "l83": 84,
-  "l50": 47,
-  "l51": 52,
-  "l8601": 7001,
-  "l8602": 7002,
-  "l8604": 7004,
-  "l122": 120,
-  "l123": 131,
-  "l124": 129,
-  "l125": 7003,
-  "l126": 127,
-  "l105": 99,
-  "l106": 101,
-  "l107": 113,
-  "l108": 109,
-  "l56": 75,
-  "l57": 71,
-  "l58": 70,
-  "l59": 64,
-  "l60": 61
- }
+ "gone": {},
+ "tie": {}
 }
