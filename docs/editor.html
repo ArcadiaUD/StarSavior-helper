@@ -2095,7 +2095,8 @@ addEventListener("resize", () => {
 /* 角色榜专属的工具栏按钮统一标出来：切到支援卡时一起藏掉，免得误以为能编辑；
    「连接 GitHub」与状态文字是两榜共用的，留在原地；支援卡那套自己标了 sconly */
 (function () {
-  const keep = { tabs: 1, file: 1, scFile: 1, bGh: 1, ghState: 1 };
+  /* 导出图片两榜共用：支援卡也得能出图，别跟着角色榜一起藏掉 */
+  const keep = { tabs: 1, file: 1, scFile: 1, bGh: 1, ghState: 1, bExp: 1, expSize: 1 };
   for (const el of [...document.getElementById("bar").children]) {
     if (keep[el.id] || el.classList.contains("sconly")) continue;
     el.classList.add("charonly");
