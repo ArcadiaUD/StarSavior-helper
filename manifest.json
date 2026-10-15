@@ -9,14 +9,14 @@
   "notes": ""
  },
  "data": {
-  "version": "2026-10-15.3",
+  "version": "2026-10-15.2",
   "min_app_version": "2.5.0",
-  "released_at": "2026-10-15T15:44:31+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-15.3/data-2026-10-15.3.zip",
-  "package_size": 33919305,
-  "sha256": "facb035d3322ce8de56d13f6faf472f084f312950310f4f6b16cf257bbf87efd",
-  "total_size": 50528736,
-  "file_count": 1491,
+  "released_at": "2026-10-15T12:36:05+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-15.2/data-2026-10-15.2.zip",
+  "package_size": 33902644,
+  "sha256": "d4b79c49c47639a4720a802608e255656fd3798213ad0f54552598fa0c0aea15",
+  "total_size": 50507397,
+  "file_count": 1489,
   "stats": {
    "characters": 47,
    "arcanas": 83,
@@ -4499,7 +4499,7 @@
    },
    "assets/codex_index.json": {
     "size": 124772,
-    "sha256": "b04523af70b73d717b823895fec19d14e5805407bbe6aefab6c689b30302d7fc"
+    "sha256": "f56c7bead66f6d114e66d1b0bf752fae166307e750cf08dcd7c7dda8423cb292"
    },
    "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7998,
@@ -5040,14 +5040,6 @@
    "assets/role_sheet/faces/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
     "size": 8324,
     "sha256": "7a31401aef50b304a25d7fa50b793d59f4cf1154136b98331d0995d6b0eecfc2"
-   },
-   "assets/role_sheet/faces/UFS_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.webp": {
-    "size": 8588,
-    "sha256": "f7d0d2ecb126adc9e6fece9429b5f2e1c414d4c9e111a4984cf5674f323bd07c"
-   },
-   "assets/role_sheet/faces/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp": {
-    "size": 7736,
-    "sha256": "e4a9735500de83014caa0e55fabd3f27754edecb6263d71b71334a888eef6e5c"
    },
    "assets/role_sheet/faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp": {
     "size": 9452,
@@ -5919,7 +5911,7 @@
    },
    "out/codex.json": {
     "size": 15355105,
-    "sha256": "d8f58d5762aaadea1f3ef09f16227a57d5f70de62b2a4893e506ba9144c8c000"
+    "sha256": "78fbe2dc6f438210c7a7bb2ab0b80cc93c76325d0ebaffdcc472593bc45fa43e"
    },
    "out/guide.json": {
     "size": 3902,
@@ -5994,16 +5986,16 @@
     "sha256": "369cb0978c261addbe3425607e27f5de81d9fec9522cfd1b360da00ee2b5dc79"
    },
    "out/journey_kb.json": {
-    "size": 1718229,
-    "sha256": "9c7c4063c13ff8b3dd4ceb5a5dc03ad6ba551b60b3356db181d33960bac180aa"
+    "size": 1717460,
+    "sha256": "882d1e017ecb9c30e9ba4662d2c58f2c1f24b1526b1f01b6676a385f035d928d"
    },
    "out/portrait_index.json": {
     "size": 127188,
     "sha256": "0080642560a9ffe66ceb7e12d3dc74145f5e27dad2cf5a449619e0a3ce4e51ea"
    },
    "out/role_sheets.json": {
-    "size": 257822,
-    "sha256": "9d1ac8a4873c9c55941faffb7747162c399692ec19304387ad43d65bcb565064"
+    "size": 253576,
+    "sha256": "9a10f441d2f11ab2b4d381b588b7c9118cc195fc1d7071eb3fa1d085873186a9"
    }
   }
  },
