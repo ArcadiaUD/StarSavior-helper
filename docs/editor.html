@@ -1595,6 +1595,10 @@ function scLayout() {
   const v = scState.view;
   if (!v) return;
   const k = v.zoom || z;                    /* 用视图自己的缩放，免得与外面那份 z 不一致时被裁 */
+  const st = document.getElementById("scStage");
+  /* 画布要有显式尺寸：子元素全是绝对定位，撑不开容器，导出图片会拿到 0×0 */
+  st.style.width = v.board.w + "px";
+  st.style.height = v.board.h + "px";
   document.getElementById("scFit").style.width = Math.round(v.board.w * k) + "px";
   document.getElementById("scFit").style.height = Math.round(v.board.h * k) + "px";
   document.getElementById("scZoom").textContent = "缩放 " + Math.round(k * 100) + "%";
@@ -2259,7 +2263,7 @@ async function exportBoardImage(){
   if (!stageEl) { flash("找不到画布"); return; }
   const keepZ = z;
   const wantW = parseInt(document.getElementById("expSize").value, 10) || 0;
-  const scale = wantW ? wantW / stageEl.offsetWidth : 1;
+  const scale = (wantW && stageEl.offsetWidth) ? wantW / stageEl.offsetWidth : 1;
   document.body.classList.add("exporting");      /* 收掉选中框、标签、拖拽影子 */
   z = 1; setZoom();                              /* 按原尺寸渲染，出的图才够清晰 */
   if (isSc && scState.view) { scState.view.zoom = 1; scState.view.applyZoom(); }
