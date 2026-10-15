@@ -183,7 +183,10 @@ def main() -> None:
 
         # 加格造成的整体下移：按层顺序累积（五属性栏算同一层，横排互不影响）
         base, cum = {}, 0
-        for g in ("全场景必练T0", "全场景必练T0.5", "T1功能角色", "T2功能角色", "__attr__", "__tail__"):
+        # 层顺序要和编辑器的 ORD_G 完全一致：漏掉一层，那一层的下移量就会算成 0，
+        # 新格会叠到上一层的格子上（曾经漏过「全场景必练T1」，T1 整排压在 T0.5 上）
+        for g in ("全场景必练T0", "全场景必练T0.5", "全场景必练T1",
+                  "T1功能角色", "T2功能角色", "__attr__", "__tail__"):
             base[g] = cum
             cum += down.get(g, 0)
         attr_down = base["__attr__"]
@@ -206,8 +209,9 @@ def main() -> None:
         for ns in news:
             if int(ns["id"]) in gone:            # 删掉的新格也不输出
                 continue
-            gy = (ns["box"][1] + slot_shift.get(int(ns["id"]), 0)
-                  + drop_of(ns.get("group"), ns.get("name")))
+            # 只加自己的 slotShift：整层的下移由后面「给所有项按组补下移」那一段统一处理，
+            # 这里再算一次就会重复（曾经让 T1 的 6 个新格落到 T1功能角色 的位置上）
+            gy = ns["box"][1] + slot_shift.get(int(ns["id"]), 0)
             items.append({"t": "img", "name": ns.get("name") or "新格", "group": ns.get("group"),
                           "box": [ns["box"][0], gy, ns["box"][2], ns["box"][3]],
                           "seq": 900000 + int(ns["id"]), "file": None, "cell": True, "big": False,

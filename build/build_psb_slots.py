@@ -26,7 +26,7 @@ WEB = TMP / "psb_web"
 LAYERS = TMP / "psb_layers"
 FULL = TMP / "psb_full.png"
 
-SLOT_GROUPS = {"全场景必练T0", "全场景必练T0.5", "T1功能角色", "T2功能角色",
+SLOT_GROUPS = {"全场景必练T0", "全场景必练T0.5", "全场景必练T1", "T1功能角色", "T2功能角色",
                "光系", "暗系", "火系", "水系", "草系"}
 NOT_SLOT = {"矩形 1", "光标"}          # 栏位背板与箭头，不是头像位
 DROP_TEXT = {"查无此人"}               # 暗系 T3 补了空位框，原稿那行占位字样去掉
@@ -170,6 +170,9 @@ def attach_slot_texts(slots, texts):
 # ---- 自动留白：每个大类整体下移，给格位下方的文字栏腾出 2~3 行行高 ----
 GAP_ROWS = 3                    # 格位底到下一档标题之间留出的行数
 DEFAULT_LH = 50                 # 参照行高，与文字栏默认规格一致
+# 原稿就有的塔层（headroom_shift 按它们算档间间隙补偿）。
+# 「全场景必练T1」是后来新加的层，原稿里没有，不能进这里——它的下移量由存档的 down
+# 表达（见 build_psb_full.py 的层顺序表），否则这里会取不到该组的 top/bot。
 TOWER_GROUPS = ["全场景必练T0", "全场景必练T0.5", "T1功能角色", "T2功能角色"]
 ATTR_ORDER = ["光系", "暗系", "火系", "水系", "草系"]
 ATTR_KEY = "__attr__"
@@ -770,7 +773,7 @@ const textBoxOf = s => {
 /* ---- 格位表：作者原稿的格位 + 网页上行尾新增的格位 ---- */
 const ATTR_G = ["光系", "暗系", "火系", "水系", "草系"];
 const TAIL_G = ["底边", "人物持立牌图片"];
-const ORD_G = ["全场景必练T0", "全场景必练T0.5", "T1功能角色", "T2功能角色", "__attr__", "__tail__"];
+const ORD_G = ["全场景必练T0", "全场景必练T0.5", "全场景必练T1", "T1功能角色", "T2功能角色", "__attr__", "__tail__"];
 const STEP_X = 410, STEP_Y = 410, ATTR_STEP = __ATTRSTEP__, GAP_X = 45;
 const slotsAll = () => SLOTS.concat(edit.newSlots || []);
 const findSlot = id => slotsAll().find(s => s.id === id) || null;
