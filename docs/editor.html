@@ -320,10 +320,11 @@ let z = 0.26, sel = null, drag = null, dropTarget = null;
    slotShift[格位] / layerShift[图层] = 属性栏里「就地插行」造成的个人位移：在哪个格位
    后面插了一行，那个格位以下（含档位标签 T几）就整体下移一行高 */
 const edit = { place:{}, art:{}, text:{}, slotText:{}, char:{}, tstyle:{}, pos:{}, nt:[],
-               newSlots:[], down:{}, slotShift:{}, layerShift:{} };
+               newSlots:[], down:{}, slotShift:{}, layerShift:{}, gone:{} };
 try {
   const s = JSON.parse(localStorage.getItem("psbSlots") || "null");
   if (s) for (const k of ["place","art","text","slotText","char","tstyle","pos"]) if (s[k]) edit[k] = s[k];
+  if (s && s.gone) edit.gone = s.gone;
   if (s && s.nt) edit.nt = s.nt;
   if (s && s.newSlots) edit.newSlots = s.newSlots;
   if (s && s.down) edit.down = s.down;
@@ -355,6 +356,7 @@ function applyEdit(s) {
   for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = o[k] || {};
   edit.nt = o.nt || []; edit.newSlots = o.newSlots || []; edit.down = o.down || {};
   edit.slotShift = o.slotShift || {}; edit.layerShift = o.layerShift || {};
+  edit.gone = o.gone || {};
 }
 function undo() {
   if (!undoStack.length) return;
@@ -541,7 +543,9 @@ function render() {
       stage.appendChild(el);
       continue;
     }
-    const s = item.s, a = artOf(s.id), b = boxOf(s), face = faceOf(s);
+    const s = item.s;
+    if (edit.gone[s.id]) continue;              /* 删掉的原稿格位：整格不渲染 */
+    const a = artOf(s.id), b = boxOf(s), face = faceOf(s);
     const el = document.createElement("div");
     el.className = "slot" + (face ? "" : " blank") + (isSlotEmpty(s.id) ? " empty" : "")
                  + (s.ph ? " ph" : "") + (a ? " fromlib" : "") + (sel === s.id ? " sel" : "");
@@ -915,7 +919,7 @@ function select(s, el) {
   };
   document.getElementById("iRevert").onclick = () => {
     delete edit.place[s.id]; delete edit.art[s.id]; delete edit.char[s.id];
-    delete edit.slotText[s.id];
+    delete edit.slotText[s.id]; delete edit.gone[s.id];
     save(); render();
   };
   document.getElementById("iClose").onclick = () => { sel = null; hideInsp(); render(); };
@@ -1132,10 +1136,12 @@ function exportData() {
            pos: edit.pos || {}, nt: edit.nt || [],
            newSlots: edit.newSlots || [], down: edit.down || {},
            slotShift: edit.slotShift || {}, layerShift: edit.layerShift || {},
-           allSlots: slotsAll().map(s => ({ slot: s.id, group: s.group, name: s.name,
-                                            attr: !!s.attr, box: boxOf(s),
-                                            ring: s.ring || 6, bg: s.bg || "",
-                                            content: isSlotEmpty(s.id) ? null : contentOf(s.id) })) };
+           gone: edit.gone || {},
+           allSlots: slotsAll().filter(s => !edit.gone[s.id])
+                     .map(s => ({ slot: s.id, group: s.group, name: s.name,
+                                  attr: !!s.attr, box: boxOf(s),
+                                  ring: s.ring || 6, bg: s.bg || "",
+                                  content: isSlotEmpty(s.id) ? null : contentOf(s.id) })) };
 }
 /* ---------- 导出到本地文件（没有仓库写权限时的退路） ---------- */
 function exportLocal() {
@@ -1218,7 +1224,7 @@ const hasLocalEdits = () => {
     for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"])
       if (o[k] && Object.keys(o[k]).length) return true;
     for (const k of ["nt", "newSlots"]) if (o[k] && o[k].length) return true;
-    for (const k of ["down", "slotShift", "layerShift"]) if (o[k] && Object.keys(o[k]).length) return true;
+    for (const k of ["down", "slotShift", "layerShift", "gone"]) if (o[k] && Object.keys(o[k]).length) return true;
     return false;
   } catch (e) { return false; }
 };
@@ -1234,13 +1240,14 @@ async function ghReadSha(path) {
 /* 把一份存档换进编辑器（与「导入改动」同一套换算，区别是整体替换） */
 function applyArchive(d) {
   for (const k of ["place", "art", "text", "slotText", "char", "tstyle", "pos"]) edit[k] = {};
-  edit.nt = []; edit.newSlots = []; edit.down = {}; edit.slotShift = {}; edit.layerShift = {};
+  edit.nt = []; edit.newSlots = []; edit.down = {}; edit.slotShift = {}; edit.layerShift = {}; edit.gone = {};
   if (d.pos) edit.pos = d.pos;
   if (d.nt) edit.nt = d.nt;
   edit.newSlots = d.newSlots || [];
   edit.down = d.down || {};
   edit.slotShift = d.slotShift || {};
   edit.layerShift = d.layerShift || {};
+  edit.gone = d.gone || {};
   for (const l of d.slots || []) {
     if (l.content === null) edit.place[l.slot] = EMPTY;
     else if (l.content !== undefined) edit.place[l.slot] = l.content;
@@ -2089,7 +2096,7 @@ document.getElementById("bClear").onclick = () => {
   if (!confirm("清空全部改动，回到作者原稿？")) return;
   for (const k of ["place","art","text","slotText","char","tstyle","pos"]) edit[k] = {};
   edit.nt = []; edit.newSlots = []; edit.down = {};
-  edit.slotShift = {}; edit.layerShift = {};
+  edit.slotShift = {}; edit.layerShift = {}; edit.gone = {};
   save(); sel = null; hideInsp(); render(); tbFill();
 };
 
@@ -2159,8 +2166,8 @@ function delSlot(id){
     }
     flash("已删掉该格");
   } else {
-    edit.place[id] = EMPTY; delete edit.art[id]; delete edit.char[id];
-    flash("原稿格位不能真删，已把这一格空出（详情里可「还原」）");
+    edit.gone[id] = 1; delete edit.place[id]; delete edit.art[id]; delete edit.char[id];
+    flash("已删掉这一格（原稿格位，可在详情里「还原」）");
   }
   save(); sel = null; hideInsp(); render();
 }
