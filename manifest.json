@@ -4,9 +4,9 @@
     "version": "2.5.0",
     "tag": "V2.5",
     "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V2.5/StarSavior-helper-V2.5.zip",
-    "package_size": 220920911,
-    "sha256": "58978340b7facd0634d39f0ac8e53a5fffda854f463de7c894f792b823df3d68",
-    "notes": ""
+    "package_size": 230338785,
+    "sha256": "e9ae5678005ab63f4c9b77e76cc9581145d9e679d7ef950e13fc27745b4397d8",
+    "notes": "角色强度榜存档改为完整版面快照（不会再被写空）、面板内点格位跳攻略；支援卡榜数据补全；角色攻略按单位编号排序；卡组推荐支持任意行数、卡图与头像可点。"
   },
   "data": {
     "version": "2026-10-16.2",
