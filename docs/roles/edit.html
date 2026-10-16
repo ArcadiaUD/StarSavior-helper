@@ -103,12 +103,20 @@ const PAGES = window.ROLE_PAGES || {};           /* 全部角色分页 */
    拿到线上就全看不见（项链、戒指那两张每页都用的图就是这么丢的）。
    注意光在载入时清不够——restore() 会拿浏览器里的旧存档盖回来，所以恢复之后还得再清一次。 */
 function stripLocalImgs(){
-  const pat = /^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//;
+  /* 本机实验台地址、以及线上站点/仓库的地址，都要清成相对路径（role_icons/…）：
+     线上那份要能被网页和面板同时用，面板是随包从 assets/role_sheet/ 取图的，
+     带域名或仓库前缀的地址在面板侧会 404 —— 2026-10-16 万圣莉迪亚那张新卡图就是这么坏的。 */
+  const pats = [
+    /^https?:\/\/(?:127\.0\.0\.1|localhost)(?::\d+)?\//,
+    /^https?:\/\/(?:arcadiaud\.github\.io\/StarSavior-helper|raw\.githubusercontent\.com\/ArcadiaUD\/StarSavior-helper\/main)\/roles\//,
+    /^StarSavior-helper\/roles\//,
+  ];
   const fix = obj => {
     if (!obj) return;
     for (const k of Object.keys(obj)){
       const s = obj[k] && obj[k].src;
-      if (typeof s === "string" && pat.test(s)) obj[k].src = s.replace(pat, "");
+      if (typeof s !== "string") continue;
+      for (const pat of pats) if (pat.test(s)) { obj[k].src = s.replace(pat, ""); break; }
     }
   };
   for (const pg of Object.values(PAGES)) fix(pg && pg.imgs);
