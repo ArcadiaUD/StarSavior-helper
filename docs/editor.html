@@ -1042,8 +1042,13 @@ function select(s, el) {
   document.getElementById("insp").style.display = "block";
   const a = artOf(s.id), cid = contentOf(s.id), src = findSlot(cid) || s;
   document.getElementById("iName").textContent = s.group + " · " + s.name;
+  /* 「头像来自」这行要能看出是哪个角色、哪个形态：拖拽进来的带 char/form，
+     用格位自带那张脸的则从 charOf 取（形如「角色|形态」）。 */
+  const whoNow = charOf(s);
+  const whoText = whoNow ? String(whoNow).replace("|", " · ") : "";
   document.getElementById("iInfo").textContent = isSlotEmpty(s.id) ? "该洞已空出"
-    : a ? "头像来自头像库：" + (a.char || "未命名") : "头像来自：" + src.group + " · " + src.name;
+    : a ? "头像来自头像库：" + (a.char || "未命名") + (a.form ? " · " + a.form : "")
+    : whoText ? "角色：" + whoText : "头像来自：" + src.group + " · " + src.name;
   const dd = document.getElementById("iChar");
   dd.innerHTML = "";
   const o0 = document.createElement("option");
