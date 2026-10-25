@@ -73,7 +73,7 @@
             background:#1b1e26; border:1px solid #2e3342; border-radius:10px; }
   #libBtn.on { border-color:#6ea8fe; color:#8fb8f5; }
   body.libopen #libBtn { right:330px; }
-  #lib { position:fixed; right:0; top:46px; bottom:0; width:312px; z-index:120;
+  #lib { position:fixed; right:0; top:46px; bottom:0; width:352px; z-index:120;
          background:#15171cf5; border-left:1px solid #2e3342; display:none;
          flex-direction:column; }
   #lib.open { display:flex; }
@@ -87,7 +87,7 @@
   .libItem img { width:100%; aspect-ratio:1/1; object-fit:cover; border-radius:8px;
                  border:1px solid #2e3342; display:block; background:#0e1116; }
   .libItem span { font-size:10px; color:#98a0b3; display:block; margin-top:3px;
-                  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+                  line-height:1.3; word-break:break-all; }
   .libItem:hover img { border-color:#6ea8fe; }
   #insp { position:fixed; right:14px; bottom:14px; width:268px; background:#1b1e26ee;
           border:1px solid #2e3342; border-radius:10px; padding:10px 12px; font-size:12px;
@@ -2132,7 +2132,16 @@ function renderScLib() {
     img.src = "sc_cards/" + c.file;
     img.draggable = false;
     const sp = document.createElement("span");
-    sp.textContent = c["角色"] + "·" + c["卡名"];
+    /* 卡库里只写角色名的话，同一角色的不同形态（婚纱卡蜜 / 原型卡蜜）分不出来。
+       卡数据里没有称号字段，但卡面名里含形态代号（ARCANA_WEDDING_SHIELDER_SSR_01），
+       与头像库素材名（UFS_NKM_UNIT_S_WEDDING_SHIELDER）用的是同一个代号，按它反查。
+       像 APRIL_FOOL 这种活动卡没有对应形态，就只显示角色名。 */
+    const mm = (c.src || "").match(/^ARCANA_(.+?)_(?:SSR|SR|R)_\d+\.png$/i);
+    const stem = mm ? mm[1] : "";
+    const who = stem ? (window.LIB || LIB).find(x => x.c === c["角色"] && x.s.indexOf(stem) >= 0) : null;
+    const fullName = c["角色"] + (who && who.f ? " · " + who.f : "");
+    sp.textContent = fullName;
+    d.title = fullName + "｜" + c["卡名"] + "（" + c["稀有度"] + "｜" + c["属性"] + "｜" + c["职业"] + "）";
     const em = document.createElement("i");
     em.textContent = c["稀有度"] || "";
     d.appendChild(img);
@@ -2332,7 +2341,8 @@ function renderLib() {
     img.src = it.s;
     img.draggable = false;
     const sp = document.createElement("span");
-    sp.textContent = it.c;
+    /* 只写角色名的话，同一角色的多个形态在库里看着一模一样；带上称号才知道是哪一个 */
+    sp.textContent = it.f ? it.c + " · " + it.f : it.c;
     d.appendChild(img); d.appendChild(sp);
     d.addEventListener("dragstart", e => {
       e.dataTransfer.setData("text/plain", JSON.stringify({ src: it.s, c: it.c, f: it.f }));
