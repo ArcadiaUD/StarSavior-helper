@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -39,6 +40,50 @@ DIR_PAIRS = (
     (PANEL / "board" / "layers", DOCS / "layers", "python build/export_from_editor.py --write"),
     (PANEL.parent / "faces", DOCS / "faces", "python build/export_from_editor.py --write"),
 )
+
+# 攻略页：面板随包那份（out/role_sheets.json）必须与线上 role_pages.js 同源。
+# 两者格式不同（面板用 images、线上用 imgs），所以按「页名集合 + 每页表格内容」比。
+ROLE_JS = DOCS / "roles" / "role_pages.js"
+ROLE_SHEET = PANEL.parent.parent / "out" / "role_sheets.json"
+
+
+def check_role_sheets(verbose):
+    """攻略页数据：线上那份与面板随包那份逐页比对。一致返回 None。"""
+    if not ROLE_JS.is_file() or not ROLE_SHEET.is_file():
+        return None
+    m = re.search(r"window\.ROLE_PAGES\s*=\s*(\{.*\});?\s*$",
+                  ROLE_JS.read_text(encoding="utf-8"), re.S)
+    if not m:
+        return ("out/role_sheets.json", "线上 role_pages.js 解析失败",
+                "检查 docs/roles/role_pages.js 的格式")
+    pages = json.loads(m.group(1))
+    sheet = json.loads(ROLE_SHEET.read_text(encoding="utf-8"))
+    only_js = sorted(set(pages) - set(sheet))
+    only_sheet = sorted(set(sheet) - set(pages))
+    differ = [k for k in set(pages) & set(sheet)
+              if json.dumps(pages[k].get("grid"), ensure_ascii=False)
+              != json.dumps(sheet[k].get("grid"), ensure_ascii=False)]
+    if verbose or only_js or only_sheet or differ:
+        print("  %-22s 线上 %d 页 ｜ 随包 %d 页 ｜ 仅线上 %d ｜ 仅随包 %d ｜ 内容不同 %d"
+              % ("out/role_sheets.json", len(pages), len(sheet),
+                 len(only_js), len(only_sheet), len(differ)))
+        for n in only_js[:3]:
+            print("      仅线上有：%s" % n)
+        for n in only_sheet[:3]:
+            print("      仅随包有：%s" % n)
+        for n in differ[:3]:
+            print("      内容不同：%s" % n)
+    msgs = []
+    if only_js:
+        msgs.append("随包缺 %d 页" % len(only_js))
+    if only_sheet:
+        msgs.append("随包多 %d 页" % len(only_sheet))
+    if differ:
+        msgs.append("%d 页表格内容与线上不同" % len(differ))
+    if msgs:
+        return ("out/role_sheets.json", "；".join(msgs),
+                "python .pai/skills/starsavior-sheet-sync/scripts/export_role_sheets.py")
+    return None
 
 
 def digest(path: Path):
@@ -112,6 +157,10 @@ def main() -> int:
         if differ:
             bad.append((rel, "%d 个同名文件内容不同" % len(differ), fix))
 
+    role_bad = check_role_sheets(verbose)
+    if role_bad:
+        bad.append(role_bad)
+
     if bad:
         print("FAIL 面板随包那份榜数据不是最新的（使用者看的就是这一份）：")
         for name, why, fix in bad:
@@ -119,7 +168,7 @@ def main() -> int:
         for fix in sorted({b[2] for b in bad}):
             print("  修：%s" % fix)
         return 1
-    print("PASS 面板随包与线上/源一致（%d 份数据 + %d 个素材目录）"
+    print("PASS 面板随包与线上/源一致（%d 份数据 + %d 个素材目录 + 攻略页）"
           % (len(PAIRS), len(DIR_PAIRS)))
     return 0
 
