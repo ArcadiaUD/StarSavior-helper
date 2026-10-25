@@ -1828,7 +1828,10 @@ function scAddSlot() {
   const rightMost = row.reduce((m, s) => Math.max(m, s.box[0] + SC_CARD), 0);
   const id = "新格" + (scState.data.slots.length + 1);
   let box;
-  if (rightMost + SC_COL + SC_CARD <= 3621 - SC_MARGIN) {
+  /* 新格落在 (行尾右边界 - 格宽 + 列距) 处，它的右边界就是 rightMost + SC_COL。
+     原来这里多算了一个 SC_CARD，导致一行到 7 个就判成满了——第 8 个明明放得下，
+     却被挤到下一行去。按正确算式，8 列刚好装得下（右边界 3347，可用到 3576）。 */
+  if (rightMost + SC_COL <= 3621 - SC_MARGIN) {
     row.filter(s => s.box[0] > cur.box[0]).forEach(s => {
       s.box[0] += SC_COL; s.win[0] += SC_COL;
     });
