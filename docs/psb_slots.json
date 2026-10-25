@@ -17,6 +17,7 @@
    "ring": 11,
    "bg": "#aab9b6",
    "char": "芙蕾",
+   "form": "莫纳斯提尔骑士团",
    "face": "faces/UFS_NKM_UNIT_S_KINGDOM_PRAY.webp",
    "text": {
     "text": "水奶下位",
@@ -44,6 +45,7 @@
    "ring": 12,
    "bg": "#3b3c49",
    "char": "绮拉",
+   "form": "绮拉根本没有朋友",
    "face": "faces/UFS_NKM_UNIT_S_MUTANT_MASK.webp",
    "text": {
     "text": "隐身",
@@ -71,6 +73,7 @@
    "ring": 11,
    "bg": "#ccc9b4",
    "char": "瑟乐芬",
+   "form": "风月堂",
    "face": "faces/UFS_NKM_UNIT_S_EASTERN_OWL.webp",
    "text": {
     "text": "免疫单次伤害/奶妈",
@@ -98,6 +101,7 @@
    "ring": 8,
    "bg": "#a9999b",
    "char": "贝拉",
+   "form": "送货员协会",
    "face": "faces/UFS_NKM_UNIT_S_LPU_POST.webp",
    "text": {
     "text": "跑得快奶妈",
@@ -125,6 +129,7 @@
    "ring": 11,
    "bg": "#414750",
    "char": "希尔德",
+   "form": "芬里尔小队",
    "face": "faces/UFS_NKM_UNIT_S_COUNTERSIDE_HILDE.webp",
    "text": {
     "text": "嘲讽/护盾",
@@ -152,6 +157,7 @@
    "ring": 11,
    "bg": "#d9d1c9",
    "char": "凌",
+   "form": "风月堂",
    "face": "faces/UFS_NKM_UNIT_S_EASTERN_SWORDMASTER.webp",
    "text": {
     "text": "草叠层/增伤",
@@ -179,6 +185,7 @@
    "ring": 11,
    "bg": "#e7cc8e",
    "char": "佩特拉",
+   "form": "佩特拉联合",
    "face": "faces/UFS_NKM_UNIT_S_CONSTRUCT_BOMB.webp",
    "text": {
     "text": "高破韧/挂减防",
@@ -206,6 +213,7 @@
    "ring": 11,
    "bg": "#c6b3ad",
    "char": "赛拉",
+   "form": "梦魇",
    "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp",
    "text": {
     "text": "增伤/拉条/减速",
@@ -233,6 +241,7 @@
    "ring": 8,
    "bg": "#d3b9d4",
    "char": "安娜",
+   "form": "NOA城镇守卫",
    "face": "faces/UFS_NKM_UNIT_S_OFFICER_POLICE.webp",
    "text": {
     "text": "加防御/挂减攻",
@@ -260,6 +269,7 @@
    "ring": 11,
    "bg": "#4b576c",
    "char": "克莉丝特",
+   "form": "莫雷尔海运商会",
    "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_LANDGRAVE.webp",
    "text": {
     "text": "挂燃烧/自拉条",
@@ -287,6 +297,7 @@
    "ring": 11,
    "bg": "#454f6e",
    "char": "卢格",
+   "form": "轨道搜索队",
    "face": "faces/UFS_NKM_UNIT_S_RECON_AMULET.webp",
    "text": {
     "text": "挂冻结/挂减防",
@@ -314,6 +325,7 @@
    "ring": 12,
    "bg": "#625055",
    "char": "哈莉",
+   "form": "地狱救援者",
    "face": "faces/UFS_NKM_UNIT_S_WILD_HOG.webp",
    "text": {
     "text": "推条/加防御",
@@ -369,6 +381,7 @@
    "ring": 11,
    "bg": "#848798",
    "char": "缪莉尔",
+   "form": "莫诺利斯教团",
    "face": "faces/UFS_NKM_UNIT_S_SAINTESS_DEMON.webp",
    "text": {
     "text": "挂减攻/挂燃烧",
@@ -396,6 +409,7 @@
    "ring": 12,
    "bg": "#e9aebb",
    "char": "莱希",
+   "form": "流浪者",
    "face": "faces/UFS_NKM_UNIT_S_INDEPENDENT_DRAGON.webp",
    "text": {
     "text": "挂减攻/挨打回血",
@@ -423,6 +437,7 @@
    "ring": 8,
    "bg": "#a7c4fd",
    "char": "薇丝塔",
+   "form": "西部收复部队",
    "face": "faces/UFS_NKM_UNIT_S_WEST_LANCER.webp",
    "text": {
     "text": "AOE对策",
@@ -483,6 +498,7 @@
    "ring": 8,
    "bg": "#dead95",
    "char": "露娜",
+   "form": "航行者救援团",
    "face": "faces/UFS_NKM_UNIT_S_VOYAGER_ORACLE.webp"
   },
   {
@@ -499,6 +515,7 @@
    "ring": 8,
    "bg": "#f3d5eb",
    "char": "赛拉",
+   "form": "梦魇",
    "face": "faces/UFS_NKM_UNIT_S_NIGHTMARE_REAPER.webp"
   },
   {
@@ -1276,6 +1293,7 @@
    "ring": 11,
    "bg": "#50397e",
    "char": "克拉丽莎",
+   "form": "卡诺普斯警备队",
    "face": "faces/UFS_NKM_UNIT_S_MAGICIAN_SNIPER.webp"
   },
   {
@@ -1292,6 +1310,7 @@
    "ring": 11,
    "bg": "#c7cfd0",
    "char": "瑟莱丝",
+   "form": "西部收复部队",
    "face": "faces/UFS_NKM_UNIT_S_WEST_BEAMSWORD.webp"
   },
   {
@@ -1325,6 +1344,7 @@
    "ring": 12,
    "bg": "#626598",
    "char": "阿莫拉",
+   "form": "斯特拉尼斯伯爵家",
    "face": "faces/UFS_NKM_UNIT_S_STRANISEARL_ROSEBLADE.webp"
   },
   {
@@ -1341,6 +1361,7 @@
    "ring": 11,
    "bg": "#e0d1cd",
    "char": "艾黛",
+   "form": "莫雷尔海运商会",
    "face": "faces/UFS_NKM_UNIT_S_INCOGNITA_FLOWER.webp"
   },
   {
@@ -1357,6 +1378,7 @@
    "ring": 8,
    "bg": "#917090",
    "char": "M教授",
+   "form": "兰帕迪斯",
    "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp"
   },
   {
@@ -1390,6 +1412,7 @@
    "ring": 11,
    "bg": "#2b3038",
    "char": "缇莉雅",
+   "form": "执行者",
    "face": "faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp"
   },
   {
@@ -1423,6 +1446,7 @@
    "ring": 11,
    "bg": "#2b3038",
    "char": "埃米莉",
+   "form": "烛光广场",
    "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"
   },
   {
@@ -1439,6 +1463,7 @@
    "ring": 11,
    "bg": "#2b3038",
    "char": "卡奈莉亚",
+   "form": "流浪者",
    "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"
   },
   {
@@ -1455,6 +1480,7 @@
    "ring": 11,
    "bg": "#2b3038",
    "char": "克温",
+   "form": "兰帕迪斯",
    "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp",
    "text": {
     "text": "隐身上位",
@@ -2456,5 +2482,5 @@
   "l900002": 1006,
   "l900003": 1010
  },
- "saved_at": "2026-10-25T16:06:49.796Z"
+ "saved_at": "2026-10-25T18:04:39.282Z"
 }
