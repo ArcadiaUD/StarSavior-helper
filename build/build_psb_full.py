@@ -98,14 +98,9 @@ def main() -> None:
     grades = role_grades()
     tc = text_colors()
 
-    dst_dir = WEB / "layers"
-    dst_dir.mkdir(parents=True, exist_ok=True)
-    for it in raw:
-        if it["kind"] != "img":
-            continue
-        dst = dst_dir / it["file"]
-        if not dst.exists():
-            shutil.copy2(LAYERS / it["file"], dst)
+    # 素材复制挪到 items 定稿之后（见本函数末尾）：原稿有 100 张图层切片，
+    # 其中 82 张是 PSB 时代的格位头像图，格位现在一律走头像库（faces/），
+    # 这些图既不上榜也不渲染，按原稿全量复制等于每次部署都带 8.9 MB 死重。
 
     def face_of(char, form=None):
         """角色（可带形态）→ 面板头像；与编辑器里的查表规则保持一致：
@@ -363,6 +358,20 @@ def main() -> None:
         cap["box"][2] = round(w)
         cap["cap"] = True
         caps += 1
+
+    # 素材只复制最终数据里真正引用到的图：格位走头像库，原稿格位头像图一律不进站点。
+    # 云端每次是全新 checkout（psb_web 不纳版本库），这里只新增不回删；
+    # 本机重复跑时额外清掉上一轮留下的旧图，否则看不出版面到底用了哪些。
+    dst_dir = WEB / "layers"
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    keep = {it["file"] for it in items if it.get("file") and not it.get("cell")}
+    for f in keep:
+        src, dst = LAYERS / f, dst_dir / f
+        if src.is_file() and not dst.exists():
+            shutil.copy2(src, dst)
+    for p in dst_dir.iterdir():
+        if p.is_file() and p.name not in keep:
+            p.unlink()
 
     # 整版数据独立成文件：网页成品页、编辑器、面板读的是同一份
     board = {"w": W, "h": H,

@@ -2494,7 +2494,44 @@ async function exportBoardImage(){
 }
 document.getElementById("bExp").onclick = exportBoardImage;
 
-render();
+/* ---------- 启动即对齐线上版面 ----------
+   内联的 SLOTS_ORIG 是原稿时代的快照（86 格，文字还停在 10 月 2 号那版），它只该当兜底，
+   不该当权威。只要同目录下能取到 psb_slots.json，就以它为基线渲染——
+   readArchive 走的是相对路径，不需要令牌，普通访客也能拿到最新版面；
+   file:// 打开或断网取不到，才停在快照上。
+   本机有没保存的改动时不覆盖，那种情况由提示交给人决定。 */
+async function syncBoardFromRemote(quiet, skipPaint) {
+  const d = await readArchive();
+  if (!d || !isFullBoard(d)) return false;
+  const cur = flattenBoard();
+  const changed = JSON.stringify(d.slots) !== JSON.stringify(cur.slots)
+               || JSON.stringify(d.others) !== JSON.stringify(cur.others);
+  if (!changed) return false;
+  if (hasLocalEdits()) {
+    if (!quiet) flash("线上版面有更新；本机还有没保存的改动，保存后再点「载入线上存档」");
+    return false;
+  }
+  adoptBoard(d);
+  /* 首帧还没画时可以把这个绘制权让给调用方（由它画一次，避免先闪旧版）；
+     一旦已经画过就必须自己重绘，否则基线换了屏幕还停在上一帧，拖任何东西都会错位。 */
+  if (!skipPaint || firstPainted) { render(); refreshCount(); tbFill(); undoState(); }
+  if (!quiet) flash("已同步线上最新版面");
+  return true;
+}
+
+let firstPainted = false;
+function firstPaint() {
+  if (firstPainted) return;
+  firstPainted = true;
+  render(); refreshCount(); tbFill(); undoState();
+}
+
+/* 首屏先等线上版面（最多 1.5 秒）：拿到就直接以它为准画出来，取不到才退回内嵌快照。
+   不等完再画的话，用户会先看到一瞬间的旧版——那份快照是原稿时代的版面。 */
+Promise.race([
+  syncBoardFromRemote(true, true).catch(() => false),
+  new Promise(r => setTimeout(() => r(false), 1500))
+]).then(() => firstPaint());
 
 /* ---------- 闲着的时候：发现编辑器有新版本就自己重载 ----------
    页面一旦打开，代码就在内存里跑，服务端改了文件不会影响它，只能靠重新加载。
@@ -2529,24 +2566,9 @@ setInterval(async () => {
     }, 900);
     return;
   }
-  /* 空闲时看看线上版面有没有被别人改过：本机没有未保存改动就直接换成线上那份，
-     有改动就只提示一句（避免把人家正在编的东西冲掉）。 */
-  if (!GH.canPush) return;                   /* 没连令牌就别去打扰接口 */
-  const remote = await fetchRemoteJson(GH.path);
-  if (remote && isFullBoard(remote)){
-    const cur = flattenBoard();
-    const changedOnLine = JSON.stringify(remote.slots) !== JSON.stringify(cur.slots)
-                       || JSON.stringify(remote.others) !== JSON.stringify(cur.others);
-    if (changedOnLine){
-      if (hasLocalEdits()){
-        flash("线上版面有更新；本机还有没保存的改动，保存后再点「载入线上存档」");
-      } else {
-        adoptBoard(remote);
-        render(); refreshCount(); tbFill(); undoState();
-        flash("已同步线上最新版面");
-      }
-    }
-  }
+  /* 空闲时对齐线上版面：与启动时同一套逻辑，读的是公开文件，不需要令牌。
+     （原来这里限了 GH.canPush，没连令牌的访客根本走不到同步，永远停在旧快照上） */
+  try { await syncBoardFromRemote(false); } catch (e) {}
   if (typeof SC_PATH === "string" && scState.data){
     const scRemote = await fetchRemoteJson(SC_PATH);
     if (scRemote){
