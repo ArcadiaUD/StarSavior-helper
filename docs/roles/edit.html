@@ -306,6 +306,7 @@ async function pushToServer(){
 }
 function save(){
   clearTimeout(saveTimer);
+  stripLocalImgs();      /* 保存前再清一遍：拖拽/粘贴都可能带进绝对地址，不能指望只在载入时清 */
   saveTimer = setTimeout(pushToServer, 400);
 }
 function restore(){
@@ -490,7 +491,10 @@ function fillLib(){
   lib.innerHTML = list.map(x =>
     '<img draggable="true" src="' + encodeURI(x.file) + '" title="' + esc(x.name) + '">').join("");
   lib.querySelectorAll("img").forEach(im => {
-    im.ondragstart = e => e.dataTransfer.setData("text/plain", im.src);
+    /* 必须用 getAttribute：DOM 的 .src 读回来是浏览器解析过的绝对地址
+       （https://arcadiaud.github.io/StarSavior-helper/roles/role_icons/...），
+       存进数据里换个路径就加载不出来。2026-10-26 赛拉那张卡图就是这么坏的。 */
+    im.ondragstart = e => e.dataTransfer.setData("text/plain", im.getAttribute("src"));
   });
 }
 document.getElementById("libCat").onchange = fillLib;
