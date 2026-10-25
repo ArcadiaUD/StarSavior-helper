@@ -33,6 +33,13 @@ PAIRS = (
     (PANEL / "sc" / "sc_board.js", DOCS / "sc_board.js", "python build/export_sc_board.py"),
 )
 
+# 素材目录也要一一对应：面板里那份与站点上那份必须是同一批文件（同名同内容）。
+# 站点是静态托管，没法直接读面板本地文件，所以只能靠「源头唯一 + 这里卡住」来保证不跑偏。
+DIR_PAIRS = (
+    (PANEL / "board" / "layers", DOCS / "layers", "python build/export_from_editor.py --write"),
+    (PANEL.parent / "faces", DOCS / "faces", "python build/export_from_editor.py --write"),
+)
+
 
 def digest(path: Path):
     return hashlib.sha256(path.read_bytes()).hexdigest()[:12]
@@ -76,6 +83,35 @@ def main() -> int:
         if a != b:
             bad.append(("%s" % rel, "与源不一致", fix))
 
+    for panel_dir, source_dir, fix in DIR_PAIRS:
+        try:
+            rel = "%s/" % panel_dir.relative_to(PANEL)
+        except ValueError:                      # 头像目录在 tier 之外，按 assets 那层显示
+            rel = "%s/" % panel_dir.relative_to(PANEL.parent.parent)
+        if not panel_dir.is_dir() or not source_dir.is_dir():
+            bad.append((rel, "目录缺失", fix))
+            continue
+        fa = {f.name: f for f in panel_dir.iterdir() if f.is_file()}
+        fb = {f.name: f for f in source_dir.iterdir() if f.is_file()}
+        only_panel = sorted(set(fa) - set(fb))
+        only_src = sorted(set(fb) - set(fa))
+        differ = sorted(n for n in set(fa) & set(fb) if digest(fa[n]) != digest(fb[n]))
+        if verbose or only_panel or only_src or differ:
+            print("  %-22s 随包 %d 个 ｜ 源 %d 个 ｜ 仅随包 %d ｜ 仅源 %d ｜ 内容不同 %d"
+                  % (rel, len(fa), len(fb), len(only_panel), len(only_src), len(differ)))
+            for n in only_panel[:5]:
+                print("      仅随包有：%s" % n)
+            for n in only_src[:5]:
+                print("      仅源有：%s" % n)
+            for n in differ[:5]:
+                print("      内容不同：%s" % n)
+        if only_panel:
+            bad.append((rel, "随包多出 %d 个文件（不该有）" % len(only_panel), fix))
+        if only_src:
+            bad.append((rel, "随包缺 %d 个文件" % len(only_src), fix))
+        if differ:
+            bad.append((rel, "%d 个同名文件内容不同" % len(differ), fix))
+
     if bad:
         print("FAIL 面板随包那份榜数据不是最新的（使用者看的就是这一份）：")
         for name, why, fix in bad:
@@ -83,7 +119,8 @@ def main() -> int:
         for fix in sorted({b[2] for b in bad}):
             print("  修：%s" % fix)
         return 1
-    print("PASS 面板随包与线上/源一致（%d 份）" % len(PAIRS))
+    print("PASS 面板随包与线上/源一致（%d 份数据 + %d 个素材目录）"
+          % (len(PAIRS), len(DIR_PAIRS)))
     return 0
 
 

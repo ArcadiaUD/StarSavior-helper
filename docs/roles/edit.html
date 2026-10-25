@@ -502,7 +502,7 @@ document.getElementById("libCat").onchange = fillLib;
   }
   try {
     const n = await (await fetch("faces_index.json")).json();
-    LIBS.face = n.map(x => ({ name: x.replace(/\.[^.]+$/, ""), file: "faces/" + x }));
+    LIBS.face = n.map(x => ({ name: x.replace(/\.[^.]+$/, ""), file: "../faces/" + x }));
   } catch (e) { LIBS.face = []; }
   try {
     const g = await (await fetch("role_icons/index.json")).json();
