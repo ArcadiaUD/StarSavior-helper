@@ -39,6 +39,7 @@ PAIRS = (
 DIR_PAIRS = (
     (PANEL / "board" / "layers", DOCS / "layers", "python build/export_from_editor.py --write"),
     (PANEL.parent / "faces", DOCS / "faces", "python build/export_from_editor.py --write"),
+    (PANEL / "sc" / "cards", DOCS / "sc_cards", "python build/export_sc_board.py"),
 )
 
 # 攻略页：面板随包那份（out/role_sheets.json）必须与线上 role_pages.js 同源。
