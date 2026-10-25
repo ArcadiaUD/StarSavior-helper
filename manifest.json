@@ -6,37 +6,37 @@
     "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V2.5/StarSavior-helper-V2.5.zip",
     "package_size": 230338785,
     "sha256": "e9ae5678005ab63f4c9b77e76cc9581145d9e679d7ef950e13fc27745b4397d8",
-    "notes": "角色强度榜存档改为完整版面快照（不会再被写空）、面板内点格位跳攻略；支援卡榜数据补全；角色攻略按单位编号排序；卡组推荐支持任意行数、卡图与头像可点。"
+    "notes": ""
   },
   "data": {
-    "version": "2026-10-16.2",
+    "version": "2026-10-26.1",
     "min_app_version": "2.5.0",
-    "released_at": "2026-10-16T10:35:13+08:00",
-    "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-16.2/data-2026-10-16.2.zip",
-    "package_size": 43382009,
-    "sha256": "7a4d2a426c1a9d0a49a428ba91fd87edfa58a4dbfa77a31bfeafdbd6e62fd22b",
-    "total_size": 59970095,
-    "file_count": 1580,
+    "released_at": "2026-10-26T01:40:02+08:00",
+    "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-26.1/data-2026-10-26.1.zip",
+    "package_size": 34229498,
+    "sha256": "c6f86d33329fc6de1305b93fc153e87af30ee1c69133ef3eaf21d69e505bf088",
+    "total_size": 50878616,
+    "file_count": 1506,
     "stats": {
       "characters": 47,
-      "arcanas": 83,
+      "arcanas": 84,
       "roster": 47,
-      "potentials": 230,
+      "potentials": 231,
       "unreleased": 7,
       "operations": 75,
       "corridors": 4,
       "hunts": 3,
-      "equipment": 64,
+      "equipment": 66,
       "break_skills": 8,
-      "status_effects": 316,
+      "status_effects": 317,
       "titles": 110,
       "events": 22,
       "bosses": 629,
-      "assets_cards": 83,
+      "assets_cards": 84,
       "assets_faces": 58,
       "assets_portraits": 58,
-      "codex_icons": 1030,
-      "kb_events": 1265,
+      "codex_icons": 1033,
+      "kb_events": 1268,
       "option_index": 434,
       "option_index_twn": 430
     },
@@ -224,6 +224,10 @@
       "assets/cards/7101301.webp": {
         "size": 10484,
         "sha256": "49c43007bc14d2cfb37cb2fcfa09ecd1e56ada0fa132fa38c3728dff1fd86cfa"
+      },
+      "assets/cards/7101401.webp": {
+        "size": 9842,
+        "sha256": "913109fcab721e6f5e64021e5fe717fad94ec3c9f8278ec2700eb53ef11f04b4"
       },
       "assets/cards/7101601.webp": {
         "size": 10870,
@@ -1372,6 +1376,14 @@
       "assets/codex/EQUIP_EVENT_MOTIVATOR_TIER_2_RING.webp": {
         "size": 4300,
         "sha256": "f9ceb7601ebbead4657d373b633331cbe242a5d48798925ad2b54a1d3e6f2e99"
+      },
+      "assets/codex/EQUIP_EVENT_PERSES_TIER_2_NECKLACE.webp": {
+        "size": 3778,
+        "sha256": "709f755ef4ded9803b4320c03c5ddc11bf950447504f31ea96cb937f57b49adf"
+      },
+      "assets/codex/EQUIP_EVENT_PERSES_TIER_2_RING.webp": {
+        "size": 4276,
+        "sha256": "a2f4eaa570f7f722e7cf4d8a5909b528378facf2d565097fea12f98e6e8b22b7"
       },
       "assets/codex/EQUIP_MOTIVATOR_TIER_1_ARMOR.webp": {
         "size": 2836,
@@ -4365,6 +4377,10 @@
         "size": 3162,
         "sha256": "9c7baef9d7ab9d40407edb5a39f00f1204a1a0a5762cab4ba9f14f608611ddff"
       },
+      "assets/codex/UI_PROFILE_TITLE_BG_PVP.webp": {
+        "size": 1962,
+        "sha256": "559b22f9b36f48d186d95307da374563313ca7de052095b2233eabb924d30c94"
+      },
       "assets/codex/UI_PROFILE_TITLE_BG_RECON_AMULET.webp": {
         "size": 3340,
         "sha256": "828871e1b060a0e8c4c29c18663ff7ccc31a981f74a7ce17f697d7e04b59fc06"
@@ -4498,8 +4514,8 @@
         "sha256": "598869f01e8a9fbec6d2c9bb3da1aece80617c6ff5f60d5a1b9324140a16d531"
       },
       "assets/codex_index.json": {
-        "size": 124772,
-        "sha256": "b04523af70b73d717b823895fec19d14e5805407bbe6aefab6c689b30302d7fc"
+        "size": 125147,
+        "sha256": "d09a8085971f3b75baa26de98511ce90a1f8f7740f08d7c117c3e7cfada94c32"
       },
       "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
         "size": 7998,
@@ -4734,8 +4750,8 @@
         "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
       },
       "assets/index.json": {
-        "size": 13000,
-        "sha256": "ee258e566df758d4126d123d2fa86752e8d44cd7d97c9d38b5a9d9c2fcbaa4a9"
+        "size": 13036,
+        "sha256": "5c794cd130802fe42750e1e6e07565e948821c05480d95037b68a3c54426baf3"
       },
       "assets/portraits/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
         "size": 21198,
@@ -5221,6 +5237,10 @@
         "size": 26796,
         "sha256": "0029372a651b2cacd3668b1de1396555d0f9f547e0b03ed3a3d4226a520dffcf"
       },
+      "assets/role_sheet/role_icons/card/7101401.webp": {
+        "size": 26086,
+        "sha256": "71a207c18f9b1efbf280009ac8d7029a33839992ddca0850848903024c105c17"
+      },
       "assets/role_sheet/role_icons/card/7101601.webp": {
         "size": 24222,
         "sha256": "c6eb9d35590542b23437b0f8851e096957585c044579d01507ba434927b6fefe"
@@ -5248,6 +5268,10 @@
       "assets/role_sheet/role_icons/card/7102501.webp": {
         "size": 26172,
         "sha256": "b929411995e6bbaaeefbd16cdf6c09e53423f05ec9e5d5e3e395ea24ec480c00"
+      },
+      "assets/role_sheet/role_icons/card/7102901.webp": {
+        "size": 21658,
+        "sha256": "ef5fefaf2ec6ff2a5f610afd347e77a76d732d3f0a2a4d154994dc166ff66c15"
       },
       "assets/role_sheet/role_icons/card/7103101.webp": {
         "size": 22364,
@@ -5421,6 +5445,10 @@
         "size": 88434,
         "sha256": "a8cfe0f4aa57b28babb07a333dea26c4dff7d96c4ce5eea40bd3f6b243aabcd2"
       },
+      "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_TOTEM.png": {
+        "size": 91525,
+        "sha256": "27955c85cdce912986aa41e46cde96b96252045101edcddd8f048274300056d8"
+      },
       "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SLIME_ARMOR.png": {
         "size": 96878,
         "sha256": "abf82e67ff377b0cff595339bc7e9365d28459bea1ef3e2343fc13e2e94ae49e"
@@ -5454,80 +5482,16 @@
         "sha256": "7f4fb20a14817eaa341f6359418b8c040ae5f6c5d548cc5c8dc17dd9db967c87"
       },
       "assets/tier/board/board.json": {
-        "size": 34495,
-        "sha256": "b0a452c38a0b36394cbf3b21ec7bec9ecb28bd3069f811b2101a73829a67f3fa"
+        "size": 34496,
+        "sha256": "7c532326614017fd18aba041dddea78b3b633cc9e03d9b42c0001d2661675568"
       },
       "assets/tier/board/board_data.js": {
-        "size": 34517,
-        "sha256": "0409a04c7ed34c353e5a49df51f155e105d1c3f8962f317ccc8cb9553b426d9c"
+        "size": 34518,
+        "sha256": "b246f7c1f0e19f4109b7991f78dcdf816636f8d629784dfe8de4893f12ef5333"
       },
       "assets/tier/board/layers/DM_20260814174448_001.png": {
         "size": 59580,
         "sha256": "d42d0b3d4eeae581d31ae5835ac01faad63aec9cfc1ce4282cbc7084c8763d22"
-      },
-      "assets/tier/board/layers/T1功能角色__cuisita.png": {
-        "size": 159369,
-        "sha256": "612186ca5ac6906f3a7f968dfd85fa9d8073e67be58c67cc579b94bffe913924"
-      },
-      "assets/tier/board/layers/T1功能角色__hali.png": {
-        "size": 157919,
-        "sha256": "093978edf3848d3b624c38434e8d9eec24057538f82ca9bc663fc296cbb2d77d"
-      },
-      "assets/tier/board/layers/T1功能角色__laixi.png": {
-        "size": 189755,
-        "sha256": "e8bc25581ba4cf8d0630ae7c9d19ce0ff78f836ec0d6c371d9309b35a27ddfe5"
-      },
-      "assets/tier/board/layers/T1功能角色__luge.png": {
-        "size": 130188,
-        "sha256": "511f90b7bce58d3dcbf057a623bd8b6dc635db17727717515d72e1cfb111a1be"
-      },
-      "assets/tier/board/layers/T1功能角色__miulier.png": {
-        "size": 166390,
-        "sha256": "2293aa71e49daecc04bfa0ab47b2355a057f42e36ec2041b5bf0c1c171488729"
-      },
-      "assets/tier/board/layers/T1功能角色__sla.png": {
-        "size": 159092,
-        "sha256": "0554812add4d5e7ce0f72908ef7d4f4166a7b836c2b5a66127b846da688ddb05"
-      },
-      "assets/tier/board/layers/T1功能角色__wikiSS克莉丝特头像.png": {
-        "size": 137918,
-        "sha256": "5326a03c5d05180902d0ee39df96ae2c41b3fa565f258f3c4f57c38d3d1b1dac"
-      },
-      "assets/tier/board/layers/T1功能角色__zanna.png": {
-        "size": 148111,
-        "sha256": "45916de3ed786f198c4c023753c2b7c3471370c90d0e5e7b2e5de481bbadb160"
-      },
-      "assets/tier/board/layers/T1功能角色__泳装露娜.png": {
-        "size": 160686,
-        "sha256": "df9a9d4548f9328a62f98597362f7f432b938fb7577ee5c3e9b261005ab27b21"
-      },
-      "assets/tier/board/layers/T2功能角色__fl.png": {
-        "size": 172612,
-        "sha256": "6be9e72e3c388fcde27b5e584963021579e9d1490c7cbb284ed8abbdf68b67f0"
-      },
-      "assets/tier/board/layers/T2功能角色__lsf.png": {
-        "size": 160805,
-        "sha256": "c3c7a41b12615cbabbea597f445e988691079572c527d87a0b7121b4068c1613"
-      },
-      "assets/tier/board/layers/T2功能角色__ptla.png": {
-        "size": 154606,
-        "sha256": "539ad302f968dae45513096c086d3ca5dee49e9dfa5d09dbc088ceb5029f8dfc"
-      },
-      "assets/tier/board/layers/T2功能角色__qila.png": {
-        "size": 179582,
-        "sha256": "67eda119531385cb4243d4e65ef392b1c3bdde8a41bd34740592b5a99d0b71fa"
-      },
-      "assets/tier/board/layers/T2功能角色__slf.png": {
-        "size": 153589,
-        "sha256": "8cc4b2e747b2fa75aac4c72ca2e806f5ba7648a32fdb9a19d475f7d00adb1928"
-      },
-      "assets/tier/board/layers/T2功能角色__zbeila.png": {
-        "size": 146846,
-        "sha256": "451be5e92a3bf21517484e5021b597c78b7e30291ed287a998ec9f7bfa42805e"
-      },
-      "assets/tier/board/layers/T2功能角色__凌.png": {
-        "size": 166851,
-        "sha256": "3b75da4bfbb757e44a0449d30bd949fbfc56519ff2043fb3a6e4f35dd3d74229"
       },
       "assets/tier/board/layers/UI_CHAT_EMO_CHAR_04.png": {
         "size": 172112,
@@ -5541,18 +5505,6 @@
         "size": 247344,
         "sha256": "cd0d82bb40ff230120a4c3bd09e9549cb3a5d7d270d7045da5c3a5b1ccad8809"
       },
-      "assets/tier/board/layers/光系__gn.png": {
-        "size": 93674,
-        "sha256": "3b54390826ffb7696d1bfd3b05d4414c0091b9f8405a5cbb420586be7ffbff9e"
-      },
-      "assets/tier/board/layers/光系__nna.png": {
-        "size": 86405,
-        "sha256": "d89806c3e365ef3b66c1f82b5ad01b85072f6585ba664a2382b3e569bbfb6756"
-      },
-      "assets/tier/board/layers/光系__sla.png": {
-        "size": 84728,
-        "sha256": "063c65b8f5ebf4b48e8994beec6fb322c066a070559f72c4ffe9bbf669176d8a"
-      },
       "assets/tier/board/layers/光系__光标.png": {
         "size": 17320,
         "sha256": "af53482980ce0488107de0d277776659f79dae9a2cbf70312082786d2ac3b1c4"
@@ -5560,62 +5512,6 @@
       "assets/tier/board/layers/光系__矩形 1.png": {
         "size": 15117,
         "sha256": "8f5fc91553305dff086cb92f49f031322679edc81ec3b1f05fbce9ed3d0eeee3"
-      },
-      "assets/tier/board/layers/光系__阿莫拉.png": {
-        "size": 81060,
-        "sha256": "c049f2d8a9ef62d100d8b5313b7e0bca6c449db9e3f4bd5decf485357e85aaf1"
-      },
-      "assets/tier/board/layers/全场景必练T0.5__aimili.png": {
-        "size": 164740,
-        "sha256": "0dfd6b1987fa244b9877ae7ce48b93d8e25a367c326717a82cf74083e549314e"
-      },
-      "assets/tier/board/layers/全场景必练T0.5__hdj.png": {
-        "size": 166327,
-        "sha256": "cd9d01c29b7e5b33f5d633b5564af0db6f96a1a9e0ec9d888c23d28bd699efc7"
-      },
-      "assets/tier/board/layers/全场景必练T0.5__hka.png": {
-        "size": 175697,
-        "sha256": "35106fe6f6b6d86b35c7ab97622141507c60c1f266fe15808b699ecdbdc3faad"
-      },
-      "assets/tier/board/layers/全场景必练T0.5__tuxia.png": {
-        "size": 172795,
-        "sha256": "6536c7b9fe1d6a3dddc881cb0e18c7ff76771216ba3d478e43ce38f34ba77699"
-      },
-      "assets/tier/board/layers/全场景必练T0.5__卡.png": {
-        "size": 164858,
-        "sha256": "f09d018f1509f4cb8d3c2c6abd3b7d4742a0313e912aa436d0ef851571b6c5dd"
-      },
-      "assets/tier/board/layers/全场景必练T0.5__格温.png": {
-        "size": 160810,
-        "sha256": "08079c8a469f6f1ecd6f29c0dc2089c3eede68812d4b25294d7f66becc72c806"
-      },
-      "assets/tier/board/layers/全场景必练T0__M教授.png": {
-        "size": 160311,
-        "sha256": "9e8d5d3421c5da6945c9b2afa1fea073d785e502326448bec086a3b4c43969b5"
-      },
-      "assets/tier/board/layers/全场景必练T0__gn.png": {
-        "size": 179054,
-        "sha256": "d241c67b12cebd759902344a9a955aac5d0df3c98470c69665ae98dca0f453a2"
-      },
-      "assets/tier/board/layers/全场景必练T0__mudun.png": {
-        "size": 191810,
-        "sha256": "b837e2a9892572afbc575b0a51b9045a81c5d8cdd68623dfd5af423421b4796e"
-      },
-      "assets/tier/board/layers/全场景必练T0__克拉丽莎.png": {
-        "size": 186970,
-        "sha256": "b218df7677cde9097345e70e7271196fe5fadd6766a9932379b130f4df17a424"
-      },
-      "assets/tier/board/layers/全场景必练T0__泳装微笑.png": {
-        "size": 171558,
-        "sha256": "0438be0a238d9cd0605e44cef1afa226b5ba129d666957f6c3a58356c366d274"
-      },
-      "assets/tier/board/layers/全场景必练T0__瑟莱丝.png": {
-        "size": 156366,
-        "sha256": "1d5b409000a981da3ccad99d4e6afbeae2249e05098041d1ebeddd94dddee461"
-      },
-      "assets/tier/board/layers/全场景必练T0__阿莫拉.png": {
-        "size": 145956,
-        "sha256": "dff76235010ec13922006787b502c4fbd95f4357e691506043f9a6c57ca2c035"
       },
       "assets/tier/board/layers/图层 1.png": {
         "size": 351369,
@@ -5625,157 +5521,25 @@
         "size": 168758,
         "sha256": "e1a712366ea8ce034767664cc45f6f9cf64ad4efa5b7f8c7d173dcabae321c80"
       },
-      "assets/tier/board/layers/暗系__ailisha.png": {
-        "size": 79715,
-        "sha256": "953ba0674115a8c77f56e594d81f20e470695f1386604e9538ebe8d4bbc304ea"
-      },
-      "assets/tier/board/layers/暗系__laixi.png": {
-        "size": 100187,
-        "sha256": "4604f647af0a6c2eb52e08eb96808b65dbc4dc38ce501aa647ea71cf91b1361f"
-      },
-      "assets/tier/board/layers/暗系__ldy.png": {
-        "size": 75006,
-        "sha256": "5445e69e466cda88cedea5ceb71941724117cb6055a5870422563ee23e24649f"
-      },
-      "assets/tier/board/layers/暗系__yiz.png": {
-        "size": 83217,
-        "sha256": "2da94987dcd9332493e19207170b5726fa306a91e3d579021d63d6f51b4ca340"
-      },
       "assets/tier/board/layers/暗系__光标.png": {
         "size": 17892,
         "sha256": "4de06b27f8aefab81deef11fb9174383ba4337ab167de63339f38fcef4917207"
-      },
-      "assets/tier/board/layers/暗系__卡.png": {
-        "size": 89794,
-        "sha256": "592d171af06ab0ac2c5e37bb51646691e9e33ebf0fa188f8328dc856eebaf6a9"
       },
       "assets/tier/board/layers/暗系__矩形 1.png": {
         "size": 15118,
         "sha256": "ef067a63a40d5880af35a1aa0fa3ee71ba64ce5dd9d5af9a4247b7a87e6c24bf"
       },
-      "assets/tier/board/layers/水系__M教授.png": {
-        "size": 87627,
-        "sha256": "5c5be16d985dc8d9f7e449721957e34195016f3549ff9d1fe4fda25bed773b01"
-      },
-      "assets/tier/board/layers/水系__aimili.png": {
-        "size": 88886,
-        "sha256": "88e66f9bbd3e78c58945de4f8bc54e4938577143ef9d13f3da7e66f1ef663a98"
-      },
-      "assets/tier/board/layers/水系__hka.png": {
-        "size": 95413,
-        "sha256": "8bed612b686f95df8a48382324719fbfd1bc5026af232cfe14697c7dc7480067"
-      },
-      "assets/tier/board/layers/水系__kler.png": {
-        "size": 85276,
-        "sha256": "018f76aca20a57f1e68b33499760c4221524b40abccbcc59336530e126097a30"
-      },
-      "assets/tier/board/layers/水系__laidai.png": {
-        "size": 78381,
-        "sha256": "81d9cc4ac77b16cb19df9ddd74f9277d7e82b4a118c87dced4ac833a23a7f015"
-      },
-      "assets/tier/board/layers/水系__lili.png": {
-        "size": 84137,
-        "sha256": "2d7a872bd7663d72d1489d7b776a9e2e934788f6bd07943cea237071aec68185"
-      },
-      "assets/tier/board/layers/水系__luge.png": {
-        "size": 71844,
-        "sha256": "2af427a40274c75c4293ce19c2bbb7567b9110aed0c401643d60678ebf76ec63"
-      },
-      "assets/tier/board/layers/水系__tfl.png": {
-        "size": 94911,
-        "sha256": "a0545e87f1c3d7a69313697093dfe1d382c9b1b3578692e27cc67ba931eca744"
-      },
-      "assets/tier/board/layers/水系__yasela.png": {
-        "size": 81728,
-        "sha256": "9c2c45e82ba575fdd0c7762329bc09287509c0ce72df271141487c70071240e4"
-      },
-      "assets/tier/board/layers/水系__zbeila.png": {
-        "size": 80613,
-        "sha256": "57e2e5ab23fd079306d25ce7bf83e43cbe9ead48fa21209ae72ac38f6a89e69b"
-      },
-      "assets/tier/board/layers/水系__zkelaier.png": {
-        "size": 86218,
-        "sha256": "3841fe58123be81881a6a77a1c8df83003a5a7e3c50fedb7feb5532a0514a9f1"
-      },
       "assets/tier/board/layers/水系__光标.png": {
         "size": 18497,
         "sha256": "76375d06dcfe6afe8a17bb966e2a9e45621c1c9cba62e6cf929a479bbcf7e2e0"
-      },
-      "assets/tier/board/layers/水系__瑟莱丝.png": {
-        "size": 84442,
-        "sha256": "1940b97f0e24130708b9eb8be9202da609f1dbcfab8e11409b0c36365a50c91c"
       },
       "assets/tier/board/layers/水系__矩形 1.png": {
         "size": 15116,
         "sha256": "1e8de6d5a98457fa731d29fcd645baab13c55754ca16ddb91e0c1d2e2a84711c"
       },
-      "assets/tier/board/layers/水系__霏.png": {
-        "size": 92476,
-        "sha256": "e3748675a95c7e9e19200634b4cbcce1e68ea57b66fab094a43f215e6e75fcd5"
-      },
-      "assets/tier/board/layers/火系__hali.png": {
-        "size": 86003,
-        "sha256": "dc8892fdbaff32f4fbad24be7644ededfcd9f126a3e07c47bc6f20b984b6ddc6"
-      },
-      "assets/tier/board/layers/火系__hdj.png": {
-        "size": 89775,
-        "sha256": "ddc9a6c4cfd314216d3053dfddd3d3ad0edf114f0c91a16f62eba11215b5048e"
-      },
-      "assets/tier/board/layers/火系__hf.png": {
-        "size": 90639,
-        "sha256": "725b26db5bf40d520f6406813a53d47c0960ffcc2988f4a3921359cace58d482"
-      },
-      "assets/tier/board/layers/火系__lsf.png": {
-        "size": 88217,
-        "sha256": "835aae0b4f4e94d7adc51611d37776e7bcdbfd6263c8fafad87505263af02d5b"
-      },
-      "assets/tier/board/layers/火系__miulier.png": {
-        "size": 89310,
-        "sha256": "b81702a25aee3aae5fb8fef42a81616d65498f6f9a5df323a025f52bb9603656"
-      },
-      "assets/tier/board/layers/火系__ptla.png": {
-        "size": 84936,
-        "sha256": "950c6efa18d59a240ff44e98096ce592a960010d2577ebbe7acc9f08e2ee3613"
-      },
-      "assets/tier/board/layers/火系__qila.png": {
-        "size": 96352,
-        "sha256": "ba5d2fbf7dae632c1960beef0e75dcab8f2828b9e04ce7979b9e3404eb4570bd"
-      },
-      "assets/tier/board/layers/火系__skl.png": {
-        "size": 83782,
-        "sha256": "d2f1cbc483b10d5ca67c253dfc34dff468ae1f77a8e6826239ec804940b1cdbe"
-      },
-      "assets/tier/board/layers/火系__tuxia.png": {
-        "size": 91881,
-        "sha256": "6ac301fa06329b599a41d6d8be1a56b869ff11a881be452eb674cd39a8c1f0b8"
-      },
-      "assets/tier/board/layers/火系__wikiSS克莉丝特头像.png": {
-        "size": 77507,
-        "sha256": "420cbb33e91ba2eb4df21072f0f41a4ffc3763a51fb266f5c6118c3196003b8a"
-      },
-      "assets/tier/board/layers/火系__xe.png": {
-        "size": 94551,
-        "sha256": "7a156ac7d432b4e6d1e2e10aeb2fa682f30cbe9d0e8177685c02f5526c7b08a3"
-      },
-      "assets/tier/board/layers/火系__zanna.png": {
-        "size": 81831,
-        "sha256": "e1110c663932c2551325ddb5863b5f72f13cc91ef1113bc04756f3dd7ffa0f69"
-      },
-      "assets/tier/board/layers/火系__zmaerxi.png": {
-        "size": 94348,
-        "sha256": "09678f5ba78d688e25549c2b1f0aeca6d8c2729c15234fb64d3153552aff7f66"
-      },
-      "assets/tier/board/layers/火系__zsikalei.png": {
-        "size": 97113,
-        "sha256": "f461d97e0428cc2b8598b05086dbda13f26ee5cac0627f694d29d9148f66be61"
-      },
       "assets/tier/board/layers/火系__光标.png": {
         "size": 17692,
         "sha256": "53c4d436ed08f7ce6b90c11baafc5888c86f4fc7f9be096131fcf4356c6cae73"
-      },
-      "assets/tier/board/layers/火系__泳装露娜.png": {
-        "size": 87616,
-        "sha256": "87c19721da23a7b8615381052f8c2fad205bdaa1478b6463016aed8b982acb7f"
       },
       "assets/tier/board/layers/火系__矩形 1.png": {
         "size": 15112,
@@ -5789,73 +5553,9 @@
         "size": 2054130,
         "sha256": "b9793e879a4064156072458d7899ace90095ef9437bd6c51d3e895997e4df2d4"
       },
-      "assets/tier/board/layers/草系__amj.png": {
-        "size": 86789,
-        "sha256": "b6726d992b85e91affafd67941eae73a7da5e6cab51ea228c1da5fb62f896a0f"
-      },
-      "assets/tier/board/layers/草系__best.png": {
-        "size": 81273,
-        "sha256": "fdab12f879a4ad9ed9fa07eeb3ccab82d8778e052b4d95559f71a8101886e146"
-      },
-      "assets/tier/board/layers/草系__crs.png": {
-        "size": 78672,
-        "sha256": "c57264940726b18c44c6771a00657e9f533cec71743ed383be105d539629b5e4"
-      },
-      "assets/tier/board/layers/草系__cuisita.png": {
-        "size": 85931,
-        "sha256": "b65293f3ca3745c5512a7398fed623d3e2603e7c34a6586362b7d1ec4730ec93"
-      },
-      "assets/tier/board/layers/草系__dna.png": {
-        "size": 76744,
-        "sha256": "f006d0f7f547842fa9026fa98a3e38925477c71bb01f1afa5680d0381075cead"
-      },
-      "assets/tier/board/layers/草系__fl.png": {
-        "size": 93720,
-        "sha256": "c91f510898934eb082d1c8cb288f5edae9dff18ca4bb1a2f5ff715c6fbb1b7a8"
-      },
-      "assets/tier/board/layers/草系__klls.png": {
-        "size": 92810,
-        "sha256": "69780c3088b977013ac42787091d4de99873ecd1132a686cb489740a87cf779e"
-      },
-      "assets/tier/board/layers/草系__lbt.png": {
-        "size": 73731,
-        "sha256": "846dc5d8709819558644f2acb3a317a683e46616b688446ac07d0b0158d6afca"
-      },
-      "assets/tier/board/layers/草系__lmn.png": {
-        "size": 72508,
-        "sha256": "0e51e12397288d34613e2daf61ce067f5c0193e145ca9d422ce18679786af112"
-      },
-      "assets/tier/board/layers/草系__mudun.png": {
-        "size": 99852,
-        "sha256": "e1a694144ec58149a60c9ad93b3c11bbd83271a267e3d2ad2048a0c4e95dfca1"
-      },
-      "assets/tier/board/layers/草系__nalu.png": {
-        "size": 83495,
-        "sha256": "6891ef76bd5b795595339c64fae5fa1f5441af4580825f33517bda586a00c006"
-      },
-      "assets/tier/board/layers/草系__tnji.png": {
-        "size": 81439,
-        "sha256": "da0b083cf4c8b10d019a7242426937afcbc4f883e3f490c819af32e093cc1b1d"
-      },
-      "assets/tier/board/layers/草系__wx.png": {
-        "size": 90095,
-        "sha256": "fcc1da7bf2db3429849508f658f74be1c172a77386fa36f4cd0cb1eb3186c15e"
-      },
       "assets/tier/board/layers/草系__光标.png": {
         "size": 19629,
         "sha256": "51ad0a187982434752464d6b19c883f3630d6193e12c43c588c590ab9a71e803"
-      },
-      "assets/tier/board/layers/草系__凌.png": {
-        "size": 90691,
-        "sha256": "15f700816d22dcd6f3b9f588652f8ffe8791802995549a81b41ef7f7b95a1d23"
-      },
-      "assets/tier/board/layers/草系__格温.png": {
-        "size": 85146,
-        "sha256": "6cb9d6eeff174c9ec2ab500c3bf8e6e03daf90c52f8ae02bac362f48a2f96eee"
-      },
-      "assets/tier/board/layers/草系__泳装微笑.png": {
-        "size": 91953,
-        "sha256": "40564db2666bfe34ce6b84d3ad8e270165aad1f6251718b42314a6267cf06e55"
       },
       "assets/tier/board/layers/草系__矩形 1.png": {
         "size": 15116,
@@ -5892,6 +5592,10 @@
       "assets/tier/sc/cards/7101301.webp": {
         "size": 26796,
         "sha256": "0029372a651b2cacd3668b1de1396555d0f9f547e0b03ed3a3d4226a520dffcf"
+      },
+      "assets/tier/sc/cards/7101401.webp": {
+        "size": 26086,
+        "sha256": "71a207c18f9b1efbf280009ac8d7029a33839992ddca0850848903024c105c17"
       },
       "assets/tier/sc/cards/7101601.webp": {
         "size": 24222,
@@ -6258,8 +5962,8 @@
         "sha256": "b08e0c83dd431023b7d92fe3d0b53ab38d630be9e3b6fa426da7033d9bb196af"
       },
       "assets/tier/sc/sc_board.json": {
-        "size": 28451,
-        "sha256": "984f51f9def60b5c3e06d262bf8c40b8ae149ae7b788dbc3b7d8a17ad9e2aae0"
+        "size": 28727,
+        "sha256": "69c87c47426e190d14e8ae2d40a0a5d4b69f7c15809eb87471824df6aa0c615f"
       },
       "assets/tier/tier_race.webp": {
         "size": 1924458,
@@ -6274,8 +5978,8 @@
         "sha256": "b6a8c5cbf2ff80cf7010ad0ccd69d5c88c996ff7c04c56275d90f65919687e48"
       },
       "out/codex.json": {
-        "size": 15355105,
-        "sha256": "d8f58d5762aaadea1f3ef09f16227a57d5f70de62b2a4893e506ba9144c8c000"
+        "size": 15356740,
+        "sha256": "81db368430f3acad9d247c2b44a67c022378265355d43fe70e67f7cdefd06bee"
       },
       "out/guide.json": {
         "size": 3902,
@@ -6350,16 +6054,16 @@
         "sha256": "369cb0978c261addbe3425607e27f5de81d9fec9522cfd1b360da00ee2b5dc79"
       },
       "out/journey_kb.json": {
-        "size": 1717460,
-        "sha256": "9f9ef1fa394f79ab3fd924baa6f033715dcce0752a65a5aa08356bbd239d3129"
+        "size": 1722637,
+        "sha256": "b507b41414a0a5f4ce0439f8276c8a26b8e17665960a7e3772ecd1dc8270d738"
       },
       "out/portrait_index.json": {
-        "size": 127188,
-        "sha256": "0080642560a9ffe66ceb7e12d3dc74145f5e27dad2cf5a449619e0a3ce4e51ea"
+        "size": 127536,
+        "sha256": "21baa5fe8b598915aba9411e932fb241d9db92b847498f13fe581185c7ee8c27"
       },
       "out/role_sheets.json": {
-        "size": 232678,
-        "sha256": "8e3f711f3613da9f32b538393a648d0a4cfa4d27645ef8549c8f6ee904c97eaf"
+        "size": 274156,
+        "sha256": "a4416c35b7688112d1d82c81284e7f8598afa3b4f95e3d8df632a2061f6859d4"
       }
     }
   },
