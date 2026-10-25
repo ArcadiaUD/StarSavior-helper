@@ -918,7 +918,12 @@ function addSlot(seedId) {
       x = lrow[0].box[0]; y = base(lastY + STEP_Y); grown = STEP_Y;
     }
   }
-  const id = (edit.newSlots || []).reduce((m, t) => Math.max(m, t.id), 999) + 1;
+  /* 新格编号要避开基线和已有新格：早先从 999 起算，存档里已经有 1000~1017 这批格，
+     新格拿到 1000 就跟它们撞号——第二次加格时 findSlot(1000) 命中另一个档的格子，
+     新格直接飞到那几排去（表现为「加到上面去了」）。 */
+  const id = Math.max(999,
+                      ...SLOTS.map(s => Number(s.id) || 0),
+                      ...(edit.newSlots || []).map(t => Number(t.id) || 0)) + 1;
   const n = (edit.newSlots || []).filter(t => t.group === grp).length + 1;
   const ns = { id, new: true, group: grp, name: "新格" + n, attr,
                box: [x, y, W, Hh], ring: s.ring || Math.max(6, Math.round(W * 0.025)),
