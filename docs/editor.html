@@ -2438,7 +2438,10 @@ document.addEventListener("keydown", e => {
   e.preventDefault(); undo();
 });
 undoBase = snap();
-setZoom();
+/* 这里只设缩放变量，不画：真正的第一帧要等线上存档到手（见下面 firstPaint），
+   否则会先铺一遍内联快照的旧版面再替换，用户能看见那一瞬间。 */
+document.getElementById("fit").style.setProperty("--z", z);
+scSyncZoom();
 function setZoom() {
   document.getElementById("fit").style.setProperty("--z", z);
   render();
