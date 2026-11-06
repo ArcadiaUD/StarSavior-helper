@@ -304,10 +304,12 @@ async function pushToServer(){
     GH.busy = false;
   }
 }
+/* 普通改动只写浏览器本地：拖动、删图、缩放、切页都走这里，一次都不碰仓库。
+   要推到线上只有 Ctrl+S——打开页面也会走到这里，所以不会再凭空产生提交。 */
 function save(){
-  clearTimeout(saveTimer);
   stripLocalImgs();      /* 保存前再清一遍：拖拽/粘贴都可能带进绝对地址，不能指望只在载入时清 */
-  saveTimer = setTimeout(pushToServer, 400);
+  try { localStorage.setItem(LS_KEY, buildPayload()); } catch (e) {}
+  if (!GH.busy) ghState("已存到本地 · Ctrl+S 才推到线上");
 }
 function restore(){
   try {
@@ -593,11 +595,11 @@ document.addEventListener("keydown", e => {
   const key = String(e.key).toLowerCase();
   const a = document.activeElement, tag = a ? a.tagName : "";
   const typing = a && (a.isContentEditable || tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA");
-  if (key === "s"){                       /* Ctrl+S：立刻存进文件 */
+  if (key === "s"){                       /* Ctrl+S：唯一的推送入口 */
     e.preventDefault();
     clearTimeout(saveTimer);
     pushToServer();
-    flash("已保存（同步到文件）");
+    flash("已推送到线上");
     return;
   }
   if (key === "z" && !typing){            /* Ctrl+Z：撤回 */
@@ -661,7 +663,7 @@ snapshotBase();               /* 基线 = 载入时线上那份：之后保存�
 const restored = restore();   /* 再让浏览器里的存档接手当前页（有未推的改动时，它才该算"我改的"） */
 stripLocalImgs();             /* 存档里可能也带着本机地址，再清一遍 */
 render();
-save();                       /* 打开就同步一次：助手那边立刻能看到你现在的版面 */
+save();                       /* 打开时只写本地存档，不再自动往仓库推（推线上要 Ctrl+S） */
 if (restored) flash("已恢复上次的本地改动（点「重置」可回到初始版面）");
 /* 重置：点两次确认（不弹窗，弹窗会卡住自动化） */
 let resetArm = false;
