@@ -923,22 +923,6 @@
    "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"
   },
   {
-   "id": 94,
-   "name": "aimili",
-   "group": "水系",
-   "attr": true,
-   "box": [
-    2513,
-    5344,
-    213,
-    213
-   ],
-   "ring": 8,
-   "bg": "#9097a5",
-   "char": "瑟莱丝",
-   "form": "锐利甜心"
-  },
-  {
    "id": 99,
    "name": "tuxia",
    "group": "火系",
@@ -2510,5 +2494,5 @@
   "l900002": 1006,
   "l900003": 1010
  },
- "saved_at": "2026-11-10T22:23:10.768Z"
+ "saved_at": "2026-11-10T22:29:32.759Z"
 }
