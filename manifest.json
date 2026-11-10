@@ -1,44 +1,44 @@
 {
  "schema": 1,
  "app": {
-  "version": "2.5.0",
-  "tag": "V2.5",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V2.5/StarSavior-helper-V2.5.zip",
-  "package_size": null,
-  "sha256": null,
+  "version": "3.0.0",
+  "tag": "V3.0",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V3.0/StarSavior-helper-V3.0.zip",
+  "package_size": 230632361,
+  "sha256": "ed4c645cd9c5b3a7d0d2faf2ac9074c5e68c91683d17a7cd3320588f467ca0cc",
   "notes": ""
  },
  "data": {
-  "version": "2026-10-26.2",
-  "min_app_version": "2.5.0",
-  "released_at": "2026-10-26T03:44:20+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-10-26.2/data-2026-10-26.2.zip",
-  "package_size": 35490956,
-  "sha256": "6de1c467513b70455641b0d38a2950918efb3cd2d202b60d02d5fea91cd3e91a",
-  "total_size": 52144217,
-  "file_count": 1554,
+  "version": "2026-11-11.1",
+  "min_app_version": "3.0.0",
+  "released_at": "2026-11-11T06:53:10+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-11.1/data-2026-11-11.1.zip",
+  "package_size": 35856753,
+  "sha256": "607806dad090c7142e030c21931c2166fa2fded230eb9e7cfbb20a32171d3172",
+  "total_size": 48880931,
+  "file_count": 1577,
   "stats": {
    "characters": 47,
-   "arcanas": 84,
+   "arcanas": 85,
    "roster": 47,
-   "potentials": 231,
-   "unreleased": 7,
-   "operations": 75,
+   "potentials": 232,
+   "unreleased": 6,
+   "operations": 85,
    "corridors": 4,
    "hunts": 3,
    "equipment": 66,
    "break_skills": 8,
-   "status_effects": 317,
-   "titles": 110,
+   "status_effects": 323,
+   "titles": 113,
    "events": 22,
-   "bosses": 629,
-   "assets_cards": 84,
+   "bosses": 661,
+   "assets_cards": 85,
    "assets_faces": 66,
-   "assets_portraits": 66,
-   "codex_icons": 1065,
-   "kb_events": 1268,
-   "option_index": 434,
-   "option_index_twn": 430
+   "assets_portraits": 67,
+   "codex_icons": 1078,
+   "kb_events": 1271,
+   "option_index": 436,
+   "option_index_twn": 432
   },
   "files": {
    "assets/app.ico": {
@@ -348,6 +348,10 @@
    "assets/cards/7105801.webp": {
     "size": 10968,
     "sha256": "1407a09451432ef0e97b5ad44b6259d939764d9f341da0c9d6baab630ae614ee"
+   },
+   "assets/cards/7105901.webp": {
+    "size": 12346,
+    "sha256": "8f3966614ce299671353e2f5f3c2a9ea40110fdef972e9230663b9ebd825c0dd"
    },
    "assets/cards/7106001.webp": {
     "size": 10620,
@@ -869,6 +873,14 @@
     "size": 1460,
     "sha256": "bb353b411ceda04307ab9d4e3dbba0de571e3badbd8659935b47ace21e48ae05"
    },
+   "assets/codex/BUFF_RECON_AMULET_1.webp": {
+    "size": 1674,
+    "sha256": "35ef21f3bd6ddc1142906b9bab494024288b99421e894bd827bbb9332ae4cd68"
+   },
+   "assets/codex/BUFF_RECON_AMULET_2.webp": {
+    "size": 1754,
+    "sha256": "6a02d6ca0209aa226bb8e8f59a175c4b551c4048b2d486294f9929d1b75b1c55"
+   },
    "assets/codex/BUFF_REFRESH.webp": {
     "size": 1776,
     "sha256": "6acfbfbb8d94ffc0535cbcdd20812b0e01d4ceb4d2b62c71f4ec7f9df7d2ac71"
@@ -1149,6 +1161,14 @@
     "size": 1312,
     "sha256": "0c20365c13da3063513b90efc39b6bedfb2a362e75062c078a1570c3696f3db9"
    },
+   "assets/codex/DEBUFF_DERANGEMENT.webp": {
+    "size": 1050,
+    "sha256": "903ae8311f93074df2fab8ca8dcb82d81209cafa26ecef291efd1a1644464498"
+   },
+   "assets/codex/DEBUFF_DETAINMENT.webp": {
+    "size": 1476,
+    "sha256": "49ff27bbb3232516c7998c679371d97afa5eed1c08683ba61cfc38f2222fbe27"
+   },
    "assets/codex/DEBUFF_DISABLE_CROSS_ATTACK.webp": {
     "size": 1204,
     "sha256": "e4e31d801befb16e7ffc601a038f2ef88730206c500580300c745842ba8a37bf"
@@ -1205,6 +1225,10 @@
     "size": 1230,
     "sha256": "8e219f6a06aef150bdcb768bb8aa3d844df618f04888319895a6df6bc7eb7992"
    },
+   "assets/codex/DEBUFF_ILLUSION.webp": {
+    "size": 1766,
+    "sha256": "2136bc546a10dd455bfbbfd3160612bf67736a8673eb8376f6183802178f4306"
+   },
    "assets/codex/DEBUFF_IMPOSED_DUTY.webp": {
     "size": 1704,
     "sha256": "d5b28dcbf7aa595206c518551a299e0ebab2ccdf58e501a8a4ce306fa5bddaab"
@@ -1244,6 +1268,10 @@
    "assets/codex/DEBUFF_RATE_HIT_DECREASE.webp": {
     "size": 1468,
     "sha256": "2176a7935480ba4a265ac89ac71e5058ff6a7f27a5d348faabf697c79952a71b"
+   },
+   "assets/codex/DEBUFF_RECON_AMULET_3.webp": {
+    "size": 996,
+    "sha256": "735908fa52f071170b9e7a0aa7e32a0c5045e3b09a53c3ad199a7c4d78375853"
    },
    "assets/codex/DEBUFF_REMNANT_THORN.webp": {
     "size": 1262,
@@ -1528,6 +1556,14 @@
    "assets/codex/EQUIP_WENDIGO_TIER_2_WEAPON.webp": {
     "size": 4340,
     "sha256": "33590d1e3c867e99e8d22f762a02443e4c1dc32cb55c15f841b4d0cdb4db5321"
+   },
+   "assets/codex/FORTUNE_BG_TELLER.webp": {
+    "size": 38286,
+    "sha256": "f468ce625c2e05ebfdd61050a9d43d3b0fc597bb88d533393fd7623a76d11318"
+   },
+   "assets/codex/FORTUNE_BG_UI.webp": {
+    "size": 90254,
+    "sha256": "867d0f37ac63269c180013f8d87992200df0379087377711076a4e5882ea8921"
    },
    "assets/codex/ICON_ITEM_NORMAL_PROFILE_TITLE.webp": {
     "size": 2652,
@@ -3585,6 +3621,10 @@
     "size": 10480,
     "sha256": "15160ddf78cbacbf04786b868ee3fcb756d25fd9d87c845c1b47b44fe419637e"
    },
+   "assets/codex/UFM_NKM_UNIT_MON_BELLWETHER_HORN_RED.webp": {
+    "size": 14700,
+    "sha256": "302f998a790c89ea1db6de9ba6b3252b1960ffc055d780d3a89bbafd9cd6d4e9"
+   },
    "assets/codex/UFM_NKM_UNIT_MON_BELLWETHER_MANE.webp": {
     "size": 13734,
     "sha256": "5bca615171fabd5d6f7a74a367ef784be4280fe5fb0118f0bc01e3171fedfb1f"
@@ -3604,6 +3644,10 @@
    "assets/codex/UFM_NKM_UNIT_MON_COHESION_FUSION_BLACK.webp": {
     "size": 11884,
     "sha256": "fa54d7051eb475546cbb2c570d67a20199652b8c8488757007f94cc980c4bd0f"
+   },
+   "assets/codex/UFM_NKM_UNIT_MON_COHESION_FUSION_RED.webp": {
+    "size": 10918,
+    "sha256": "dc25cdb5b3c467dada63fcc1a6850c7593a354bbeee21ecce85f8c8cb4db643f"
    },
    "assets/codex/UFM_NKM_UNIT_MON_CONSIDER_ELITEWORM_BLACK.webp": {
     "size": 9338,
@@ -4561,6 +4605,10 @@
     "size": 6350,
     "sha256": "7a2d00fe69a97c358b4c529d8a83f2b232fd9f6ec39e3e862e3f4f32847877f1"
    },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_MOON_VOICE_OF_THE_MOON.webp": {
+    "size": 8718,
+    "sha256": "f79d51bbfc4410341431a55c76fd1215b0037327f3a460de8c4f360d3f0349f1"
+   },
    "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_STAR_SAVIOR_OF_STARLIGHT.webp": {
     "size": 6310,
     "sha256": "88171d1fa42a0a151619b85831d7fc446265ccc9e01a36e2a4da17d7fe99a927"
@@ -4569,6 +4617,10 @@
     "size": 7484,
     "sha256": "c7a6663d43a5d4c6854ae1335ccde53468ca4ac6743c402fe2b227c015d0b286"
    },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_STAR_VOICE_OF_THE_STARS.webp": {
+    "size": 9064,
+    "sha256": "2a451c1c9779caa615de181c6dc2bf6ae3b535fbe828f32cdee5fd7c0bbf5ed2"
+   },
    "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_SUN_SAVIOR_OF_SUNLIGHT.webp": {
     "size": 6276,
     "sha256": "9f04aaf660e9774c7ac685ae8c69a0f7ce1fd83b43acdec0992f6368d646f6ff"
@@ -4576,6 +4628,10 @@
    "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_SUN_SUNBLESSED.webp": {
     "size": 6546,
     "sha256": "6c47365a0e1345655869f7b3dba2e03111cacb6c7b87d81bd20e15052ca4ae88"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_SUN_VOICE_OF_THE_SUN.webp": {
+    "size": 8520,
+    "sha256": "6c3d133bfc7b368dda3f5ed6e8c2af8818081a0a3fd6781de96107bf30970d47"
    },
    "assets/codex/UI_PROFILE_TITLE_BG_S_CLOISTER_THE_ENDLESS.webp": {
     "size": 5440,
@@ -4642,8 +4698,8 @@
     "sha256": "598869f01e8a9fbec6d2c9bb3da1aece80617c6ff5f60d5a1b9324140a16d531"
    },
    "assets/codex_index.json": {
-    "size": 131235,
-    "sha256": "dc964df84122f0ac918a1d8d1085ddc2c457a9ef72dfd3724a2b58074571324c"
+    "size": 132840,
+    "sha256": "0f57c16dfa9b728d0dafb0dd9022ce740864c64f2a1a8f7130ebdec9211b2496"
    },
    "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7998,
@@ -4910,8 +4966,8 @@
     "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
    },
    "assets/index.json": {
-    "size": 15092,
-    "sha256": "1a3e1f68ada83ea5067ae2eb3037b015836f3f87120bbd4e435a6b8ef8315d69"
+    "size": 15226,
+    "sha256": "a2d697b8258970668d5248fba7d70a3249f3b591d65a26b93f1bbf79b5b34072"
    },
    "assets/portraits/NKM_UNIT_S_SKIN_FLOWER_GAUNTLET_VARIANT_BLACK_ILLUST.webp": {
     "size": 30494,
@@ -5016,6 +5072,10 @@
    "assets/portraits/UFS_NKM_UNIT_S_GRACE_DUALSWORD.webp": {
     "size": 21372,
     "sha256": "a4facded0e2909bf9c1218945b3b02bdc9938a7200ad3de86d72e369f335df7a"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_HALLOWEEN_BEAMSWORD.webp": {
+    "size": 21104,
+    "sha256": "a24ae013d0ce272bdabed030455c1d21bdb39a1430c040b87aebe7ab9d2608be"
    },
    "assets/portraits/UFS_NKM_UNIT_S_HALLOWEEN_ROD.webp": {
     "size": 20726,
@@ -5405,149 +5465,165 @@
     "size": 7900,
     "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
    },
+   "assets/role_sheet/role_icons/card/6102201.webp": {
+    "size": 21152,
+    "sha256": "790fc5a3be2fff7e4aa4d1d847b46868699d069dd96662f7c796399a3c36c1c5"
+   },
    "assets/role_sheet/role_icons/card/7100301.webp": {
-    "size": 23746,
-    "sha256": "b331e531cdce5ea55763f18615a0d8b8cb28e25b1c542a8647f63990f00b865a"
+    "size": 24408,
+    "sha256": "240f24625a7e3e37ee732c54003536ba61975ff3bba548aaea3951bee7003a39"
    },
    "assets/role_sheet/role_icons/card/7100501.webp": {
-    "size": 29788,
-    "sha256": "037b62d3f483165a49a7e0aa53e728a755bff693aa1c994af129209738b2e327"
+    "size": 30414,
+    "sha256": "d4edef4f17ced2a58c08d40a9899ac586bd6ff7c41a3d5cc17a0d608f08f881f"
    },
    "assets/role_sheet/role_icons/card/7100801.webp": {
-    "size": 21344,
-    "sha256": "490f3c4e0aead15140e55b108080248048d808f912b384531379d548a78c5c9a"
+    "size": 21682,
+    "sha256": "f794e9a6cc5d96a1048da9fc6d98eb6c033b37c87944c471bbd1d7da5c38f5b9"
    },
    "assets/role_sheet/role_icons/card/7100901.webp": {
-    "size": 22532,
-    "sha256": "ee6f1046e4f42063dd7de5d8f99daa1f949d1223daad020cda014f4edb7b64dc"
+    "size": 23092,
+    "sha256": "1b8384e1b80d0823ff2a6513ae10ab86e44312b8c538e21850bf0984c2d8971b"
    },
    "assets/role_sheet/role_icons/card/7101001.webp": {
-    "size": 19284,
-    "sha256": "a74d5501656cef87e27c0e95776c01101adde72e9d2fe79ab0e96bf1d604ccc4"
+    "size": 20216,
+    "sha256": "b47e7954caf34b798d1c4a8325b4f7a35b93df648205f16fd3537c8f9cfda8b0"
    },
    "assets/role_sheet/role_icons/card/7101301.webp": {
-    "size": 26796,
-    "sha256": "0029372a651b2cacd3668b1de1396555d0f9f547e0b03ed3a3d4226a520dffcf"
+    "size": 27336,
+    "sha256": "2eb74d7b3354d3ee8da86865505a5959eaea81e4a1fdbe82eade2044ab150edd"
    },
    "assets/role_sheet/role_icons/card/7101401.webp": {
-    "size": 26086,
-    "sha256": "71a207c18f9b1efbf280009ac8d7029a33839992ddca0850848903024c105c17"
+    "size": 23314,
+    "sha256": "19d48cccf356be6a0419f0bb3e65b16739c03de6a3f8872a9282e1011def95f1"
    },
    "assets/role_sheet/role_icons/card/7101601.webp": {
-    "size": 24222,
-    "sha256": "c6eb9d35590542b23437b0f8851e096957585c044579d01507ba434927b6fefe"
+    "size": 25542,
+    "sha256": "d605f7b36a70491b37bd3f73795eee8b18c6994f1c03bf2a96190bd74d01b931"
    },
    "assets/role_sheet/role_icons/card/7101602.webp": {
-    "size": 27266,
-    "sha256": "b982574c2ab88657a94a6d0dc397e4ae24671e6ec140796e6ef737b14b0584ea"
+    "size": 27612,
+    "sha256": "574ab56b733a150b36b5082dbd12b4102584b4061b20ea158bb894635e705998"
    },
    "assets/role_sheet/role_icons/card/7101701.webp": {
-    "size": 17548,
-    "sha256": "850f3871a366c5b7f71efa64c6453dd3d8d27351253f3c1eda83d3e1778b31c8"
+    "size": 17748,
+    "sha256": "e132000c7f5f5698a808e84f9fa23380b4b5a52310a387de3a3e097d1f8761dc"
    },
    "assets/role_sheet/role_icons/card/7102101.webp": {
-    "size": 30264,
-    "sha256": "5ac11cbea76a17dad78e09a8aad9056783fec9cd261dcac60533f7e18de33c86"
+    "size": 30964,
+    "sha256": "2d85c685a313588bbc867cbffef86bea7719dd2f0aeb21fdb375f03bd4432504"
    },
    "assets/role_sheet/role_icons/card/7102301.webp": {
-    "size": 25138,
-    "sha256": "a967fc91de2ab9bd10c5e7202e21e8d46c3d555c0585985460c95c67d9aae7cc"
+    "size": 25856,
+    "sha256": "c6e731ac7b8b66e6d5d5e34b02d77b1a09b562ab929ac209ec1e945a7fe62295"
    },
    "assets/role_sheet/role_icons/card/7102401.webp": {
-    "size": 18940,
-    "sha256": "c886b43225cb77bf7f76e6595a9780caad71631692882d8d3f40fbc398197430"
+    "size": 19412,
+    "sha256": "f1ca389369071f62fa940cd273e4232da57bdadbd6af4a9aa767a6c2e5dd0938"
    },
    "assets/role_sheet/role_icons/card/7102501.webp": {
-    "size": 26172,
-    "sha256": "b929411995e6bbaaeefbd16cdf6c09e53423f05ec9e5d5e3e395ea24ec480c00"
+    "size": 26726,
+    "sha256": "4af7ea592c7081d0cdd498dd15ca6c3993e4a6fbecd01bbc26ba036c2be9dd47"
    },
    "assets/role_sheet/role_icons/card/7102901.webp": {
-    "size": 21658,
-    "sha256": "ef5fefaf2ec6ff2a5f610afd347e77a76d732d3f0a2a4d154994dc166ff66c15"
+    "size": 22612,
+    "sha256": "53e1610886248722dc79da55b10b9e436d745a443729df3f12d7b7b9a631dd46"
    },
    "assets/role_sheet/role_icons/card/7103101.webp": {
-    "size": 22364,
-    "sha256": "43e73029dfa4b85e131b2d97153c1f9532bd7af296a42c1ac7d911fd45f258b2"
+    "size": 23234,
+    "sha256": "f06b9eb75ad9ba0522a76933113fdda0242dedaf5b441dbf43bec23eeac1f031"
+   },
+   "assets/role_sheet/role_icons/card/7103201.webp": {
+    "size": 25548,
+    "sha256": "f004bef9299509ec82171c5f94f178b5e6fbfbc76604e04be1aa7a506ba5ea12"
    },
    "assets/role_sheet/role_icons/card/7103302.webp": {
-    "size": 29156,
-    "sha256": "1d4a0ec902fc3900a135120e5aa9be45b13c47a756b8a6116bd0f3f176d99ff9"
+    "size": 30238,
+    "sha256": "a27322b70f21cf792aecb233f767fb7bbef35ccea3d2bb3de009fb8f20947056"
    },
    "assets/role_sheet/role_icons/card/7103901.webp": {
-    "size": 20924,
-    "sha256": "f5997d01b5aa37c7e7a2aba3b5e0757683da42a7d6f268dbf233e3f54af4fa4e"
+    "size": 21470,
+    "sha256": "5c3a2355f8d85689f2e30408f1d509a2138f78d2fcc9dc66f50044b7cae7195f"
    },
    "assets/role_sheet/role_icons/card/7104001.webp": {
-    "size": 24670,
-    "sha256": "050e51158d29f48d0fed02c9dcf8b0639d2ea3f1c46b66c906ec57ddee066fba"
+    "size": 25296,
+    "sha256": "0deeb0081069f0b273f13292edc7ce43da549345f6904274b178c96a16436222"
    },
    "assets/role_sheet/role_icons/card/7104101.webp": {
-    "size": 23556,
-    "sha256": "3f43f5f7f142fd49d4705b96b363c2c913b02fe61e2d9cb2e7cd6c01f333487c"
+    "size": 23790,
+    "sha256": "b6db8d9ff2235606e89ed6508644d2fff9cce5e9c2ee7f8b48053d5b87b3231d"
    },
    "assets/role_sheet/role_icons/card/7104201.webp": {
-    "size": 27070,
-    "sha256": "d8da8c6b1c2348d5f7fa4700911f4d12b9c7502ada2195142571e8d8aef0280b"
+    "size": 28258,
+    "sha256": "50037858304ef5dc20f495c3dc961d32020f7fb6995466c4bf8afe6076b13523"
    },
    "assets/role_sheet/role_icons/card/7104401.webp": {
-    "size": 27294,
-    "sha256": "d09a325250e2dab03c08866e26e8ff65aaae1f73551054c82761f47b84439144"
+    "size": 27414,
+    "sha256": "6ba71b945dd5177457d8afbdf9d3ec2ac59e66d27d24f76cc0ba77431935ff44"
    },
    "assets/role_sheet/role_icons/card/7104501.webp": {
-    "size": 24974,
-    "sha256": "33f6a03581659e2326d655ae84bcc5b2297e53fed9c25d053851f1ed362c71f3"
+    "size": 26084,
+    "sha256": "b6e65d95a6e57379173a367b5aa57dd9e68da12eeb343b27e37eec3546eb61c9"
    },
    "assets/role_sheet/role_icons/card/7104601.webp": {
-    "size": 28752,
-    "sha256": "9e9be78927c23454396c776ab3f4a26ccf92476324a4794b3e0040f18b72ba36"
+    "size": 29654,
+    "sha256": "c389259ce75ba7c9b1a09549a0885caffbd667c34157bbb61e362d5789e96db1"
    },
    "assets/role_sheet/role_icons/card/7104901.webp": {
-    "size": 18206,
-    "sha256": "bfdd249ef1bfa92d0107cac33810e072b9e9460e11f9cbefc74bf02e5768b733"
+    "size": 18504,
+    "sha256": "f36479679368de34b1579dd9c44f3715ec1f11b14829e6d1e081dbcbd0f9625b"
    },
    "assets/role_sheet/role_icons/card/7105301.webp": {
-    "size": 23230,
-    "sha256": "25cc5c03e2a0af69985af2d741e7cabe8d4ca8e4cd811a603fc6dbe92ceecbca"
+    "size": 23238,
+    "sha256": "9c10c0c813adc4ceb977f668b857fc628aecce7ab781fa82f6bbb7534c26786a"
    },
    "assets/role_sheet/role_icons/card/7105401.webp": {
-    "size": 21844,
-    "sha256": "87e6c4fe6546e4761607f91203962d9a6559447655129c18a7e030da2f0918f2"
+    "size": 23160,
+    "sha256": "dcb433c509cc8ac32bc808732e2e710763e23e12c4e0826ba6a877eaf1ee0507"
    },
    "assets/role_sheet/role_icons/card/7105501.webp": {
-    "size": 22614,
-    "sha256": "47c147fa0738964046e8943c2a16eb323d0c515475455437e3d980d21369abd1"
+    "size": 23726,
+    "sha256": "f77195d92ca8d6d959fa9021b504ff9bcc9b0945cab774a4f6f6fb615ea9df08"
+   },
+   "assets/role_sheet/role_icons/card/7105601.webp": {
+    "size": 28484,
+    "sha256": "dc8e3f16b46d27f6fa7a968b3643e97bbaed12d5b0e6de7992b49836c3c76561"
    },
    "assets/role_sheet/role_icons/card/7105701.webp": {
-    "size": 31510,
-    "sha256": "e1a33369041d65a9fcaaef038e8eb251a9ec23c49f192c0ea458d0d9bc23e168"
+    "size": 32718,
+    "sha256": "6cdb440be4ebe610c0bc155aed7f5456100bca6d55399ffee49d930fd71ace37"
    },
    "assets/role_sheet/role_icons/card/7105801.webp": {
-    "size": 26192,
-    "sha256": "786abf69312238ab366d8eb91b85216900989a17870f8386d4df9e485a37d28f"
+    "size": 27648,
+    "sha256": "99d2dad17bdd59aa8b1fb0885ad998d2cc5d1dcb1f311000eedb2e8b1959325b"
+   },
+   "assets/role_sheet/role_icons/card/7105901.webp": {
+    "size": 23304,
+    "sha256": "46856903ddc90a9b8d516ee32d38d7089085711a3165937e0a10650e58198f26"
    },
    "assets/role_sheet/role_icons/card/7106001.webp": {
-    "size": 26460,
-    "sha256": "1b34cae77bb89139af24da0ecdb4bbc040e4ed57c2ac5f5d113b83b8bbb51761"
+    "size": 27432,
+    "sha256": "7f6a042be181a7cc62cc559c1a6fe21f3985a95032cb27ec72e752436b108620"
    },
    "assets/role_sheet/role_icons/card/7150101.webp": {
-    "size": 19732,
-    "sha256": "abeb3c7192e018f413e355bc9d5520bea187b823b9e43f8539ad0b6f2d6ac14c"
+    "size": 20326,
+    "sha256": "3a4267f6a7c772d7469710a9fadffc971f0325c4ee0d4ed51bec5cc765a17c77"
    },
    "assets/role_sheet/role_icons/card/7150201.webp": {
-    "size": 25476,
-    "sha256": "5708be9f935176b974d6e88584d2d61c58d557028c57483c55643474c188a18b"
+    "size": 26698,
+    "sha256": "7cfe7dc5ce5f1e58755f222b46f8915d28c88807a643bd73913b9c5a77e9df27"
    },
    "assets/role_sheet/role_icons/card/7150701.webp": {
-    "size": 20652,
-    "sha256": "2c280ff1fac41337afda8a3265138d244215a66edf5db23c57c50c7d22489342"
+    "size": 21224,
+    "sha256": "7809b311c3f20b9af814875ca446ab1b6db405cbd431ea6dae2e14f8619f0773"
    },
    "assets/role_sheet/role_icons/card/7300101.webp": {
-    "size": 18938,
-    "sha256": "376edf7db51fe0903f6080e1656c3e75124fcda1207a4bc4341fa3d8ea887fa6"
+    "size": 18872,
+    "sha256": "21d7ffc35473a7de40e1972b8b00962e7c24ca61e5f57d6fac6cd0f58e243063"
    },
    "assets/role_sheet/role_icons/card/7300301.webp": {
-    "size": 20082,
-    "sha256": "535e0b7ca96e5428f2340bf9c5ce14d2881beb7396d2ef665a0d6194123527dd"
+    "size": 21088,
+    "sha256": "bd8deeec968c61b29d58bbf34c0cf9dad79e56517d65fbc579b77d1601d4c37d"
    },
    "assets/role_sheet/role_icons/necklace/EQUIP_COSMO_TIER_2_NECKLACE.webp": {
     "size": 3526,
@@ -5625,6 +5701,10 @@
     "size": 83337,
     "sha256": "84c19d830657ce89cfe3562e876c506a73f2be54932456ef3e83e9b89830887b"
    },
+   "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_GUARD.png": {
+    "size": 80284,
+    "sha256": "26a7c143a59f97af37c6301a9e37b7b721d5ad3a8ffea8de6f2db2ed0c21cf4b"
+   },
    "assets/role_sheet/role_icons/witch/JOURNEY_ITEM_SAVIOR_HAT.png": {
     "size": 88208,
     "sha256": "15292a59ff6f3df6eacc28556e0aa2f4f3f232f34e5a03506dbdc5348981e76f"
@@ -5669,17 +5749,25 @@
     "size": 77107,
     "sha256": "28e3a101896d808335b69c2b7c61b2f0165d05c32bae2175741f8e9ee811049b"
    },
+   "assets/sponsor/alipay.png": {
+    "size": 64052,
+    "sha256": "38c68e074f48044c474de2ad424503b0273e8ca3830f5991074cdc1b2595f78b"
+   },
+   "assets/sponsor/wechat.png": {
+    "size": 59249,
+    "sha256": "d5591047a005d76d78d9bd0b12c82a7c1dea5a00c690f009c6c0c482667bcc9a"
+   },
    "assets/tier/board/board.js": {
     "size": 6535,
     "sha256": "7f4fb20a14817eaa341f6359418b8c040ae5f6c5d548cc5c8dc17dd9db967c87"
    },
    "assets/tier/board/board.json": {
-    "size": 35146,
-    "sha256": "3e1711509cd94067d40cd3d98e4cc47288c08c9ff609bf4abf0f236a8f945d1a"
+    "size": 35477,
+    "sha256": "6fa83751908cbb7a895c62a99de5fdeab788d23c4d6bc8bf810ff872bf92caab"
    },
    "assets/tier/board/board_data.js": {
-    "size": 35168,
-    "sha256": "e72a57e6021c1b93be726372579de38042ef22065d6496b47cf6ef47f19fe99b"
+    "size": 35499,
+    "sha256": "7310c34ee32eb398f8cec98d29e970327d5caccac3f9e661c7e582766ad44782"
    },
    "assets/tier/board/layers/DM_20260814174448_001.png": {
     "size": 59580,
@@ -5908,6 +5996,10 @@
    "assets/tier/sc/cards/7105801.webp": {
     "size": 26192,
     "sha256": "786abf69312238ab366d8eb91b85216900989a17870f8386d4df9e485a37d28f"
+   },
+   "assets/tier/sc/cards/7105901.webp": {
+    "size": 23304,
+    "sha256": "46856903ddc90a9b8d516ee32d38d7089085711a3165937e0a10650e58198f26"
    },
    "assets/tier/sc/cards/7106001.webp": {
     "size": 26460,
@@ -6154,8 +6246,8 @@
     "sha256": "b08e0c83dd431023b7d92fe3d0b53ab38d630be9e3b6fa426da7033d9bb196af"
    },
    "assets/tier/sc/sc_board.json": {
-    "size": 28727,
-    "sha256": "69c87c47426e190d14e8ae2d40a0a5d4b69f7c15809eb87471824df6aa0c615f"
+    "size": 29017,
+    "sha256": "b39d0c610de0fb2711c0a41fa7f96ff89743199f8d8e9de6319b229110dba362"
    },
    "assets/tier/tier_race.webp": {
     "size": 1924458,
@@ -6170,8 +6262,8 @@
     "sha256": "b6a8c5cbf2ff80cf7010ad0ccd69d5c88c996ff7c04c56275d90f65919687e48"
    },
    "out/codex.json": {
-    "size": 15361399,
-    "sha256": "221ae625a1f30a34c988c93b5b02cea701186b38646dbe4521f8cbbf47545d45"
+    "size": 11417138,
+    "sha256": "798088dc40d4b2af643c4082b976673bc28d9a850dc768b8274e99f6d1c5636b"
    },
    "out/guide.json": {
     "size": 3902,
@@ -6246,16 +6338,16 @@
     "sha256": "369cb0978c261addbe3425607e27f5de81d9fec9522cfd1b360da00ee2b5dc79"
    },
    "out/journey_kb.json": {
-    "size": 1722637,
-    "sha256": "b507b41414a0a5f4ce0439f8276c8a26b8e17665960a7e3772ecd1dc8270d738"
+    "size": 1728000,
+    "sha256": "2872ee0a40e5d913e4b13f4bee3b1dea78dc7d7e8126fe0bae379b3b95adf302"
    },
    "out/portrait_index.json": {
-    "size": 131032,
-    "sha256": "ec5bb5670da3037a53728d902a470a4a1234b8bf1e57244bd61e1768027a83e0"
+    "size": 132124,
+    "sha256": "69d6a2d71ff729e170eb1c294f6477740c5592a674a5103bda64117eda4cbdd8"
    },
    "out/role_sheets.json": {
-    "size": 274156,
-    "sha256": "a4416c35b7688112d1d82c81284e7f8598afa3b4f95e3d8df632a2061f6859d4"
+    "size": 375456,
+    "sha256": "67811710a51a0fcc7fa8ee2b558f07eb615ae9afc143f02994dfca93fce9f698"
    }
   }
  },
