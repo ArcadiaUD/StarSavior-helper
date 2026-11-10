@@ -602,8 +602,11 @@ function flattenBoard() {
     others.push(it);
     if (tieId !== undefined) tieOut["l" + seq] = tieId;
   }
+  /* 删掉的格位要显式带出去：推送时按「格位编号」合并，
+     不写这一项的话，线上那份会把删掉的格原样补回来 */
+  const deleted = Object.keys(edit.gone || {}).map(k => +k).filter(n => isFinite(n));
   return { ver: "full-1", w: 3621, h: canvasHeight(), slots: slots, others: others,
-           tie: tieOut, saved_at: new Date().toISOString() };
+           tie: tieOut, deleted: deleted, saved_at: new Date().toISOString() };
 }
 function render() {
   rseq += 1;
@@ -1536,6 +1539,7 @@ function mergeFullBoards(remote, mine) {
   const m = new Map();
   for (const x of (remote.slots || []).concat(remote.others || [])) m.set(key(x), x);
   for (const x of (mine.slots || []).concat(mine.others || [])) m.set(key(x), x);
+  for (const id of (mine.deleted || [])) m.delete("s" + id);   /* 删掉的格位不许被线上那份补回来 */
   const all = [...m.values()].sort((a, b) =>
     (a.id !== undefined ? a.id : a.seq) - (b.id !== undefined ? b.id : b.seq));
   return { ver: "full-1", w: mine.w || remote.w, h: Math.max(remote.h || 0, mine.h || 0),
@@ -2406,8 +2410,37 @@ function delSlot(id){
     }
     flash("已删掉该格");
   } else {
-    edit.gone[id] = 1; delete edit.place[id]; delete edit.art[id]; delete edit.char[id];
-    flash("已删掉这一格（原稿格位，可在详情里「还原」）");
+    /* 原稿格位不真删（它是作者版面的一部分），改成「把这一排后面的内容整体左移一格」：
+       头一张补到删掉的位置上，末格空出。看起来是补位，格子本身不动。 */
+    const row = slotsAll().filter(k => k.group === grp && !edit.gone[k.id]
+                                    && Math.abs(boxOf(k)[1] - top) <= 30)
+                          .sort((a, b) => boxOf(a)[0] - boxOf(b)[0]);
+    const idx = row.findIndex(k => k.id === id);
+    if (!edit.tstyle) edit.tstyle = {};
+    for (let j = idx; j >= 0 && j < row.length - 1; j++) {
+      const from = row[j + 1], to = row[j];
+      const face = faceOf(from), who = charOf(from);
+      if (!face && !who) {                      /* 后面那张本来就是空的：这格也空出来 */
+        edit.place[to.id] = EMPTY;
+        delete edit.art[to.id]; delete edit.char[to.id]; delete edit.slotText[to.id];
+      } else {
+        delete edit.place[to.id];
+        if (face) edit.art[to.id] = { src: face, char: String(who || "").split("|")[0] };
+        else delete edit.art[to.id];
+        if (who) edit.char[to.id] = who; else delete edit.char[to.id];
+        if (edit.slotText[from.id] !== undefined) edit.slotText[to.id] = edit.slotText[from.id];
+        else delete edit.slotText[to.id];
+      }
+      const fs = (edit.tstyle || {})["s" + from.id];
+      if (fs) edit.tstyle["s" + to.id] = JSON.parse(JSON.stringify(fs));
+      else delete edit.tstyle["s" + to.id];
+    }
+    const last = row[row.length - 1];
+    if (last && last.id !== id) {
+      edit.place[last.id] = EMPTY;
+      delete edit.art[last.id]; delete edit.char[last.id]; delete edit.slotText[last.id];
+    }
+    flash("已删掉这一格，后面的补上来了（末格空出）");
   }
   /* 这一排如果空了，就把整排撤掉：同组下方（含下面的属性榜）整体上移一层——
      与「加格往下推」对称。放在没这一条，删完会留一条空行，下面的东西不动。 */

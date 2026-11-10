@@ -1445,40 +1445,6 @@
    ],
    "ring": 11,
    "bg": "#2b3038",
-   "char": "埃米莉",
-   "form": "烛光广场",
-   "face": "faces/UFS_NKM_UNIT_S_MAID_TWOHANDER.webp"
-  },
-  {
-   "id": 1004,
-   "name": "新格5",
-   "group": "全场景必练T1",
-   "attr": false,
-   "box": [
-    1686,
-    1945,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038",
-   "char": "卡奈莉亚",
-   "form": "流浪者",
-   "face": "faces/UFS_NKM_UNIT_S_MAID_LANTERN.webp"
-  },
-  {
-   "id": 1005,
-   "name": "新格6",
-   "group": "全场景必练T1",
-   "attr": false,
-   "box": [
-    2096,
-    1945,
-    320,
-    320
-   ],
-   "ring": 11,
-   "bg": "#2b3038",
    "char": "克温",
    "form": "兰帕迪斯",
    "face": "faces/UFS_NKM_UNIT_S_DETECTIVE_SHERIFF.webp",
@@ -1486,7 +1452,7 @@
     "text": "隐身上位",
     "color": "#e8ebf2",
     "box": [
-     2096,
+     1276,
      2268,
      320,
      50
@@ -2482,5 +2448,5 @@
   "l900002": 1006,
   "l900003": 1010
  },
- "saved_at": "2026-11-10T18:44:14.327Z"
+ "saved_at": "2026-10-25T18:04:39.282Z"
 }
