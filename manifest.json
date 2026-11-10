@@ -9,13 +9,13 @@
   "notes": ""
  },
  "data": {
-  "version": "2026-11-11.1",
+  "version": "2026-11-11.2",
   "min_app_version": "3.0.0",
-  "released_at": "2026-11-11T06:53:10+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-11.1/data-2026-11-11.1.zip",
-  "package_size": 35856753,
-  "sha256": "607806dad090c7142e030c21931c2166fa2fded230eb9e7cfbb20a32171d3172",
-  "total_size": 48880931,
+  "released_at": "2026-11-11T07:02:31+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-11.2/data-2026-11-11.2.zip",
+  "package_size": 35856749,
+  "sha256": "15e440ec4c43dceb34cb624760de4a05be1aa84185ed55f669b4cb8c1622d889",
+  "total_size": 48880798,
   "file_count": 1577,
   "stats": {
    "characters": 47,
@@ -5762,12 +5762,12 @@
     "sha256": "7f4fb20a14817eaa341f6359418b8c040ae5f6c5d548cc5c8dc17dd9db967c87"
    },
    "assets/tier/board/board.json": {
-    "size": 35477,
-    "sha256": "6fa83751908cbb7a895c62a99de5fdeab788d23c4d6bc8bf810ff872bf92caab"
+    "size": 35201,
+    "sha256": "8b1e8eeee5c189f7832847204fae3955cd9e7ec1933145a9bc35ede720e8f978"
    },
    "assets/tier/board/board_data.js": {
-    "size": 35499,
-    "sha256": "7310c34ee32eb398f8cec98d29e970327d5caccac3f9e661c7e582766ad44782"
+    "size": 35223,
+    "sha256": "67e5dcb613860ba3ded750b04555e63e8abf45646c655b5027c76fe8fed32d2d"
    },
    "assets/tier/board/layers/DM_20260814174448_001.png": {
     "size": 59580,
@@ -6246,8 +6246,8 @@
     "sha256": "b08e0c83dd431023b7d92fe3d0b53ab38d630be9e3b6fa426da7033d9bb196af"
    },
    "assets/tier/sc/sc_board.json": {
-    "size": 29017,
-    "sha256": "b39d0c610de0fb2711c0a41fa7f96ff89743199f8d8e9de6319b229110dba362"
+    "size": 29436,
+    "sha256": "3a537e7577d98d19b6b6c3370da95276ca73457f0150a7263f2415d08f3c5da7"
    },
    "assets/tier/tier_race.webp": {
     "size": 1924458,
