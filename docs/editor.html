@@ -2387,6 +2387,14 @@ function charAddSlot() {
 }
 /* ---- 删格：网页上新增的格位真删掉，同排右边的往左补一格；原稿里的格位不能真删
    （那是作者版面的一部分），改成「空出」——头像清掉、格子留着，详情里还能「还原」。 */
+/* 真删一个格位：网页新加的格直接摘掉，原稿格位标 gone（推送时带删除清单，线上不会补回来） */
+function removeSlotHard(id){
+  const i = (edit.newSlots || []).findIndex(t => t.id === id);
+  if (i >= 0) edit.newSlots.splice(i, 1);
+  else edit.gone[id] = 1;
+  delete edit.place[id]; delete edit.art[id]; delete edit.char[id]; delete edit.slotText[id];
+  if (edit.tstyle) delete edit.tstyle["s" + id];
+}
 function delSlot(id){
   const s = findSlot(id);
   if (!s) return;
@@ -2394,6 +2402,12 @@ function delSlot(id){
   if (Object.values(edit.tie || {}).some(v => String(v) === String(id))) {
     edit.place[id] = EMPTY; delete edit.art[id]; delete edit.char[id];
     flash("这一格是档位首格（标签跟着它走），只能清内容、不能删格");
+    save(); sel = null; hideInsp(); render(); return;
+  }
+  /* 已经空出来的格位：直接删掉。以前这里什么都不做，表现就是「空格删不掉」 */
+  if (isSlotEmpty(id)) {
+    removeSlotHard(id);
+    flash("已删掉这个空格");
     save(); sel = null; hideInsp(); render(); return;
   }
   const grp = s.group, step = s.attr ? ATTR_STEP : STEP_Y;
@@ -2435,12 +2449,24 @@ function delSlot(id){
       if (fs) edit.tstyle["s" + to.id] = JSON.parse(JSON.stringify(fs));
       else delete edit.tstyle["s" + to.id];
     }
-    const last = row[row.length - 1];
-    if (last && last.id !== id) {
-      edit.place[last.id] = EMPTY;
-      delete edit.art[last.id]; delete edit.char[last.id]; delete edit.slotText[last.id];
+    if (idx === row.length - 1) {
+      /* 删的就是这一排的最后一格：后面没内容可补，直接把这一格去掉 */
+      removeSlotHard(id);
+      flash("已删掉这一格");
+    } else {
+      const last = row[row.length - 1];
+      const had = last && !isSlotEmpty(last.id);
+      if (last) {
+        edit.place[last.id] = EMPTY;
+        delete edit.art[last.id]; delete edit.char[last.id]; delete edit.slotText[last.id];
+      }
+      /* 末格刚空出来就顺手收掉，别留一个删不掉的空位；本来就空的（占位格）保留 */
+      if (last && had &&
+          !Object.values(edit.tie || {}).some(v => String(v) === String(last.id))) {
+        removeSlotHard(last.id);
+      }
+      flash("已删掉这一格，后面的补上来了");
     }
-    flash("已删掉这一格，后面的补上来了（末格空出）");
   }
   /* 这一排如果空了，就把整排撤掉：同组下方（含下面的属性榜）整体上移一层——
      与「加格往下推」对称。放在没这一条，删完会留一条空行，下面的东西不动。 */
