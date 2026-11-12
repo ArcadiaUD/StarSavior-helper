@@ -9,36 +9,36 @@
   "notes": ""
  },
  "data": {
-  "version": "2026-11-11.2",
+  "version": "2026-11-12.1",
   "min_app_version": "3.0.0",
-  "released_at": "2026-11-11T07:02:31+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-11.2/data-2026-11-11.2.zip",
-  "package_size": 35856749,
-  "sha256": "15e440ec4c43dceb34cb624760de4a05be1aa84185ed55f669b4cb8c1622d889",
-  "total_size": 48880798,
-  "file_count": 1577,
+  "released_at": "2026-11-12T11:33:25+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-12.1/data-2026-11-12.1.zip",
+  "package_size": 36362703,
+  "sha256": "cd108fa6ff7b2e5174afc7d5e78cd9aacc64fb474487bf842cb7bf41be768219",
+  "total_size": 53838956,
+  "file_count": 1607,
   "stats": {
-   "characters": 47,
-   "arcanas": 85,
-   "roster": 47,
-   "potentials": 232,
+   "characters": 48,
+   "arcanas": 87,
+   "roster": 48,
+   "potentials": 233,
    "unreleased": 6,
    "operations": 85,
    "corridors": 4,
    "hunts": 3,
-   "equipment": 66,
+   "equipment": 71,
    "break_skills": 8,
-   "status_effects": 323,
-   "titles": 113,
-   "events": 22,
+   "status_effects": 329,
+   "titles": 116,
+   "events": 24,
    "bosses": 661,
-   "assets_cards": 85,
-   "assets_faces": 66,
-   "assets_portraits": 67,
-   "codex_icons": 1078,
-   "kb_events": 1271,
-   "option_index": 436,
-   "option_index_twn": 432
+   "assets_cards": 87,
+   "assets_faces": 68,
+   "assets_portraits": 69,
+   "codex_icons": 1098,
+   "kb_events": 1277,
+   "option_index": 450,
+   "option_index_twn": 446
   },
   "files": {
    "assets/app.ico": {
@@ -241,6 +241,10 @@
     "size": 6178,
     "sha256": "f030db794810e82528336f01d0815a7bc9c9030918c4abdd6e105789a82ec637"
    },
+   "assets/cards/7102001.webp": {
+    "size": 9484,
+    "sha256": "4614cd5f721d5175df0c6d10c5bfb21507cfc8a80c11883de63d88a494cb3131"
+   },
    "assets/cards/7102101.webp": {
     "size": 13124,
     "sha256": "baccda19dd0edac3c26cffeaf4c68ee6ba52481debd585e5f2d97794c914d69f"
@@ -356,6 +360,10 @@
    "assets/cards/7106001.webp": {
     "size": 10620,
     "sha256": "24cc54e0c0dd4eee6cd673098f3564792bd0b8fa2676cdb0783d690a9b13acde"
+   },
+   "assets/cards/7106101.webp": {
+    "size": 8506,
+    "sha256": "914bc7bf0f9242fd3e2788f812024cdf5ab7273f2d38f70cdf2d0dd5355fb1b9"
    },
    "assets/cards/7150101.webp": {
     "size": 11394,
@@ -629,6 +637,10 @@
     "size": 1436,
     "sha256": "8e5560eee6a299b5193de12e660e5c69c81bbffe927f07c0c74c2bce1dcf1204"
    },
+   "assets/codex/BUFF_FINALE.webp": {
+    "size": 2050,
+    "sha256": "498005bec7047f418c69afc758da0d8da86855ad3692f8ce81f4a142622734ff"
+   },
    "assets/codex/BUFF_FINISH_QUICK.webp": {
     "size": 1980,
     "sha256": "7057ccab94b95595c324e09dc86a76aa125ae52ca1cc583907345780073d7219"
@@ -857,6 +869,10 @@
     "size": 1780,
     "sha256": "30fc99d6181883155056b7c6405ed757b8401e432e6308773bd84ed664f1cf4a"
    },
+   "assets/codex/BUFF_PRELUDE.webp": {
+    "size": 1818,
+    "sha256": "2fadd549554bb89fe72f00ff2376af568fa322f398157d2081b5056795b3528d"
+   },
    "assets/codex/BUFF_PUNISHER_HANDS_1.webp": {
     "size": 1670,
     "sha256": "31adcefae23020c7f51018dead23b2075fd6a6d0eaddcbd2c41a666343623e94"
@@ -900,6 +916,10 @@
    "assets/codex/BUFF_REVERSE_SWORD.webp": {
     "size": 1702,
     "sha256": "2f99af0b0ba71cfd6f4d1a829404456b7dcf6cec15728bcb2f4d7c038081a120"
+   },
+   "assets/codex/BUFF_RHAPSODY.webp": {
+    "size": 1672,
+    "sha256": "45eee39e4e007625450d812ccca91194dbad50d99546c04126469e507369e658"
    },
    "assets/codex/BUFF_ROROKA.webp": {
     "size": 1468,
@@ -1064,6 +1084,10 @@
    "assets/codex/BUFF_WIND_TIGER.webp": {
     "size": 2062,
     "sha256": "321e76227d62f453dcbe8edcfe851b645d8101d196655e43b47d018a59a52447"
+   },
+   "assets/codex/BUFF_WITCH_STIGMA.webp": {
+    "size": 1658,
+    "sha256": "3b03030092e72933ee0cefc8fdab4634015c1825c1cca1ad2e0a67c4740934eb"
    },
    "assets/codex/BUFF_WRONG_WILL.webp": {
     "size": 1472,
@@ -1261,6 +1285,10 @@
     "size": 958,
     "sha256": "4fa227f530fc0d18fb6e826b38f146e9f2ce1082aabfd691ee240e6214655907"
    },
+   "assets/codex/DEBUFF_PERMEATING_MEMORIES.webp": {
+    "size": 1222,
+    "sha256": "ec854e8b44231cf79857b1c795faa5755e4980220dd4e8ecdcad46c2f82dd7eb"
+   },
    "assets/codex/DEBUFF_POISON.webp": {
     "size": 990,
     "sha256": "7bc305ddb7844c8776b05035e91c121aebdb7681b4cd84ac830dae95ba8e45f9"
@@ -1397,6 +1425,14 @@
     "size": 3666,
     "sha256": "eb45c2f913ba42d9ff6e1efadffbdff5f7470f48b8d4c4653718cccfc72e6b5f"
    },
+   "assets/codex/EQUIP_EVENT_EXILE_TIER_2_NECKLACE.webp": {
+    "size": 4468,
+    "sha256": "c7c8b9e72b905eddd7a09be58f3ea53c98d89bab16fe02516e936c088eb5e0de"
+   },
+   "assets/codex/EQUIP_EVENT_EXILE_TIER_2_RING.webp": {
+    "size": 3826,
+    "sha256": "a7cf9f92a2007d6c4776e93dfe698568072a53a041b3fc3d947f19a768f7278d"
+   },
    "assets/codex/EQUIP_EVENT_MOTIVATOR_TIER_2_NECKLACE.webp": {
     "size": 4404,
     "sha256": "93cc81a5b1f9b824d49d240b82f71760ac7e4b1466d9b88a365d9b520313f37d"
@@ -1412,6 +1448,10 @@
    "assets/codex/EQUIP_EVENT_PERSES_TIER_2_RING.webp": {
     "size": 4276,
     "sha256": "a2f4eaa570f7f722e7cf4d8a5909b528378facf2d565097fea12f98e6e8b22b7"
+   },
+   "assets/codex/EQUIP_EVENT_WENDIGO_TIER_2_NECKLACE.webp": {
+    "size": 4226,
+    "sha256": "737cc6042b7f4a3b56ad07045035893859f4bb0a64f1d9e8cc85124b1d4ace03"
    },
    "assets/codex/EQUIP_MOTIVATOR_TIER_1_ARMOR.webp": {
     "size": 2836,
@@ -1508,6 +1548,14 @@
    "assets/codex/EQUIP_PERSES_TIER_2_WEAPON.webp": {
     "size": 3356,
     "sha256": "a3e18662b29a7faac9f4074bf1121ee4f0e0d53847a58a5ac0754f13392479ea"
+   },
+   "assets/codex/EQUIP_SPECIAL_SHOP_TIER_2_NECKLACE.webp": {
+    "size": 4150,
+    "sha256": "954fb6c11643b4c6c98e9672ac4723ae549c07de1de722dea140d201c58ec23d"
+   },
+   "assets/codex/EQUIP_SPECIAL_SHOP_TIER_2_RING.webp": {
+    "size": 3546,
+    "sha256": "6d341eae546819c308bdf47b803096ce1915edd4257ee8deee4e037eae2f894d"
    },
    "assets/codex/EQUIP_WENDIGO_TIER_1_ARMOR.webp": {
     "size": 2580,
@@ -2469,6 +2517,10 @@
     "size": 2166,
     "sha256": "407e05e6397c74fb01227146bca6276a7925b94d290e717a14b47abd104fe54d"
    },
+   "assets/codex/SKILL_APOSTLE_GILLE_UNIQUE_PASSIVE.webp": {
+    "size": 1438,
+    "sha256": "a885ddc8f6608a9e3d0f3af638e9b03d947ef7c049cd5ab803b861b584108dc8"
+   },
    "assets/codex/SKILL_APOSTLE_TYRIA_ATTACK.webp": {
     "size": 2224,
     "sha256": "b1af1fdbbdda1775005a039f78578d394be74071632502206b6b619f850dc689"
@@ -2716,6 +2768,22 @@
    "assets/codex/SKILL_COUNTERSIDE_ROSARIA_UNIQUE_PASSIVE.webp": {
     "size": 1594,
     "sha256": "9a29e5ff35f4da901a4834ad44d7281ed721c0b57b8e21d0f1af8a7ac81b492c"
+   },
+   "assets/codex/SKILL_DARK_UNKNOWN_ATTACK.webp": {
+    "size": 2392,
+    "sha256": "ca05f36a92bc507f7a8d11f7683cd81f41ac76460fef20df710cb4e6656dd4dd"
+   },
+   "assets/codex/SKILL_DARK_UNKNOWN_HYPER.webp": {
+    "size": 3108,
+    "sha256": "f3d273ad662e27b9ff9f44b3654df169678d3156c0a5330a3e9014ddbcb3c4fb"
+   },
+   "assets/codex/SKILL_DARK_UNKNOWN_SPECIAL.webp": {
+    "size": 3056,
+    "sha256": "024f87d1ee2a6030e12f6e8ba0f53cddcd3a58be80b5efcc56edf574b6629722"
+   },
+   "assets/codex/SKILL_DARK_UNKNOWN_UNIQUE_PASSIVE.webp": {
+    "size": 1540,
+    "sha256": "462155e72bf1879de2b3ee47068e45271936691d7567388626cfaad0d0152e54"
    },
    "assets/codex/SKILL_DETECTIVE_PROFESSOR_ATTACK.webp": {
     "size": 2402,
@@ -3573,6 +3641,14 @@
     "size": 6922,
     "sha256": "5a6bf72585ce689f1f2b8effc7cc5c53660d0ce7725a2fac9cd787cf171ee323"
    },
+   "assets/codex/TAB_EVENT_EPISODE_8.webp": {
+    "size": 4490,
+    "sha256": "b415f6a04e5abc70ae855fe7165c250b29d4140a2d7288625d4790e3e63cf1a4"
+   },
+   "assets/codex/TAB_EVENT_EXILE.webp": {
+    "size": 6822,
+    "sha256": "82529b4d221b31e3b6ef9d47c31b84caf7c51d421863a043f0fe0cb573b4137d"
+   },
    "assets/codex/TAB_EVENT_LANTERN.webp": {
     "size": 8060,
     "sha256": "6a858587382ec85b63c69720e95a175df334545b32b8fe6c57cfcd6df90c5801"
@@ -3805,6 +3881,10 @@
     "size": 6474,
     "sha256": "5fbb1f85502c388eee05c617c9836858f6ade22aa0dd4ddd544c8f948a0f8c2e"
    },
+   "assets/codex/UFS_NKM_UNIT_S_APOSTLE_GILLE.webp": {
+    "size": 5456,
+    "sha256": "3a8072e71edcca728800b9d8845e04576f525864860be8996abbf92e2f4454d4"
+   },
    "assets/codex/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7592,
     "sha256": "d263d7009a359286e11eafce9152cb499653a28636ec78bcfcf13dec3258fd36"
@@ -3848,6 +3928,10 @@
    "assets/codex/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
     "size": 6156,
     "sha256": "bf8a956873f57dbecfe242f388272b011338b9b6f1c686c12b12964477657e55"
+   },
+   "assets/codex/UFS_NKM_UNIT_S_DARK_UNKNOWN.webp": {
+    "size": 7988,
+    "sha256": "92d547b8fa50daa6a889cc8295d3bd1b4abc83f480611e03c0c86dd5a7c4a262"
    },
    "assets/codex/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
     "size": 5572,
@@ -4081,6 +4165,10 @@
     "size": 7426,
     "sha256": "91a89dc965bddfa4717f1b05a377259574f4b557eee69290f38d898364dac89e"
    },
+   "assets/codex/UF_NKM_UNIT_S_APOSTLE_GILLE.webp": {
+    "size": 19664,
+    "sha256": "8c38bcbdd44b196ce906f1c22f556e76ffbf141c4213d3e399cf5ebe3f0f76b4"
+   },
    "assets/codex/UF_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 27402,
     "sha256": "f938a89e9901c5302052e1a47b17c6ab4613827ca99c21ce02699d65a9acd5f0"
@@ -4124,6 +4212,10 @@
    "assets/codex/UF_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
     "size": 26106,
     "sha256": "1f8ea60784e3f62cafb0416f6ec8ce48a7fe6bbdfbd650d31db9835712a6ba1e"
+   },
+   "assets/codex/UF_NKM_UNIT_S_DARK_UNKNOWN.webp": {
+    "size": 28496,
+    "sha256": "8296031a83ab37493c19f641d1a6478dd95a31206001190c6e91fa768893e2a6"
    },
    "assets/codex/UF_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
     "size": 21948,
@@ -4349,6 +4441,10 @@
     "size": 30684,
     "sha256": "537ab578d76679211edad89475c7a33bfb9d7d84fb9c0e0469d955d48554dac4"
    },
+   "assets/codex/UI_PROFILE_TITLE_BG_APOSTLE_GILLE.webp": {
+    "size": 3164,
+    "sha256": "f8ddd85c9f78db2ae736e8454757871760ba9e9d0680aef5759d4d2532afa781"
+   },
    "assets/codex/UI_PROFILE_TITLE_BG_APOSTLE_TYRIA.webp": {
     "size": 3232,
     "sha256": "92158a3387c13195e12204bd6b324048231823ba7f8c3745434edc06629020ba"
@@ -4420,6 +4516,10 @@
    "assets/codex/UI_PROFILE_TITLE_BG_CUBE.webp": {
     "size": 1960,
     "sha256": "f836912b384a70b82cdd30da5d4cbaf4220556ab87704e475e9a2796f90bab48"
+   },
+   "assets/codex/UI_PROFILE_TITLE_BG_DARK_UNKNOWN.webp": {
+    "size": 3302,
+    "sha256": "f87b9a21687f0c4fe2e1601ba63a1bdb20c7795cccef4c58a4390508cefeefca"
    },
    "assets/codex/UI_PROFILE_TITLE_BG_DETECTIVE_PROFESSOR.webp": {
     "size": 3356,
@@ -4653,6 +4753,10 @@
     "size": 6952,
     "sha256": "cb1f347162ea9c53aba73d7da70a566cd67ba3b78a74b5548c4316214440cc37"
    },
+   "assets/codex/UI_PROFILE_TITLE_BG_S_NOBLE_PRESTIGE.webp": {
+    "size": 6714,
+    "sha256": "74a8fee4641965e070a94fe6480a65a62b39f2579da070572448e72faef1945f"
+   },
    "assets/codex/UI_PROFILE_TITLE_BG_S_PIECE_OF_FATE.webp": {
     "size": 4756,
     "sha256": "a1d38415cc199e3d97c0cce14ae36602644582d2264683ee0530951ec65a68f4"
@@ -4698,8 +4802,12 @@
     "sha256": "598869f01e8a9fbec6d2c9bb3da1aece80617c6ff5f60d5a1b9324140a16d531"
    },
    "assets/codex_index.json": {
-    "size": 132840,
-    "sha256": "0f57c16dfa9b728d0dafb0dd9022ce740864c64f2a1a8f7130ebdec9211b2496"
+    "size": 135216,
+    "sha256": "ec8cf8be4d4b44bfcebe1c91f2b240e58285534d0a4f55d74e19dad57812cf18"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_APOSTLE_GILLE.webp": {
+    "size": 5808,
+    "sha256": "9d9a3f047ef0a6a457d2cf6098a97da66af3886144bba21175e07e1f2bdc43ac"
    },
    "assets/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7998,
@@ -4744,6 +4852,10 @@
    "assets/faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
     "size": 6644,
     "sha256": "b634c3bc2ffc107b669a14383944dbe6f4ec16581ff21024d31daeaae57ea5be"
+   },
+   "assets/faces/UFS_NKM_UNIT_S_DARK_UNKNOWN.webp": {
+    "size": 8396,
+    "sha256": "5c3e3cd305e731736913312fe388d2e835f1ee7653fd0132106e70a51eb4db0b"
    },
    "assets/faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
     "size": 6124,
@@ -4966,8 +5078,8 @@
     "sha256": "a8558e2fedc670bd6b650f61b67be8a73d0b8b639d815fb095ce9bb979084480"
    },
    "assets/index.json": {
-    "size": 15226,
-    "sha256": "a2d697b8258970668d5248fba7d70a3249f3b591d65a26b93f1bbf79b5b34072"
+    "size": 15630,
+    "sha256": "cfddc52597412b860a924054c122ad6decdb98919c851d9139b7e45b4f7fd5e1"
    },
    "assets/portraits/NKM_UNIT_S_SKIN_FLOWER_GAUNTLET_VARIANT_BLACK_ILLUST.webp": {
     "size": 30494,
@@ -5000,6 +5112,10 @@
    "assets/portraits/NKM_UNIT_S_SKIN_WEDDING_SHIELDER_VARIANT_BLACK_ILLUST.webp": {
     "size": 30920,
     "sha256": "cd67112d7c6f39f0357d18b94e1aef7b04e2f01d36d806a663524209e4ec1a42"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_APOSTLE_GILLE.webp": {
+    "size": 15384,
+    "sha256": "c51b6e2a0d5ba6636779393b6157c549719205c33e0dd14a04c47c2ab7e9080e"
    },
    "assets/portraits/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 21198,
@@ -5044,6 +5160,10 @@
    "assets/portraits/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
     "size": 16970,
     "sha256": "6e11475872bc0e617f86bcd2f987132425d804b0c0b66d802c623aaca3b3f906"
+   },
+   "assets/portraits/UFS_NKM_UNIT_S_DARK_UNKNOWN.webp": {
+    "size": 21498,
+    "sha256": "668f5ee44e14b6bb00ed5aba5ba11fb11349982b6c93288ac2fe9fcaca582b5c"
    },
    "assets/portraits/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
     "size": 15632,
@@ -6262,8 +6382,8 @@
     "sha256": "b6a8c5cbf2ff80cf7010ad0ccd69d5c88c996ff7c04c56275d90f65919687e48"
    },
    "out/codex.json": {
-    "size": 11417138,
-    "sha256": "798088dc40d4b2af643c4082b976673bc28d9a850dc768b8274e99f6d1c5636b"
+    "size": 16162140,
+    "sha256": "c6609885b7a8ce155d640a9f6dc05a0823837ed593a3dca404f7d323d2a34563"
    },
    "out/guide.json": {
     "size": 3902,
@@ -6338,12 +6458,12 @@
     "sha256": "369cb0978c261addbe3425607e27f5de81d9fec9522cfd1b360da00ee2b5dc79"
    },
    "out/journey_kb.json": {
-    "size": 1728000,
-    "sha256": "2872ee0a40e5d913e4b13f4bee3b1dea78dc7d7e8126fe0bae379b3b95adf302"
+    "size": 1742000,
+    "sha256": "0be8be37024e30e1639479b7fb84f89951d27d2d5ad742a9ea71d4c9e93cac04"
    },
    "out/portrait_index.json": {
-    "size": 132124,
-    "sha256": "69d6a2d71ff729e170eb1c294f6477740c5592a674a5103bda64117eda4cbdd8"
+    "size": 133158,
+    "sha256": "86457591545c902df6117f921328db2d46b61b0298ce2b3b49978dbc4dae7c48"
    },
    "out/role_sheets.json": {
     "size": 375456,
