@@ -1,22 +1,22 @@
 {
  "schema": 1,
  "app": {
-  "version": "3.0.0",
-  "tag": "V3.0",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V3.0/StarSavior-helper-V3.0.zip",
-  "package_size": 231288331,
-  "sha256": "e285e2f0d23780d99e002774229da4d4cc52b8df44d468dd77f86ac120a9016f",
+  "version": "3.1.0",
+  "tag": "V3.1",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/V3.1/StarSavior-helper-V3.1.zip",
+  "package_size": 231390945,
+  "sha256": "4e4829bbb7e3abe5ad0eda6e2b23a332b20bb21a9e6ee1ece045a60a7eea4b5c",
   "notes": ""
  },
  "data": {
-  "version": "2026-11-12.1",
-  "min_app_version": "3.0.0",
-  "released_at": "2026-11-12T11:33:25+08:00",
-  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-12.1/data-2026-11-12.1.zip",
-  "package_size": 36362703,
-  "sha256": "cd108fa6ff7b2e5174afc7d5e78cd9aacc64fb474487bf842cb7bf41be768219",
-  "total_size": 53838956,
-  "file_count": 1607,
+  "version": "2026-11-13.1",
+  "min_app_version": "3.1.0",
+  "released_at": "2026-11-13T09:40:01+08:00",
+  "package_url": "https://github.com/ArcadiaUD/StarSavior-helper/releases/download/data-2026-11-13.1/data-2026-11-13.1.zip",
+  "package_size": 36452759,
+  "sha256": "cc9c719574b0932a9744d4ff7c30c28061ee370d1410fa860a118766bca13e16",
+  "total_size": 53942852,
+  "file_count": 1613,
   "stats": {
    "characters": 48,
    "arcanas": 87,
@@ -5357,6 +5357,10 @@
     "size": 19318,
     "sha256": "b36c10bcb1a74532121c5d70968114ddd563800ad65c03a0c664969e75e7fa7b"
    },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_APOSTLE_GILLE.webp": {
+    "size": 5808,
+    "sha256": "9d9a3f047ef0a6a457d2cf6098a97da66af3886144bba21175e07e1f2bdc43ac"
+   },
    "assets/role_sheet/faces/UFS_NKM_UNIT_S_APOSTLE_TYRIA.webp": {
     "size": 7998,
     "sha256": "d3b0b9512d1a401b3715142f6ab65930d7059228e851a729c78d40284def1583"
@@ -5400,6 +5404,10 @@
    "assets/role_sheet/faces/UFS_NKM_UNIT_S_COUNTERSIDE_ROSARIA.webp": {
     "size": 6644,
     "sha256": "b634c3bc2ffc107b669a14383944dbe6f4ec16581ff21024d31daeaae57ea5be"
+   },
+   "assets/role_sheet/faces/UFS_NKM_UNIT_S_DARK_UNKNOWN.webp": {
+    "size": 8396,
+    "sha256": "5c3e3cd305e731736913312fe388d2e835f1ee7653fd0132106e70a51eb4db0b"
    },
    "assets/role_sheet/faces/UFS_NKM_UNIT_S_DETECTIVE_PROFESSOR.webp": {
     "size": 6124,
@@ -5629,6 +5637,10 @@
     "size": 17748,
     "sha256": "e132000c7f5f5698a808e84f9fa23380b4b5a52310a387de3a3e097d1f8761dc"
    },
+   "assets/role_sheet/role_icons/card/7102001.webp": {
+    "size": 17648,
+    "sha256": "4c39cac39c019840d6728b498905bc05f4e31e463f88dc372d9f41372208dd8b"
+   },
    "assets/role_sheet/role_icons/card/7102101.webp": {
     "size": 30964,
     "sha256": "2d85c685a313588bbc867cbffef86bea7719dd2f0aeb21fdb375f03bd4432504"
@@ -5724,6 +5736,10 @@
    "assets/role_sheet/role_icons/card/7106001.webp": {
     "size": 27432,
     "sha256": "7f6a042be181a7cc62cc559c1a6fe21f3985a95032cb27ec72e752436b108620"
+   },
+   "assets/role_sheet/role_icons/card/7106101.webp": {
+    "size": 18672,
+    "sha256": "678d3d9ae7ec1448d8e044e0bf9c5cd2aadef9a7645d102af60bf97a4e95a803"
    },
    "assets/role_sheet/role_icons/card/7150101.webp": {
     "size": 20326,
@@ -6009,6 +6025,10 @@
     "size": 17548,
     "sha256": "850f3871a366c5b7f71efa64c6453dd3d8d27351253f3c1eda83d3e1778b31c8"
    },
+   "assets/tier/sc/cards/7102001.webp": {
+    "size": 17648,
+    "sha256": "4c39cac39c019840d6728b498905bc05f4e31e463f88dc372d9f41372208dd8b"
+   },
    "assets/tier/sc/cards/7102101.webp": {
     "size": 30264,
     "sha256": "5ac11cbea76a17dad78e09a8aad9056783fec9cd261dcac60533f7e18de33c86"
@@ -6124,6 +6144,10 @@
    "assets/tier/sc/cards/7106001.webp": {
     "size": 26460,
     "sha256": "1b34cae77bb89139af24da0ecdb4bbc040e4ed57c2ac5f5d113b83b8bbb51761"
+   },
+   "assets/tier/sc/cards/7106101.webp": {
+    "size": 18672,
+    "sha256": "678d3d9ae7ec1448d8e044e0bf9c5cd2aadef9a7645d102af60bf97a4e95a803"
    },
    "assets/tier/sc/cards/7150101.webp": {
     "size": 19732,
@@ -6466,8 +6490,8 @@
     "sha256": "86457591545c902df6117f921328db2d46b61b0298ce2b3b49978dbc4dae7c48"
    },
    "out/role_sheets.json": {
-    "size": 375456,
-    "sha256": "67811710a51a0fcc7fa8ee2b558f07eb615ae9afc143f02994dfca93fce9f698"
+    "size": 392508,
+    "sha256": "df66641711bf3eed26f1bae9901d13bd4f9e3161ba682e81f97db47d5e10c898"
    }
   }
  },
